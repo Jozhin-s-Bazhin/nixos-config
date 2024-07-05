@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, name, username, ... }:
 
 {
   # Do not touch
@@ -105,14 +105,14 @@
         echo -e "$BLUE"
         echo -e "Starting nixos-rebuild switch ..."
         echo -e "$NC"
-        sudo nixos-rebuild switch --flake /home/${username}/nixos-config
+        sudo nixos-rebuild switch --flake /home/${username}/nixos-config#${name}
         echo -e "$BLUE Committing..."
         echo -e "$NC"
         date=$(date)
         git -C /home/${username}/nixos-config add -A > /dev/null
-        git -C /home/${username}/nixos-config commit -m "[ $date ] nixos-rebuild switch --flake /home/${username}/nixos-config" 
+        git -C /home/${username}/nixos-config commit -m "[ $date ] nixos-rebuild switch --flake /home/${username}/nixos-config#${name}" 
         git -C /home/${username}/nixos-config push -q
-        echo -e "BLUE"
+        echo -e "$BLUE"
         echo -e "Finished $NC" 
       '';
     };
