@@ -105,6 +105,7 @@
         echo -e "$BLUE"
         echo -e "Starting nixos-rebuild switch ..."
         echo -e "$NC"
+	echo "/home/${username}/nixos-config#${name}"
         sudo nixos-rebuild switch --flake /home/${username}/nixos-config#${name}
         echo -e "$BLUE Committing..."
         echo -e "$NC"
