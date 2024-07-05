@@ -105,14 +105,14 @@
         echo -e "$BLUE"
         echo -e "Starting nixos-rebuild switch ..."
         echo -e "$NC"
-        sudo nixos-rebuild switch --flake /etc/nixos#nixos 2>&1 | tee ~/backup/logs/"[ $date ]-log"
-        echo -e "$RED Committing..."
+        sudo nixos-rebuild switch --flake /home/${username}/nixos-config
+        echo -e "$BLUE Committing..."
         echo -e "$NC"
         date=$(date)
-        git -C /etc/nixos add -A > /dev/null
-        git -C /etc/nixos commit -m "[ $date ] nixos-rebuild switch --flake /etc/nixos#nixos" 
-        git -C /etc/nixos push -q
-        echo -e "$RED"
+        git -C /home/${username}/nixos-config add -A > /dev/null
+        git -C /home/${username}/nixos-config commit -m "[ $date ] nixos-rebuild switch --flake /home/${username}/nixos-config" 
+        git -C /home/${username}/nixos-config push -q
+        echo -e "BLUE"
         echo -e "Finished $NC" 
       '';
     };

@@ -47,10 +47,6 @@
         special_scale_factor = 1;
       };
 
-      master = {
-        new_is_master = true;
-      };
-
       misc = {
         disable_hyprland_logo = true;
         vrr = 1;
