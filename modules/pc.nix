@@ -1,0 +1,51 @@
+{ inputs, username, ... }:
+
+{
+  # Configure keymap in X11
+  services.xserver = {
+    xkb.layout = "us";
+    xkb.variant = "";
+  };
+  
+  # Enable printing
+  services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+  
+  # Auto-upgrade
+  system.autoUpgrade = {
+    enable = true;
+    flake = inputs.self.outPath;
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "-L" 
+    ];
+    dates = "03:00";
+    randomizedDelaySec = "60min";
+    persistent = true;
+  };
+  # I don't want auto-upgrade on a server so it lives here
+  
+  # Pipewire
+  security.rtkit.enable = true;
+  #hardware.pulseaudio.enable = lib.mkForce false;  # Uncomment when using GNOME
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+  };
+  users.users.${username}.extraGroups = [ "audio" ];
+  
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+  #hardware.bluetooth.powerOnBoot = true;
+}
