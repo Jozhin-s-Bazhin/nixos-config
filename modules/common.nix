@@ -105,9 +105,9 @@
         echo -e "$BLUE"
         echo -e "Starting nixos-rebuild switch ..."
         echo -e "$NC"
-	echo "/home/${username}/nixos-config#${name}"
         sudo nixos-rebuild switch --flake /home/${username}/nixos-config#${name}
-        echo -e "$BLUE Committing..."
+        echo -e "$BLUE"
+	echo -e "Committing..."
         echo -e "$NC"
         date=$(date)
         git -C /home/${username}/nixos-config add -A > /dev/null
