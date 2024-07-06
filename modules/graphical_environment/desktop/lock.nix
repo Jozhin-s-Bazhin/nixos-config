@@ -139,7 +139,7 @@
       };
     };
     
-    services.hypridle = {
+    /*services.hypridle = {
       enable = true;
       settings = {
         general = {
@@ -158,14 +158,15 @@
           }
         ];
       };
-    };
+    };*/
 
-    /*services.swayidle = {
+    services.swayidle = {
       enable = true;
       events = [
+        { event = "lock"; command = "pidof hyprlock || hyprlock" }
         { event = "before-sleep"; command = "loginctl lock-session" }
       ]
-    };*/
+    };
 
     home.packages = with pkgs; [
       brightnessctl
