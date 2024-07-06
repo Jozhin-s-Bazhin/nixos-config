@@ -23,6 +23,8 @@
         gtksourceview
         webkitgtk
         accountsservice
+        libnotify
+        nerdfonts
       ];
     };
 

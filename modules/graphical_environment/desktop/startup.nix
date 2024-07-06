@@ -13,7 +13,6 @@
 
         # Other
         "hyprpaper"
-        "hypridle"
         "ags"
         "pypr"
         "wluma"
@@ -31,5 +30,12 @@
         "${configDir}/modules/graphical_environment/desktop/pypr"
       ]
     '';
+    home.packages = with pkgs; [
+      pypr
+      wluma
+      cliphist
+      wl-clipboard-rs
+      hyprpaper
+    ];
   };
 }

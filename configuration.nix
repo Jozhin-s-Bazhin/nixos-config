@@ -32,7 +32,4 @@
   programs.hyprland.portalPackage = pkgs.xdg-desktop-portal-hyprland;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; };
-
-  # Better battery life
-  services.upower.enable = true;
 }

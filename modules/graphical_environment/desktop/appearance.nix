@@ -60,8 +60,6 @@
       wallpaper =,/etc/nixos/home/package_config/wallpaper.jpg
       splash = false
     '';
-
-    home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
   };
 }
 
