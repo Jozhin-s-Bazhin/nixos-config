@@ -13,7 +13,7 @@
     
     home.packages = with pkgs; [
       nerdfonts
-    ]
+    ];
   };
   
   programs.hyprland = {
