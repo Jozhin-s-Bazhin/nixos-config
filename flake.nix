@@ -15,7 +15,7 @@
 
   outputs = inputs@{ nixpkgs, home-manager, hyprland, nixos-hardware, ... }: {
     nixosConfigurations = let
-      mkSystem = import ./mkSystem.nix { inherit inputs pkgs; };
+      mkSystem = import ./mkSystem.nix { inherit inputs; };
     in {
       framework = mkSystem {
         name = "framework";
@@ -31,7 +31,7 @@
           nixos-hardware.nixosModules.framework-16-7040-amd
           {
             boot = {
-              kernelPackages = pkgs.linuxPackages_latest;  # Wiki is outdated
+              kernelPackages = nixpkgs.linuxPackages_latest;  # Wiki is outdated
               kernelParams = [ "usbcore.autosuspend=60" ];  # Fix autosuspend issues
             };
             services.fwupd.enable = true;  # Firmware updates 
