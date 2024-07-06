@@ -19,7 +19,6 @@
       ];
     };
 
-    xdg.configFile."hypr/hypridle.conf".source = ./hypridle.conf;
     xdg.configFile."hypr/pyprland.toml".text = ''
       [pyprland]
       plugins = [
