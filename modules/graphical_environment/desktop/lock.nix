@@ -9,9 +9,7 @@
       settings = {
         background = [
           {
-            monitor = "";
-            path = "${configDir}/modules/graphical_environment/desktop/wallpaper_blurred.png";  # Use a premade blurred image for more speed
-          }
+            monitor = ""; path = "${configDir}/modules/graphical_environment/desktop/wallpaper_blurred.png";  # Use a premade blurred image for more speed }
         ];
         label = [
           # User "icon"
@@ -188,7 +186,7 @@
       ExecStart = "${pkgs.writeScriptBin "my-sleep-script" ''
         #!/run/current-system/sw/bin/bash
         session_id=$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}');
-        loginctl lock-session $session_id
+        loginctl lock-session $session_id && sleep 1
       ''}/bin/my-sleep-script";
     };
   };
