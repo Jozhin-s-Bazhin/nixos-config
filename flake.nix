@@ -15,7 +15,7 @@
 
   outputs = inputs@{ nixpkgs, home-manager, hyprland, nixos-hardware, ... }: {
     nixosConfigurations = let
-      mkSystem = import ./mkSystem.nix { inherit inputs; };
+      mkSystem = import ./mkSystem.nix { inherit inputs pkgs; };
     in {
       framework = mkSystem {
         name = "framework";

@@ -14,6 +14,7 @@
   development ? false,
   amdgpu ? false,
   extraModules ? []
+  ...
 }:
 let
   lib = inputs.nixpkgs.lib;
