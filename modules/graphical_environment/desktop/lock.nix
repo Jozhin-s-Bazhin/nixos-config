@@ -10,6 +10,7 @@
         background = [
           {
             monitor = ""; path = "${configDir}/modules/graphical_environment/desktop/wallpaper_blurred.png";  # Use a premade blurred image for more speed }
+	  }
         ];
         label = [
           # User "icon"
