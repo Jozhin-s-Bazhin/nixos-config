@@ -155,14 +155,6 @@
       };
     };
     
-    /*services.swayidle = {
-      enable = true;
-      events = [
-        #{ event = "lock"; command = "pidof hyprlock || hyprlock"; }
-        { event = "before-sleep"; command = "pidof hyprlock || hyprlock"; }
-      ];
-    };*/
-
     home.packages = with pkgs; [
       brightnessctl
       wirelesstools
@@ -180,7 +172,7 @@
       Type = "oneshot";
       User = username;
       Environment = "DISPLAY=:0";
-      ExecStart = "${pkgs.writeScriptBin "my-sleep-script" ''
+      ExecStart = "${pkgs.writeScriptBin "lockBeforeSleep" ''
         #!/run/current-system/sw/bin/bash
         #session_id=$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}');
         #loginctl lock-session $session_id && sleep 1
@@ -190,7 +182,7 @@
             break
           fi
         done
-      ''}/bin/my-sleep-script";
+      ''}/bin/lockBeforeSleep";
     };
   };
 }
