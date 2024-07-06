@@ -163,8 +163,8 @@
     services.swayidle = {
       enable = true;
       events = [
-        { event = "lock"; command = "pidof hyprlock || hyprlock" }
-        { event = "before-sleep"; command = "loginctl lock-session" }
+        { event = "lock"; command = "pidof hyprlock || hyprlock"; }
+        { event = "before-sleep"; command = "loginctl lock-session"; }
       ];
     };
 
