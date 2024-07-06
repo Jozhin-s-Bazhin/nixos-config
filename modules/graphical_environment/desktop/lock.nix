@@ -139,7 +139,7 @@
       };
     };
     
-    /*services.hypridle = {
+    services.hypridle = {
       enable = true;
       settings = {
         general = {
@@ -158,7 +158,7 @@
           }
         ];
       };
-    };*/
+    };
     
     /*services.swayidle = {
       enable = true;
