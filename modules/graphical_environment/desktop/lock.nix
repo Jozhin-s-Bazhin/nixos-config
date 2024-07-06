@@ -5,7 +5,6 @@
   home-manager.users.${username} = {
     programs.hyprlock = {
       enable = true;
-      package = inputs.hyprlock.packages.x86_64-linux.hyprlock;
       settings = {
         background = [
           {
@@ -185,12 +184,12 @@
         #!/run/current-system/sw/bin/bash
         #session_id=$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}');
         #loginctl lock-session $session_id && sleep 1
-        hyprlock 2>&1 > /home/roman/loggg
-        #while read -r line; do
-        #  if [[ $line == "[LOG] onLockLocked called" ]]; then 
-        #    break
-        #  fi
-        #done
+        ${pkgs.hyprlock}/bin/hyprlock |
+        while read -r line; do
+          if [[ $line == "[LOG] onLockLocked called" ]]; then 
+            break
+          fi
+        done
       ''}/bin/my-sleep-script";
     };
   };
