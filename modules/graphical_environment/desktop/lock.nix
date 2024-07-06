@@ -144,7 +144,7 @@
       settings = {
         general = {
           lock_cmd = "pidof hyprlock || hyprlock";
-          before_sleep_cmd = "loginctl lock-session & sleep 1";
+          before_sleep_cmd = "loginctl lock-session & sleep 5";
         };
         listener = [
           {
