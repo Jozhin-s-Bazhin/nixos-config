@@ -153,7 +153,7 @@
             on-timeout = "systemctl suspend";
           }
         ];
-      }
+      };
     };
     home.packages = [
       brightnessctl
