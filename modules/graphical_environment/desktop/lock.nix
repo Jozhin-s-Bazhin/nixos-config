@@ -174,14 +174,15 @@
       Environment = "DISPLAY=:0";
       ExecStart = "${pkgs.writeScriptBin "lockBeforeSleep" ''
         #!/run/current-system/sw/bin/bash
-        export XDG_RUNTIME_DIR="/run/user/1000;  #$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')";
+        export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')";
+        export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')";
         #loginctl lock-session $session_id && sleep 1
-        ${pkgs.hyprlock}/bin/hyprlock || > /home/roman/ded && > /home/roman/noded
-        #while read -r line; do
-        #  if [[ $line == "[LOG] onLockLocked called" ]]; then 
-        #    break
-        #  fi
-        #done
+        ${pkgs.hyprlock}/bin/hyprlock |
+        while read -r line; do
+          if [[ $line == "[LOG] onLockLocked called" ]]; then 
+            break
+          fi
+        done
       ''}/bin/lockBeforeSleep";
     };
   };
