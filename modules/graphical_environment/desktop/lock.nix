@@ -184,7 +184,7 @@
       Type = "exec";
       ExecStart = "${pkgs.writeScriptBin "my-sleep-script" ''
         #!/run/current-system/sw/bin/bash
-        session_id=$(loginctl list-sessions | awk 'NR==2 {print $1}')
+        session_id=$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')
         loginctl lock-session $session_id
       ''}/bin/my-sleep-script";
     };
