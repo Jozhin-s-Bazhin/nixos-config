@@ -2,7 +2,7 @@
 
 {
   # Virtualisation
-  virtualisation.vmware.host.enable = true;
+  #virtualisation.vmware.host.enable = true;
   virtualisation.docker = {
     enable = true;
     rootless = {
