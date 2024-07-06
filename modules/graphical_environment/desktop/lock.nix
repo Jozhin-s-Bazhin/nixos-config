@@ -82,7 +82,7 @@
           # Time
           {
             monitor = "";
-            text = "cmd[update:30000] echo '$(date +\"%R\")'";  # Not worth the effort of wrapping in a writeShellScript
+            text = "cmd[update:30000] echo \"$(date +%R)\"";  # Not worth the effort of wrapping in a writeShellScript
             color = "rgba(200, 200, 200, 0.8)";
             font_size = 90;
             font_family = "Montserrat";
@@ -94,7 +94,7 @@
           # Date
           {
             monitor = "";
-            text = "cmd[update:43200000] echo '$(date +\"%A, %d %B %Y\")'";
+            text = "cmd[update:43200000] echo \"$(date '+%A, %d %B %Y')\"";
             color = "rgba(200, 200, 200, 0.85)";
             font_size = 25;
             font_family = "Montserrat";
