@@ -181,7 +181,7 @@
     before = [ "sleep.target" ];
     wantedBy = [ "sleep.target" ];
     serviceConfig = {
-      Type = "exec";
+      Type = "simple";
       User = username;
       Environment = "DISPLAY=:0";
       ExecStart = "${pkgs.writeScriptBin "my-sleep-script" ''
