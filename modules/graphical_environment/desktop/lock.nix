@@ -174,7 +174,7 @@
       Environment = "DISPLAY=:0";
       ExecStart = "${pkgs.writeScriptBin "lockBeforeSleep" ''
         #!/run/current-system/sw/bin/bash
-        #session_id=$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}');
+        XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')";
         #loginctl lock-session $session_id && sleep 1
         ${pkgs.hyprlock}/bin/hyprlock |
         while read -r line; do
