@@ -182,7 +182,11 @@
     before = [ "sleep.target" ];
     serviceConfig = {
       Type = "exec";
-      ExecStart = "/etc/profiles/per-user/${username}/bin/loginctl lock-session && /run/current-system/sw/bin/sleep 1";
+      ExecStart = "${pkgs.writeScriptBin "my-sleep-script" ''
+        #!/run/current-system/sw/bin/bash
+        session_id=$(loginctl list-sessions | awk 'NR==2 {print $1}')
+        loginctl lock-session $session_id
+      ''}/bin/my-sleep-script";
     };
   };
 }
