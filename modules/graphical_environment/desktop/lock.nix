@@ -1,4 +1,4 @@
-{ pkgs, username, architecture, inputs, ... }:
+{ pkgs, username, architecture, inputs, configDir, ... }:
 {
   
   # Hyprlock
