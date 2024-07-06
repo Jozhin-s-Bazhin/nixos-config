@@ -183,7 +183,7 @@
     wantedBy = [ "sleep.target" ];
     serviceConfig = {
       Type = "exec";
-      User = "%I";
+      User = username;
       Environment = "DISPLAY=:0";
       ExecStart = "${pkgs.writeScriptBin "my-sleep-script" ''
         #!/run/current-system/sw/bin/bash
