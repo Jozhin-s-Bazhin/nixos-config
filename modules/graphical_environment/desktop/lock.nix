@@ -172,7 +172,7 @@
     ];
   };
   
-  /*systemd.services.lockBeforeSleep = {
+  systemd.services.lockBeforeSleep = {
     enable = true;
     description = "Lock the screen before sleeping";
     before = [ "sleep.target" ];
@@ -185,7 +185,7 @@
         #!/run/current-system/sw/bin/bash
         #session_id=$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}');
         #loginctl lock-session $session_id && sleep 1
-        hyprlock |
+        hyprlock | tee /home/roman/loggg |
         while read -r line; do
           if [[ $line == "[LOG] onLockLocked called" ]]; then 
             break
@@ -193,5 +193,5 @@
         done
       ''}/bin/my-sleep-script";
     };
-  };*/
+  };
 }
