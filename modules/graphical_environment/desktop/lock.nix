@@ -139,12 +139,12 @@
       };
     };
     
-    /*services.hypridle = {
+    services.hypridle = {
       enable = true;
       settings = {
         general = {
           lock_cmd = "pidof hyprlock || hyprlock";
-          before_sleep_cmd = "loginctl lock-session & sleep 5";
+          #before_sleep_cmd = "loginctl lock-session & sleep 5";
         };
         listener = [
           {
@@ -158,15 +158,15 @@
           }
         ];
       };
-    };*/
-
-    services.swayidle = {
+    };
+    
+    /*services.swayidle = {
       enable = true;
       events = [
         { event = "lock"; command = "pidof hyprlock || hyprlock"; }
-        { event = "before-sleep"; command = "loginctl lock-session"; }
+        { event = "before-sleep"; command = "pidof hyprlock || hyprlock"; }
       ];
-    };
+    };*/
 
     home.packages = with pkgs; [
       brightnessctl
@@ -174,5 +174,15 @@
       montserrat
       nerdfonts
     ];
+  };
+  
+  systemd.services.lockBeforeSleep = {
+    enable = true;
+    wantedBy = [ "sleep.target" ];
+    before = [ "sleep.target" ];
+    serviceConfig = {
+      Type = "exec";
+      ExecStart = "/etc/profiles/per-user/${username}/bin/loginctl lock-session && /run/current-system/sw/bin/sleep 1";
+    };
   };
 }
