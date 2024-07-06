@@ -128,9 +128,9 @@
             invert_numlock = false; # change color if numlock is off
             swap_font_color = false; # see below
 
-            position = "0, -20";
+            position = "0, 0";
             halign = "center";
-            valign = "center";
+            valign = "bottom";
           }
         ];
       };
