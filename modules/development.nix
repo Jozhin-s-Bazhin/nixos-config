@@ -2,7 +2,8 @@
 
 {
   # Virtualisation
-  #virtualisation.vmware.host.enable = true;  # Breaks on latest kernel. Too lazy to fix
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
   virtualisation.docker = {
     enable = true;
     rootless = {
