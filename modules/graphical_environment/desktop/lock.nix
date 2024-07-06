@@ -184,8 +184,14 @@
       Environment = "DISPLAY=:0";
       ExecStart = "${pkgs.writeScriptBin "my-sleep-script" ''
         #!/run/current-system/sw/bin/bash
-        session_id=$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}');
-        loginctl lock-session $session_id && sleep 1
+        #session_id=$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}');
+        #loginctl lock-session $session_id && sleep 1
+        hyprlock |
+        while read -r line; do
+          if [[ $line == "[LOG] onLockLocked called" ]]; then 
+            break
+          fi
+        done
       ''}/bin/my-sleep-script";
     };
   };
