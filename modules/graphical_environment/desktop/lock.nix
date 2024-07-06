@@ -144,7 +144,7 @@
       settings = {
         general = {
           lock_cmd = "pidof hyprlock || hyprlock";
-          before_sleep_cmd = "loginctl lock-session";
+          before_sleep_cmd = "loginctl lock-session & sleep 1";
         };
         listener = [
           {
@@ -159,6 +159,14 @@
         ];
       };
     };
+
+    /*services.swayidle = {
+      enable = true;
+      events = [
+        { event = "before-sleep"; command = "loginctl lock-session" }
+      ]
+    };*/
+
     home.packages = with pkgs; [
       brightnessctl
       wirelesstools
