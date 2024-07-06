@@ -2,7 +2,7 @@
 
 {
   # Virtualisation
-  #virtualisation.vmware.host.enable = true;
+  #virtualisation.vmware.host.enable = true;  # Breaks on latest kernel. Too lazy to fix
   virtualisation.docker = {
     enable = true;
     rootless = {

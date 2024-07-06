@@ -20,5 +20,6 @@
     sl
     cmatrix
     pipes-rs
+    htop
   ];
 }
