@@ -5,7 +5,6 @@
   home-manager.users.${username} = {
     programs.hyprlock = {
       enable = true;
-      package = inputs.hyprlock.packages.${architecture}.hyprlock;
       settings = {
         background = [
           {
