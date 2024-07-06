@@ -116,9 +116,9 @@
 
             outer_color = "rgb(200, 200, 200)";
             inner_color = "rgb(200, 200, 200)";
-            /*font_color = "rgb(21, 21, 21)";
+            font_color = "rgb(21, 21, 21)";
             check_color = "rgb(200, 200, 200)";
-            fail_color = "rgb(100, 100, 100)";*/
+            fail_color = "rgb(100, 100, 100)";
             rounding = -1; # -1 means complete rounding (circle/oval)
 
             fail_text = "<i> Incorrect password </i>";
@@ -128,7 +128,7 @@
 
             position = "0, 10";
             halign = "center";
-            valign = "bottom";
+            valign = "center";
           }
         ];
       };
