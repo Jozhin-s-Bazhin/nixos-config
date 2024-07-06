@@ -176,7 +176,7 @@
         #!/run/current-system/sw/bin/bash
         export XDG_RUNTIME_DIR="/run/user/1000;  #$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')";
         #loginctl lock-session $session_id && sleep 1
-        ${pkgs.hyprlock}/bin/hyprlock || > ded && > noded
+        ${pkgs.hyprlock}/bin/hyprlock || > /home/roman/ded && > /home/roman/noded
         #while read -r line; do
         #  if [[ $line == "[LOG] onLockLocked called" ]]; then 
         #    break
