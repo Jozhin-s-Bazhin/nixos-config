@@ -29,7 +29,7 @@
           # Battery
           {
             monitor = "";
-            text = "cmd[update:120000] ${writeShellScript "battery.sh" ''
+            text = "cmd[update:120000] ${pkgs.writeShellScript "battery.sh" ''
               percent=$(upower -i $(upower -e | grep 'battery') | grep 'percentage:' | awk '{print $2}' | tr -d '%');
               icon=$(if [[ $percent -le 5 ]]; then 
                 echo ""; 
@@ -55,7 +55,7 @@
           # WiFi
           {
             monitor = "";
-            text = "cmd[update:10000] ${writeShellScript "wifi.sh" ''
+            text = "cmd[update:10000] ${pkgs.writeShellScript "wifi.sh" ''
               quality=$(iwconfig wlp2s0 | grep -i 'link quality' | awk -F'=' '{print $2}' | awk -F'/' '{print $1}');
               icon=$(if [ -z "$quality" ]; then 
                 echo "󰤭"; 
