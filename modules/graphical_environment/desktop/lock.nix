@@ -172,7 +172,7 @@
     ];
   };
   
-  systemd.services.lockBeforeSleep = {
+  /*systemd.services.lockBeforeSleep = {
     enable = true;
     description = "Lock the screen before sleeping";
     before = [ "sleep.target" ];
@@ -193,5 +193,5 @@
         done
       ''}/bin/my-sleep-script";
     };
-  };
+  };*/
 }
