@@ -106,7 +106,7 @@
         input-field = [
           {
             monitor = "";
-            size = "200, 50";
+            size = "275, 40";
             outline_thickness = 0;
             dots_size = 0.33; # Scale of input-field height, 0.2 - 0.8
             dots_spacing = 0.15; # Scale of dots' absolute size, 0.0 - 1.0
@@ -128,7 +128,7 @@
             invert_numlock = false; # change color if numlock is off
             swap_font_color = false; # see below
 
-            position = "0, 0";
+            position = "0, 5";
             halign = "center";
             valign = "bottom";
           }
@@ -141,7 +141,6 @@
       settings = {
         general = {
           lock_cmd = "pidof hyprlock || hyprlock";
-          #before_sleep_cmd = "loginctl lock-session & sleep 5";
         };
         listener = [
           {
