@@ -7,6 +7,5 @@
     ./appconfig.nix  # A config for all of my apps unrelated to the desktop
     ./desktop/hyprland.nix  # Hyprland and all related things
     ./ags/ags.nix
-    ./junk.nix  # Junk that I should (re)move/refactor
   ];
 }
