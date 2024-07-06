@@ -21,7 +21,7 @@
     ./plugins.nix
     
     # Login, screenlock, polkit, timeout, ...
-    #./lock.nix
+    ./lock.nix
 
     # Other (monitors and rules)
     ./other.nix
