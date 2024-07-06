@@ -165,7 +165,7 @@
       events = [
         { event = "lock"; command = "pidof hyprlock || hyprlock" }
         { event = "before-sleep"; command = "loginctl lock-session" }
-      ]
+      ];
     };
 
     home.packages = with pkgs; [
