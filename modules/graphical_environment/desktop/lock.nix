@@ -139,7 +139,7 @@
       };
     };
     
-    services.hypridle = {
+    /*services.hypridle = {
       enable = true;
       settings = {
         general = {
@@ -158,15 +158,15 @@
           }
         ];
       };
-    };
+    };*/
     
-    /*services.swayidle = {
+    services.swayidle = {
       enable = true;
       events = [
-        { event = "lock"; command = "pidof hyprlock || hyprlock"; }
+        #{ event = "lock"; command = "pidof hyprlock || hyprlock"; }
         { event = "before-sleep"; command = "pidof hyprlock || hyprlock"; }
       ];
-    };*/
+    };
 
     home.packages = with pkgs; [
       brightnessctl
@@ -176,7 +176,7 @@
     ];
   };
   
-  systemd.services.lockBeforeSleep = {
+  /*systemd.services.lockBeforeSleep = {
     enable = true;
     wantedBy = [ "sleep.target" ];
     before = [ "sleep.target" ];
@@ -188,5 +188,5 @@
         loginctl lock-session $session_id
       ''}/bin/my-sleep-script";
     };
-  };
+  };*/
 }
