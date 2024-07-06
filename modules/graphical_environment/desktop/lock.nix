@@ -107,7 +107,7 @@
           {
             monitor = "";
             size = "275, 40";
-            outline_thickness = 0;
+            outline_thickness = 3;
             
             dots_size = 0.33; # Scale of input-field height, 0.2 - 0.8
             dots_spacing = 0.15; # Scale of dots' absolute size, 0.0 - 1.0
