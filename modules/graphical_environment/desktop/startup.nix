@@ -31,7 +31,7 @@
       ]
     '';
     home.packages = with pkgs; [
-      pypr
+      pyprland
       wluma
       cliphist
       wl-clipboard-rs
