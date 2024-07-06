@@ -5,6 +5,7 @@
   home-manager.users.${username} = {
     dconf.enable = true;
     gtk.enable = true;
+
     wayland.windowManager.hyprland = {
       enable = true;
       package = inputs.hyprland.packages."${pkgs.system}".hyprland; 
@@ -13,6 +14,6 @@
   
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
 }

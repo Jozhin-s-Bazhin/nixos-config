@@ -7,19 +7,18 @@
     vlc
     spotube
     whatsapp-for-linux
-    webcord
     libreoffice
     bitwarden
     thunderbird
     pavucontrol
     
     # CLI tools
+    graphicsmagick
     neofetch 
     fastfetch
     lolcat
     sl
     cmatrix
     pipes-rs
-    graphicsmagick
   ];
 }

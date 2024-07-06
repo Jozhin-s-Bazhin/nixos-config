@@ -6,6 +6,7 @@
   ];
   home-manager = {
     users.${username} = {
+      nixpkgs.config.allowUnfree = true;
       programs.home-manager.enable = true;
       
       home = {

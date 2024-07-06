@@ -33,19 +33,6 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; };
 
-  /*# Greetd
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "Hyprland --config /etc/greetd/hyprland.conf";
-        user = "roman";
-      };
-    };
-  };
-  environment.etc."greetd/hyprland.conf".source = ./home/package_config/ags/hyprland.conf;
-  environment.etc."greetd/greeter.js".source = ./home/package_config/ags/greeter.js;*/
-
   # Better battery life
   services.upower.enable = true;
 }

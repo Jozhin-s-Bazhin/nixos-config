@@ -1,12 +1,8 @@
-{ config, pkgs, username, ... }:
+{ config, pkgs, username, configDir, ... }:
 
 {
   home-manager.users.${username} = {
     wayland.windowManager.hyprland.settings = {
-      env = [
-        "XCURSOR_SIZE, 24"
-        "QT_QPA_PLATFORMTHEME, qt5ct" ];
-
       exec-once = [
         # Polkit
         "lxqt-policykit-agent"
@@ -25,5 +21,15 @@
     };
 
     xdg.configFile."hypr/hypridle.conf".source = ./hypridle.conf;
+    xdg.configFile."hypr/pyprland.toml".text = ''
+      [pyprland]
+      plugins = [
+        "external:better_workspaces",
+        "external:ags_tools"
+      ]
+      plugins_paths = [
+        "${configDir}/modules/graphical_environment/desktop/pypr"
+      ]
+    '';
   };
 }

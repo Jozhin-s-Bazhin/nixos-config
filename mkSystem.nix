@@ -4,6 +4,7 @@
   name,
   architecture,
   username,  
+  configDir ? "/home/${username}/nixos-config",
   common ? true,
   desktop ? false,
   laptop ? false,
@@ -19,7 +20,7 @@ let
 in
   lib.nixosSystem {
     system = architecture;
-    specialArgs = { inherit inputs architecture name username; };
+    specialArgs = { inherit inputs architecture name username configDir; };
     modules = 
       lib.optional common ./modules/common.nix ++
       lib.optional server ./modules/server.nix ++

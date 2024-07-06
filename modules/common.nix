@@ -21,7 +21,6 @@
     description = "";
     extraGroups = [ "wheel" "audio" ];
   };
-  
   # Nix config
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
@@ -52,6 +51,7 @@
     bat
     tldr
     bc
+    yazi
   ];
   
   programs.zsh = {

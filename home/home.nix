@@ -11,18 +11,10 @@
 { inputs, config, pkgs, ... }:
 
 {
-  imports = [
-    ./package_config/package_config.nix
-    ./config.nix ];
-
-  nixpkgs.config.allowUnfree = true;
-
   home.packages = with pkgs; [
-    # Hyprland
     hyprpaper
     hypridle
     inputs.hyprlock.packages.x86_64-linux.hyprlock 
-    #swaylock
     libnotify 
     nerdfonts 
     montserrat
@@ -36,7 +28,5 @@
     pyprland
     anyrun
     wluma
-
-    flat-remix-gtk
   ];
 }
