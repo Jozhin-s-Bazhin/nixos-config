@@ -160,13 +160,13 @@
       };
     };*/
     
-    services.swayidle = {
+    /*services.swayidle = {
       enable = true;
       events = [
         #{ event = "lock"; command = "pidof hyprlock || hyprlock"; }
         { event = "before-sleep"; command = "pidof hyprlock || hyprlock"; }
       ];
-    };
+    };*/
 
     home.packages = with pkgs; [
       brightnessctl
@@ -176,17 +176,20 @@
     ];
   };
   
-  /*systemd.services.lockBeforeSleep = {
+  systemd.services.lockBeforeSleep = {
     enable = true;
-    wantedBy = [ "sleep.target" ];
+    description = "Lock the screen before sleeping";
     before = [ "sleep.target" ];
+    wantedBy = [ "sleep.target" ];
     serviceConfig = {
       Type = "exec";
+      User = "%I";
+      Environment = "DISPLAY=:0";
       ExecStart = "${pkgs.writeScriptBin "my-sleep-script" ''
         #!/run/current-system/sw/bin/bash
         session_id=$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}');
         loginctl lock-session $session_id
       ''}/bin/my-sleep-script";
     };
-  };*/
+  };
 }
