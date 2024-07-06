@@ -171,7 +171,7 @@
     serviceConfig = {
       Type = "oneshot";
       User = username;
-      Environment = "DISPLAY=:0";
+      Environment = [ "DISPLAY=:0" ];
       ExecStart = "${pkgs.writeScriptBin "lockBeforeSleep" ''
         #!/run/current-system/sw/bin/bash
         export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')";
