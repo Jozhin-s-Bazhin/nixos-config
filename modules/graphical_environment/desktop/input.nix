@@ -12,7 +12,7 @@
 
       touchpad = {
         natural_scroll = true;
-	      #disable_while_typing = true;
+        #disable_while_typing = true;
       };
       sensitivity = 0;
     };
@@ -21,5 +21,13 @@
       workspace_swipe = true;
       workspace_swipe_cancel_ratio = "0.1";
     };
+
+    # Custom mouse acceleration
+    device = [
+      {
+        name = "logitech-g502-1";
+	accel_profile = "custom 1 0 1 3 7 11 14 16";
+      }
+    ];
   };
 }
