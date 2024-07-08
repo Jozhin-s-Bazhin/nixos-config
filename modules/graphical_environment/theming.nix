@@ -5,8 +5,9 @@
     inputs.stylix.homeManagerModules.stylix
   ];
   
+  home-manager.users.${username} = {
   dconf.enable = true;
-  home-manager.users.${username}.stylix = {
+  stylix = {
     enable = true;
     cursor = {
       name = "Bibata";
@@ -15,5 +16,6 @@
     };
     image = "${configDir}/modules/graphical_environment/wallpaper/wallpaper.jpg";
     polarity = "dark";
+  };
   };
 }
