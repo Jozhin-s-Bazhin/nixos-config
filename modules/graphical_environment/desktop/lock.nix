@@ -195,15 +195,15 @@ logger () {
   echo $1 | ${pkgs.systemd}/bin/systemd-cat -t hyprlock
 }
 
-${pkgs.logger}/bin/logger "starting hyprlock"
+logger "starting hyprlock"
 ${pkgs.hyprlock}/bin/hyprlock 2>&1 >/dev/null | while read -r line; do
-${pkgs.logger}/bin/logger "got line '$line'"
+logger "got line '$line'"
 if [[ $line == "Sleepy time" ]]; then
 	systemd-notify --ready
-	${pkgs.logger}/bin/logger "systemd done"
+	logger "systemd done"
 fi
 done
-${pkgs.logger}/bin/logger "finished"
+logger "finished"
       ''}/bin/findme";
       
         /*
