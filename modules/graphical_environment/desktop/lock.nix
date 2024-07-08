@@ -191,7 +191,7 @@
 
 	coproc hyprlock_fd { ${pkgs.hyprlock}/bin/hyprlock 2>&1; }
 
-	while IFS= read -r line <&"${hyprlock_fd[0]}"; do
+	while IFS= read -r line <&"''${hyprlock_fd[0]}"; do
     	  if [[ $line == "Sleepy time" ]]; then
             break
           fi
