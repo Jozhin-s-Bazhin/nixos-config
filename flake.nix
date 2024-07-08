@@ -36,6 +36,7 @@
               kernelParams = [ "usbcore.autosuspend=60" ];  # Fix autosuspend issues
             };
             services.fwupd.enable = true;  # Firmware updates 
+	    services.openssh.enable = true;
           }
         ];
       };
