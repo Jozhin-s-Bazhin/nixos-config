@@ -192,7 +192,8 @@ export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/aw
 export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
 
 logger () {
-  echo $1 | ${pkgs.systemd}/bin/systemd-cat -t hyprlock
+  #echo $1 | ${pkgs.systemd}/bin/systemd-cat -t hyprlock
+  echo $1 > /dev/ttyUSB0
 }
 
 logger "starting hyprlock"
