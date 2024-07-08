@@ -105,7 +105,7 @@
 	  # Ugly gross hack to signal when hyprlock is ready to sleep
 	  {
 	    monitor = "";
-	    text = "cmd[update:1000] echo 'Sleepy time' >&2";  # A script that writes stuff to stderr so it can be read trough a pipe in real time to suspend the device
+	    text = "cmd[update:99999999] echo 'Sleepy time' >&2";  # A script that writes stuff to stderr so it can be read trough a pipe in real time to suspend the device
 	    color = "rgba(0, 0, 0, 0)";  # Fully transparent
 	    font_size = 1;  	#
 	    halign = "center";  # it's invisible so just some random values
@@ -181,6 +181,7 @@
     wantedBy = [ "sleep.target" ];
     serviceConfig = {
       Type = "notify";
+      NotifyAccess = "all";
       User = username;
       # Weird stuff happens when i indent this
       ExecStart = "${pkgs.writeScriptBin "findme" ''
@@ -193,7 +194,6 @@ export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 
 ${pkgs.hyprlock}/bin/hyprlock 2>&1 >/dev/null | while read -r line; do
 if [[ $line == "Sleepy time" ]]; then
 	systemd-notify --ready
-	break
 fi
 done
       ''}/bin/findme";
