@@ -7,12 +7,12 @@
   
   home-manager.users.${username}.stylix = {
     enable = true;
+    image = "${configDir}/modules/graphical_environment/wallpaper/wallpaper.jpg";
     /*cursor = {
       name = "Bibata";
       package = pkgs.bibata-cursors;
       size = 128;
     };
-    image = "${configDir}/modules/graphical_environment/wallpaper/wallpaper.jpg";
     polarity = "dark";*/
   };
 }
