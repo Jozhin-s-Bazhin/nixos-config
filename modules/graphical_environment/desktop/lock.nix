@@ -186,6 +186,7 @@
         #!/run/current-system/sw/bin/bash
         export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')";
         export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')";
+	/run/current-system/sw/bin/pidof hyprlock ||
         ${pkgs.hyprlock}/bin/hyprlock |
         while read -r line; do
           if [[ $line == "[LOG] onLockLocked called" ]]; then 
