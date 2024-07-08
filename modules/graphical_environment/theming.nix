@@ -14,5 +14,5 @@
     };
     image = "${configDir}/modules/graphical_environment/wallpaper/wallpaper.jpg";
     polarity = "dark";
-  }
+  };
 }
