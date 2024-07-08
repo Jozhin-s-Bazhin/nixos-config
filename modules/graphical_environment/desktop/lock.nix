@@ -180,7 +180,7 @@
     before = [ "sleep.target" ];
     wantedBy = [ "sleep.target" ];
     serviceConfig = {
-      Type = "oneshot";
+      Type = "forking";
       User = username;
       ExecStart = "${pkgs.writeScriptBin "findme" ''
 #!/run/current-system/sw/bin/bash
