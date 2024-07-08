@@ -180,7 +180,7 @@
     before = [ "sleep.target" ];
     wantedBy = [ "sleep.target" ];
     serviceConfig = {
-      Type = "simple";
+      Type = "notify";
       User = username;
       ExecStart = "${pkgs.writeScriptBin "findme" ''
 #!/run/current-system/sw/bin/bash
@@ -198,6 +198,7 @@ fi
 done
 
 disown
+systemd-notify --ready
       ''}/bin/findme";
       
         /*
