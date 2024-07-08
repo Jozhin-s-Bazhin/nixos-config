@@ -2,7 +2,7 @@
 {
   imports = [
     #stylix.nixosModules.stylix
-    stylix.homeManagerModules.stylix
+    inputs.stylix.homeManagerModules.stylix
   ];
   
   home-manager.users.${username}.stylix = {
