@@ -184,14 +184,14 @@
       User = username;
       ExecStart = "${pkgs.writeScriptBin "lockBeforeSleep" ''
         #!/run/current-system/sw/bin/bash
-        export XDG_RUNTIME_DIR="/run/user/$(/etc/profiles/per-user/${username}/bin/loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')";
-        export WAYLAND_DISPLAY="wayland-$(/etc/profiles/per-user/${username}/bin/loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')";
-	/run/current-system/sw/bin/pidof hyprlock > /dev/null ||
-	/etc/profiles/per-user/${username}/bin/hyprlock 2>&1 >/dev/null | while read -r line; do
-  	  if [[ $line == "Sleepy time" ]]; then 
-    	    break
-  	  fi
-	done
+        export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')";
+        export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')";
+        ${pkgs.hyprlock}/bin/hyprlock |
+        while read -r line; do
+          if [[ $line == "[LOG] onLockLocked called" ]]; then 
+            break
+          fi
+        done
       ''}/bin/lockBeforeSleep";
     };
   };
