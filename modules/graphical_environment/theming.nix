@@ -5,10 +5,6 @@
     #inputs.stylix.homeManagerModules.stylix
   ];
   
-  stylix = {
-    enable = true;
-    image = "${configDir}/modules/graphical_environment/wallpaper/wallpaper.jpg";
-  };
   home-manager.users.${username}.stylix = {
     enable = true;
     image = "${configDir}/modules/graphical_environment/wallpaper/wallpaper.jpg";
