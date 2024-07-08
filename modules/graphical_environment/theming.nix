@@ -5,10 +5,10 @@
   ];
   
   stylix.enable = true;
-  stylix.image = "${configDir}/modules/graphical_environment/wallpaper/wallpaper.jpg";
+  stylix.image = "${configDir}/modules/graphical_environment/wallpaper/wallpaper.png";
   home-manager.users.${username}.stylix = {
     enable = true;
-    image = "${configDir}/modules/graphical_environment/wallpaper/wallpaper.jpg";
+    image = "${configDir}/modules/graphical_environment/wallpaper/wallpaper.png";
     cursor = {
       name = "Bibata";
       package = pkgs.bibata-cursors;
