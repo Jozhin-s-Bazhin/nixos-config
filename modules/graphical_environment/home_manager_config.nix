@@ -15,9 +15,9 @@
         stateVersion = "23.11";
       };
     };
-  	backupFileExtension = "backup";
+    backupFileExtension = "backup";
     useGlobalPkgs = true;
     useUserPackages = true;
-	  extraSpecialArgs = { inherit inputs username; };
+    extraSpecialArgs = { inherit inputs username; };
   };
 }
