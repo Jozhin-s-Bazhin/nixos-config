@@ -182,7 +182,7 @@
     serviceConfig = {
       Type = "oneshot";
       User = username;
-      ExecStart = "${pkgs.writeScriptBin "lockBeforeSleep" ''
+      ExecStart = "${pkgs.writeScriptBin "findme" ''
         #!/run/current-system/sw/bin/bash
 
 	# Environment variables that make hyprlock work
@@ -198,7 +198,7 @@
         done
 
 	disown
-      ''}/bin/lockBeforeSleep";
+      ''}/bin/findme";
       
         /*
         #!/run/current-system/sw/bin/bash
