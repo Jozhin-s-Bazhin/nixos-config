@@ -186,8 +186,8 @@
         #!/run/current-system/sw/bin/bash
         export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')";
         export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')";
-	pidof hyprlock > /dev/null ||
-	hyprlock 2>&1 >/dev/null | while read -r line; do
+	/run/current-system/sw/bin/pidof hyprlock > /dev/null ||
+	/run/current-system/sw/bin/hyprlock 2>&1 >/dev/null | while read -r line; do
   	  if [[ $line == "Sleepy time" ]]; then 
     	    break
   	  fi
