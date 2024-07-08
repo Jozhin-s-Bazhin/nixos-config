@@ -160,7 +160,7 @@
       wirelesstools
       montserrat
       nerdfonts
-      unbuffer
+      expect
     ];
   };
   
