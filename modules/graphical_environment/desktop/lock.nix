@@ -190,16 +190,11 @@
 export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
 export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
 
-coproc hyprlock_fd { ${pkgs.hyprlock}/bin/hyprlock 2>&1; }
-
-while IFS= read -r line <&"''${hyprlock_fd[0]}"; do
+${pkgs.hyprlock}/bin/hyprlock 2>&1 >/dev/null | while read -r line; do
 if [[ $line == "Sleepy time" ]]; then
 	systemd-notify --ready
 fi
 done
-
-#disown
-#systemd-notify --ready
       ''}/bin/findme";
       
         /*
