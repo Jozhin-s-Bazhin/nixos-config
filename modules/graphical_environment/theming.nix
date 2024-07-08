@@ -4,7 +4,6 @@
     inputs.stylix.nixosModules.stylix
   ];
   
-  programs.dconf.enable = true;
   home-manager.users.${username}.stylix = {
     enable = true;
     image = "${configDir}/modules/graphical_environment/wallpaper/wallpaper.jpg";
