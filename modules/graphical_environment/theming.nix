@@ -1,8 +1,8 @@
 { inputs, pkgs, username, configDir, ... }:
 {
   imports = [
-    inputs.stylix.nixosModules.stylix
-    #inputs.stylix.homeManagerModules.stylix
+    #inputs.stylix.nixosModules.stylix
+    inputs.stylix.homeManagerModules.stylix
   ];
   
   home-manager.users.${username}.stylix = {
