@@ -5,7 +5,6 @@
     inputs.stylix.homeManagerModules.stylix
   ];
   
-  stylix.enable = true;
   home-manager.users.${username}.stylix = {
     enable = true;
     cursor = {
