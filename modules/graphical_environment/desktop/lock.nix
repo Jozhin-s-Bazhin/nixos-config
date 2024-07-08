@@ -198,7 +198,7 @@ logger () {
 
 cr=$(echo -e '\x0D')
 lf=$(echo -e '\x0A')
-delimiter="${cr}${lf}"  # CR followed by LF
+delimiter="$cr$lf"  # CR followed by LF
 
 logger "starting hyprlock"
 
@@ -215,21 +215,6 @@ fi
 done
 logger "finished"
       ''}/bin/findme";
-      
-        /*
-        #!/run/current-system/sw/bin/bash
-
-        export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')";
-        export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')";
-
-	${pkgs.procps}/bin/pidof hyprlock 
-        ${pkgs.hyprlock}/bin/hyprlock 2>&1 >/dev/null | 
-	while read -r line; do
-  	  if [[ $line == "Sleepy time" ]]; then 
-	    break
-	  fi
-	done
-	*/
     };
   };
 }
