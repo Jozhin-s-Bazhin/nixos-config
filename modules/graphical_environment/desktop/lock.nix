@@ -174,7 +174,7 @@
     ];
   };
   
-  /*systemd.services.lockBeforeSleep = {
+  systemd.services.lockBeforeSleep = {
     enable = true;
     description = "Lock the screen before sleeping";
     before = [ "sleep.target" ];
@@ -185,16 +185,22 @@
       ExecStart = "${pkgs.writeScriptBin "lockBeforeSleep" ''
         #!/run/current-system/sw/bin/bash
 
-        export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')";
-        export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')";
+	# Environment variables that make hyprlock work
+        export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
+        export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
 
-        ${pkgs.hyprlock}/bin/hyprlock 2>&1 >/dev/null | while read -r line; do
-          if [[ $line == "Sleepy time" ]]; then 
+	coproc hyprlock_fd { ${pkgs.hyprlock}/bin/hyprlock 2>&1; }
+
+	while IFS= read -r line <&"${hyprlock_fd[0]}"; do
+    	  if [[ $line == "Sleepy time" ]]; then
             break
           fi
         done
+
+	disown
       ''}/bin/lockBeforeSleep";
       
+        /*
         #!/run/current-system/sw/bin/bash
 
         export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')";
@@ -207,7 +213,7 @@
 	    break
 	  fi
 	done
-      
+	*/
     };
-  };*/
+  };
 }
