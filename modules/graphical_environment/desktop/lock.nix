@@ -105,7 +105,7 @@
 	  # Ugly gross hack to signal when hyprlock is ready to sleep
 	  {
 	    monitor = "";
-	    text = "cmd[update:60000] echo 'Sleepy time' >&2";  # A script that writes stuff to stderr so it can be read trough a pipe in real time to suspend the device
+	    text = "cmd[update:1000] echo 'Sleepy time' >&2";  # A script that writes stuff to stderr so it can be read trough a pipe in real time to suspend the device
 	    color = "rgba(0, 0, 0, 0)";  # Fully transparent
 	    font_size = 1;  	#
 	    halign = "center";  # it's invisible so just some random values
