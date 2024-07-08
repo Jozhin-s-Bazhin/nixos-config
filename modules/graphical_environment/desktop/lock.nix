@@ -8,7 +8,7 @@
       settings = {
         background = [
           {
-            monitor = ""; path = "${configDir}/modules/graphical_environment/desktop/wallpaper_blurred.png";  # Use a premade blurred image for more speed }
+            monitor = ""; path = "${configDir}/modules/graphical_environment/wallpaper/wallpaper_blurred.png";  # Use a premade blurred image for more speed 
 	  }
         ];
         label = [
