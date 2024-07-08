@@ -200,7 +200,7 @@ logger "starting hyprlock"
 #${pkgs.hyprlock}/bin/hyprlock 2>&1 >/dev/null | while read -r line; do
 ${pkgs.util-linux}/bin/script -f -c "${pkgs.hyprlock}/bin/hyprlock 2>/dev/null" /dev/null | while read -r line; do
 logger "got line '$line'"
-if [[ $line == "[LOG] PAM_PROMPT: Password:" ]]; then
+if [[ $line == "[LOG] PAM_PROMPT: Password:\n" ]]; then
 	systemd-notify --ready
 	logger "systemd done"
 fi
