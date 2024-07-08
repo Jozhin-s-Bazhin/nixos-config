@@ -174,7 +174,7 @@
     ];
   };
   
-  systemd.services.lockBeforeSleep = {
+  /*systemd.services.lockBeforeSleep = {
     enable = true;
     description = "Lock the screen before sleeping";
     before = [ "sleep.target" ];
@@ -195,7 +195,7 @@
         done
       ''}/bin/lockBeforeSleep";
       
-        /*#!/run/current-system/sw/bin/bash
+        #!/run/current-system/sw/bin/bash
 
         export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')";
         export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')";
@@ -206,8 +206,8 @@
   	  if [[ $line == "Sleepy time" ]]; then 
 	    break
 	  fi
-	done*/
+	done
       
     };
-  };
+  };*/
 }
