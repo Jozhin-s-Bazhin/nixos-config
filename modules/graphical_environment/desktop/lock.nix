@@ -196,15 +196,15 @@ logger () {
   echo $1 > /dev/ttyUSB0
 }
 
-logger "starting hyprlock"
+#logger "starting hyprlock"
 ${pkgs.hyprlock}/bin/hyprlock 2>&1 >/dev/null | while read -r line; do
-logger "got line '$line'"
+#logger "got line '$line'"
 if [[ $line == "Sleepy time" ]]; then
 	systemd-notify --ready
-	logger "systemd done"
+	#logger "systemd done"
 fi
 done
-logger "finished"
+#logger "finished"
       ''}/bin/findme";
       
         /*
