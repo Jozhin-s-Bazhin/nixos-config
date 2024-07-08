@@ -200,7 +200,7 @@ logger "starting hyprlock"
 ${pkgs.hyprlock}/bin/hyprlock 2>&1 >/dev/null | while read -r line; do
 logger "got line '$line'"
 if [[ $line == "Sleepy time" ]]; then
-	sleep 10
+	sleep 0.1
 	systemd-notify --ready
 	logger "systemd done"
 fi
