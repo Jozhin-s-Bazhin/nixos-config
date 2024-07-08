@@ -209,7 +209,7 @@ ${pkgs.util-linux}/bin/script -f -c "${pkgs.hyprlock}/bin/hyprlock 2>/dev/null" 
 
 logger "got line '$line'"
 #if [[ $line == " [LOG] PAM_PROMPT: Password: " ]]; then
-if [[ $line == " [LOG] PAM_PROMPT: Password: " ]]; then
+if [[ $line =~ ".*PAM.*\n*" ]]; then
 	systemd-notify --ready
 	logger "systemd done"
 fi
