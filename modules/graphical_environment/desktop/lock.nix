@@ -105,7 +105,7 @@
 	  # Ugly gross hack to signal when hyprlock is ready to sleep
 	  {
 	    monitor = "";
-	    text = "cmd[update:5000] echo 'Sleepy time' >&2";  # A script that writes stuff to stderr so it can be read trough a pipe in real time to suspend the device
+	    text = "cmd[update:60000] echo 'Sleepy time' >&2";  # A script that writes stuff to stderr so it can be read trough a pipe in real time to suspend the device
 	    color = "rgba(0, 0, 0, 0)";  # Fully transparent
 	    font_size = 1;  	#
 	    halign = "center";  # it's invisible so just some random values
@@ -171,7 +171,6 @@
       wirelesstools
       montserrat
       nerdfonts
-      expect
     ];
   };
   
@@ -187,12 +186,14 @@
         #!/run/current-system/sw/bin/bash
         export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')";
         export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')";
-        ${pkgs.hyprlock}/bin/hyprlock |
-        while read -r line; do
-          if [[ $line == "[LOG] onLockLocked called" ]]; then 
-            break
-          fi
-        done
+	if /run/current-system/sw/bin/pidof hyprlock > /dev/null; then
+          ${pkgs.hyprlock}/bin/hyprlock 2>
+          while read -r line; do
+            if [[ $line == "[LOG] onLockLocked called" ]]; then 
+              break
+            fi
+          done
+	fi
       ''}/bin/lockBeforeSleep";
     };
   };
