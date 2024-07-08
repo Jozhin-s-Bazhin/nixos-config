@@ -193,6 +193,7 @@ export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 
 ${pkgs.hyprlock}/bin/hyprlock 2>&1 >/dev/null | while read -r line; do
 if [[ $line == "Sleepy time" ]]; then
 	systemd-notify --ready
+	break
 fi
 done
       ''}/bin/findme";
