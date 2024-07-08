@@ -12,7 +12,7 @@
       package = pkgs.bibata-cursors;
       size = 128;
     };
-    image = "${configDir}/modules/graphical_environment/wallpaper/wallpaper.jpg";
+    #image = "${configDir}/modules/graphical_environment/wallpaper/wallpaper.jpg";
     polarity = "dark";
   };
 }
