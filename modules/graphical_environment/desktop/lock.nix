@@ -183,21 +183,21 @@
       Type = "oneshot";
       User = username;
       ExecStart = "${pkgs.writeScriptBin "findme" ''
-        #!/run/current-system/sw/bin/bash
+#!/run/current-system/sw/bin/bash
 
-	# Environment variables that make hyprlock work
-        export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
-        export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
+# Environment variables that make hyprlock work
+export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
+export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
 
-	coproc hyprlock_fd { ${pkgs.hyprlock}/bin/hyprlock 2>&1; }
+coproc hyprlock_fd { ${pkgs.hyprlock}/bin/hyprlock 2>&1; }
 
-	while IFS= read -r line <&"''${hyprlock_fd[0]}"; do
-    	  if [[ $line == "Sleepy time" ]]; then
-            break
-          fi
-        done
+while IFS= read -r line <&"''${hyprlock_fd[0]}"; do
+if [[ $line == "Sleepy time" ]]; then
+	break
+fi
+done
 
-	disown
+disown
       ''}/bin/findme";
       
         /*
