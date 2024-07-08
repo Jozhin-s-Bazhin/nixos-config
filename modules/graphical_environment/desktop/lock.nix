@@ -175,7 +175,7 @@
   };
   
   systemd.services.lockBeforeSleep = {
-    enable = false;
+    enable = true;
     description = "Lock the screen before sleeping";
     before = [ "sleep.target" ];
     wantedBy = [ "sleep.target" ];
