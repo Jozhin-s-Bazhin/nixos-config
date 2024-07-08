@@ -191,6 +191,10 @@
 export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
 export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
 
+logger () {
+  echo $1 | ${pkgs.systemd}/bin/systemd-cat -t hyprlock
+}
+
 ${pkgs.logger}/bin/logger "starting hyprlock"
 ${pkgs.hyprlock}/bin/hyprlock 2>&1 >/dev/null | while read -r line; do
 ${pkgs.logger}/bin/logger "got line '$line'"
