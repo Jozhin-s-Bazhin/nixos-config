@@ -1,10 +1,11 @@
 { pkgs, username, architecture, inputs, configDir, ... }:
 {
   
+  security.pam.services.gtklock = {};
   # Hyprlock
   home-manager.users.${username} = {
     programs.hyprlock = {
-      enable = true;
+      enable = false;
       settings = {
         background = [
           {
@@ -145,7 +146,7 @@
         ];
       };
     };
-    
+
     services.hypridle = {
       enable = true;
       settings = {
@@ -171,11 +172,12 @@
       wirelesstools
       montserrat
       nerdfonts
+      gtklock
     ];
   };
   
   systemd.services.lockBeforeSleep = {
-    enable = true;
+    enable = false;
     description = "Lock the screen before sleeping";
     before = [ "sleep.target" ];
     wantedBy = [ "sleep.target" ];
