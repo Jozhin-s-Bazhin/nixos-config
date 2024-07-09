@@ -21,13 +21,6 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.roman.packages = with pkgs; [ lxqt.lxqt-policykit ]; 
 
-  # Logind
-  services.logind = {
-    #lidSwitch = "suspend";
-    lidSwitch = "ignore";
-    powerKey = "hibernate";
-  };
-
   # Hyprland
   programs.hyprland.portalPackage = pkgs.xdg-desktop-portal-hyprland;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
