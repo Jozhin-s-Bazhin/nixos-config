@@ -20,4 +20,14 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
+
+  xdg = { 
+    autostart.enable = true; 
+    portal = { 
+      enable = true; 
+      extraPortals = [ pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-gtk ]; 
+    };
+  };
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }
