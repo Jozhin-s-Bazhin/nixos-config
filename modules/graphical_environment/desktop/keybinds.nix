@@ -72,10 +72,6 @@ in
         ", XF86MonBrightnessUp, exec, brightnessctl -s set 5%+"
         ", XF86MonBrightnessDown, exec, brightnessctl -s set 5%- -n 1"
       ];
-
-      bindl = [
-        ", switch:on:Lid Switch, exec, systemctl suspend"
-      ];
     };
     home.packages = with pkgs; [
       brightnessctl
