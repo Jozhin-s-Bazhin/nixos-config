@@ -187,15 +187,15 @@
       NotifyAccess = "all";
       User = username;
       # Weird stuff happens when i indent this
-      ExecStart = "${pkgs.writeScriptBin "findme" ''
+      ExecStart = "${pkgs.writeScriptBin "lockBeforeSleep" ''
 #!/run/current-system/sw/bin/bash
 
-# Environment variables that make hyprlock work
+# Environment variables for gtklock
 export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
 export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
 
 ${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready"
-      ''}/bin/findme";
+      ''}/bin/lockBeforeSleep";
     };
   };
 }
