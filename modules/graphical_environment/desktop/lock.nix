@@ -152,7 +152,7 @@
       settings = {
         general = {
           lock_cmd = "gtklock";
-	  before_sleep_cmd = "gtklock";
+	  #before_sleep_cmd = "gtklock";
         };
         listener = [
           {
@@ -178,7 +178,7 @@
   };
   
   systemd.services.lockBeforeSleep = {
-    enable = false;
+    enable = true;
     description = "Lock the screen before sleeping";
     before = [ "sleep.target" ];
     wantedBy = [ "sleep.target" ];
@@ -194,29 +194,7 @@
 export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
 export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
 
-#logger () {
-#  #echo $1 | ${pkgs.systemd}/bin/systemd-cat -t hyprlock
-#  echo $1 > /dev/ttyUSB0
-#}
-
-#logger "starting hyprlock"
-
-#${pkgs.hyprlock}/bin/hyprlock 2>&1 >/dev/null | while read -r line; do
-#${pkgs.util-linux}/bin/script -f -c "${pkgs.hyprlock}/bin/hyprlock 2>/dev/null" /dev/null | while read -r line; do
-
-${pkgs.util-linux}/bin/script -f -c "${pkgs.hyprlock}/bin/hyprlock 2>/dev/null" /dev/null | while IFS= read -r line ; do
-
-#logger "got line xx '$line'"
-#if [[ $line == " [LOG] PAM_PROMPT: Password: " ]]; then
-regexp=".*PAM.*"
-if [[ $line =~ $regexp ]]; then
-	#logger "systemd x"
-	systemd-notify --ready
-	#logger "systemd done"
-	break
-fi
-done
-#logger "finished"
+${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready"
       ''}/bin/findme";
     };
   };
