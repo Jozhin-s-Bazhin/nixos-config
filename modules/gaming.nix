@@ -33,6 +33,6 @@
     freesweep
     
     # Discord
-    vencord
+    vesktop
   ];
 }
