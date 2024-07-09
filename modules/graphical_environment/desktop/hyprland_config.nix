@@ -9,6 +9,7 @@
     wayland.windowManager.hyprland = {
       enable = true;
       package = inputs.hyprland.packages."${pkgs.system}".hyprland; 
+      xwayland.enable = true;
     };
     
     home.packages = with pkgs; [
@@ -25,9 +26,22 @@
     autostart.enable = true; 
     portal = { 
       enable = true; 
-      extraPortals = [ pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-gtk ]; 
+      wlr.enable = false;
+      xdgOpenUsePortal = false;
+      extraPortals = [ 
+        pkgs.xdg-desktop-portal-hyprland 
+	pkgs.xdg-desktop-portal-gtk 
+      ]; 
     };
   };
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    XDG_SESSION_TYPE = "wayland";
+    SDL_VIDEODRIVER = "wayland";
+    CLUTTER_BACKEND = "wayland";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    QT_QPA_PLATFORM = "wayland;xcb";
+  };
 }
