@@ -1,6 +1,5 @@
 { pkgs, username, architecture, inputs, configDir, ... }:
 {
-  
   security.pam.services.gtklock = {};
 
   home-manager.users.${username} = {
