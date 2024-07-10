@@ -20,6 +20,7 @@
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
 
   xdg = { 
@@ -29,7 +30,7 @@
       wlr.enable = false;
       xdgOpenUsePortal = false;
       extraPortals = [ 
-        #pkgs.xdg-desktop-portal-hyprland 
+        pkgs.xdg-desktop-portal-hyprland 
 	      pkgs.xdg-desktop-portal-gtk 
       ]; 
     };
