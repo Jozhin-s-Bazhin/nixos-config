@@ -1,6 +1,10 @@
 { inputs, pkgs, username, ... }:
 
 {
+  imports = [
+    inputs.hyprland.nixosModules.default
+  ];
+
   programs.dconf.enable = true;
   home-manager.users.${username} = {
     dconf.enable = true;
