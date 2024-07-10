@@ -16,7 +16,7 @@
   # CLI stuff
   environment.systemPackages = with pkgs; [
     direnv
-    poetry
+    gh
   ];
   
   programs.zsh = {
