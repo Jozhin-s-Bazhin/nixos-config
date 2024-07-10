@@ -7,9 +7,9 @@
     dconf.enable = true;
     gtk.enable = true;
 
-    wayland.windowManager.hyprland = {
-      enable = true;
-    };
+    #wayland.windowManager.hyprland = {
+    #  enable = true;
+    #};
     
     home.packages = with pkgs; [
       nerdfonts
