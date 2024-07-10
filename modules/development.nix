@@ -23,13 +23,24 @@
     interactiveShellInit = ''
       # Direnv
       eval "$(direnv hook zsh)"
+
+      # Initialise project shortcut
+      mkproject () {
+        local name=$1
+        local public=''${2:-0}  # Defaults to false
+	mkdir ./$name
+	cd ./$name
+        nix flake init
+	echo 'use flake' > .envrc
+	gh repo create --add-readme --source=. $(if public; then echo "--public"; else echo "--privat" fi)
+      }
     '';
     shellAliases = {
       c = "codium . && exit";
     };
   };
   
-  programs.git = {
+  programs.git = {a
     enable = true;
     config.user = {
       name = "Jozhin-s-Bazhin";
