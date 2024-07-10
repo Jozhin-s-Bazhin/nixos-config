@@ -14,6 +14,7 @@
         font_size = "13.0";
         enable_audio_bell = "no";
         hide_window_decorations = "yes";
+	linux_display_server = "wayland";
       };
     };
 
