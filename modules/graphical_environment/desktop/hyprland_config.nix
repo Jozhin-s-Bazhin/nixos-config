@@ -18,12 +18,8 @@
   
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    #package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
-
-  xdg.portal.extraPortals = [ 
-	pkgs.xdg-desktop-portal-gtk 
-      ]; 
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
