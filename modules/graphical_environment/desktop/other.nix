@@ -33,6 +33,6 @@
       "special,gapsin:10,gapsout:20"
     ];
   };
-  home.packages = [ xwaylandvideobridge ];
+  home.packages = [ pkgs.xwaylandvideobridge ];
   };
 }
