@@ -49,6 +49,4 @@
     XDG_SESSION_DESKTOP = "Hyprland";
     QT_QPA_PLATFORM = "wayland;xcb";
   };
-
-  users.users.${username}.packages = [ pkgs.lxqt.lxqt-policykit ];
 }

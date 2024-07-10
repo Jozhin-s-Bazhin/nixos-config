@@ -1,7 +1,8 @@
 { username, ... }:
 
 {
-  home-manager.users.${username}.wayland.windowManager.hyprland.settings = {
+  home-manager.users.${username} = {
+    wayland.windowManager.hyprland.settings = {
     monitor = [
       ", preferred, auto, 1"
       "eDP-2, preferred, 0x0, 1.6"
@@ -31,5 +32,7 @@
     workspace = [
       "special,gapsin:10,gapsout:20"
     ];
+  };
+  home.packages = [ xwaylandvideobridge ];
   };
 }
