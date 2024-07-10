@@ -17,7 +17,6 @@
 	linux_display_server = "wayland";
       };
     };
-    home.packages = [ pkgs.nerdfonts ];
 
   # KDEConnect
     services.kdeconnect = {
