@@ -18,7 +18,7 @@
   
   programs.hyprland = {
     enable = true;
-    #package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
 
   environment.sessionVariables = {
@@ -31,5 +31,5 @@
     QT_QPA_PLATFORM = "wayland;xcb";
   };
 
-  xdg = { autostart.enable = true; portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-gtk ]; }; };
+  #xdg = { autostart.enable = true; portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-gtk ]; }; };
 }
