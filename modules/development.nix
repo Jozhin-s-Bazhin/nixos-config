@@ -32,7 +32,7 @@
 	cd ./$name
         nix flake init
 	echo 'use flake' > .envrc
-	gh repo create --add-readme --source=. $(if public; then echo "--public"; else echo "--privat" fi)
+	gh repo create --add-readme --source=. $(if public; then echo "--public"; else echo "--private" fi)
       }
     '';
     shellAliases = {
