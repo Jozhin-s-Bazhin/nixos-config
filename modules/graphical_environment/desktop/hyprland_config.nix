@@ -3,7 +3,7 @@
 {
   imports = [
     inputs.hyprland.nixosModules.default
-    inputs.hyprland.homeManagerModules.default
+    #inputs.hyprland.homeManagerModules.default
   ];
 
   programs.dconf.enable = true;
