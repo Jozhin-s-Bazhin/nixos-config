@@ -10,6 +10,7 @@
     wayland.windowManager.hyprland = {
       enable = true;
       package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+      xwayland.enable = true;
     };
     
     home.packages = with pkgs; [
@@ -36,10 +37,7 @@
     autostart.enable = true; 
     portal = { 
       enable = true; 
-      extraPortals = [ 
-        #pkgs.xdg-desktop-portal 
-	pkgs.xdg-desktop-portal-gtk
-      ]; 
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; 
     }; 
   };
 }
