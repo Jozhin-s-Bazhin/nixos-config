@@ -47,6 +47,7 @@
       ms-python.python
       ms-python.vscode-pylance
       jnoortheen.nix-ide
+      ms-vscode.cpptools
     ];
     userSettings = {
       vscode-neovim.neovimExecutablePaths.linux = "${pkgs.neovim}/bin/nvim";
