@@ -49,6 +49,7 @@
       jnoortheen.nix-ide
       ms-vscode.cpptools
       mkhl.direnv
+      formulahendry.code-runner
     ];
     userSettings = {
       vscode-neovim.neovimExecutablePaths.linux = "${pkgs.neovim}/bin/nvim";
