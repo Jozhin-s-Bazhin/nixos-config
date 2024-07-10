@@ -1,22 +1,10 @@
 { pkgs, username, architecture, inputs, configDir, ... }:
 {
   
-  security.pam.services.gtklock = {
-    auth = [
-      {
-      # pam_unix module configuration
-      name = "unix";
-      control = "sufficient";
-      arguments = [ "try_first_pass" "likeauth" "nullok" ];
-    }
-    {
-      # pam_fprintd module configuration
-      name = "fprintd";
-      control = "sufficient";
-      arguments = [];
-    }
-  ];
-  };
+  security.pam.services.gtklock.text = ''
+    auth            sufficient      pam_unix.so try_first_pass likeauth nullok
+    auth            sufficient      pam_fprintd.so
+  '';
   home-manager.users.${username} = {
     services.hypridle = {
       enable = true;
