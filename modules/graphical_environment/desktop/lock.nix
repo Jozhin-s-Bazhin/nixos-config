@@ -1,15 +1,14 @@
 { pkgs, username, architecture, inputs, configDir, ... }:
 {
   
-  security.pam.services.gtklock.text = ''
+  security.pam.services.gtklock = {}; /*text = ''
     auth            sufficient      pam_unix.so try_first_pass likeauth nullok
     auth            sufficient      pam_fprintd.so
-  '';
+  '';*/
   home-manager.users.${username} = {
     services.hypridle = {
       enable = true;
-      settings = {
-        general = {
+      settings = { general = {
           lock_cmd = "gtklock";
 	  #before_sleep_cmd = "gtklock";
         };
