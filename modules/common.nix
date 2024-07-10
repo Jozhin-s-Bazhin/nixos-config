@@ -52,11 +52,13 @@
     tldr
     bc
     yazi
+    nerdfonts
   ];
   
   programs.zsh = {
     enable = true;
     enableCompletion = true;
+    syntaxHighlighting.enable = true;
     autosuggestions.enable = true;
     vteIntegration = true;
 
@@ -80,6 +82,12 @@
       bindkey "^H" backward-delete-char
       bindkey "^?" backward-delete-char
       bindkey -M viins 'jk' vi-cmd-mode
+
+      # Shell prompt
+      autoload -U colors && colors
+      setopt PROMPT_SUBST
+      PROMPT='%{$fg[blue]%}%F{white}%K{blue}%n@%m%{$fg[blue]%}%k%{$reset_color%} %1~ '
+      #RPROMPT='$(if [[ ]]; )'
     '';
 
     # Aliases
