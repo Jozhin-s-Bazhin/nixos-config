@@ -40,7 +40,7 @@
     };
   };
   
-  programs.git = {a
+  programs.git = {
     enable = true;
     config.user = {
       name = "Jozhin-s-Bazhin";
