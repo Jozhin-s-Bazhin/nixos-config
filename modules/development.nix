@@ -32,7 +32,10 @@
 	cd ./$name
         nix flake init
 	echo 'use flake' > .envrc
-	gh repo create --add-readme --source=. $(if [[ $public -eq 1 ]]; then echo "--public"; else echo "--private" fi)
+	git init
+	git add -A
+	git commit -m "Initial commit: added framework"
+	gh repo create --add-readme --source=. $(if [[ "$public" -eq 1 ]]; then echo "--public"; else echo "--private"; fi)
       }
     '';
     shellAliases = {
