@@ -28,6 +28,7 @@ users.users.roman = {
   environment.systemPackages = with pkgs; [
     direnv
     gh
+    win-virtio
   ];
   
   programs.zsh = {
