@@ -4,7 +4,6 @@
   services.xserver.videoDrivers = [ "modesetting" ];
   hardware.opengl = {
     enable = true;
-    support32Bit = true;
     extraPackages = with pkgs; [ 
       amdvlk 
       rocmPackages.clr.icd
