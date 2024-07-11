@@ -62,15 +62,22 @@ in
         "SUPER, mouse:273, resizewindow"
       ];
 
-      binde = [
+      bindel = [
         # Audio
         ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
         # Brightness
         ", XF86MonBrightnessUp, exec, brightnessctl -s set 5%+"
         ", XF86MonBrightnessDown, exec, brightnessctl -s set 5%- -n 1"
+      ];
+
+      bindl = [
+        # Audio and player control
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+	", XF86AudioPlay, exec, playerctl play-pause"
+	", XF86AudioPrev, exec, playerctl previous"
+	", XF86AudioNext, exec, playerctl next"
       ];
     };
     home.packages = with pkgs; [
@@ -79,6 +86,7 @@ in
       cliphist
       grimblast
       anyrun
+      playerctl
     ];
   };
 }
