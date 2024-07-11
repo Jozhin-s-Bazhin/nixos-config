@@ -26,6 +26,7 @@
     direnv
     gh
     quickemu
+    quickgui
   ];
   
   programs.zsh = {
