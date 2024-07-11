@@ -32,9 +32,7 @@
 
   # Floorp
   #environment.pathsToLink = [ "/usr/bin" ];
-  system.activationScripts.floorp = {
-    text = ''
-      ln -sfn ${pkgs.floorp}/bin/floorp /usr/bin/floorp
-    '';
-  };
+  system.activationScripts.floorp.text = ''
+    ln -sfn ${pkgs.floorp}/bin/floorp /usr/bin/floorp 
+  '';
 }
