@@ -2,6 +2,7 @@
 
 {
   # Virtualisation
+  programs.virt-manager.enable = true;
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
@@ -25,8 +26,6 @@
   environment.systemPackages = with pkgs; [
     direnv
     gh
-    quickemu
-    quickgui
   ];
   
   programs.zsh = {
