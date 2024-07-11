@@ -36,6 +36,5 @@
     text = ''
       ln -sfn ${pkgs.floorp}/bin/floorp /usr/bin/floorp
     '';
-    deps = [ "links" ]; # This specifies that this should run after the "links" phase
   };
 }
