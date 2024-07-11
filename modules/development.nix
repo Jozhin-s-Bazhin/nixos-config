@@ -6,7 +6,6 @@
     enable = true;
     qemuOvmf = true; 
     qemuSwtpm = true; 
-    qemuOvmfPackage = pkgs.OVMFFull;
   };
   programs.virt-manager.enable = true;
   users.users.${username}.extraGroups = [ "libvirtd" ];
