@@ -29,4 +29,7 @@
     allowedTCPPorts = [ 1714 1715 ];
     allowedUDPPorts = [ 1714 1715 1716 ];
   };
+
+  # Floorp
+  environment.pathsToLink = [ "/usr/bin" ];
 }
