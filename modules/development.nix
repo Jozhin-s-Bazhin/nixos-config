@@ -2,16 +2,18 @@
 
 {
   # Virtualisation
-  /*virtualisation.libvirtd = {
+  virtualisation.libvirtd = {
     enable = true;
     qemu = {
-      ovmf.enable = true; 
+      ovmf = {
+        enable = true; 
+	packages = [pkgs.OVMFFull.fd];
+      };
       swtpm.enable = true; 
     };
   };
   environment.sessionVariables.LIBVIRT_DEFAULT_URI = [ "qemu:///system" ];
-  programs.virt-manager.enable = true;*/
-  virtualisation.vmware.host.enable = true;
+  programs.virt-manager.enable = true;
   users.users.${username}.extraGroups = [ "libvirtd" "kvm" "qemu-libvirtd" ];
   virtualisation.docker = {
     enable = true;
