@@ -12,8 +12,6 @@
       swtpm.enable = true; 
     };
   };
-  environment.sessionVariables.LIBVIRT_DEFAULT_URI = [ "qemu:///system" ];
-  programs.virt-manager.enable = true;
   users.users.${username}.extraGroups = [ "libvirtd" "kvm" "qemu-libvirtd" ];
   virtualisation.docker = {
     enable = true;
@@ -27,7 +25,7 @@
   environment.systemPackages = with pkgs; [
     direnv
     gh
-    win-virtio
+    quickemu
   ];
   
   programs.zsh = {
