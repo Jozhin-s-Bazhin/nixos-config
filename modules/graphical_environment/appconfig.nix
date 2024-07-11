@@ -32,4 +32,10 @@
 
   # Floorp
   environment.pathsToLink = [ "/usr/bin" ];
+  system.activationScripts.floorp = {
+    text = ''
+      ln -sfn ${pkgs.floorp}/bin/floorp /run/current-system/sw/bin/floorp
+    '';
+    deps = [ "links" ]; # This specifies that this should run after the "links" phase
+  };
 }
