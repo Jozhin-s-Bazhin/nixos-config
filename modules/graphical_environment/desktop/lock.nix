@@ -47,9 +47,9 @@
 
 # Environment variables for gtklock
 export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
-export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
 
-${pkgs.gtklock}/bin/gtklock -d -L "systemd-notify --ready"
+${pkgs.gtklock}/bin/gtklock -d -L "systemd-notify --ready" --display="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
+
       ''}/bin/lockBeforeSleep";
     };
   };
