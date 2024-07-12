@@ -54,10 +54,10 @@ ${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready"
     };
   };
   services.logind = {
-    PowerKey = "hibernate";
-    LidSwitch = "suspend";
-    LidSwitchExternalPower = "suspend";
-    LidSwitchDocked = "suspend";
+    powerKey = "hibernate";
+    lidSwitch = "suspend";
+    lidSwitchExternalPower = "suspend";
+    lidSwitchDocked = "suspend";
   };
 
   # Polkit
