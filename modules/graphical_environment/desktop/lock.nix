@@ -1,7 +1,8 @@
 { pkgs, username, architecture, inputs, configDir, ... }:
 {
+  security.pam.services.gtklock = {};
+
   home-manager.users.${username} = {
-    security.pam.services.gtklock = {};
     services.hypridle = {
       enable = true;
       settings = { general = {
