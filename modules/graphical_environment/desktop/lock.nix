@@ -1,6 +1,7 @@
 { pkgs, username, architecture, inputs, configDir, ... }:
 {
   home-manager.users.${username} = {
+    security.pam.services.gtklock = {};
     services.hypridle = {
       enable = true;
       settings = { general = {
@@ -20,8 +21,6 @@
         ];
       };
     };
-
-    security.pam.services.gtklock = {};
     
     home.packages = with pkgs; [
       brightnessctl
