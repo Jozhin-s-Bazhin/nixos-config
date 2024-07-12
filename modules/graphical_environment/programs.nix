@@ -11,6 +11,7 @@
     bitwarden
     thunderbird
     pavucontrol
+    sony-headphones-client
     
     # CLI tools
     graphicsmagick
