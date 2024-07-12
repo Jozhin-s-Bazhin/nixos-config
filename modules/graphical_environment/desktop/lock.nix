@@ -28,7 +28,7 @@
       wirelesstools
       montserrat
       nerdfonts
-      gtklock
+      gtklock.override { buildInputs = pkgs.gtklock.buildInputs ++ [ pkgs.at-spi2-core ]; };
     ];
   };
   
