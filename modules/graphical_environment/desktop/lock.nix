@@ -53,6 +53,12 @@ ${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready"
       ''}/bin/lockBeforeSleep";
     };
   };
+  services.logind.extraConfig = ''
+    HandlePowerKey=hibernate
+    HandleLidSwitch=suspend
+    HandleLidSwitchExternalPower=suspend
+    HandleLidSwitchDocked=suspend
+  '';
 
   # Polkit
   users.users.${username}.packages = [ pkgs.lxqt.lxqt-policykit ];
