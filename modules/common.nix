@@ -5,7 +5,7 @@
   system.stateVersion = "23.11";
 
   # Hostname
-  networking.hostname = name;
+  networking.hostName = name;
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
