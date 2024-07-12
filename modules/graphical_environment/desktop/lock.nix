@@ -47,7 +47,7 @@
 
 # Environment variables for gtklock
 export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
-#export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 
 #${pkgs.dbus}/bin/dbus-run-session --dbus-daemon ${pkgs.dbus}/bin/dbus-daemon -- ${pkgs.gtklock}/bin/gtklock -d -L "systemd-notify --ready" --display="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
 ${pkgs.dbus}/bin/dbus-launch -- ${pkgs.gtklock}/bin/gtklock -d -L "systemd-notify --ready" --display="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
