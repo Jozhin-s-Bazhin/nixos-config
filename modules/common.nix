@@ -4,6 +4,9 @@
   # Do not touch
   system.stateVersion = "23.11";
 
+  # Hostname
+  networking.hostname = name;
+
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -21,6 +24,7 @@
     description = "";
     extraGroups = [ "wheel" "audio" ];
   };
+
   # Nix config
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
