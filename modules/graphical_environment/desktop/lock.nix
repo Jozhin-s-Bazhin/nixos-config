@@ -28,7 +28,7 @@
       wirelesstools
       montserrat
       nerdfonts
-      gtklock.override { extraPackages = pkgs.at-spi2-core }
+      gtklock.override { extraPackages = pkgs.at-spi2-core; }
     ];
   };
   
