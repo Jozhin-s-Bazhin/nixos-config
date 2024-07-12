@@ -1,7 +1,5 @@
 { pkgs, username, architecture, inputs, configDir, ... }:
 {
-  security.pam.services.gtklock = {};
-
   home-manager.users.${username} = {
     services.hypridle = {
       enable = true;
@@ -22,6 +20,8 @@
         ];
       };
     };
+
+    security.pam.services.gtklock = {};
     
     home.packages = with pkgs; [
       brightnessctl
@@ -32,6 +32,7 @@
     ];
   };
   
+  # Lock screen before sleeping
   systemd.services.lockBeforeSleep = {
     enable = true;
     description = "Lock the screen before sleeping";
@@ -48,10 +49,11 @@
 export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
 export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
 
-${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready"
+${pkgs.gtklock}/bin/gtklock -D -L "systemd-notify --ready"
       ''}/bin/lockBeforeSleep";
     };
   };
 
+  # Polkit
   users.users.${username}.packages = [ pkgs.lxqt.lxqt-policykit ];
 }
