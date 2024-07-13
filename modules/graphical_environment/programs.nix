@@ -11,6 +11,7 @@
     bitwarden
     thunderbird
     pavucontrol
+    thunar
     
     # CLI tools
     graphicsmagick
