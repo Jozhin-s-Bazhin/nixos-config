@@ -6,6 +6,9 @@
     ratbagd.enable = true;  # Mice
     hardware.openrgb.enable = true; # RGB
   };
+
+  # Android emulation
+  virtualisation.waydroid.enable = true;
   
   # Steam
   programs.steam = {

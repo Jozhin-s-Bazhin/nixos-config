@@ -6,7 +6,7 @@
     nixpkgs-stable.url = "nixpkgs/nixos-24.05/";
     home-manager = {
       url = "github:nix-community/home-manager";
-      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -15,7 +15,7 @@
     ags.url = "github:Aylur/ags";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, nixos-hardware, ... }: {
+  outputs = inputs@{ nixpkgs, nixpkgs-stable, home-manager, hyprland, nixos-hardware, ... }: {
     nixosConfigurations = let
       mkSystem = import ./mkSystem.nix { inherit inputs; };
     in {
