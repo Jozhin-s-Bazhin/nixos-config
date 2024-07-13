@@ -1,8 +1,6 @@
 { inputs, pkgs, username, configDir, ... }:
 {
-  imports = [
-    inputs.stylix.nixosModules.stylix
-  ];
+  imports = [ inputs.stylix.nixosModules.stylix ];
   
   home-manager.users.${username}.stylix = {
     enable = true;
