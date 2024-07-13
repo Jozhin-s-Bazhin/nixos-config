@@ -5,7 +5,7 @@
   ];
   
   home-manager.users.${username}.stylix = {
-    image = "${configDir}/modules/graphical_environment/wallpaper/wallpaper.png";
+    image = ${configDir}/modules/graphical_environment/wallpaper/wallpaper.png;
     cursor = {
       name = "Bibata";
       package = pkgs.bibata-cursors;
