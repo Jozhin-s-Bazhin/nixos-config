@@ -11,7 +11,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    stylix.url = "github:danth/stylix/f13c946181730f98e1a5cd09714100490207b250";  # Old version because bug
+    stylix.url = "github:danth/stylix/ca3247ed8cfbf369f3fe1b7a421579812a95c101";  # Old version because bug
     ags.url = "github:Aylur/ags";
   };
 
