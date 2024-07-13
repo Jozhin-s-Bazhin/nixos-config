@@ -24,8 +24,8 @@
         username = "roman";
 
         laptop = true;
-        amdgpu = true;
-        gaming = true;
+        #amdgpu = true;
+        #gaming = true;
         development = true;
 
         extraModules = [
