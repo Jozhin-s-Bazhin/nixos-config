@@ -503,17 +503,17 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1719152392,
-        "narHash": "sha256-0xUVvBoOrfdzWxjjnkfqBlYYJmCDtT+k/uL18UbZ+0I=",
+        "lastModified": 1718971834,
+        "narHash": "sha256-k+BjPJgjmG+u8VwyzjA6YxkoBn9tP1m19h0CQGc3iGM=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "1ddb78df07579a1cd9d7cd3a98de08137cd80863",
+        "rev": "97dcf3c216fe5fb19c406e39f265d3bc9b851377",
         "type": "github"
       },
       "original": {
         "owner": "danth",
         "repo": "stylix",
-        "rev": "1ddb78df07579a1cd9d7cd3a98de08137cd80863",
+        "rev": "97dcf3c216fe5fb19c406e39f265d3bc9b851377",
         "type": "github"
       }
     },
