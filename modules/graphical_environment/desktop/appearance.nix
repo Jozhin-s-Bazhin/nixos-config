@@ -58,7 +58,7 @@
     # Not configured properly, should be removed at some point (when )
     xdg.configFile."hypr/hyprpaper.conf".text = ''
       preload =/home/roman/nixos-config/modules/graphical_environment/wallpaper/wallpaper.jpg
-      wallpaper =/home/roman/nixos-config/modules/graphical_environment/wallpaper/wallpaper.jpg
+      wallpaper =,/home/roman/nixos-config/modules/graphical_environment/wallpaper/wallpaper.jpg
       splash = false
     '';
   };
