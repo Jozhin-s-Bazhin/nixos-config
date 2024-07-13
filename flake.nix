@@ -15,7 +15,7 @@
     ags.url = "github:Aylur/ags";
   };
 
-  outputs = inputs@{ nixpkgs, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, hyprland, nixos-hardware, ... }: {
     nixosConfigurations = let
       mkSystem = import ./mkSystem.nix { inherit inputs; };
     in {
