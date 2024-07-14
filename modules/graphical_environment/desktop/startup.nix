@@ -16,6 +16,9 @@
         "ags"
         "pypr"
         "wluma"
+
+	# Floorp
+	"(floorp && hyprctl dispatch movetoworkspacesilent special:floorp) &"
       ];
     };
 
