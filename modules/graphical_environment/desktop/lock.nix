@@ -4,7 +4,7 @@
 
   home-manager.users.${username} = {
     services.hypridle = {
-      enable = true;
+      enable = false;
       settings = { general = {
           lock_cmd = "gtklock";
 	  #before_sleep_cmd = "gtklock";
