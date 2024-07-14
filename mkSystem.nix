@@ -33,11 +33,11 @@ in
         ./modules/laptop.nix
       ] ++
       lib.optionals gaming [
-        ./modules/graphical_environment/graphical_environment.nix
+        ./modules/graphical_environment
         ./modules/gaming.nix
       ] ++
       lib.optionals development [
-        ./modules/graphical_environment/graphical_environment.nix
+        ./modules/graphical_environment
         ./modules/development.nix
       ] ++
       extraModules;
