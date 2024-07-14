@@ -26,7 +26,7 @@ in
       lib.optional server ./modules/server.nix ++
       lib.optional desktop ./modules/pc.nix ++
       lib.optional amdgpu ./modules/amdgpu.nix ++
-      lib.optional graphicalEnvironment ./modules/graphical_environment/graphical_environment.nix ++
+      lib.optional graphicalEnvironment ./modules/graphical_environment ++
       [ ./hardware/${name}.nix ] ++
       lib.optionals laptop [
         ./modules/pc.nix
