@@ -18,7 +18,8 @@
         "wluma"
 
 	# Floorp
-	"(floorp && hyprctl dispatch movetoworkspace \"special:floorp,initialclass:floorp\") &"
+	#"(floorp && hyprctl dispatch movetoworkspace \"special:floorp,initialclass:floorp\") &"
+	"exec-once = [workspace special:floorp silent] kitty"
       ];
     };
 
