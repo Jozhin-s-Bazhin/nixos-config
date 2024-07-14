@@ -18,7 +18,7 @@
         "wluma"
 
 	# Floorp
-	"(floorp && hyprctl dispatch movetoworkspacesilent special:floorp) &"
+	"(floorp && hyprctl dispatch movetoworkspacesilent special:floorp class:floorp) &"
       ];
     };
 

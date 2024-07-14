@@ -26,6 +26,7 @@
   environment.systemPackages = with pkgs; [
     direnv
     gh
+    github-desktop
   ];
   
   programs.zsh = {
