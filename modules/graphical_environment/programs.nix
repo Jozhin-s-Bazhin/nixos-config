@@ -11,6 +11,7 @@
     thunderbird
     pavucontrol
     nautilus
+    whatsapp-for-linux
     
     # CLI tools
     graphicsmagick
