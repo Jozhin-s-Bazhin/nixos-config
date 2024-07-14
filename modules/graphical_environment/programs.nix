@@ -6,7 +6,6 @@
     qbittorrent
     vlc
     spotube
-    whatsapp-for-linux
     libreoffice
     bitwarden
     thunderbird
