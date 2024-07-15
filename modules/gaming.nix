@@ -47,7 +47,7 @@
       exec = "${pkgs.writeShellScriptBin "prismlauncher.sh" ''
         #!/run/sw/current-system/bin/bash
         export VK_ICD_FILENAMES=/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json  # AMD driver bs (this is worse than nvidia)
-        gamescope -- prismlauncher
+        gamescope -w 0 -h 0 -f --fsr -- prismlauncher
       ''}/bin/prismlauncher.sh";
       terminal = false;
       type = "Application";
