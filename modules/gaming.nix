@@ -24,8 +24,8 @@
   };
   
   # Games
-  home-manager.users.${username}.home = {
-    packages = with pkgs; [
+  home-manager.users.${username} = {
+    home.packages = with pkgs; [
       (lutris.override { extraPkgs = pkgs: [
       	# War Thunder
       	gtk3
