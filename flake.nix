@@ -34,7 +34,7 @@
           nixos-hardware.nixosModules.framework-16-7040-amd
           {
             boot = {
-              kernelPackages = nixpkgs.legacyPackages."x86_64-linux".linuxPackages_latest;  # Proper shutdown
+              #kernelPackages = nixpkgs.legacyPackages."x86_64-linux".linuxPackages_latest;  # Proper shutdown
               kernelParams = [ "usbcore.autosuspend=60" ];  # Fix autosuspend issues
             };
             services.fwupd.enable = true;  # Firmware updates 
