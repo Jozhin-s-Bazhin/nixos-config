@@ -1,5 +1,7 @@
 { pkgs, username, config, ... }:
-{ # Hardware stuff services = {
+{ 
+  # Hardware stuff 
+  services = {
     ratbagd.enable = true;  # Mice
     hardware.openrgb.enable = true; # RGB
   };
