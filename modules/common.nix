@@ -50,6 +50,7 @@
     fontconfig
     xorg.libXrandr
     xorg.libX11
+    libglibutil
   ];
 
   # CLI aliases and preferences
