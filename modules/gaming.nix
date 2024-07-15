@@ -29,6 +29,7 @@
       	gtk3
       	pango
       	fontconfig
+	libXrandr
       ];})
       prismlauncher
       crrcsim
