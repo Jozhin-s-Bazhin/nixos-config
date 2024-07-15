@@ -3,13 +3,9 @@
 {
   # This file has no organisation at all thanks to https://github.com/NixOS/nix/issues/916
   nix.settings = {
-	  substituters  = [ 
-	    "https://hyprland.cachix.org" 
-	  ];
-	  trusted-public-keys = [ 
-		  "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-	  ];
-	};
+    substituters  = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+  };
   programs.dconf.enable = true;
 
   home-manager.users.${username} = {
@@ -18,7 +14,7 @@
 
     wayland.windowManager.hyprland = {
       enable = true;
-      package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+      #package = inputs.hyprland.packages."${pkgs.system}".hyprland;
       xwayland.enable = true;
     };
     
@@ -29,7 +25,7 @@
   
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    #package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
 
   environment.sessionVariables = {
