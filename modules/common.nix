@@ -48,6 +48,7 @@
     gtk3
     pango
     fontconfig
+    xorg.libXranr
   ];
 
   # CLI aliases and preferences
