@@ -1,8 +1,5 @@
 { pkgs, username, config, ... }:
-
-{
-  # Hardware stuff
-  services = {
+{ # Hardware stuff services = {
     ratbagd.enable = true;  # Mice
     hardware.openrgb.enable = true; # RGB
   };
@@ -24,8 +21,7 @@
   };
   
   # Games
-  home-manager.users.${username} = {
-    home.packages = with pkgs; [
+  home-manager.users.${username}.home.packages = with pkgs; [
       (lutris.override { extraPkgs = pkgs: [
       	# War Thunder
       	gtk3
@@ -40,19 +36,11 @@
       vesktop
     ];
 
-    # Prismlauncher shortcut with gamescope (I assume an AMD GPU)
 
-    xdg.desktopEntries.prismlauncher-with-gamescope = {
-      name = "Prism Launcher (with Gamescope)";
-      exec = "${pkgs.writeShellScriptBin "prismlauncher.sh" ''
+  
+      "${pkgs.writeShellScriptBin "prismlauncher.sh" ''
         #!/run/sw/current-system/bin/bash
         export VK_ICD_FILENAMES=/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json  # AMD driver bs (this is worse than nvidia)
         gamescope -w 0 -h 0 -f --fsr -- prismlauncher
       ''}/bin/prismlauncher.sh";
-      terminal = false;
-      type = "Application";
-      categories = ["Game" "Application"];
-      mimeType = ["application/x-prismlauncher-instance"];
-    };
-  };
 }
