@@ -45,12 +45,6 @@
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     # Put missing libraries here
-    gtk3
-    pango
-    fontconfig
-    xorg.libXrandr
-    xorg.libX11
-    libglibutil
   ];
 
   # CLI aliases and preferences
