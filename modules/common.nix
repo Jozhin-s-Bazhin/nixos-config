@@ -45,6 +45,9 @@
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     # Put missing libraries here
+    gtk3
+    pango
+    fontconfig
   ];
 
   # CLI aliases and preferences
