@@ -4,14 +4,12 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    /*extraPackages = with pkgs; [ 
-      #amdvlk 
-      rocmPackages.clr.icd
+    extraPackages = with pkgs; [ 
+      amdvlk 
     ];
     extraPackages32 = [
-      #pkgs.driversi686Linux.amdvlk
-    ];*/
+      pkgs.driversi686Linux.amdvlk
+    ];
   };
-  #environment.variables.VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";  # Set RADV as default
   environment.systemPackages = [ pkgs.radeontop ];
 }
