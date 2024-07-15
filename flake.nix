@@ -10,13 +10,13 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    #hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     stylix.url = "github:danth/stylix/"; 
     #stylix.url = "git+file:///home/roman/Documents/Coding/stylix"; 
     ags.url = "github:Aylur/ags";
   };
 
-  outputs = inputs@{ nixpkgs, nixpkgs-stable, home-manager, nixos-hardware, ... }: {
+  outputs = inputs@{ nixpkgs, nixpkgs-stable, home-manager, hyprland, nixos-hardware, ... }: {
     nixosConfigurations = let
       mkSystem = import ./mkSystem.nix { inherit inputs; };
     in {
