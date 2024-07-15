@@ -49,6 +49,7 @@
     pango
     fontconfig
     xorg.libXrandr
+    xorg.libX11
   ];
 
   # CLI aliases and preferences
