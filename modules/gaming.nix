@@ -40,11 +40,18 @@
       vesktop
     ];
 
-    # Prismlauncher shortcut with gamescope (Put it in Lutris) (I assume an AMD GPU)
-    file."${config.users.users.${username}.home}/Games/Prismlauncher/prismlauncher.sh".source = "${pkgs.writeShellScriptBin "prismlauncher.sh" ''
+    # Prismlauncher shortcut with gamescope (I assume an AMD GPU)
+
+  xdg.desktopEntries.prismlauncher-with-gamescope = {
+    name = "Prism Launcher (with Gamescope)";
+    exec = "${pkgs.writeShellScriptBin "prismlauncher.sh" ''
       #!/run/sw/current-system/bin/bash
       export VK_ICD_FILENAMES=/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json  # AMD driver bs (this is worse than nvidia)
       gamescope -- prismlauncher
     ''}/bin/prismlauncher.sh";
+    terminal = false;
+    type = "Application";
+    categories = ["Game" "Application"];
+    mimeType = ["application/x-prismlauncher-instance"];
   };
 }
