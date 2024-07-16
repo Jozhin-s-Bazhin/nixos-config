@@ -25,6 +25,7 @@
         accountsservice
         libnotify
         nerdfonts
+	adwaita-icon-theme
       ];
     };
 
