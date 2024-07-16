@@ -29,7 +29,7 @@
       	gtk3
       	pango
       	fontconfig
-	vulkantools
+	vulkan-tools
       ];})
       prismlauncher
       crrcsim
