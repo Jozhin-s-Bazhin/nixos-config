@@ -24,7 +24,7 @@
 	};
 	monospace = {
 	  package = pkgs.nerdfonts.override { fonts = [ "DejaVuSansMono" ]; };
-	  name = "DejaVu Sans Mono Nerd Font";
+	  name = "DejaVuSansM Nerd Font Mono";
 	};
         emoji = {
 	  package = pkgs.whatsapp-emoji-font;
