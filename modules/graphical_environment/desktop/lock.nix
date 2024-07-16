@@ -25,10 +25,6 @@
     };
     
     home.packages = with pkgs; [
-      brightnessctl
-      wirelesstools
-      montserrat
-      nerdfonts
       gtklock
     ];
   };

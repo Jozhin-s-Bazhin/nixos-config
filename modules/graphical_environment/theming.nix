@@ -22,12 +22,15 @@
 	  package = pkgs.inter;
 	  name = "Inter";
 	};
+	monospace = {
+	  package = pkgs.nerdfonts.dejavu-sans-mono;
+	  name = "DejaVu Sans Mono Nerd Font";
+	};
         emoji = {
 	  package = pkgs.whatsapp-emoji-font;
 	  name = "Whatsapp Emoji";
 	};
       };
     };
-    #gtk.enable = true;
   };
 }
