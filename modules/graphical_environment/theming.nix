@@ -13,8 +13,18 @@
         size = 24;
       };
       base16Scheme = "${pkgs.base16-schemes}/share/themes/classic-dark.yaml";
+      fonts = {
+        serif = {
+	  package = pkgs.inter;
+	};
+        sansSerif = {
+	  package = pkgs.inter;
+	};
+        emoji = {
+	  package = pkgs.whatsapp-emoji-font;
+	  name = "Whatsapp Emoji";
+	};
+      };
     };
-    gtk.enable = true;
-    #gtk4.enable = true;
   };
 }
