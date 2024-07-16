@@ -28,5 +28,6 @@
 	};
       };
     };
+    gtk.enable = true;
   };
 }
