@@ -26,7 +26,6 @@
   environment.systemPackages = with pkgs; [
     direnv
     gh
-    zed-editor
   ];
   
   programs.zsh = {
