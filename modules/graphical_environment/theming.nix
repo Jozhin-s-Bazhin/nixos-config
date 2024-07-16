@@ -12,7 +12,7 @@
         package = pkgs.bibata-cursors;
         size = 24;
       };
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/classic-dark.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/google-dark.yaml";
       fonts = {
         serif = {
 	  package = pkgs.inter;
