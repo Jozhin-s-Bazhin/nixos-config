@@ -8,7 +8,7 @@
     image = ./wallpaper/wallpaper.jpg;
     cursor = {
       name = "Adwaita";
-      package = pkgs.adwaita-cursor-theme;
+      package = pkgs.adwaita-icon-theme;
       size = 24;
     };
     base16Scheme = "${pkgs.base16-schemes}/share/themes/classic-dark.yaml";
@@ -18,7 +18,7 @@
     image = ./wallpaper/wallpaper.jpg;
     cursor = {
       name = "Adwaita";
-      package = pkgs.adwaita-cursor-theme;
+      package = pkgs.adwaita-icon-theme;
       size = 24;
     };
     base16Scheme = "${pkgs.base16-schemes}/share/themes/classic-dark.yaml";
