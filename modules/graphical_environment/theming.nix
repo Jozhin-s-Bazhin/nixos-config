@@ -3,7 +3,7 @@
   imports = [ inputs.stylix.nixosModules.stylix ];
   
   stylix.enable = true;
-  stylix.image = "./wallpaper/wallpaper.png";
+  stylix.image = ./wallpaper/wallpaper.png;
   home-manager.users.${username}.stylix = {
     enable = true;
     #image = "./wallpaper/wallpaper.png";
