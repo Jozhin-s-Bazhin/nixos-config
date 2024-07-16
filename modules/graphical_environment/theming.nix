@@ -8,8 +8,8 @@
       enable = true;
       image = ./wallpaper/wallpaper.jpg;
       cursor = {
-        name = "Adwaita";
-        package = pkgs.gnome.adwaita-icon-theme;
+        name = "Bibata";
+        package = pkgs.bibata-cursors;
         size = 24;
       };
       base16Scheme = "${pkgs.base16-schemes}/share/themes/classic-dark.yaml";
