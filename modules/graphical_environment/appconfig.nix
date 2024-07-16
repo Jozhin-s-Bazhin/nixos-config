@@ -10,7 +10,7 @@
         #background_opacity = toString colors.opacity;
         confirm_os_window_close = "0";
         window_padding_width = "3";
-	font_name = config.stylix.fonts.monospace.name;
+	font_family = config.stylix.fonts.monospace.name;
         font_size = "13.0";
         enable_audio_bell = "no";
         hide_window_decorations = "yes";
