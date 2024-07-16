@@ -10,7 +10,7 @@
         #background_opacity = toString colors.opacity;
         confirm_os_window_close = "0";
         window_padding_width = "3";
-        font_size = "13.0";
+        font_size = "12.0";
         enable_audio_bell = "no";
         hide_window_decorations = "yes";
 	linux_display_server = "wayland";
