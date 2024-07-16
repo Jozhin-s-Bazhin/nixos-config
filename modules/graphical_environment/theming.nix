@@ -4,7 +4,7 @@
   
   home-manager.users.${username}.stylix = {
     enable = true;
-    image = ${configDir}/modules/graphical_environment/wallpaper/wallpaper.png;
+    image = /home/roman/nixos-config/modules/graphical_environment/wallpaper/wallpaper.png;
     /*cursor = {
       name = "Bibata";
       package = pkgs.bibata-cursors;
