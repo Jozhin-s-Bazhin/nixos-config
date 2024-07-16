@@ -10,7 +10,7 @@
       cursor = {
         name = "Bibata-Modern-Classic";
         package = pkgs.bibata-cursors;
-        size = 24;
+        size = 20;
       };
       base16Scheme = "${pkgs.base16-schemes}/share/themes/google-dark.yaml";
       fonts = {
@@ -30,6 +30,13 @@
 	  package = pkgs.whatsapp-emoji-font;
 	  name = "Whatsapp Emoji";
 	};
+      };
+    };
+    gtk = {
+      enable = true;
+      iconTheme = {
+        package = pkgs.adwaita-icon-theme;
+	name = "Adwaita";
       };
     };
   };
