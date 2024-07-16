@@ -7,8 +7,6 @@
     extraPackages = with pkgs; [ 
       #amdvlk 
       rocmPackages.clr.icd
-      rocm-opencl-icd
-      rocm-opencl-runtime
     ];
     /*extraPackages32 = [
       pkgs.driversi686Linux.amdvlk

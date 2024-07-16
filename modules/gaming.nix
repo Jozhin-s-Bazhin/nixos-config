@@ -29,7 +29,7 @@
       	gtk3
       	pango
       	fontconfig
-	xorg.libXrandr
+	vulkantools
       ];})
       prismlauncher
       crrcsim
