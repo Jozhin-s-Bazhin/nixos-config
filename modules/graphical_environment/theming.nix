@@ -23,7 +23,7 @@
 	  name = "Inter";
 	};
 	monospace = {
-	  package = pkgs.nerdfonts.override { fonts = [ "DejaVuSansMono" ]; };
+	  package = pkgs.nerdfonts.override { fonts = [ "DejaVuSansM Nerd Font Mono" ]; };
 	  name = "DejaVuSansM Nerd Font Mono";
 	};
         emoji = {
