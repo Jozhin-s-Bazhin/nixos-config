@@ -45,6 +45,7 @@
 	git add -A
 	git commit -m "Initial commit: added framework"
 	gh repo create --add-readme --source=. $(if [[ "$public" -eq 1 ]]; then echo "--public"; else echo "--private"; fi)
+	direnv allow
       }
     '';
     shellAliases = {
