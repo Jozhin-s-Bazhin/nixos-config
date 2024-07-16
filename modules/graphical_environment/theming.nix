@@ -8,8 +8,8 @@
       enable = true;
       image = ./wallpaper/wallpaper.jpg;
       cursor = {
-        name = "Bibata-Modern-Classic";
-        package = pkgs.bibata-cursors;
+        name = "Adwaita";
+        package = pkgs.adwaita-icon-theme;
         size = 20;
       };
       base16Scheme = "${pkgs.base16-schemes}/share/themes/google-dark.yaml";
