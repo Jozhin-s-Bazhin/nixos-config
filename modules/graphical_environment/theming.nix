@@ -7,8 +7,8 @@
     enable = true;
     image = ./wallpaper/wallpaper.jpg;
     cursor = {
-      name = "Bibata";
-      package = pkgs.bibata-cursors;
+      name = "Adwaita";
+      package = pkgs.adwaita-cursor-theme;
       size = 24;
     };
     base16Scheme = "${pkgs.base16-schemes}/share/themes/classic-dark.yaml";
@@ -17,8 +17,8 @@
     enable = true;
     image = ./wallpaper/wallpaper.jpg;
     cursor = {
-      name = "Bibata";
-      package = pkgs.bibata-cursors;
+      name = "Adwaita";
+      package = pkgs.adwaita-cursor-theme;
       size = 24;
     };
     base16Scheme = "${pkgs.base16-schemes}/share/themes/classic-dark.yaml";
