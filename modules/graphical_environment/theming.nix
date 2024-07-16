@@ -16,9 +16,11 @@
       fonts = {
         serif = {
 	  package = pkgs.inter;
+	  name = "";
 	};
         sansSerif = {
 	  package = pkgs.inter;
+	  name = "";
 	};
         emoji = {
 	  package = pkgs.whatsapp-emoji-font;
