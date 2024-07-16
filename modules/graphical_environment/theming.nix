@@ -8,7 +8,7 @@
       enable = true;
       image = ./wallpaper/wallpaper.jpg;
       cursor = {
-        name = "Bibata";
+        name = "Bibata Modern Classic";
         package = pkgs.bibata-cursors;
         size = 24;
       };
@@ -28,6 +28,6 @@
 	};
       };
     };
-    gtk.enable = true;
+    #gtk.enable = true;
   };
 }
