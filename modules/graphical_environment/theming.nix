@@ -14,8 +14,7 @@
       };
       base16Scheme = "${pkgs.base16-schemes}/share/themes/classic-dark.yaml";
     };
-    #gtk2.enable = true;
-    gtk3.enable = true;
+    gtk.enable = true;
     gtk4.enable = true;
   };
 }
