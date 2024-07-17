@@ -41,7 +41,7 @@
       }
 
       #clock-label {
-        font-size = 50;
+        font-size: 50;
       }
     '';
   };
