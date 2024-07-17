@@ -23,8 +23,8 @@
 	  name = "Inter";
 	};
 	monospace = {
-	  package = pkgs.dejavu_fonts;
-	  name = "DejaVu Sans Mono";
+	  package = pkgs.ubuntu_font_family;
+	  name = "Ubuntu Mono";
 	};
         emoji = {
 	  package = pkgs.whatsapp-emoji-font;
