@@ -35,7 +35,7 @@
         variant = "dark";
         palette = {
           base00 = "151515";
-          base01 = "202020";
+          base01 = "252525";
           base02 = "303030";
           base03 = "505050";
           base04 = "B0B0B0";
