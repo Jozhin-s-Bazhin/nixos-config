@@ -38,6 +38,7 @@
               kernelParams = [ "usbcore.autosuspend=60" ];  # Fix autosuspend issues
             };
             services.fwupd.enable = true;  # Firmware updates 
+	    environment.systemPackages = [ gnome-firmware ];
 	    environment.etc."libinput/local-overrides.quirks".text = ''
               [Framework Laptop 16 Keyboard Module]
                 MatchName=Framework Laptop 16 Keyboard Module*
