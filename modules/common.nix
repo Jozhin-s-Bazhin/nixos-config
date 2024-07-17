@@ -88,9 +88,9 @@
       bindkey -M viins 'jk' vi-cmd-mode
 
       # Shell prompt
-      autoload -U colors && colors
-      setopt PROMPT_SUBST
-      PROMPT='%{$fg[blue]%}%F{white}%K{blue}%n@%m%{$fg[blue]%}%k%{$reset_color%} %1~ '
+      #autoload -U colors && colors
+      #setopt PROMPT_SUBST
+      #PROMPT='%{$fg[blue]%}%F{white}%K{blue}%n@%m%{$fg[blue]%}%k%{$reset_color%} %1~ '
       #RPROMPT='$(if [[ ]]; )'
     '';
 
