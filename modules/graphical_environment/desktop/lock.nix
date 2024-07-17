@@ -42,10 +42,11 @@
       ExecStart = "${pkgs.writeScriptBin "lockBeforeSleep" ''
 #!/run/current-system/sw/bin/bash -l
 
-# Environment variables that make gtklock work
-export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
-export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
-export DBUS_SESSION_ADDRESS="unix:path=/run/user/1000/bus"
+# Environment variables
+pid=$(pgrep -u $USER Hyprland)
+while IFS= read -r -d ''' var; do
+    export "$var"
+done < /proc/$pid/environ
 
 ${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready"
       ''}/bin/lockBeforeSleep";
