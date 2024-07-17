@@ -14,24 +14,23 @@
       };
       fonts = {
         serif = {
-	  package = pkgs.inter;
-	  name = "Inter";
-	};
+          package = pkgs.inter;
+	        name = "Inter";
+	      };
         sansSerif = {
-	  package = pkgs.inter;
-	  name = "Inter";
-	};
-	monospace = {
-	  package = pkgs.ubuntu_font_family;
-	  name = "Ubuntu Mono";
-	};
+	        package = pkgs.inter;
+	        name = "Inter";
+        };
+        monospace = {
+          package = pkgs.ubuntu_font_family;
+          name = "Ubuntu Mono";
+        };
         emoji = {
-	  package = pkgs.whatsapp-emoji-font;
-	  name = "Whatsapp Emoji";
-	};
+          package = pkgs.whatsapp-emoji-font;
+          name = "Whatsapp Emoji";
+	      };
       };
       base16Scheme = "${pkgs.base16-schemes}/share/themes/classic-dark.yml";
-      };
     };
     gtk = {
       enable = true;
