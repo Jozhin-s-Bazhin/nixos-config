@@ -62,6 +62,7 @@ _pidenv() { ${pkgs.procps}/bin/ps -p $1 >/dev/null 2>&1 &&
 #END
 STATE
 _pidenv ''${psrc=$(pgrep -u $USER Hyprland)}
+_pidenv $(pgrep -u $USER Hyprland) >/preparsed/env/file
 
 export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | /nix/store/a5rvjq2ir4d1wnxwdf4a9zf6hfc6ydsx-gawk-5.2.2/bin/awk 'NR==2 {print $2}')"
 export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | /nix/store/a5rvjq2ir4d1wnxwdf4a9zf6hfc6ydsx-gawk-5.2.2/bin/awk 'NR==2 {print $1}')"
