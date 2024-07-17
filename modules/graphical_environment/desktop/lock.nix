@@ -39,6 +39,10 @@
    	background-repeat: no-repeat;
    	background-position: center;
       }
+
+      #clock-label {
+        font-size = 50;
+      }
     '';
   };
   
