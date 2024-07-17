@@ -40,5 +40,5 @@
       };
     };
   };
-    fonts.fonts = [ pkgs.nerdfonts ];
+  fonts.packages = [ pkgs.nerdfonts ];
 }
