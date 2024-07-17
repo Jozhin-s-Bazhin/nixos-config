@@ -37,6 +37,10 @@
               kernelPackages = nixpkgs.legacyPackages."x86_64-linux".linuxPackages_latest;  # Proper shutdown
               kernelParams = [ "usbcore.autosuspend=60" ];  # Fix autosuspend issues
             };
+            swapDevices = [{
+              device = "/var/lib/swapfile";
+              size = 36*1024;
+            }];
             services.fwupd.enable = true;  # Firmware updates 
 	    environment.systemPackages = [ nixpkgs.legacyPackages."x86_64-linux".gnome-firmware ];
 	    environment.etc."libinput/local-overrides.quirks".text = ''
