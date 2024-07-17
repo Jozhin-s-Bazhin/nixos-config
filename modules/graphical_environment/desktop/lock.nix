@@ -27,6 +27,19 @@
     home.packages = with pkgs; [
       gtklock
     ];
+
+    xdg.configFile."gtklock/config.ini".text = ''
+      [main]
+      style=./style.css
+    '';
+    xdg.configFile."gtklock/style.css".text = ''
+      window {
+        background-image: url("${configDir}/modules/graphical_environment/wallpaper/wallpaper_blurred.png");
+   	background-size: cover;
+   	background-repeat: no-repeat;
+   	background-position: center;
+      };
+    '';
   };
   
   # Lock screen before sleeping
