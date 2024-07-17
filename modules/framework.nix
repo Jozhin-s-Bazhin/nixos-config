@@ -5,15 +5,12 @@
   # Latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Fix autosuspend issue
-  boot.kernelParams = [ "usbcore.autosuspend=60" ]; 
-
-  # Hibernation
+  # Hibernation & autosuspend issue
+  boot.kernelParams = [ "usbcore.autosuspend=60" "resume_offset=53248" ]; 
   swapDevices = [{
     device = "/var/lib/swapfile";
     size = 36*1024;
   }];
-  boot.kernelParams = [ "resume_offset=53248" ]; 
 
   # Firmware updates
   services.fwupd.enable = true; 
