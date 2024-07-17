@@ -10,6 +10,7 @@
         window_padding_width = "3";
 	font_family = config.stylix.fonts.monospace.name;
         font_size = "12";
+	symbol_map = "U+e0b4 Symbols Nerd Font Mono";
         enable_audio_bell = "no";
         hide_window_decorations = "yes";
 	linux_display_server = "wayland";
