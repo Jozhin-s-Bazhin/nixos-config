@@ -44,7 +44,7 @@
 
 # Environment variables
 hyprland_pid=$(pgrep -u $USER Hyprland)
-. <(xargs -0 bash -c 'printf "export %q\n" "$@"' -- < /proc/$hyprland_pid/environ)
+export $(cat /proc/$pid/environ|xargs -0 echo)
 
 ${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready"
       ''}/bin/lockBeforeSleep";
