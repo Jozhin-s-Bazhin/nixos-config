@@ -30,7 +30,7 @@
 
     xdg.configFile."gtklock/config.ini".text = ''
       [main]
-      style=./style.css
+      style=${config.xdg.configDir}/gtklock/style.css
     '';
     xdg.configFile."gtklock/style.css".text = ''
       window {
@@ -38,6 +38,9 @@
    	background-size: cover;
    	background-repeat: no-repeat;
    	background-position: center;
+      };
+      #clock-label {
+        size = 50;
       };
     '';
   };
