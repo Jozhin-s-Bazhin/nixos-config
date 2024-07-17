@@ -39,5 +39,6 @@
 	name = "Adwaita";
       };
     };
+    fonts.fonts = [ pkgs.nerdfonts ];
   };
 }

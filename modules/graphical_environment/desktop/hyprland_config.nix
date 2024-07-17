@@ -17,10 +17,6 @@
       package = inputs.hyprland.packages."${pkgs.system}".hyprland;
       xwayland.enable = true;
     };
-    
-    home.packages = with pkgs; [
-      nerdfonts
-    ];
   };
   
   programs.hyprland = {
