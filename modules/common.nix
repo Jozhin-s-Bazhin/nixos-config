@@ -86,11 +86,10 @@
       bindkey "^?" backward-delete-char
       bindkey -M viins 'jk' vi-cmd-mode
 
-      # Shell prompt
-      #autoload -U colors && colors
-      #setopt PROMPT_SUBST
+    '';
+
+    promptInit = ''
       export PROMPT='%F{blue}%F{white}%K{blue}%n@%m%F{blue}%k%f %1~ '
-      #RPROMPT='$(if [[ ]]; )'
     '';
 
     # Aliases
