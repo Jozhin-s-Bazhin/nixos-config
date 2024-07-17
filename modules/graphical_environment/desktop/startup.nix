@@ -12,7 +12,6 @@
         "wl-paste --type image --watch cliphist store"
 
         # Other
-        "hyprpaper"
         "ags"
         "pypr"
         "wluma"
