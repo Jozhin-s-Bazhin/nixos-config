@@ -39,9 +39,6 @@
    	background-repeat: no-repeat;
    	background-position: center;
       };
-      #clock-label {
-        size = 50;
-      };
     '';
   };
   
