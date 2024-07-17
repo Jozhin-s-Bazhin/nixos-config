@@ -12,7 +12,7 @@
         package = pkgs.adwaita-icon-theme;
         size = 24;
       };
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/ashes.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/3024.yaml";
       fonts = {
         serif = {
 	  package = pkgs.inter;
