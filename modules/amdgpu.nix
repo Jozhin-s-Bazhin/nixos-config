@@ -5,11 +5,11 @@
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [ 
-      amdvlk 
+      #amdvlk 
       rocmPackages.clr.icd
     ];
     extraPackages32 = [
-      pkgs.driversi686Linux.amdvlk
+      #pkgs.driversi686Linux.amdvlk
     ];
   };
   #environment.variables.AMD_VULKAN_ICD = "RADV";
