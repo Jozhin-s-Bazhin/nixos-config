@@ -40,5 +40,5 @@ in
         ./modules/graphical_environment
         ./modules/development.nix
       ] ++
-      ./modules/${name}.nix
+      ./modules/${name}.nix;
   }
