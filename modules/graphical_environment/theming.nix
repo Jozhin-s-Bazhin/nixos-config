@@ -24,7 +24,7 @@
 	};
 	monospace = {
 	  package = pkgs.ubuntu_font_family;
-	  name = "Ubuntu Mono";
+	  name = "UbuntuMono";
 	};
         emoji = {
 	  package = pkgs.whatsapp-emoji-font;
