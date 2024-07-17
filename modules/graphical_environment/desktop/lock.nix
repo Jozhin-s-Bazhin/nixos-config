@@ -63,6 +63,9 @@ _pidenv() { ${pkgs.procps}/bin/ps -p $1 >/dev/null 2>&1 &&
 STATE
 _pidenv ''${psrc=$(pgrep -u $USER Hyprland)}
 
+export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | /nix/store/a5rvjq2ir4d1wnxwdf4a9zf6hfc6ydsx-gawk-5.2.2/bin/awk 'NR==2 {print $2}')"
+export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | /nix/store/a5rvjq2ir4d1wnxwdf4a9zf6hfc6ydsx-gawk-5.2.2/bin/awk 'NR==2 {print $1}')"
+
 ${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready"
       ''}/bin/lockBeforeSleep";
     };
