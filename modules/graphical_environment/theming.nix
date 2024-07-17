@@ -30,7 +30,7 @@
           name = "Whatsapp Emoji";
 	      };
       };
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/windows-nt.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/google-dark.yaml";
     };
     gtk = {
       enable = true;
