@@ -43,9 +43,10 @@
 #!/run/current-system/sw/bin/bash -l
 
 # Environment variables
-export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | /nix/store/a5rvjq2ir4d1wnxwdf4a9zf6hfc6ydsx-gawk-5.2.2/bin/awk 'NR==2 {print $2}')"
-export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | /nix/store/a5rvjq2ir4d1wnxwdf4a9zf6hfc6ydsx-gawk-5.2.2/bin/awk 'NR==2 {print $1}')"
-export DBUS_SESSION_ADDRESS="unix:path=/run/user/1000/bus"
+loginctl_sessions=$(loginctl list-sessions)
+export XDG_RUNTIME_DIR="/run/user/$(echo $loginctl_sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
+export WAYLAND_DISPLAY="wayland-$(echo $loginctl_sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
+export DBUS_SESSION_ADDRESS="unix:path=/run/user/$(echo $loginctl_sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')/bus"
 
 ${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready"
       ''}/bin/lockBeforeSleep";
