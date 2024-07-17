@@ -62,10 +62,9 @@
 # Environment variables
 loginctl_sessions=$(loginctl list-sessions)
 export XDG_RUNTIME_DIR="/run/user/$(echo $loginctl_sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
-export WAYLAND_DISPLAY="wayland-$(echo $loginctl_sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
 export DBUS_SESSION_ADDRESS="unix:path=/run/user/$(echo $loginctl_sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')/bus"
 
-${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready"
+${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready" --display "wayland-$(echo $loginctl_sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
       ''}/bin/lockBeforeSleep";
     };
   };
