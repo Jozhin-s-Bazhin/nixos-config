@@ -30,7 +30,7 @@
 
     xdg.configFile."gtklock/config.ini".text = ''
       [main]
-      style=${config.xdg.configDir}/gtklock/style.css
+      style=${config.home-manager.users.${username}.xdg.configDir}/gtklock/style.css
     '';
     xdg.configFile."gtklock/style.css".text = ''
       window {
