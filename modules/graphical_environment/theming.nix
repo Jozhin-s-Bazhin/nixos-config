@@ -47,7 +47,7 @@
           base0A = "F4BF75";
           base0B = "90A959";
           base0C = "75B5AA";
-          base0D = "6A9FB5";
+          base0D = "066CFA";
           base0E = "AA759F";
           base0F = "8F5536";
         };
