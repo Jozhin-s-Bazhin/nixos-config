@@ -40,7 +40,7 @@
       NotifyAccess = "all";
       User = username;
       ExecStart = "${pkgs.writeScriptBin "lockBeforeSleep" ''
-#!/run/current-system/sw/bin/bash -lc
+#!/run/current-system/sw/bin/bash -l
 
 # Environment variables that make gtklock work
 export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
