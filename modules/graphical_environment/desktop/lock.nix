@@ -68,12 +68,7 @@ ${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready" --display "wayland-$(ech
       ''}/bin/lockBeforeSleep";
     };
   };
-  services.logind = {
-    powerKey = "hibernate";
-    lidSwitch = "suspend";
-    lidSwitchExternalPower = "suspend";
-    lidSwitchDocked = "suspend";
-  };
+  services.logind.powerKey = "hibernate";
 
   # Polkit
   users.users.${username}.packages = [ pkgs.lxqt.lxqt-policykit ];
