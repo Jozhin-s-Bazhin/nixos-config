@@ -40,5 +40,5 @@
       };
     };
   };
-  fonts.packages = [ pkgs.nerdfonts ];
+  fonts.packages = [ pkgs.nerdfonts.override { fonts = [ "Symbols Nerd Font Mono"; ]; } ];
 }
