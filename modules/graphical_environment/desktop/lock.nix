@@ -44,9 +44,7 @@
 
 # Environment variables
 pid=$(pgrep -u $USER Hyprland)
-while IFS= read -r -d ''' var; do
-    export "$var"
-done < /proc/$pid/environ
+. <(xargs -0 bash -c 'printf "export %q\n" "$@"' -- < /proc/$pid/environ)
 
 ${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready"
       ''}/bin/lockBeforeSleep";
