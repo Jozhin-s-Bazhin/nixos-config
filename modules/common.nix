@@ -89,7 +89,7 @@
       # Shell prompt
       #autoload -U colors && colors
       #setopt PROMPT_SUBST
-      PROMPT='%{$fg[blue]%}%F{white}%K{blue}%n@%m%{$fg[blue]%}%k%{$reset_color%} %1~ '
+      PROMPT='%F{blue}%F{white}%K{blue}%n@%m%F{blue}%k%f %1~ '
       #RPROMPT='$(if [[ ]]; )'
     '';
 
