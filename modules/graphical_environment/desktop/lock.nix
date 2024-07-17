@@ -1,4 +1,4 @@
-{ pkgs, username, architecture, inputs, configDir, ... }:
+{ pkgs, username, architecture, inputs, configDir, config, ... }:
 {
   security.pam.services.gtklock = {};
 
