@@ -38,6 +38,13 @@
               kernelParams = [ "usbcore.autosuspend=60" ];  # Fix autosuspend issues
             };
             services.fwupd.enable = true;  # Firmware updates 
+	    services.udev.extraConfig = ''
+              [Framework Laptop 16 Keyboard Module]
+                MatchName=Framework Laptop 16 Keyboard Module*
+                MatchUdevType=keyboard
+                MatchDMIModalias=dmi:*svnFramework:pnLaptop16*
+                AttrKeyboardIntegration=internal
+            '';
           }
         ];
       };
