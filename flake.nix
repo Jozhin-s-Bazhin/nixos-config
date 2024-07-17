@@ -32,13 +32,16 @@
 
         extraModules = [
           nixos-hardware.nixosModules.framework-16-7040-amd
+	  let
+	    pkgs = nixpkgs.legacyPackages."x86_64-linux";
+	  in
           {
             boot = {
-              #kernelPackages = nixpkgs.legacyPackages."x86_64-linux".linuxPackages_latest;  # Proper shutdown
+              kernelPackages = pkgs.linuxPackages_latest;  # Proper shutdown
               kernelParams = [ "usbcore.autosuspend=60" ];  # Fix autosuspend issues
             };
             services.fwupd.enable = true;  # Firmware updates 
-	    environment.systemPackages = [ gnome-firmware ];
+	    environment.systemPackages = [ pkgs.gnome-firmware ];
 	    environment.etc."libinput/local-overrides.quirks".text = ''
               [Framework Laptop 16 Keyboard Module]
                 MatchName=Framework Laptop 16 Keyboard Module*
