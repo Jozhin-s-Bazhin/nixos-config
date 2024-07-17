@@ -8,8 +8,7 @@
       settings = {
         confirm_os_window_close = "0";
         window_padding_width = "3";
-	#font_family = config.stylix.fonts.monospace.name;
-	font_family = "Symbols Nerd Font Mono";
+	font_family = config.stylix.fonts.monospace.name;
         font_size = "12";
         enable_audio_bell = "no";
         hide_window_decorations = "yes";
