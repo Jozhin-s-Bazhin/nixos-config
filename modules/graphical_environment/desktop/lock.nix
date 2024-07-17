@@ -40,13 +40,13 @@
       NotifyAccess = "all";
       User = username;
       ExecStart = "${pkgs.writeScriptBin "lockBeforeSleep" ''
-#!/run/current-system/sw/bin/bash
+#!/run/current-system/sw/bin/bash -lc
 
-# Environment variables that make hyprlock work
+# Environment variables that make gtklock work
 export XDG_RUNTIME_DIR="/run/user/$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
 export WAYLAND_DISPLAY="wayland-$(loginctl list-sessions | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
 
-${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready" -U "systemctl start fprintd.service"
+${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready"
       ''}/bin/lockBeforeSleep";
     };
   };
