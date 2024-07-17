@@ -13,6 +13,7 @@
     device = "/var/lib/swapfile";
     size = 36*1024;
   }];
+  boot.kernelParams = [ "resume_offset=53248" ]; 
 
   # Firmware updates
   services.fwupd.enable = true; 
