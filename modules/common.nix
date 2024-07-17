@@ -89,7 +89,7 @@
     '';
 
     promptInit = ''
-      export PROMPT='%F{blue}%F{white}%K{blue}%n@%m%F{blue}%k%f %/ '
+      export PROMPT='%F{blue}%F{white}%K{blue}%n@%m%F{blue}%k%f %~ '
     '';
 
     # Aliases
