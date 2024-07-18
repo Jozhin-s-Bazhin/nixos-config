@@ -1,5 +1,5 @@
 { lib, name }:
-modules:
+{ modules }:
 let
   hasModule = moduleName: builtins.elem moduleName modules;
 in
