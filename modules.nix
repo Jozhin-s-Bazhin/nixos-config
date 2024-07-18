@@ -1,7 +1,7 @@
 { lib, name }:
 { modules }:
 let
-  hasModule = moduleName: lib.elem moduleName modules;
+  hasModule = moduleName: builtins.elem moduleName modules;
 in
 {
     modules = 
