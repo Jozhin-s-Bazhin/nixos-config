@@ -3,7 +3,7 @@
   nixpkgs.overlays = [
     (final: prev: {
       freecad = prev.freecad.overrideAttrs (oldAttrs: rec {
-        python = final.python311Packages.python;
+        python = final.python311Packages.python311;
         shiboken2 = final.python311Packages.shiboken2;
         pyside2 = final.python311Packages.pyside2;
         matplotlib = final.python311Packages.matplotlib;
@@ -13,7 +13,7 @@
 
         # Ensure that all build inputs are also using Python 3.11 packages
         buildInputs = oldAttrs.buildInputs ++ [
-          final.python311Packages.python
+          final.python311Packages.python311
           final.python311Packages.shiboken2
           final.python311Packages.pyside2
           final.python311Packages.matplotlib
