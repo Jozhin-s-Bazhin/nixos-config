@@ -9,7 +9,7 @@
 }:
 let
   lib = inputs.nixpkgs.lib;
-  moduleList = import ./modules.nix { inherit lib modules name; };
+  moduleList = import ./modules.nix { inherit lib name; } modules;
 in
   lib.nixosSystem {
     system = architecture;
