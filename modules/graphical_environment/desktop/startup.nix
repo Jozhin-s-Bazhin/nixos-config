@@ -14,7 +14,6 @@
         # Other
         "ags"
         "pypr"
-        "wluma"
       ];
     };
 
