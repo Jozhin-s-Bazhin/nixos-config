@@ -25,10 +25,15 @@
         architecture = "x86_64-linux";
         username = "roman";
 
-        laptop = true;
-        amdgpu = true;
-        gaming = true;
-        development = true;
+	modules = [
+          "laptop"
+          "amdgpu"
+          "gaming"
+          "development"
+	  "cad"
+	  "office"
+	  "movies"
+	];
       };
     };
   };
