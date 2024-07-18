@@ -15,9 +15,6 @@
         "ags"
         "pypr"
         "wluma"
-
-	# Floorp
-	#"exec-once = [workspace special:floorp silent] kitty"
       ];
     };
 
@@ -32,27 +29,10 @@
       ]
     '';
 
-    xdg.configFile."wluma/config.toml".text = ''
-      [als.iio]
-      path = "/sys/bus/iio/devices"
-      thresholds = { 0 = "night", 20 = "dark", 80 = "dim", 250 = "normal", 500 = "bright", 800 = "outdoors" }
-
-[[output.backlight]]
-name = "eDP-2"
-path = "/sys/class/backlight/amdgpu_bl2"
-capturer = "none"
-
-#[[keyboard]]
-#name = "keyboard-dell"
-#path = "/sys/bus/platform/devices/dell-laptop/leds/framework_laptop::kbd_backlight"
-    '';
-
     home.packages = with pkgs; [
       pyprland
-      wluma
       cliphist
       wl-clipboard-rs
-      hyprpaper
     ];
   };
 }

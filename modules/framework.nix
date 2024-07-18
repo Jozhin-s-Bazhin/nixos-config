@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, username, ... }:
 {
   imports = [ inputs.nixos-hardware.nixosModules.framework-16-7040-amd ];
 
@@ -25,4 +25,17 @@
     MatchDMIModalias=dmi:*svnFramework:pnLaptop16*
     AttrKeyboardIntegration=internal
   '';
+
+  # Auto-brightness with wluma
+  xdg.configFile."wluma/config.toml".text = ''
+    [als.iio]
+    path = "/sys/bus/iio/devices"
+    thresholds = { 0 = "night", 20 = "dark", 80 = "dim", 250 = "normal", 500 = "bright", 800 = "outdoors" }
+
+    [[output.backlight]]
+    name = "eDP-2"
+    path = "/sys/class/backlight/amdgpu_bl2"
+    capturer = "none"
+  '';
+  home-manager.users.${username}.home.packages = [ pkgs.wluma ];
 }
