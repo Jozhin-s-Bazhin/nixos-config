@@ -5,15 +5,14 @@
   architecture,
   username,  
   configDir ? "/home/${username}/nixos-config",
-  moduleNames ? []
+  modules ? []
 }:
 let
   lib = inputs.nixpkgs.lib;
-  module_func = import ./modules.nix { inherit lib; };
-  modules = module_func moduleNames;
+  moduleList = import ./modules.nix { inherit lib modules; };
 in
   lib.nixosSystem {
     system = architecture;
     specialArgs = { inherit inputs architecture name username configDir; };
-    inherit modules;
+    modules = moduleList;
   }
