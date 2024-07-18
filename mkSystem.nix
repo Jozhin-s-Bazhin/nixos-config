@@ -5,40 +5,45 @@
   architecture,
   username,  
   configDir ? "/home/${username}/nixos-config",
-  common ? true,
-  desktop ? false,
-  laptop ? false,
-  server ? false,
-  graphicalEnvironment ? false,
-  gaming ? false,
-  development ? false,
-  amdgpu ? false,
-  extraModules ? []
+  modules ? []
 }:
 let
   lib = inputs.nixpkgs.lib;
+  hasModule = moduleName: lib.elem moduleName modules;
 in
   lib.nixosSystem {
     system = architecture;
     specialArgs = { inherit inputs architecture name username configDir; };
     modules = 
-      lib.optional common ./modules/common.nix ++
-      lib.optional server ./modules/server.nix ++
-      lib.optional desktop ./modules/pc.nix ++
-      lib.optional amdgpu ./modules/amdgpu.nix ++
-      lib.optional graphicalEnvironment ./modules/graphical_environment ++
-      [ ./hardware/${name}.nix ] ++
-      lib.optionals laptop [
+      lib.optional (hasModule common) ./modules/common.nix ++
+      lib.optional (hasModule server) ./modules/server.nix ++
+      lib.optional (hasModule desktop) ./modules/pc.nix ++
+      lib.optional (hasModule amdgpu) ./modules/amdgpu.nix ++
+      lib.optional (hasModule graphicalEnvironment) ./modules/graphical_environment ++
+      lib.optionals (hasModule laptop) [
         ./modules/pc.nix
         ./modules/laptop.nix
       ] ++
-      lib.optionals gaming [
+      lib.optionals (hasModule gaming) [
         ./modules/graphical_environment
         ./modules/gaming.nix
       ] ++
-      lib.optionals development [
+      lib.optionals (hasModule development) [
         ./modules/graphical_environment
         ./modules/development.nix
       ] ++
+      lib.optionals (hasModule cad) [
+        ./modules/graphical_environment
+        ./modules/cad.nix
+      ] ++
+      lib.optionals (hasModule office) [
+        ./modules/graphical_environment
+        ./modules/office.nix
+      ] ++
+      lib.optionals (hasModule movies) [
+        ./modules/graphical_environment
+        ./modules/movies.nix
+      ] ++
+      [ ./hardware/${name}.nix ] ++
       [ ./modules/${name}.nix ];
   }

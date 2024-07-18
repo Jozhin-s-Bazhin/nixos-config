@@ -3,17 +3,14 @@
 {
   home-manager.users.${username}.home.packages = with pkgs; [
     floorp
-    qbittorrent
-    vlc
     spotube
-    libreoffice
-    bitwarden
-    thunderbird
     pavucontrol
     nautilus
+    bitwarden
+    thunderbird
     whatsapp-for-linux
     
-    # CLI tools
+    # CLI stuff
     graphicsmagick
     neofetch 
     fastfetch
@@ -21,6 +18,5 @@
     sl
     cmatrix
     pipes-rs
-    htop
   ];
 }

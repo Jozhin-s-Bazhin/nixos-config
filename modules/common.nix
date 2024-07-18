@@ -56,6 +56,7 @@
     tldr
     bc
     yazi
+    htop
   ];
   
   programs.zsh = {
