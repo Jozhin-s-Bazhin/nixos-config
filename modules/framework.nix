@@ -39,5 +39,6 @@
       capturer = "none"
   '';
     home.packages = [ pkgs.wluma ];
+    wayland.windowManager.hyprland.settings.exec-once = [ "wluma" ];
   };
 }
