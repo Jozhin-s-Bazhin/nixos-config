@@ -1,7 +1,7 @@
 { lib }:
 { modules }:
 let
-  hasModule = moduleName: lib.elem moduleName moduleNames;
+  hasModule = moduleName: lib.elem moduleName modules;
 in
 {
     modules = 
