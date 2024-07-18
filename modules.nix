@@ -3,7 +3,7 @@ modules:
 let
   hasModule = moduleName: builtins.elem moduleName modules;
 in
-      lib.optional (hasModule "common") ./modules/common.nix ++
+      [ "./modules/common.nix" ] ++
       lib.optional (hasModule "server") ./modules/server.nix ++
       lib.optional (hasModule "desktop") ./modules/pc.nix ++
       lib.optional (hasModule "amdgpu") ./modules/amdgpu.nix ++
