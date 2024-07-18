@@ -14,5 +14,5 @@ in
   lib.nixosSystem {
     system = architecture;
     specialArgs = { inherit inputs architecture name username configDir; };
-    inherit modules;
+    inherit modules moduleNames;
   }

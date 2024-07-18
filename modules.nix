@@ -2,6 +2,7 @@
 let
   hasModule = moduleName: lib.elem moduleName moduleNames;
 in
+{ moduleNames }:
 {
     modules = 
       lib.optional (hasModule "common") ./modules/common.nix ++
