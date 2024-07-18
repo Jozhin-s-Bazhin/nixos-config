@@ -1,4 +1,7 @@
 { pkgs, username, ...}:
 {
-  home-manager.users.${username}.home.packages = with pkgs; [ freecad ];
+  home-manager.users.${username}.home.packages = with pkgs; [ 
+   #freecad  # Broken
+   bambu-studio
+  ];
 }

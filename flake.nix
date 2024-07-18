@@ -29,7 +29,7 @@
           "amdgpu"
           "gaming"
           "development"
-	  #"cad"  # Broken
+	  "cad"
 	  "office"
 	  "movies"
 	];
