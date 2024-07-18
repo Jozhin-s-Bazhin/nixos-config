@@ -1,4 +1,7 @@
 { lib }:
+let
+  hasModule = moduleName: lib.elem moduleName moduleNames;
+in
 {
     modules = 
       lib.optional (hasModule "common") ./modules/common.nix ++
