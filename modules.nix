@@ -3,8 +3,6 @@ modules:
 let
   hasModule = moduleName: builtins.elem moduleName modules;
 in
-{
-    modules = 
       lib.optional (hasModule "common") ./modules/common.nix ++
       lib.optional (hasModule "server") ./modules/server.nix ++
       lib.optional (hasModule "desktop") ./modules/pc.nix ++
@@ -35,5 +33,4 @@ in
         ./modules/movies.nix
       ] ++
       [ ./hardware/${name}.nix ] ++
-      [ ./modules/${name}.nix ];
-}
+      [ ./modules/${name}.nix ]
