@@ -9,10 +9,10 @@
 }:
 let
   lib = inputs.nixpkgs.lib;
-  modules = import ./modules.nix { inherit lib; };
+  modules = (import ./modules.nix { inherit lib; }) moduleNames;
 in
   lib.nixosSystem {
     system = architecture;
     specialArgs = { inherit inputs architecture name username configDir; };
-    inherit modules moduleNames;
+    inherit modules;
   }
