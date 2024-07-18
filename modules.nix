@@ -1,4 +1,4 @@
-{ lib }:
+{ lib, name }:
 { modules }:
 let
   hasModule = moduleName: lib.elem moduleName modules;
