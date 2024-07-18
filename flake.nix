@@ -25,7 +25,7 @@
         architecture = "x86_64-linux";
         username = "roman";
 
-	moduleNames = [
+	modules = [
           "laptop"
           "amdgpu"
           "gaming"
