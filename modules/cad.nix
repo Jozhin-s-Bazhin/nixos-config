@@ -1,6 +1,6 @@
 { pkgs, username, ...}:
 {
   home-manager.users.${username}.home.packages = with pkgs; [ 
-    (freecad.override {python = python38;})
+    (freecad.override {python = pkgs.python311;})
   ];
 }
