@@ -30,7 +30,7 @@
           "amdgpu"
           "gaming"
           "development"
-	  #"cad"
+	  "cad"
 	  "office"
 	  "movies"
 	];
