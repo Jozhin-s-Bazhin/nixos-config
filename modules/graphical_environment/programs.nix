@@ -11,6 +11,7 @@
       thunderbird
       spotube
       pavucontrol   
+      pinta
     ];
 
     xdg.mimeApps = {
