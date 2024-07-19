@@ -7,7 +7,6 @@
     nautilus
     bitwarden
     whatsapp-for-linux
-    gpt4all
     thunderbird
     
     # CLI stuff
