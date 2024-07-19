@@ -17,16 +17,16 @@
     };
 
   # KDEConnect
-    services.kdeconnect = {
+  /*  services.kdeconnect = {
       enable = true;
       indicator = true;
-    }; 
+    }; */
   }; 
-  services.dbus.enable = true;
+  /*services.dbus.enable = true;
   networking.firewall = {
     allowedTCPPorts = [ 1714 1715 ];
     allowedUDPPorts = [ 1714 1715 1716 ];
-  };
+  };*/
 
   # Floorp webapps
   system.activationScripts.floorp.text = ''

@@ -41,4 +41,5 @@
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; 
     }; 
   };
+  services.dbus.enable = true;
 }
