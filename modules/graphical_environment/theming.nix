@@ -31,6 +31,9 @@
 	      };
       };
       base16Scheme = "${pkgs.base16-schemes}/share/themes/google-dark.yaml";
+      opacity = {
+        terminal = 0.85;
+      };
     };
     gtk = {
       enable = true;
