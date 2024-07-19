@@ -64,7 +64,7 @@ loginctl_sessions=$(loginctl list-sessions)
 export XDG_RUNTIME_DIR="/run/user/$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
 export DBUS_SESSION_ADDRESS="unix:path=/run/user/$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')/bus"
 
-${pkgs.gtklock}/bin/gtklock -L "bash -c '${pkgs.coreutils}/bin/sleep 1; systemd-notify --ready'" --display "wayland-$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
+${pkgs.gtklock}/bin/gtklock -L "bash -c 'systemd-notify --ready'" --display "wayland-$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
       ''}/bin/lockBeforeSleep";
     };
   };
