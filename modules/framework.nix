@@ -43,8 +43,8 @@
     systemd.user.services.wluma = {
       Unit = {
         Description = "Adjusting screen brightness based on screen contents and amount of ambient light";
-	PartOf = "graphical-session.target";
-        After = "graphical-session.target";
+	PartOf = [ "graphical-session.target" ];
+        After = [ "graphical-session.target" ];
       };
       Service = {
         ExecStart = "${pkgs.wluma}/bin/wluma";
@@ -53,7 +53,7 @@
 	PrivateNetwork = "true";
 	PrivateMounts = "false";
       };
-      Install.WantedBy = "graphical-session.target";
+      Install.WantedBy = [ "graphical-session.target" ];
     };
   };
 }
