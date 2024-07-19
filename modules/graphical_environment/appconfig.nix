@@ -16,6 +16,9 @@
       };
     };
 
+  # Floorp
+  home.packages = [ pkgs.floorp ];
+
   # KDEConnect
     services.kdeconnect = {
       enable = true;
