@@ -18,9 +18,9 @@
     "inode/directory" = "org.gnome.Nautilus.desktop";
     
     # GNOME image viewer
-    "image/jpg" = "org.gnome.Photos.desktop"
-    "image/png" = "org.gnome.Photos.desktop"
-    "image/webp" = "org.gnome.Photos.desktop"
+    "image/jpg" = "org.gnome.Photos.desktop";
+    "image/png" = "org.gnome.Photos.desktop";
+    "image/webp" = "org.gnome.Photos.desktop";
 
     # Floorp
     "text/html" = "floorp.desktop";
