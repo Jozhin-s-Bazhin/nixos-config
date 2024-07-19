@@ -80,11 +80,8 @@
       extensions.experimental.affinity."asvetliakov.vscode-neovim" = 1;
       "window.titleBarStyle" = "native";
       "git.confirmSync" = false;
-      "vscode-neovim.compositeKeys" = {
-        "jk" = {
-        "command" = "vscode-neovim.escape";
-        };
-      };
+      "vscode-neovim.compositeKeys"."jk"."command" = "vscode-neovim.escape";
+      "git.openRepositoryInParentFolders" = "always";
     };
   };
 }
