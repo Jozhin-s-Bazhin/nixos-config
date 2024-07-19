@@ -5,7 +5,7 @@
   home.packages = with pkgs; [
     floorp
     nautilus
-    eog
+    gnome-photos
     bitwarden
     whatsapp-for-linux
     thunderbird
