@@ -6,7 +6,6 @@
     pavucontrol
     nautilus
     bitwarden
-    thunderbird
     whatsapp-for-linux
     gpt4all
     
