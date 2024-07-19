@@ -39,7 +39,9 @@
         path = "/sys/class/backlight/amdgpu_bl2"
         capturer = "none"
       '';
-      "systemd/user/wluma.service".source = "${pkgs.wluma}/share/systemd/user/wluma.service";
+    };
+    systemd.user.services.wluma = {
+      
     };
   };
 }
