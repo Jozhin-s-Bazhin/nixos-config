@@ -25,5 +25,3 @@ class Extension(Plugin):
         subprocess.run("ags & disown", shell=True)
         sleep(1)
         await remove_unused_bars(self)
-
-    async def event_monitorremovedv2(self, monitor):

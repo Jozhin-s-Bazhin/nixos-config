@@ -15,7 +15,7 @@
 
     xdg.mimeApps.defaultApplications = {
       # Nautilus
-      "inode/directory" = "application/x-gnome-saved-search";
+      "inode/directory" = "org.gnome.Nautilus.desktop";
       
       # GNOME image viewer
       "image/jpg" = "org.gnome.Photos.desktop";
