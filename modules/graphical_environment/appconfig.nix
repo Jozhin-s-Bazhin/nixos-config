@@ -16,8 +16,19 @@
       };
     };
 
-  # Floorp
-  home.packages = [ pkgs.floorp ];
+  # Nautilus and floorp
+  home.packages = with pkgs; [ floorp nautilus eog ];
+  xdg.mimeApps.defaultApplications = {
+    # Nautilus
+    "inode/directory" = "nautilus.desktop";
+
+    # Floorp
+    "text/html" = "floorp.desktop";
+    "x-scheme-handler/http" = "floorp.desktop";
+    "x-scheme-handler/https" = "floorp.desktop";
+    "x-scheme-handler/about" = "floorp.desktop";
+    "x-scheme-handler/unknown" = "floorp.desktop";
+  };
 
   # KDEConnect
     services.kdeconnect = {
@@ -31,7 +42,7 @@
     allowedUDPPorts = [ 1714 1715 1716 ];
   };
 
-  # Floorp
+  # Floorp webapps
   system.activationScripts.floorp.text = ''
     ln -sfn ${pkgs.floorp}/bin/floorp /usr/bin/floorp 
   '';
