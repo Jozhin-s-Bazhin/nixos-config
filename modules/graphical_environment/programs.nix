@@ -13,7 +13,9 @@
       pavucontrol   
     ];
 
-    xdg.mimeApps.defaultApplications = {
+    xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
       # Nautilus
       "inode/directory" = "org.gnome.Nautilus.desktop";
       
@@ -28,6 +30,7 @@
       "x-scheme-handler/https" = "floorp.desktop";
       "x-scheme-handler/about" = "floorp.desktop";
       "x-scheme-handler/unknown" = "floorp.desktop";
+    };
     };
   };
 }
