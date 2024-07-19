@@ -8,6 +8,7 @@
     bitwarden
     whatsapp-for-linux
     gpt4all
+    thunerbird
     
     # CLI stuff
     graphicsmagick

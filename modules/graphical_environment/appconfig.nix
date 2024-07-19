@@ -35,7 +35,4 @@
   system.activationScripts.floorp.text = ''
     ln -sfn ${pkgs.floorp}/bin/floorp /usr/bin/floorp 
   '';
-
-  # E-mail
-  programs.geary.enable = true;
 }
