@@ -15,7 +15,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, nixos-hardware, ... }: {
+  outputs = inputs@{ nixpkgs, ... }: {
     nixosConfigurations = let
       mkSystem = import ./mkSystem.nix { inherit inputs; };
     in {
