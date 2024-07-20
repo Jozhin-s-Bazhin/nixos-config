@@ -12,6 +12,7 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     stylix.url = "github:danth/stylix/"; 
     ags.url = "github:Aylur/ags";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, hyprland, nixos-hardware, ... }: {
