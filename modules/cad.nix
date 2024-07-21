@@ -5,6 +5,6 @@
 
     # Fusion 360
     bottles
-    wineWowPackages.waylandFull
+    wineWowPackages.stable
   ];
 }
