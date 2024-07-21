@@ -32,7 +32,7 @@ in
         #"SUPER, Tab, exec, ags -t applauncher"
         "SUPER, Tab, exec, anyrun"
         "SUPER, Return, exec, kitty"
-        "SUPER, B, exec, floorp"
+        "SUPER, B, exec, brave"
         "SUPER, C, exec, codium"
 
         # Scratchpad
