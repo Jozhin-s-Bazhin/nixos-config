@@ -2,6 +2,6 @@
 {
   home-manager.users.${username}.home.packages = with pkgs; [ 
     bambu-studio
-    freecad
+    inputs.ondsel.packages."x86_64-linux".default
   ];
 }

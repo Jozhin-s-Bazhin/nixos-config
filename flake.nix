@@ -12,6 +12,7 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     stylix.url = "github:danth/stylix/"; 
     ags.url = "github:Aylur/ags";
+    ondsel.url = "github:pinpox/ondsel-nix";
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
