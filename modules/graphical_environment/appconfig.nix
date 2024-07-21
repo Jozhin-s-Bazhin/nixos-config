@@ -2,7 +2,7 @@
 
 {
   home-manager.users.${username} = {
-  # Kitty
+    # Kitty
     programs.kitty = {
       enable = true;
       settings = {
@@ -16,20 +16,9 @@
       };
     };
 
-  # KDEConnect
-  /*  services.kdeconnect = {
+    programs.chromium = {
       enable = true;
-      indicator = true;
-    }; */
+      package = pkgs.brave;
+    };
   }; 
-  /*services.dbus.enable = true;
-  networking.firewall = {
-    allowedTCPPorts = [ 1714 1715 ];
-    allowedUDPPorts = [ 1714 1715 1716 ];
-  };*/
-
-  # Floorp webapps
-  system.activationScripts.floorp.text = ''
-    ln -sfn ${pkgs.floorp}/bin/floorp /usr/bin/floorp 
-  '';
 }
