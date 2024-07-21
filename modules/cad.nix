@@ -2,9 +2,6 @@
 {
   home-manager.users.${username}.home.packages = with pkgs; [ 
     bambu-studio
-
-    # Fusion 360
-    bottles
-    wineWowPackages.stable
+    freecad
   ];
 }
