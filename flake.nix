@@ -28,6 +28,7 @@
           "amdgpu"
           "gaming"
           "development"
+	  "virtualisation"
 	  "cad"
 	  "office"
 	  "movies"
