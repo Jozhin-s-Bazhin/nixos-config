@@ -1,6 +1,5 @@
 { pkgs, username, ... }:
 {
-  # Virtualisation
   programs.virt-manager.enable = true;
   virtualisation.libvirtd = {
     enable = true;
@@ -13,11 +12,4 @@
     };
   };
   users.users.${username}.extraGroups = [ "libvirtd" "kvm" "qemu-libvirtd" ];
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
 }

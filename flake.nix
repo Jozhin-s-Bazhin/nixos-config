@@ -22,13 +22,12 @@
         name = "framework";
         architecture = "x86_64-linux";
         username = "roman";
-
 	modules = [
           "laptop"
           "amdgpu"
           "gaming"
           "development"
-	  "virtualisation"
+	  "qemu"
 	  "cad"
 	  "office"
 	  "movies"

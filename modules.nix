@@ -8,7 +8,10 @@ in
   lib.optional (hasModule "desktop") ./modules/pc.nix ++
   lib.optional (hasModule "amdgpu") ./modules/amdgpu.nix ++
   lib.optional (hasModule "graphicalEnvironment") ./modules/graphical_environment ++
-  lib.optional (hasModule "virtualisation") ./modules/virtualisation.nix ++
+  lib.optional (hasModule "virtualisation") ./modules/virtualisation ++
+  lib.optional (hasModule "qemu") ./modules/virtualisation/qemu.nix ++
+  lib.optional (hasModule "docker") ./modules/virtualisation/docker.nix ++
+  lib.optional (hasModule "waydroid") ./modules/virtualisation/waydroid.nix ++
   lib.optionals (hasModule "laptop") [
     ./modules/pc.nix
     ./modules/laptop.nix

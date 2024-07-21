@@ -6,9 +6,6 @@
     hardware.openrgb.enable = true; # RGB
   };
 
-  # Android emulation
-  #virtualisation.waydroid.enable = true;
-  
   # Steam
   programs.steam = {
     enable = true;
