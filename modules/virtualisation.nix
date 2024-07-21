@@ -1,4 +1,4 @@
-{ username, ... }:
+{ pkgs, username, ... }:
 {
   # Virtualisation
   programs.virt-manager.enable = true;
