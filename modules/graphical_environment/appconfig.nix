@@ -25,7 +25,9 @@
 	{ id = "nngceckbapebfimnlniiiahkandclblb"; }  # Bitwarden
 	{ id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; }  # Dark reader
         { id = "mnjggcdmjocbbbhaepdhchncahnbgone"; }  # Sponsorblock
-	{ id = "adpfjochlgeifbpfnlchcdcmoaafnoim"; }  # Trackpad gestures
+      ];
+      commandLineArgs = [
+        "--enable-features=TouchpadOverscrollHistoryNavigation"
       ];
     };
   }; 
