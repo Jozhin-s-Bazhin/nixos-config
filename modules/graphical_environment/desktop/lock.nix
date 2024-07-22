@@ -24,22 +24,8 @@
       };
     };
     
-    home.packages = 
-    let
-      sddm-windows-12 = pkgs.stdenv.mkDerivation rec {
-        pname = "sddm-windows-12";
-        name = "sddm-windows-12";
-        dontBuild = true;
-        installPhase = ''
-          mkdir -p $out/share/sddm/themes
-          cp -aR $src $out/share/sddm/themes/sddm-windows-12
-        '';
-      src = ./sddm-windows-12;
-  };
-    in
-    [
+    home.packages = [
       pkgs.gtklock
-      sddm-windows-12
     ];
 
     xdg.configFile."gtklock/config.ini".text = ''
@@ -92,5 +78,19 @@ ${pkgs.gtklock}/bin/gtklock -L "bash -c 'sleep 1; systemd-notify --ready'" --dis
     enable = true;
     wayland.enable = true;
     theme = "Windows12-Sddm";
+    extraPackages = 
+    let
+      sddm-windows-12 = pkgs.stdenv.mkDerivation rec {
+        pname = "sddm-windows-12";
+        name = "sddm-windows-12";
+        dontBuild = true;
+        installPhase = ''
+          mkdir -p $out/share/sddm/themes
+          cp -aR $src $out/share/sddm/themes/sddm-windows-12
+        '';
+      src = ./sddm-windows-12;
+  };
+    in
+    [ sddm-windows-12 ];
   };
 }
