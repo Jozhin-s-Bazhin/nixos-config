@@ -72,4 +72,7 @@ ${pkgs.gtklock}/bin/gtklock -L "bash -c 'sleep 1; systemd-notify --ready'" --dis
 
   # Polkit
   users.users.${username}.packages = [ pkgs.lxqt.lxqt-policykit ];
+
+  # Display manager
+  services.xserver.displayManager.sddm.enable = true;
 }
