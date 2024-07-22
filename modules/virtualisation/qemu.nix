@@ -13,4 +13,5 @@
     };
   };
   users.users.${username}.extraGroups = [ "libvirtd" "kvm" "qemu-libvirtd" ];
+  networking.firewall.trustedInterfaces = [ "" ];
 }
