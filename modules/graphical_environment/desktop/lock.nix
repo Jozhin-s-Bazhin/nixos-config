@@ -64,7 +64,7 @@ loginctl_sessions=$(loginctl list-sessions)
 export XDG_RUNTIME_DIR="/run/user/$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
 export DBUS_SESSION_ADDRESS="unix:path=/run/user/$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')/bus"
 
-${pkgs.gtklock}/bin/gtklock -L "bash -c 'sleep 1; systemd-notify --ready'" --display "wayland-$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $1}')"
+${pkgs.gtklock}/bin/gtklock -L "bash -c 'sleep 1; systemd-notify --ready'" --display "wayland-2"
       ''}/bin/lockBeforeSleep";
     };
   };
@@ -79,7 +79,7 @@ ${pkgs.gtklock}/bin/gtklock -L "bash -c 'sleep 1; systemd-notify --ready'" --dis
     wayland.enable = true;
     theme = "Windows12-Sddm";
     extraPackages = 
-    let
+/*    let
       sddm-windows-12 = pkgs.stdenv.mkDerivation rec {
         pname = "sddm-windows-12";
         name = "sddm-windows-12";
@@ -91,6 +91,6 @@ ${pkgs.gtklock}/bin/gtklock -L "bash -c 'sleep 1; systemd-notify --ready'" --dis
       src = ./sddm-windows-12;
   };
     in
-    [ sddm-windows-12 ];
+    [ sddm-windows-12 ]; */
   };
 }
