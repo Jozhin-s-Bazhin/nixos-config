@@ -74,5 +74,8 @@ ${pkgs.gtklock}/bin/gtklock -L "bash -c 'sleep 1; systemd-notify --ready'" --dis
   users.users.${username}.packages = [ pkgs.lxqt.lxqt-policykit ];
 
   # Display manager
-  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
 }
