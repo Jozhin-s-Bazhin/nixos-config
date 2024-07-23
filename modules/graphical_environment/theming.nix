@@ -36,6 +36,7 @@
     home.sessionVariables = {
       HYPRCURSOR_SIZE = 24;
       HYPRCURSOR_THEME = "Adwaita";
+      XCURSOR_SIZE = 24;
     };
 
     gtk = {
