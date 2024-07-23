@@ -36,8 +36,8 @@
     home.sessionVariables = {
       HYPRCURSOR_SIZE = 24;
       HYPRCURSOR_THEME = "Adwaita";
-      XCURSOR_SIZE = 24;
     };
+    wayland.windowManager.hyprland.settings.env = [ "XCURSOR_SIZE,24" ];
 
     gtk = {
       enable = true;
