@@ -522,17 +522,16 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1720818679,
-        "narHash": "sha256-u9PqY7O6TN42SLeb0e6mnYAgQOoQmclaVSHfLKMpmu0=",
+        "lastModified": 1721573849,
+        "narHash": "sha256-pHfzFzjADtCqMswGwrfC5klBWJZ6h94bxVrVObJLrEM=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "29148118cc33f08b71058e1cda7ca017f5300b51",
+        "rev": "0ef70039a6435446472182c8f8106947abfc523d",
         "type": "github"
       },
       "original": {
         "owner": "danth",
         "repo": "stylix",
-        "rev": "29148118cc33f08b71058e1cda7ca017f5300b51",
         "type": "github"
       }
     },
