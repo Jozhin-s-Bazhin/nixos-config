@@ -11,6 +11,7 @@
       spotube
       pavucontrol   
       pinta
+      zed-editor
     ];
 
     xdg.mimeApps = {
@@ -26,4 +27,5 @@
       };
     };
   };
+  programs.dconf.enable = true;
 }
