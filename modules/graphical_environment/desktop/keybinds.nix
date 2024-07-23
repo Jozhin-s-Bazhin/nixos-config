@@ -33,6 +33,7 @@ in
         "SUPER, Return, exec, kitty"
         "SUPER, B, exec, brave"
         "SUPER, C, exec, codium"
+	"SUPER, F, exec, nautilus"
 
         # Scratchpad
         "SUPER, Backspace, togglespecialworkspace"
