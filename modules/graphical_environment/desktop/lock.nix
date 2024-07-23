@@ -77,20 +77,11 @@ ${pkgs.gtklock}/bin/gtklock -L "bash -c 'sleep 1; systemd-notify --ready'" --dis
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    theme = "sddm-windows-12";
-    extraPackages = 
-    let
-      sddm-windows-12 = pkgs.stdenv.mkDerivation rec {
-        pname = "sddm-windows-12";
-        name = "sddm-windows-12";
-        dontBuild = true;
-        installPhase = ''
-          mkdir -p $out/share/sddm/themes
-          cp -aR $src $out/share/sddm/themes/sddm-windows-12
-        '';
-        src = ./sddm-windows-12;
-      };
-    in
-      [ sddm-windows-12 ];
+    settings.Theme = {
+      current = "Windows-12";
+      ThemeDir = "${configDir}/modules/graphical_environment/desktop/sddm-themes";
+      cursorTheme = "Adwaita";
+      cursorSize = 24;
+    };
   };
 }
