@@ -31,6 +31,11 @@
 	      };
       };
       base16Scheme = "${pkgs.base16-schemes}/share/themes/google-dark.yaml";
+
+      envVars = {
+        HYPRCURSOR_SIZE = 24;
+        HYPRCURSOR_THEME = "Adwaita";
+      };
     };
     gtk = {
       enable = true;
