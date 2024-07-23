@@ -33,12 +33,6 @@
       base16Scheme = "${pkgs.base16-schemes}/share/themes/google-dark.yaml";
     };
 
-    home.sessionVariables = {
-      HYPRCURSOR_SIZE = 24;
-      HYPRCURSOR_THEME = "Adwaita";
-    };
-    wayland.windowManager.hyprland.settings.env = [ "XCURSOR_SIZE,24" ];
-
     gtk = {
       enable = true;
       iconTheme = {
