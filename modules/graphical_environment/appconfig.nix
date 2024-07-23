@@ -28,6 +28,7 @@
       ];
       commandLineArgs = [
         "--enable-features=TouchpadOverscrollHistoryNavigation"
+	"--password-store=basic"
       ];
     };
   }; 
