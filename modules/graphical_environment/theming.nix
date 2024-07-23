@@ -2,15 +2,7 @@
 {
   imports = [ inputs.stylix.nixosModules.stylix ];
   
-  stylix = {
-    enable = true;
-    image = ./wallpaper/wallpaper.jpg;  # It breaks without this
-    cursor = {
-      name = "Adwaita";
-      package = pkgs.adwaita-icon-theme;
-      size = 24;
-    };
-  };
+  stylix.image = ./wallpaper/wallpaper.jpg;  # It breaks without this
   home-manager.users.${username} = {
     stylix = {
       enable = true;
