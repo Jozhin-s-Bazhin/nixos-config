@@ -86,7 +86,7 @@ ${pkgs.gtklock}/bin/gtklock -L "bash -c 'sleep 1; systemd-notify --ready'" --dis
         dontBuild = true;
         installPhase = ''
           mkdir -p $out/share/sddm/themes
-          cp -aR $src/Windows12-sddm.tar.xz $out/share/sddm/themes/Windows12-sddm.tar.xz
+          cp $src/Windows12-sddm.tar.xz $out/share/sddm/themes/Windows12-sddm.tar.xz
         '';
         src = ./sddm-windows-12;
       };
