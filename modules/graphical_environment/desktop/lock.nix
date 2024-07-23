@@ -77,7 +77,7 @@ ${pkgs.gtklock}/bin/gtklock -L "bash -c 'sleep 1; systemd-notify --ready'" --dis
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    theme = "Windows12-Sddm";
+    theme = "sddm-windows-12";
     extraPackages = 
     let
       sddm-windows-12 = pkgs.stdenv.mkDerivation rec {
@@ -86,7 +86,7 @@ ${pkgs.gtklock}/bin/gtklock -L "bash -c 'sleep 1; systemd-notify --ready'" --dis
         dontBuild = true;
         installPhase = ''
           mkdir -p $out/share/sddm/themes
-          cp $src/Windows12-sddm.tar.xz $out/share/sddm/themes/Windows12-sddm.tar.xz
+          cp -aR $src $out/share/sddm/themes/sddm-windows-12
         '';
         src = ./sddm-windows-12;
       };
