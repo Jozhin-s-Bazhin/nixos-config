@@ -40,6 +40,5 @@
       };
     };
   };
-  qt.enable = true;
   fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; }) ];
 }
