@@ -78,19 +78,19 @@ ${pkgs.gtklock}/bin/gtklock -L "bash -c 'sleep 1; systemd-notify --ready'" --dis
     enable = true;
     wayland.enable = true;
     theme = "Windows12-Sddm";
-    extraPackages = [];
-/*    let
+    extraPackages = 
+    let
       sddm-windows-12 = pkgs.stdenv.mkDerivation rec {
         pname = "sddm-windows-12";
         name = "sddm-windows-12";
         dontBuild = true;
         installPhase = ''
           mkdir -p $out/share/sddm/themes
-          cp -aR $src $out/share/sddm/themes/sddm-windows-12
+          cp -aR $src/Windows12-sddm.tar.xz $out/share/sddm/themes/Windows12-sddm.tar.xz
         '';
-      src = ./sddm-windows-12;
-  };
+        src = ./sddm-windows-12;
+      };
     in
-    [ sddm-windows-12 ]; */
+      [ sddm-windows-12 ];
   };
 }
