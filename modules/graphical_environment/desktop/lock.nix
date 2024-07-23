@@ -6,10 +6,7 @@
     services.hypridle = {
       enable = true;
       settings = { 
-        general = {
-          lock_cmd = "gtklock";
-	  #before_sleep_cmd = "gtklock";
-        };
+        general.lock_cmd = "gtklock";
         listener = [
           {
             timeout = 840;
@@ -24,9 +21,7 @@
       };
     };
     
-    home.packages = [
-      pkgs.gtklock
-    ];
+    home.packages = [ pkgs.gtklock ];
 
     xdg.configFile."gtklock/config.ini".text = ''
       [main]
@@ -68,6 +63,8 @@ ${pkgs.gtklock}/bin/gtklock -L "bash -c 'sleep 1; systemd-notify --ready'" --dis
       ''}/bin/lockBeforeSleep";
     };
   };
+
+  # Map power key to hibernate instead of shutdown
   services.logind.powerKey = "hibernate";
 
   # Polkit

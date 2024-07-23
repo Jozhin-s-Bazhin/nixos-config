@@ -31,6 +31,11 @@
 	      };
       };
       base16Scheme = "${pkgs.base16-schemes}/share/themes/google-dark.yaml";
+
+      # Fix cursor
+      envVars = {
+        QT_QPA_PLATFORMTHEME = lib.mkForce ""; 
+      };
     };
     gtk = {
       enable = true;

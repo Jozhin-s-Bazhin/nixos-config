@@ -10,7 +10,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    stylix.url = "github:danth/stylix/"; 
+    stylix.url = "github:danth/stylix/?rev=29148118cc33f08b71058e1cda7ca017f5300b51";  # Pin until the cursor is fixed
     ags.url = "github:Aylur/ags";
   };
 
