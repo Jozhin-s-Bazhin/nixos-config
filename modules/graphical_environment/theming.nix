@@ -33,7 +33,7 @@
       base16Scheme = "${pkgs.base16-schemes}/share/themes/google-dark.yaml";
     };
 
-    envVars = {
+    sessionVariables = {
       HYPRCURSOR_SIZE = 24;
       HYPRCURSOR_THEME = "Adwaita";
     };
