@@ -72,22 +72,4 @@ ${pkgs.gtklock}/bin/gtklock -L "bash -c 'sleep 1; systemd-notify --ready'" --dis
 
   # Polkit
   users.users.${username}.packages = [ pkgs.lxqt.lxqt-policykit ];
-
-  # KWallet
-  security.pam.services.kwallet = {
-    name = "kwallet";
-    enableKwallet = true;
-  };
-
-  # Display manager
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    settings.Theme = {
-      current = "Windows-12";
-      ThemeDir = "${configDir}/modules/graphical_environment/desktop/sddm-themes";
-      cursorTheme = "Adwaita";
-      cursorSize = 24;
-    };
-  };
 }
