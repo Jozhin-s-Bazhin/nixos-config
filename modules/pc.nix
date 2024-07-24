@@ -16,7 +16,7 @@
   };
   
   # Auto-upgrade
-  system.autoUpgrade = {
+  /*system.autoUpgrade = {
     enable = true;
     flake = inputs.self.outPath;
     flags = [
@@ -27,8 +27,8 @@
     dates = "03:00";
     randomizedDelaySec = "60min";
     persistent = true;
-  };
-  # I don't want auto-upgrade on a server so it lives here
+  };*/
+  # I don't want auto-upgrade anywhere now that I think about it
   
   # Pipewire
   security.rtkit.enable = true;
