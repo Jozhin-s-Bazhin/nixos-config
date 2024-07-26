@@ -35,5 +35,5 @@
       '';
       "pypr/better_workspaces.py".source = ./better_workspaces.py;
     };
-  }
+  };
 }
