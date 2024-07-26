@@ -62,6 +62,11 @@
       "vscode-neovim.compositeKeys"."jk"."command" = "vscode-neovim.escape";
       "git.openRepositoryInParentFolders" = "always";
       "explorer.confirmDelete" = "false";
+
+      # 2 spaces instead of tab
+      "editor.tabSize" = 2;
+      "editor.insertSpaces" = true;
+      "editor.detectIndentation" = false;
     };
   };
 }
