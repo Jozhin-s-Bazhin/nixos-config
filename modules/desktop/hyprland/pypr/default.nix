@@ -20,7 +20,7 @@
         from time import sleep
 
         def restart_ags():
-          subprocess.run(["ags", "-q"])
+          subprocess.run("ags -q -c ${configDir}/modules/desktop/hyprland/ags/config.js -b ags-$HYPRLAND_INSTANCE_SIGNATURE", shell=True)
           subprocess.run("ags -c ${configDir}/modules/desktop/hyprland/ags/config.js -b ags-$HYPRLAND_INSTANCE_SIGNATURE & disown", shell=True)
 
  
