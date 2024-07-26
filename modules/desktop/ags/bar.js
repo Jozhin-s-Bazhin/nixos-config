@@ -143,7 +143,7 @@ function Right() {
 }
 
 export function Bars() {
-  monitors = hyprland.monitors.map(monitor => monitor.id)
+  const monitors = hyprland.monitors.map(monitor => monitor.id)
   return monitors.map( monitor => 
     Widget.Window({
       name: `bar-${monitor}`,

@@ -5,7 +5,7 @@ import { applauncher } from "./applauncher.js";
 App.config({
   style: "./style.css",
   windows: [
-	  Bars(),
+	  Bars(), // This is a list but it still works somehow
 	  NotificationPopups(),
 	  applauncher
   ]
