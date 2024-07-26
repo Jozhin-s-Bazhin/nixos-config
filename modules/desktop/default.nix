@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ./home_manager_config.nix  # Configuration of home-manager itself
-    ./programs.nix  # List of packages
-    ./appconfig.nix  # A config for all of my apps unrelated to the desktop
-    ./desktop  # Hyprland and all related things
+    ./home_manager_config.nix
+    ./programs.nix
+    ./appconfig.nix 
+    ./hyprland 
     ./ags
     ./theming.nix
   ];
