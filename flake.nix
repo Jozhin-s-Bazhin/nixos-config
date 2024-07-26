@@ -22,16 +22,16 @@
         name = "framework";
         architecture = "x86_64-linux";
         username = "roman";
-	modules = [
+	      modules = [
           "laptop"
           "amdgpu"
           "gaming"
           "development"
-	  "qemu"
-	  "cad"
-	  "office"
-	  "movies"
-	];
+	        "qemu"
+	        "cad"
+	        "office"
+	        "movies"
+	      ];
       };
     };
   };
