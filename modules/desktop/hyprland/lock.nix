@@ -39,6 +39,8 @@
         font-size: 100px;
       }
     '';
+
+    wayland.windowManager.hyprland.settings.exec-once = [ "lxqt-policykit-agent" ];
   };
   
   # Lock screen before sleeping

@@ -16,7 +16,7 @@ button {
 }
 
 button:hover {
-  background-color: @theme_selected_bg_color;
+  background-color: @theme_active_bg_color;
   border-radius: 10px;
 }
 
@@ -25,7 +25,7 @@ label {
 }
 
 menu {
-  background-color: @theme_bg_color;
+  background-color: @theme_active_color;
 }
 
 .workspaces {

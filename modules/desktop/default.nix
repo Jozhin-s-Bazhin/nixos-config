@@ -6,7 +6,6 @@
     ./programs.nix
     ./appconfig.nix 
     ./hyprland 
-    ./ags
     ./theming.nix
   ];
 }

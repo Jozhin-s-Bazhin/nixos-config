@@ -25,5 +25,11 @@
 
     # Other (monitors and rules)
     ./other.nix
+
+    # AGS
+    ./ags
+
+    # Pypr
+    ./pypr
   ];
 }
