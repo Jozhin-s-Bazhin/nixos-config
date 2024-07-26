@@ -10,8 +10,6 @@
       thunderbird
       spotube
       pavucontrol   
-      pinta
-      zed-editor
     ];
 
     xdg.mimeApps = {
