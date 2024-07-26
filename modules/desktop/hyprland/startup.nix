@@ -12,7 +12,7 @@
         "wl-paste --type image --watch cliphist store"
 
         # Other
-        "ags -c ${configDir}/modules/desktop/ags"
+        "ags -c ${configDir}/modules/desktop/ags/config.js -b ags-$HYPRLAND_INSTANCE_SIGNATURE"
         "pypr"
       ];
     };
