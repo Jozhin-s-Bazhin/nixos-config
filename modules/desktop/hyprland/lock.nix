@@ -29,7 +29,7 @@
     '';
     xdg.configFile."gtklock/style.css".text = ''
       window {
-        background-image: url("${configDir}/modules/graphical_environment/wallpaper/wallpaper_blurred.png");
+        background-image: url("${configDir}/modules/desktop/wallpaper/wallpaper_blurred.png");
    	background-size: cover;
    	background-repeat: no-repeat;
    	background-position: center;

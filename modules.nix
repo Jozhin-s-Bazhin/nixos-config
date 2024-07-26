@@ -7,7 +7,7 @@ in
   lib.optional (hasModule "server") ./modules/server.nix ++
   lib.optional (hasModule "desktop") ./modules/pc.nix ++
   lib.optional (hasModule "amdgpu") ./modules/amdgpu.nix ++
-  lib.optional (hasModule "graphicalEnvironment") ./modules/graphical_environment ++
+  lib.optional (hasModule "desktop") ./modules/graphical_environment ++
   lib.optional (hasModule "virtualisation") ./modules/virtualisation ++
   lib.optional (hasModule "qemu") ./modules/virtualisation/qemu.nix ++
   lib.optional (hasModule "docker") ./modules/virtualisation/docker.nix ++

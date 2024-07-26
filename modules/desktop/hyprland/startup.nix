@@ -12,7 +12,7 @@
         "wl-paste --type image --watch cliphist store"
 
         # Other
-        "ags -c ${configDir}/modules/graphical_environment/desktop/ags"
+        "ags -c ${configDir}/modules/desktop/ags"
         "pypr"
       ];
     };
@@ -24,7 +24,7 @@
         "external:ags_tools"
       ]
       plugins_paths = [
-        "${configDir}/modules/graphical_environment/desktop/pypr"
+        "${configDir}/modules/desktop/pypr"
       ]
     '';
 
