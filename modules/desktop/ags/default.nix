@@ -13,7 +13,9 @@
   services.upower.enable = true;
   home-manager.users.${username} = {
     # add the home manager module
-    imports = [ inputs.ags.homeManagerModules.default ];
+    imports = [ 
+      inputs.ags.homeManagerModules.default 
+    ];
 
     programs.ags = {
       enable = true;
