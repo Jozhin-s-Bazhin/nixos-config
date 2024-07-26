@@ -12,7 +12,7 @@
         "wl-paste --type image --watch cliphist store"
 
         # Other
-        "ags"
+        "ags -c ${configDir}/modules/graphical_environment/desktop/ags"
         "pypr"
       ];
     };

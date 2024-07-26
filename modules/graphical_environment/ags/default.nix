@@ -27,24 +27,5 @@
         nerdfonts
       ];
     };
-
-    home.file.".config/ags/config.js".source = ./config.js;
-    home.file.".config/ags/colors.css".text = ''
-      @define-color foreground #ffffff;
-      @define-color accent #066cfa;
-      @define-color background #252525;
-      @define-color background-selected #404040;
-      @define-color background-darker rgba(0, 0, 0, 1);
-    '';
-    home.file.".config/ags/style.css".source = ./style.css;
-
-    # Bar
-    home.file.".config/ags/bar.js".source = ./bar.js;
-
-    # App Launcher
-    home.file.".config/ags/applauncher.js".source = ./applauncher.js;
-
-    # Notifications
-    home.file.".config/ags/notifications.js".source = ./notifications.js;
   };
 }
