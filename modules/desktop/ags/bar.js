@@ -142,17 +142,20 @@ function Right() {
     })
 }
 
-export function Bar(monitor) {
-    return Widget.Window({
-        name: `bar-${monitor}`,
-        class_name: "bar",
-        monitor: monitor,
-        anchor: ["top", "left", "right"],
-        exclusivity: "exclusive",
-        child: Widget.CenterBox({
-            start_widget: Left(),
-            center_widget: Center(),
-            end_widget: Right(),
-        }),
+export function Bars() {
+  monitors = hyprland.monitors.map(monitor => monitor.id)
+  return monitors.map( monitor => 
+    Widget.Window({
+      name: `bar-${monitor}`,
+      class_name: "bar",
+      monitor: monitor,
+      anchor: ["top", "left", "right"],
+      exclusivity: "exclusive",
+      child: Widget.CenterBox({
+        start_widget: Left(),
+        center_widget: Center(),
+        end_widget: Right(),
+      }),
     })
+  )
 }
