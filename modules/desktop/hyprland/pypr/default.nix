@@ -2,7 +2,7 @@
 {
   home-manager.users.${username} = {
     wayland.windowManager.hyprland.settings.exec-once = [ "pypr" ];
-    home.packages = [ pkgs.pypr ];
+    home.packages = [ pkgs.pyprland ];
     xdg.configFile = {
       "hypr/pyprland.toml".text = ''
         [pyprland]
