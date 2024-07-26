@@ -7,7 +7,7 @@ in
   lib.optional (hasModule "server") ./modules/server.nix ++
   lib.optional (hasModule "desktop") ./modules/pc.nix ++
   lib.optional (hasModule "amdgpu") ./modules/amdgpu.nix ++
-  lib.optional (hasModule "desktop") ./modules/graphical_environment ++
+  lib.optional (hasModule "desktop") ./modules/desktop ++
   lib.optional (hasModule "virtualisation") ./modules/virtualisation ++
   lib.optional (hasModule "qemu") ./modules/virtualisation/qemu.nix ++
   lib.optional (hasModule "docker") ./modules/virtualisation/docker.nix ++
@@ -17,23 +17,23 @@ in
     ./modules/laptop.nix
   ] ++
   lib.optionals (hasModule "gaming") [
-    ./modules/graphical_environment
+    ./modules/desktop
     ./modules/gaming.nix
   ] ++
   lib.optionals (hasModule "development") [
-    ./modules/graphical_environment
+    ./modules/desktop
     ./modules/development.nix
   ] ++
   lib.optionals (hasModule "cad") [
-    ./modules/graphical_environment
+    ./modules/desktop
     ./modules/cad.nix
   ] ++
   lib.optionals (hasModule "office") [
-    ./modules/graphical_environment
+    ./modules/desktop
     ./modules/office.nix
   ] ++
   lib.optionals (hasModule "movies") [
-    ./modules/graphical_environment
+    ./modules/desktop
     ./modules/movies.nix
   ] ++
   [ ./hardware/${name}.nix ] ++
