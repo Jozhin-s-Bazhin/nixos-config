@@ -61,6 +61,7 @@
       "git.confirmSync" = false;
       "vscode-neovim.compositeKeys"."jk"."command" = "vscode-neovim.escape";
       "git.openRepositoryInParentFolders" = "always";
+      "explorer.confirmDelete" = "false";
     };
   };
 }
