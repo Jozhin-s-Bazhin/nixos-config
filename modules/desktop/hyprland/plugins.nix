@@ -10,7 +10,7 @@
         scroller = {
 	  column_default_width = "one";
 	  focus_wrap = false;
-	  column_widths = "onehalf onethird onefourth one";
+	  column_widths = "onehalf twothirds onethird onefourth one";
 	};
       };
     };
