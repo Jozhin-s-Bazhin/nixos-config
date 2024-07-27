@@ -8,9 +8,9 @@
     settings = {
       plugin = {
         scroller = {
-	  column_default_width = "onehalf";
+	  column_default_width = "one";
 	  focus_wrap = false;
-	  column_widths = "one onethird onefourth onehalf";
+	  column_widths = "onehalf onethird onefourth one";
 	};
       };
     };
