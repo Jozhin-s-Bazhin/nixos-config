@@ -9,7 +9,6 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprscroller.url = "github:dawsers/hyprscroller";
     stylix.url = "github:danth/stylix/";
     ags.url = "github:Aylur/ags";
@@ -23,16 +22,16 @@
         name = "framework";
         architecture = "x86_64-linux";
         username = "roman";
-	      modules = [
-          "laptop"
-          "amdgpu"
-          "gaming"
-          "development"
-	        "qemu"
-	        "cad"
-	        "office"
-	        "movies"
-	      ];
+	  modules = [
+            "laptop"
+            "amdgpu"
+            "gaming"
+            "development"
+	    "qemu"
+	    "cad"
+	    "office"
+	    "movies"
+	  ];
       };
     };
   };
