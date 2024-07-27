@@ -2,21 +2,16 @@
 {
   home-manager.users.${username}.wayland.windowManager.hyprland = {
     plugins = [
-      #inputs.Hyprspace.packages."${pkgs.system}".Hyprspace
+      inputs.hyprscroller.packages."x86_64-linux".hyprscroller
     ];
 
     settings = {
       plugin = {
-        overview = {
-          panelColor = "rgba(0, 0, 0, 0)";
-          panelHeight = "125";
-          showEmptyWorkspace = false;
-          drawActiveWorkspace = true;
-
-          overrideGaps = true;
-          gapsIn = 5;
-          gapsOut = 10;
-        };
+        scroller = {
+	  column_default_width = "onehalf";
+	  focus_wrap = false;
+	  column_widths = "one onethird onefourth onehalf";
+	};
       };
     };
   };
