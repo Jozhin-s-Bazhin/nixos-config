@@ -28,7 +28,8 @@ in
         "SUPER, end, scroller:movefocus, end"
         "SUPER SHIFT, end, scroller:movewindow, end"
 
-	"SUPER, semicolon, scroller:cyclesize, next"
+	"SUPER, minus, scroller:cyclesize, prev"
+	"SUPER, equal, scroller:cyclesize, next"
 	"SUPER, grave, scroller:toggleoverview"
 
         "SUPER, F11, fullscreen"
