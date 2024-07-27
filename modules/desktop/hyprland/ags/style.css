@@ -16,7 +16,7 @@ button {
 }
 
 button:hover {
-  background-color: @theme_active_bg_color;
+  background-color: lighter(@theme_bg_color);
   border-radius: 10px;
 }
 
@@ -25,12 +25,23 @@ label {
 }
 
 menu {
-  background-color: @theme_bg_color;
-  color: @theme_fg_color;
+  background-color: @headerbar_bg_color;
+  color: @headerbar_fg_color;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+menuitem {
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+menuitem:hover {
+  background-color: lighter(@headerbar_bg_color);
 }
 
 .workspaces {
-  background-color: @theme_selected_bg_color;
+  background-color: lighter(@headerbar_bg_color);
   border-radius: 10px;
   padding: 0 4px;
   margin: 3px;
@@ -43,7 +54,7 @@ menu {
 }
 
 .workspaces button {
-  background-color: rgb(150, 150, 150);
+  background-color: darker(@theme_fg_color);
   padding: 4px;
   margin: 5px 2px;
   transition: padding 0.1s ease-in-out;
