@@ -8,6 +8,10 @@ window.bar {
   color: @theme_fg_color;
 }
 
+.volumeIndicator:hover {
+  background-color: transparent;
+}
+
 button {
   min-width: 0;
   padding-top: 0;

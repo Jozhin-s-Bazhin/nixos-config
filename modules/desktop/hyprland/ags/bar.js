@@ -79,6 +79,7 @@ function Volume() {
       icon: Utils.watch(getIcon(), audio.speaker, getIcon),
     }),
     on_clicked: () => audio.speaker.is_muted = !audio.speaker.is_muted,
+    className: "volumeIndicator",
   })
 
   return Widget.Box({
