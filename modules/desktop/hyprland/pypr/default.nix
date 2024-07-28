@@ -17,12 +17,10 @@
       "pypr/ags_tools.py".text = ''
         from pyprland.plugins.interface import Plugin
         import subprocess
-        from time import sleep
 
         def restart_ags():
-          subprocess.run("ags -q -c ${configDir}/modules/desktop/hyprland/ags/config.js -b ags-$HYPRLAND_INSTANCE_SIGNATURE", shell=True)
-          subprocess.run("ags -c ${configDir}/modules/desktop/hyprland/ags/config.js -b ags-$HYPRLAND_INSTANCE_SIGNATURE & disown", shell=True)
-
+          subprocess.run(["ags", "-q"])
+          subprocess.Popen(["ags", "-c", "${configDir}/modules/desktop/hyprland/ags/config.js"])
  
         class Extension(Plugin):
           """A plugin that provides some useful features for ags like opening ags widgets when new monitors are connected"""

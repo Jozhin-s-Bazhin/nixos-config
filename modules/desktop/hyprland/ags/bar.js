@@ -109,12 +109,11 @@ function Volume() {
 function BatteryLabel() {
   const icon = battery.bind("icon-name").as(icon => icon)
 
-  return Widget.Box({
+  return Widget.Icon({
     class_name: "battery",
     visible: battery.bind("available"),
-    children: [
-      Widget.Icon({ icon }),
-    ],
+    icon: icon,
+    tooltip_text: battery.bind("percent").as(percent => `${percent}% remaining`),
   })
 }
 
