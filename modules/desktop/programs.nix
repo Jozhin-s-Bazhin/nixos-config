@@ -10,7 +10,6 @@
       thunderbird
       spotube
       pavucontrol   
-      kdePackages.networkmanager-qt
     ];
 
     xdg.mimeApps = {
