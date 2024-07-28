@@ -57,7 +57,6 @@ menuitem:hover {
   background-color: darker(@theme_fg_color);
   padding: 4px;
   margin: 5px 2px;
-  transition: padding 0.1s ease-in-out;
 }
 
 .workspaces button:hover {
@@ -66,13 +65,13 @@ menuitem:hover {
 
 .workspaces button.focused {
   background-color: @theme_fg_color;
-  padding: 4px 9px;
+  padding: 5px 9px;
   margin: 4px 2px;
 }
 
 .tray button {
   border-radius: 40px;
-  padding: 3px;
+  padding: 2px;
   margin: 2px;
   background-color: lighter(@headerbar_bg_color);
 }
@@ -83,7 +82,7 @@ menuitem:hover {
 
 .media {
   border-radius: 50px;
-  margin: 2px;
+  margin: 2px 0;
   background-color: lighter(@headerbar_bg_color);
   padding: 1px 4px;
   font-size: 14px;
