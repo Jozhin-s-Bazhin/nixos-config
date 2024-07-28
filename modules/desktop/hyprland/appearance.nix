@@ -49,7 +49,7 @@
       xwayland.force_zero_scaling = true;
     };
 
-    services.hyprpaper.enable = true;
+    services.swww.enable = true;
   };
 }
 
