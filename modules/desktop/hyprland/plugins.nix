@@ -4,6 +4,6 @@
     plugins = [
     ];
 
-    settings.plugin = {}
+    settings.plugin = {};
   };
 }
