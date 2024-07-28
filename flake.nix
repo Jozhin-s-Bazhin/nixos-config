@@ -9,7 +9,6 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    hyprscroller.url = "github:dawsers/hyprscroller";
     stylix.url = "github:danth/stylix/";
     ags.url = "github:Aylur/ags";
   };
