@@ -8,20 +8,16 @@ window.bar {
   color: @theme_fg_color;
 }
 
-.volumeIndicator:hover {
-  background-color: transparent;
-}
-
 button {
   min-width: 0;
   padding-top: 0;
   padding-bottom: 0;
   background-color: transparent;
+  transition: color 0.1s ease-in-out;
 }
 
 button:hover {
-  background-color: lighter(@theme_bg_color);
-  border-radius: 10px;
+  color: darker(@theme_fg_color);
 }
 
 label {
@@ -72,6 +68,29 @@ menuitem:hover {
   background-color: @theme_fg_color;
   padding: 4px 9px;
   margin: 4px 2px;
+}
+
+.tray button {
+  border-radius: 40px;
+  padding: 3px;
+  margin: 2px;
+  background-color: lighter(@headerbar_bg_color);
+}
+
+.tray button:hover {
+  background-color: @headerbar_bg_color;
+}
+
+.media {
+  border-radius: 50px;
+  margin: 2px;
+  background-color: lighter(@headerbar_bg_color);
+  padding: 1px 4px;
+  font-size: 14px;
+}
+
+.media button {
+  margin: 2px;
 }
 
 /* Notifications */
