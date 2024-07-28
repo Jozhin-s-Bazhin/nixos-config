@@ -14,23 +14,14 @@ in
         ", Print, exec, grimblast copysave area"
 
         # Window management
-        "SUPER, H, scroller:movefocus, l"
-        "SUPER SHIFT, H, scroller:movewindow, l"
-        "SUPER, J, scroller:movefocus, d"
-        "SUPER SHIFT, J, scroller:movewindow, d"
-        "SUPER, K, scroller:movefocus, u"
-        "SUPER SHIFT, K, scroller:movewindow, u"
-        "SUPER, L, scroller:movefocus, r"
-        "SUPER SHIFT, L, scroller:movewindow, r"
-
-        "SUPER, home, scroller:movefocus, begin"
-        "SUPER SHIFT, home, scroller:movewindow, begin"
-        "SUPER, end, scroller:movefocus, end"
-        "SUPER SHIFT, end, scroller:movewindow, end"
-
-	"SUPER, equal, scroller:cyclesize, prev"
-	"SUPER, minus, scroller:cyclesize, next"
-	"SUPER, grave, scroller:toggleoverview"
+        "SUPER, H, movefocus, l"
+        "SUPER SHIFT, H, movewindow, l"
+        "SUPER, J, movefocus, d"
+        "SUPER SHIFT, J, movewindow, d"
+        "SUPER, K, movefocus, u"
+        "SUPER SHIFT, K, movewindow, u"
+        "SUPER, L, movefocus, r"
+        "SUPER SHIFT, L, movewindow, r"
 
         "SUPER, F11, fullscreen"
         "SUPER, V, togglefloating"
