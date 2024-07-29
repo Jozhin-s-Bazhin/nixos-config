@@ -13,14 +13,11 @@ function Workspaces() {
   const activeId = hyprland.active.workspace.bind("id");
   const workspaces = hyprland.bind("workspaces").as((ws) =>
     ws
-      // remove scratchpads from the list
       .filter(({ id }) => id > 0)
-      // sort by id
       .sort((a, b) => a.id - b.id)
       .map(({ id }) =>
         Widget.Button({
           on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
-          //child: Widget.Label(""),
           class_name: activeId.as((i) => `${i === id ? "focused" : ""}`),
         })
       )
@@ -108,12 +105,13 @@ function Volume() {
 
 function BatteryLabel() {
   const icon = battery.bind("icon-name").as(icon => icon)
+  const percentage = battery.bind("percent").as(p => `${p}% remaining`)
 
   return Widget.Icon({
     class_name: "battery",
     visible: battery.bind("available"),
     icon: icon,
-    tooltip_text: battery.bind("percent").as(percent => `${percent}% remaining`),
+    tooltip_text: percentage,
   })
 }
 
