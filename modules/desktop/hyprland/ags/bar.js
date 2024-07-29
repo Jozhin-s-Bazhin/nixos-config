@@ -105,13 +105,25 @@ function Volume() {
 
 function BatteryLabel() {
   const icon = battery.bind("icon-name").as(icon => icon)
-  const percentage = battery.bind("percent").as(p => `${p}% remaining`)
+  const percentage = battery.bind("percent").as(p => `${p}%`)
 
-  return Widget.Icon({
-    class_name: "battery",
+  const revealer = Widget.Revealer ({
+    child: Widget.Label ({ label: percentage }),
+    reveal_child: false,
+    transition: "slide_left",
+  })
+
+  return Widget.EventBox({
+    child: Widget.Box ({
+      children: [
+        Widget.Icon({ icon: icon }),
+        revealer
+      ],
+      class_name: "battery"
+    }),
     visible: battery.bind("available"),
-    icon: icon,
-    tooltip_text: percentage,
+    on_hover: () => revealer.reveal_child = true,
+    on_hover_lost: () => revealer.reveal_child = false,
   })
 }
 
