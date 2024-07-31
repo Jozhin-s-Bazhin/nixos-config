@@ -29,6 +29,7 @@
       commandLineArgs = [
         "--enable-features=TouchpadOverscrollHistoryNavigation"
 	"--password-store=basic"
+	"--enable-smooth-scrolling"
       ];
     };
   }; 
