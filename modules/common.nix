@@ -102,6 +102,7 @@
       ls = "eza -l --git --sort 'modified'";
       grep = "grep --color=auto";
       cat = "bat";
+      less = "bat";
 
       # Misc
       c = "codium . && exit";
