@@ -46,6 +46,7 @@
         vrr = 1;
       };
 
+      # XWayland scaling
       xwayland.force_zero_scaling = true;
     };
 

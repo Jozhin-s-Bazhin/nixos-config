@@ -22,11 +22,10 @@
         architecture = "x86_64-linux";
         username = "roman";
 	  modules = [
-      "laptop"
-      "amdgpu"
-      "gaming"
-      "development"
-	    "qemu"
+            "laptop"
+            "amdgpu"
+            "gaming"
+            "development"
 	    "cad"
 	    "office"
 	    "movies"
