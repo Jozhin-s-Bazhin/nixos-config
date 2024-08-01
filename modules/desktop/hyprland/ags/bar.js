@@ -5,12 +5,18 @@ const battery = await Service.import("battery")
 const systemtray = await Service.import("systemtray")
 const network = await Service.import('network')
 
-const date = Variable("", {
-  poll: [60000, 'date "+%H:%M"'],
-})
+const date = Variable('');
+const time = Variable('');
+const updateDateTime = () => {
+  const output = Utils.exec('date "+%H:%M& ~ %A, %d %B"')
+  const output_list = output.split('&')
+  time.value = output_list[0]
+  date.value = output_list[1]
+};
+Utils.interval(60000, updateDateTime)
 
 function Workspaces() {
-  const activeId = hyprland.active.workspace.bind("id");
+  const activeId = hyprland.active.workspace.bind("id")
   const workspaces = hyprland.bind("workspaces").as((ws) =>
     ws
       .filter(({ id }) => id > 0)
@@ -30,9 +36,23 @@ function Workspaces() {
 }
 
 function Clock() {
-  return Widget.Label({
-    class_name: "clock",
-    label: date.bind(),
+  const timeLabel = Widget.Label({ label: time.bind() })
+  const dateLabel = Widget.Revealer({
+    child: Widget.Label({ label: date.bind() }),
+    revealChild: false,
+    transition: "slide_left",
+  })
+  
+  return Widget.EventBox({
+    child: Widget.Box({
+      children: [
+        timeLabel,
+        dateLabel
+      ],
+    }),
+    on_hover: () => dateLabel.reveal_child = true,
+    on_hover_lost: () => dateLabel.reveal_child = false,
+    setup: self => updateDateTime(),
   })
 }
 
