@@ -26,23 +26,14 @@ tooltip {
   border-radius: 5px;
 }
 
+button {
+  transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+}
+
 /* Bar */
 window.bar {
   background-color: @theme_bg_color;
   color: @theme_fg_color;
-}
-
-window.bar button {
-  min-width: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  background-color: transparent;
-  transition: color 0.1s ease-in-out;
-  transition: background-color 0.1s ease-in-out;
-}
-
-window.bar button:hover {
-  color: darker(@theme_fg_color);
 }
 
 window.bar label {
@@ -175,7 +166,7 @@ window.notification-popups box.notifications {
   margin-right: 0;
 }
 
-/* App Launcher */
-.applauncher {
+/* Sidebar */
+window.sidebar {
   background-color: @theme_bg_color;
 }
