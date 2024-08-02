@@ -1,4 +1,5 @@
 const notifications = await Service.import("notifications")
+const hyprland = await Service.import("hyprland")
 
 /** @param {import('resource:///com/github/Aylur/ags/service/notifications.js').Notification} n */
 function NotificationIcon({ app_entry, app_icon, image }) {
@@ -89,7 +90,8 @@ function Notification(n) {
     )
 }
 
-export function NotificationPopups(monitor = 0) {
+export function NotificationPopups() {
+    const monitor = hyprland.active.monitor.bind("id")
     const list = Widget.Box({
         vertical: true,
         children: notifications.popups.map(Notification),
@@ -110,7 +112,7 @@ export function NotificationPopups(monitor = 0) {
 
     return Widget.Window({
         monitor,
-        name: `notifications${monitor}`,
+        name: `notifications-${monitor}`,
         class_name: "notification-popups",
         anchor: ["top", "right"],
         child: Widget.Box({

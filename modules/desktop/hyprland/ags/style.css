@@ -2,29 +2,6 @@
   all: unset;
 }
 
-/* Bar */
-window.bar {
-  background-color: @theme_bg_color;
-  color: @theme_fg_color;
-}
-
-button {
-  min-width: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  background-color: transparent;
-  transition: color 0.1s ease-in-out;
-  transition: background-color 0.1s ease-in-out;
-}
-
-button:hover {
-  color: darker(@theme_fg_color);
-}
-
-label {
-  font-weight: bold;
-}
-
 menu {
   background-color: @headerbar_bg_color;
   color: @headerbar_fg_color;
@@ -40,6 +17,36 @@ menuitem {
 
 menuitem:hover {
   background-color: lighter(@headerbar_bg_color);
+}
+
+tooltip {
+  color: @theme_fg_color;
+  background-color: @headerbar_bg_color;
+  border: 1px solid @wm_borders_edge;
+  border-radius: 5px;
+}
+
+/* Bar */
+window.bar {
+  background-color: @theme_bg_color;
+  color: @theme_fg_color;
+}
+
+window.bar button {
+  min-width: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: transparent;
+  transition: color 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out;
+}
+
+window.bar button:hover {
+  color: darker(@theme_fg_color);
+}
+
+window.bar label {
+  font-weight: bold;
 }
 
 .workspaces {
@@ -102,12 +109,7 @@ menuitem:hover {
   margin: 3px 0 0 2px;
 }
 
-tooltip {
-  color: @theme_fg_color;
-  background-color: @headerbar_bg_color;
-  border: 1px solid @wm_borders_edge;
-  border-radius: 5px;
-}
+
 
 /* Notifications */
 levelbar block,
