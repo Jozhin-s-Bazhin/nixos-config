@@ -5,6 +5,7 @@
     home.packages = with pkgs; [
       nautilus
       gnome-photos
+      gnome-calculator
       bitwarden
       whatsapp-for-linux
       thunderbird
