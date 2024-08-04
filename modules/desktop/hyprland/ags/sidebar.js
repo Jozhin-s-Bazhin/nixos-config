@@ -1,22 +1,30 @@
-const hyprland = await Service.import("hyprland")
+import Gtk from 'gi://Gtk'
+import { applauncher } from './sidebar_modules/applauncher.js'
 
-function sidebar_box() {
-  return Widget.Box({
-    children: [
+const notebook = Widget.subclass(Gtk.Notebook)  // Tabby thing
 
+const sidebar_notebook = () => notebook({
+  setup: self => {
+    const pages = [
+      applauncher
     ]
-  })
-}
+    
+    for (const page of pages) {
+      self.append_page(Widget.Icon({ icon: page[0] }), page[1])
+    }
+  }
+})
 
 export function Sidebar() {
-  const monitor = hyprland.active.monitor.bind("id")
-  
   return Widget.Window({
-    monitor,
     name: `sidebar`,
     class_name: "sidebar",
     anchor: ["top", "left", "bottom"],
-    child: sidebar_box(),
     visible: false,
+    keymode: "exclusive",
+    child: sidebar_notebook(),
+    setup: self => self.keybind("Escape", () => {
+      App.closeWindow("sidebar")
+    })
   })
 }

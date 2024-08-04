@@ -91,7 +91,6 @@ function Notification(n) {
 }
 
 export function NotificationPopups() {
-  const monitor = hyprland.active.monitor.bind("id")
   const list = Widget.Box({
     vertical: true,
     children: notifications.popups.map(Notification),
@@ -111,8 +110,7 @@ export function NotificationPopups() {
     .hook(notifications, onDismissed, "dismissed")
 
   return Widget.Window({
-    monitor,
-    name: `notifications-${monitor}`,
+    name: `notifications`,
     class_name: "notification-popups",
     anchor: ["top", "right"],
     child: Widget.Box({

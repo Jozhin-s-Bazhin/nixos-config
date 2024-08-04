@@ -5,7 +5,7 @@ import { Sidebar } from "./sidebar.js"
 App.config({
   style: "./style.css",
   windows: [
-    Bars(), // This returns a list but it still works somehow
+    ...Bars(),
     NotificationPopups(),
     Sidebar()
   ]

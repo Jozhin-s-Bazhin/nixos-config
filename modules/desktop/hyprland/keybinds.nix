@@ -10,7 +10,6 @@ in
       bind = [
         # Controls
         "SUPER, Space, killactive"
-        #"SUPER, grave, overview:toggle, all"
         ", Print, exec, grimblast copysave area"
 
         # Window management
@@ -27,8 +26,7 @@ in
         "SUPER, V, togglefloating"
 
         # Applications
-        #"SUPER, Tab, exec, ags -t applauncher"
-        "SUPER, Tab, exec, anyrun"
+        "SUPER, Tab, exec, ags -t sidebar"
         "SUPER, Return, exec, kitty"
         "SUPER, B, exec, brave"
         "SUPER, C, exec, codium"

@@ -40,6 +40,10 @@ window.bar label {
   font-weight: bold;
 }
 
+window.bar button:hover {
+  color: lighter(@theme_fg_color);
+}
+
 .workspaces {
   background-color: lighter(@headerbar_bg_color);
   border-radius: 10px;
