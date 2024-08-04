@@ -5,6 +5,8 @@ const notebook = Widget.subclass(Gtk.Notebook)  // Tabby thing
 
 const sidebar_notebook = () => notebook({
   setup: self => {
+    self.set_tab_pos(Gtk.PositionType.RIGHT);
+
     const pages = [
       applauncher
     ]
