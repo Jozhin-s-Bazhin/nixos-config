@@ -41,7 +41,7 @@ window.bar label {
 }
 
 window.bar button:hover {
-  color: lighter(@theme_fg_color);
+  color: darker(@theme_fg_color);
 }
 
 .workspaces {
