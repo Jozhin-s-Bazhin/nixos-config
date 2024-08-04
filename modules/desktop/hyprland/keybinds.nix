@@ -79,7 +79,6 @@ in
       wl-clipboard-rs
       cliphist
       grimblast
-      anyrun
       playerctl
     ];
   };
