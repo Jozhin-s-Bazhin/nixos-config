@@ -173,4 +173,5 @@ window.notification-popups box.notifications {
 /* Sidebar */
 window.sidebar {
   background-color: @theme_bg_color;
+  border-radius: 10px;
 }

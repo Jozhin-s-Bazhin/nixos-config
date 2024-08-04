@@ -27,6 +27,7 @@ export function Sidebar() {
     child: sidebar_notebook(),
     setup: self => self.keybind("Escape", () => {
       App.closeWindow("sidebar")
-    })
+    }),
+    margins: [ 3 ]
   })
 }

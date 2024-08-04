@@ -25,7 +25,7 @@ const AppItem = app => Widget.Button({
     }),
 })
 
-const Applauncher = ({ width = 500, height = 500, spacing = 12 }) => {
+const Applauncher = ({ spacing = 12 }) => {
     // list of application buttons
     let applications = query("").map(AppItem)
 
@@ -72,8 +72,6 @@ const Applauncher = ({ width = 500, height = 500, spacing = 12 }) => {
             // wrap the list in a scrollable
             Widget.Scrollable({
                 hscroll: "never",
-                css: `min-width: ${width}px;`
-                    + `min-height: ${height}px;`,
                 child: list,
             }),
         ],
@@ -94,9 +92,5 @@ const Applauncher = ({ width = 500, height = 500, spacing = 12 }) => {
 // there needs to be only one instance
 export const applauncher = [
   "edit-find",
-  Applauncher({
-    width: 600,
-    height: 400,
-    spacing: 15
-  })
+  Applauncher({ spacing: 12 })
 ]
