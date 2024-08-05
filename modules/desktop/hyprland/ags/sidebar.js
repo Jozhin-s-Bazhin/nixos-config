@@ -5,16 +5,16 @@ const notebook = Widget.subclass(Gtk.Notebook)  // Tabby thing
 
 const sidebar_notebook = () => notebook({
   setup: self => {
-    self.set_tab_pos(Gtk.PositionType.RIGHT);
+    self.set_tab_pos(Gtk.PositionType.LEFT);
 
     const pages = [
       applauncher
     ]
     
     for (const page of pages) {
-      self.append_page(Widget.Icon({ icon: page[0] }), page[1])
+      self.append_page(page[1], Widget.Icon({ icon: page[0] }))
     }
-  }
+  },
 })
 
 export function Sidebar() {
@@ -28,6 +28,6 @@ export function Sidebar() {
     setup: self => self.keybind("Escape", () => {
       App.closeWindow("sidebar")
     }),
-    margins: [ 3 ]
+    margins: [ 3 ],
   })
 }

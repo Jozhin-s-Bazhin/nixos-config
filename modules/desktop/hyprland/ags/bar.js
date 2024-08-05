@@ -50,6 +50,7 @@ function Clock() {
         dateLabel
       ],
     }),
+    class_name: "clock",
     on_hover: () => dateLabel.reveal_child = true,
     on_hover_lost: () => dateLabel.reveal_child = false,
     setup: self => updateDateTime(),
