@@ -172,13 +172,29 @@ window.notification-popups box.notifications {
 
 /* Sidebar */
 window.sidebar {
-  background-color: @theme_bg_color;
+  background-color: @sidebar_bg_color;
   border-radius: 10px;
-  border: 1px solid @wm_borders_edge;
 }
 
 window.sidebar notebook > stack {
+  background-color: @theme_bg_color;
   min-width: 500px;
+  border-radius: 10px;
+  margin: 10px;
+  margin-left: 0;
+}
+
+window.sidebar notebook > header {
+  border-radius: 10px;
+  margin: 3px;
+  margin-top: 5px;
+}
+
+window.sidebar notebook > header image {
+  background-color: @theme_bg_color;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 5px;
 }
 
 window.sidebar .entry {
