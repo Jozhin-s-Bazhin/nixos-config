@@ -178,7 +178,7 @@ window.sidebar {
 
 window.sidebar notebook > stack {
   background-color: @theme_bg_color;
-  min-width: 500px;
+  min-width: 30em;
   border-radius: 10px;
   margin: 10px;
   margin-left: 0;
