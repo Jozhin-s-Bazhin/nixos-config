@@ -1,17 +1,15 @@
 { inputs, lib, pkgs, username, ... }:
 
 {
+  imports = [ ./greetd ];
   services.upower.enable = true;
   home-manager.users.${username} = {
-    # add the home manager module
     imports = [ 
       inputs.ags.homeManagerModules.default 
     ];
 
     programs.ags = {
       enable = true;
-
-      # additional packages to add to gjs's runtime
       extraPackages = with pkgs; [
         gtksourceview
         webkitgtk
