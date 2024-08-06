@@ -10,11 +10,9 @@ const password = Widget.Entry({
   visibility: false,
   on_accept: () => {
     greetd.login(name.text || '', password.text || '', 'Hyprland')
-      .catch(err => response.label = JSON.stringify(err))
+      .catch(err => password.set_text(JSON.stringify(err)))
   },
 })
-
-const response = Widget.Label()
 
 const win = Widget.Window({
   css: 'background-color: transparent;',
@@ -29,7 +27,6 @@ const win = Widget.Window({
     children: [
       name,
       password,
-      response,
     ],
   }),
 })
