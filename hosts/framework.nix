@@ -47,4 +47,10 @@
       Install.WantedBy = [ "graphical-session.target" ];
     };
   };
+
+  # Disable keyboard wake-up
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="32ac", ATTR{power/wakeup}="disabled"
+  '';
+
 }
