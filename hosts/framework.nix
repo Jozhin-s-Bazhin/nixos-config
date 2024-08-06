@@ -6,7 +6,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Hibernation & autosuspend issue
-  boot.kernelParams = [ "usbcore.autosuspend=60" "resume_offset=53248" ]; 
+  boot.kernelParams = [ "usbcore.autosuspend=60" "resume_offset=53248" "nvme.noacpi=1" ]; 
   swapDevices = [{
     device = "/var/lib/swapfile";
     size = 36*1024;
