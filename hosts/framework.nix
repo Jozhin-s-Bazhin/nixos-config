@@ -17,15 +17,6 @@
   services.fwupd.enable = true; 
   environment.systemPackages = [ pkgs.gnome-firmware ];
 
-  # Palm rejection
-  environment.etc."libinput/local-overrides.quirks".text = ''
-    [Framework Laptop 16 Keyboard Module]
-    MatchName=Framework Laptop 16 Keyboard Module*
-    MatchUdevType=keyboard
-    MatchDMIModalias=dmi:*svnFramework:pnLaptop16*
-    AttrKeyboardIntegration=internal
-  '';
-
   # Auto-brightness with wluma
   home-manager.users.${username} = {
     xdg.configFile = {
