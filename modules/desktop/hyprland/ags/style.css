@@ -1,6 +1,5 @@
 * {
   all: unset;
-  font-family: Inter;
 }
 
 menu {
@@ -187,14 +186,15 @@ window.sidebar notebook > stack {
 
 window.sidebar notebook > header {
   border-radius: 10px;
-  margin: 5px;
-  margin-top: 10px;
+  margin: 3px;
+  margin-top: 5px;
 }
 
 window.sidebar notebook > header image {
+  background-color: @theme_bg_color;
   border-radius: 10px;
-  padding: 10px;
-  margin: 0 0 5px 0;
+  padding: 12px;
+  margin: 5px;
 }
 
 window.sidebar .entry {
