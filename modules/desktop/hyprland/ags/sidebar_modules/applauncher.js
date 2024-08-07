@@ -95,5 +95,5 @@ const Applauncher = ({ spacing = 12 }) => {
 // there needs to be only one instance
 export const applauncher = [
   "edit-find",
-  Applauncher({ spacing: 12 })
+  Applauncher({ spacing: 10 })
 ]
