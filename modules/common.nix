@@ -126,6 +126,8 @@
        	echo -e "$BLUE"
         echo -e "Finished $NC" 
       '';
+
+      nsp = "nix-shell -p";
     };
   };
   users.defaultUserShell = pkgs.zsh;
