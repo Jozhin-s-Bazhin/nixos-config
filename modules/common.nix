@@ -8,8 +8,13 @@
   networking.hostName = name;
 
   # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+      editor = false;
+    };
+    efi.canTouchEfiVariables = true;
+  };
   
   # Firmware
   hardware.enableAllFirmware = true;
