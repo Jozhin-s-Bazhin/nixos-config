@@ -42,4 +42,7 @@
     };
   };
   fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; }) ];
+
+  # Boot splash screen
+  boot.plymouth.enable = true;
 }
