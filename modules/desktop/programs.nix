@@ -6,6 +6,7 @@
       nautilus
       gnome-photos
       gnome-calculator
+      mission-center
       bitwarden
       whatsapp-for-linux
       thunderbird
