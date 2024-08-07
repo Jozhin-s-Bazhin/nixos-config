@@ -45,4 +45,5 @@
 
   # Boot splash screen
   boot.plymouth.enable = true;
+  boot.initrd.verbose = true;
 }
