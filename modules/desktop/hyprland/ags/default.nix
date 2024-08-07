@@ -15,7 +15,7 @@
         webkitgtk
         accountsservice
         libnotify
-        nerdfonts
+	( nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; } )
       ];
     };
   };
