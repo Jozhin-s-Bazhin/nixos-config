@@ -44,6 +44,10 @@
   fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; }) ];
 
   # Boot splash screen
-  boot.plymouth.enable = true;
-  boot.initrd.verbose = true;
+  boot = {
+    plymouth.enable = true;
+    initrd.verbose = true;
+    consoleLogLevel = 0;
+    kernelParams = [ "quiet" "splash" ];
+  };
 }
