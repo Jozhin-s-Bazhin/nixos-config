@@ -35,7 +35,7 @@
     };
   }; 
 
-  environment.etc."brave/policies/recommended/policies.json".text = ''
+  environment.etc."brave/policies/managed/policies.json".text = ''
     "TorDisabled"=dword:00000001
     "IPFSEnabled"=dword:00000000
     "BraveRewardsDisabled"=dword:00000001
