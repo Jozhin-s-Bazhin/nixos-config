@@ -3,7 +3,7 @@ const mpris = await Service.import("mpris")
 const audio = await Service.import("audio")
 const battery = await Service.import("battery")
 const systemtray = await Service.import("systemtray")
-const network = await Service.import('network')
+const network = await Service.import("network")
 
 const date = Variable('');
 const time = Variable('');
