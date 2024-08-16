@@ -11,7 +11,6 @@
 
     stylix.url = "github:danth/stylix/";
     ags.url = "github:Aylur/ags";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=9a09eac79b85c846e3a865a9078a3f8ff65a9259";
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
