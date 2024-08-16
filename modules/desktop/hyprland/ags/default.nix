@@ -15,7 +15,8 @@
         webkitgtk
         accountsservice
         libnotify
-	( nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; } )
+        ( nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; } )
+        gnome.gnome-bluetooth
       ];
     };
   };

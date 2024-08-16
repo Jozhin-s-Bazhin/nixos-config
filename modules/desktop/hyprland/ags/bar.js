@@ -4,6 +4,7 @@ const audio = await Service.import("audio")
 const battery = await Service.import("battery")
 const systemtray = await Service.import("systemtray")
 const network = await Service.import("network")
+const bluetooth = await Service.import('bluetooth')
 
 const date = Variable('');
 const time = Variable('');
@@ -54,6 +55,15 @@ function Clock() {
     on_hover: () => dateLabel.reveal_child = true,
     on_hover_lost: () => dateLabel.reveal_child = false,
     setup: self => updateDateTime(),
+  })
+}
+
+function Bluetooth() {
+  const icon = bluetooth.bind("connected-devices").as ( devices => devices[0] ? "bluetooth-active-symbolic" : "bluetooth-disconnected-symbolic" )
+
+  return Widget.Icon ({
+    visible: bluetooth.bind("enabled"),
+    icon: icon
   })
 }
 
@@ -205,6 +215,7 @@ function Right() {
     spacing: 8,
     children: [
       SysTray(),
+      Bluetooth(),
       Media(),
       Volume(),
       NetworkIndicator(),
