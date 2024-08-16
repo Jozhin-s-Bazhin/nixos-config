@@ -8,7 +8,7 @@ const network = await Service.import('network')
 const date = Variable('');
 const time = Variable('');
 const updateDateTime = () => {
-  const output = Utils.exec('date "+%H:%M& ~ %A, %d %B"')
+  const output = Utils.exec('date "+%H:%M& ~ %A, %B %d"')
   const output_list = output.split('&')
   time.value = output_list[0]
   date.value = output_list[1]
