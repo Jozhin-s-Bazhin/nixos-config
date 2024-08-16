@@ -222,8 +222,8 @@ function Right() {
     spacing: 8,
     children: [
       SysTray(),
-      Bluetooth(),
       Media(),
+      Bluetooth(),
       Volume(),
       NetworkIndicator(),
       BatteryLabel(),
