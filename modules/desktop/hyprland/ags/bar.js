@@ -59,11 +59,18 @@ function Clock() {
 }
 
 function Bluetooth() {
-  const icon = bluetooth.bind("connected-devices").as ( devices => devices[0] ? "bluetooth-active-symbolic" : "bluetooth-disconnected-symbolic" )
+  const icon = Utils.merge([bluetooth.bind("connected-devices"), bluetooth.bind("enabled")], (devices, enabled) => {
+    if (enabled) {
+      if (devices[0]) { return "bluetooth-active-symbolic" } 
+      else { return "bluetooth-disconnected-symbolic" }
+    } 
+    else { return "bluetooth-disabled-symbolic" }
+  })
 
-  return Widget.Icon ({
-    visible: bluetooth.bind("enabled"),
-    icon: icon
+  return Widget.Button ({
+    child: Widget.Icon ({ icon: icon }),
+    on_clicked: () => bluetooth.toggle(),
+    tooltip_text: bluetooth.bind("connected-devices").as (devices => devices[0] ? `${devices[0].name}: ${devices[0].battery_percentage}%` : "No devices connected" )
   })
 }
 
