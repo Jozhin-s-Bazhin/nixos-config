@@ -70,7 +70,7 @@ function Bluetooth() {
   return Widget.Button ({
     child: Widget.Icon ({ icon: icon }),
     on_clicked: () => bluetooth.toggle(),
-    tooltip_text: bluetooth.bind("connected-devices").as (devices => devices[0] ? `${devices[0].name}: ${devices[0].battery_percentage}%` : "No devices connected" )
+    tooltip_text: bluetooth.bind("connected-devices").as (devices => devices[0] ? `${devices[0].name}` : "No devices connected" )
   })
 }
 
