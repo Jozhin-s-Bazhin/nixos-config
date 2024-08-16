@@ -35,4 +35,10 @@
       # Discord
       vesktop
     ];
+
+  # Aliases to launch minecraft with gamescope because lutris' gamescope is broken
+  programs.zsh.shellAliases = {
+    mcgs-laptop = "gamescope -h 1200 -H 1600 -w 1920 -W 2560 -F fsr -f --hdr-enabled --fsr-sharpness 20 -- prismlauncher";
+    mcgs-ultrawide = "gamescope -h 1080 -H 1440 -w 2560 -W 3440 -F fsr -f --hdr-enabled --fsr-sharpness 20 -- prismlauncher";
+  };
 }
