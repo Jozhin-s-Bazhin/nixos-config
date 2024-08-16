@@ -12,7 +12,6 @@
       thunderbird
       spotube
       pavucontrol   
-      bottles
     ];
 
     xdg.mimeApps = {
