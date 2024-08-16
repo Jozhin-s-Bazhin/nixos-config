@@ -1,7 +1,7 @@
 { inputs, lib, pkgs, username, ... }:
 
 {
-  imports = [ ./greetd ];
+  #imports = [ ./greetd ];
   services.upower.enable = true;
   home-manager.users.${username} = {
     imports = [ 
