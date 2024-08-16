@@ -53,4 +53,8 @@
     settings.General.Experimental = true;
   };
   services.blueman.enable = true;
+
+  # KDEConnect
+  programs.kdeconnect.enable = true;
+  home-manager.users.${username}.home.packages = [ pkgs.valent ];
 }
