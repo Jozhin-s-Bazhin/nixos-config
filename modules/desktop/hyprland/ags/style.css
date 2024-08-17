@@ -74,14 +74,8 @@ window.bar button:hover {
 }
 
 .tray button {
-  border-radius: 40px;
   padding: 2px;
   margin: 2px;
-  background-color: lighter(@headerbar_bg_color);
-}
-
-.tray button:hover {
-  background-color: @headerbar_bg_color;
 }
 
 .media {
