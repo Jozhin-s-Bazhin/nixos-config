@@ -12,6 +12,7 @@
       thunderbird
       spotube
       pavucontrol   
+      obsidian
     ];
 
     xdg.mimeApps = {
