@@ -31,6 +31,7 @@ in
         "SUPER, B, exec, brave"
         "SUPER, C, exec, codium"
 	"SUPER, F, exec, nautilus"
+	"SUPER, O, exec, obsidian"
 
         # Scratchpad
         "SUPER, Backspace, togglespecialworkspace"
