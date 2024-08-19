@@ -51,7 +51,7 @@
         "image/png" = "org.gnome.eog.desktop";
         "image/webp" = "org.gnome.eog.desktop";
       };
-    }
+    };
   }; 
 
   # Brave
