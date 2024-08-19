@@ -29,6 +29,7 @@
 	    "cad"
 	    "office"
 	    "movies"
+	    "docker"
 	  ];
       };
     };
