@@ -33,8 +33,28 @@
 	"--enable-smooth-scrolling"
       ];
     };
+
+    # Default apps
+    home.packages = with pkgs; [
+      nautilus
+      eog
+    ];
+
+    xdg.mimeApps = {
+      enable = true;
+      defaultApplications = {
+        # Nautilus
+        "inode/directory" = "org.gnome.Nautilus.desktop";
+        
+        # Eye of GNOME
+        "image/jpg" = "org.gnome.eog.desktop";
+        "image/png" = "org.gnome.eog.desktop";
+        "image/webp" = "org.gnome.eog.desktop";
+      };
+    }
   }; 
 
+  # Brave
   environment.etc."brave/policies/managed/policies.json".text = ''
     "TorDisabled"=dword:00000001
     "IPFSEnabled"=dword:00000000
