@@ -209,24 +209,26 @@ window.sidebar notebook > stack button:hover {
 window.volume_osd box, window.brightness_osd box {
   background-color: @theme_bg_color;
   border-radius: 40px;
-  padding: 10px;
+  padding: 9px;
   margin: 7px;
   min-width: 250px;
-  min-height: 15px;
+  min-height: 25px;
   border: 0.5px solid @theme_fg_color
 }
 
 window.volume_osd scale trough, window.brightness_osd scale trough {
-  background-color: darker(darker(@theme_fg_color));
+  background-color: darker(darker(darker(@theme_fg_color)));
   border-radius: 10px;
-  margin: 0 5px;
+  margin-right: 8px;
+  margin-left: 14px;
+  min-height: 11px;
 }
 
-window.volume_osd scale trough slider, window.brightness_osd scale trough slider {
+window.volume_osd highlight, window.brightness_osd highlight {
   background-color: @theme_fg_color;
   border-radius: 10px;
 }
 
 window.volume_osd image, window.brightness_osd image {
-  margin: 0 5px;
+  margin-left: 8px;
 }

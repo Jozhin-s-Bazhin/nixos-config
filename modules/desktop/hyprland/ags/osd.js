@@ -27,13 +27,16 @@ export function VolumeOsd() {
       children: [
         Widget.Icon({
           icon: Utils.watch(getIcon(), audio.speaker, getIcon),
+          size: 20
         }),
 
         Widget.Slider({
           on_change: ({ value }) => audio['speaker'].volume = value,
           value: audio['speaker'].bind('volume'),
           draw_value: false,
-          hexpand: true
+          hexpand: true,
+          min: 0,
+          max: 1.50,
         })
       ],
     }),
@@ -65,13 +68,15 @@ export function BrightnessOsd() {
             b <= 33 ? "display-brightness-symbolic" :
             b <= 66 ? "display-brightness-symbolic" :
             "display-brightness-symbolic"
-          )
+          ),
+          size: 20
         }),
         Widget.Slider({
           on_change: self => brightness.screen_value = self.value,
           value: brightness.bind('screen-value'),
           draw_value: false,
-          hexpand: true
+          hexpand: true,
+          
         })
       ],
     }),
