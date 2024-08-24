@@ -8,7 +8,7 @@ let
   # Smooth brightness
   setBrightnessSmooth = (pkgs.writeShellScriptBin "setBrightnessSmooth" ''
     #!/usr/bin/env bash
-    for i in ((i=1; i<= $1; i++)); do
+    for ((i=1; i<= $1; i++)); do
       brightnessctl s "1%$2"
     done
   '');
