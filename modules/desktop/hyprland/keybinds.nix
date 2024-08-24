@@ -81,8 +81,8 @@ in
         ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
 
         # Brightness
-        ", XF86MonBrightnessUp, exec, brightnessctl -s set 5%+"
-        ", XF86MonBrightnessDown, exec, brightnessctl -s set 5%- -n 1"
+        ", XF86MonBrightnessUp, exec, ${pkgs.setBrightnessSmooth}/bin/setBrightnessSmooth 5 +"
+        ", XF86MonBrightnessDown, exec, ${pkgs.setBrightnessSmooth}/bin/setBrightnessSmooth 5 -"
       ];
 
       bindl = [
@@ -99,6 +99,12 @@ in
       cliphist
       grimblast
       playerctl
+      (pkgs.writeShellScriptBin "setBrightnessSmooth" ''
+	#!/usr/bin/env bash
+	for (( i=1; i<$1; i++)); do
+	  brightnessctl s "1%$2"
+	done
+      '';)
     ];
   };
 }
