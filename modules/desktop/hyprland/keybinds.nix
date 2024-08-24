@@ -4,14 +4,6 @@ let
   workspaces_num = [ 1 2 3 4 5 6 7 8 9 ]; generateWorkspace = num: "SUPER, ${toString num}, exec, pypr workspace ${toString num}";
   generateMoveToWorkspace = num: "SUPER SHIFT, ${toString num}, exec, pypr movetoworkspace ${toString num}";
   workspaceBindings = (map generateWorkspace(workspaces_num)) ++ (map generateMoveToWorkspace(workspaces_num));
-
-  # Smooth brightness
-  setBrightnessSmooth = (pkgs.writeShellScriptBin "setBrightnessSmooth" ''
-    #!/usr/bin/env bash
-    for ((i=1; i<= $1; i++)); do
-      brightnessctl s "1%$2"
-    done
-  '');
 in 
 {
   home-manager.users.${username} = {
@@ -90,8 +82,8 @@ in
         ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
 
         # Brightness
-        ", XF86MonBrightnessUp, exec, ${setBrightnessSmooth}/bin/setBrightnessSmooth 5 +"
-        ", XF86MonBrightnessDown, exec, ${setBrightnessSmooth}/bin/setBrightnessSmooth 5 -"
+        ", XF86MonBrightnessUp, exec, brightnessctl s 5%+"
+        ", XF86MonBrightnessDown, exec, brightnessctl s 5%+"
       ];
 
       bindl = [
