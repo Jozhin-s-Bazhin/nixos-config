@@ -104,7 +104,7 @@ in
 	for (( i=1; i<$1; i++)); do
 	  brightnessctl s "1%$2"
 	done
-      '';)
+      '')
     ];
   };
 }
