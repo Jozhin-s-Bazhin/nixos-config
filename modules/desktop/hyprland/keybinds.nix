@@ -8,10 +8,10 @@ let
   # Smooth brightness
   setBrightnessSmooth = (pkgs.writeShellScriptBin "setBrightnessSmooth" ''
     #!/usr/bin/env bash
-    for (( i=1; i<$1; i++)); do
+    for i in {1..$1}; do
       brightnessctl s "1%$2"
     done
-  '')
+  '');
 in 
 {
   home-manager.users.${username} = {
