@@ -41,6 +41,7 @@ export function VolumeOsd() {
       ],
     }),
     visible: false
+    layer: "overlay";
   })
 
   let count = 0;
@@ -80,7 +81,8 @@ export function BrightnessOsd() {
         })
       ],
     }),
-    visible: false
+    visible: false,
+    layer: "overlay"
   })
 
   let count = 0;
