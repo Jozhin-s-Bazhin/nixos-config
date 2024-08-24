@@ -40,8 +40,8 @@ export function VolumeOsd() {
         })
       ],
     }),
-    visible: false
-    layer: "overlay";
+    visible: false,
+    layer: "overlay"
   })
 
   let count = 0;
