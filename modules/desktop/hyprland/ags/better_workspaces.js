@@ -1,9 +1,9 @@
 const hyprland = await Service.import("hyprland")
 
 // Makes workspaces always be on the focused monitor
-Utils.watch("", hyprland, "event", (event) => {
-  if (event.name == "focusedmon") {
-    const [monname, workspacename] = event.data.split(",")  // monname is the name of the newly focused monitor, e.g 'eDP-1', workspacename isn't used
+Utils.watch("", hyprland, "event", (name, data) => {
+  if (name == "focusedmon") {
+    const [monname, workspacename] = data.split(",")  // monname is the name of the newly focused monitor, e.g 'eDP-1', workspacename isn't used
     const inactive_workspaces = () => {
       let active_workspaces = []
       for (let monitor in hyprland.monitors) {
