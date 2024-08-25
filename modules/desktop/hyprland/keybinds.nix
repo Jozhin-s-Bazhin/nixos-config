@@ -2,70 +2,79 @@
 let 
   # I hope you have syntax highlighting
   # args: workspace/movetoworkspace <workspaceid>
-  workspaceSwitcher = pkgs.writers.writePython3 "workspaceSwitcher" {} ''
+  workspaceSwitcher = pkgs.writers.writePython3Bin "workspaceSwitcher" {} ''
     from subprocess import run
     from json import loads
-    from sys import argv
-    
+    from sys import argv, exit
+
+
     def hyprctl_json(message):
-      output = run("", shell=True, capture_output=True)
-      json = loads(output.stdout)
-      return json
-    
+        output = run("", shell=True, capture_output=True)
+        json = loads(output.stdout)
+        return json
+
+
     def get_workspaces():
-      workspaces = [ workspace["id"] for workspace in hyprctl_json("workspaces") if workspace["id"] > 0 ]
-      workspaces.sort()
-      return workspaces
-    
+        workspaces = [
+          workspace["id"] for workspace in hyprctl_json("workspaces")
+          if workspace["id"] > 0
+        ]
+        workspaces.sort()
+        return workspaces
+
+
     def get_currentworkspace():
-      monitors = hyprctl_json("monitors")
-      for monitor in monitors:
-        if monitor["focused"]:
-          return monitor["activeWorkspace"]["id"]
-          
+        monitors = hyprctl_json("monitors")
+        for monitor in monitors:
+            if monitor["focused"]:
+                return monitor["activeWorkspace"]["id"]
+
+
     def get_target_workspace(workspaceid):
-      workspaces = get_workspaces()
+        workspaces = get_workspaces()
 
-      if workspaceid == "new":
-          return workspaces[-1] + 1
+        if workspaceid == "new":
+            return workspaces[-1] + 1
 
-      elif "+" in workspaceid:
-          currentworkspace = get_currentworkspace()
+        elif "+" in workspaceid:
+            currentworkspace = get_currentworkspace()
 
-          for i in range(len(workspaces)):
-              if workspaces[i] == currentworkspace:
-                  if i + 1 >= len(workspaces):
-                      return workspaces[i] + 1
-                  else:
-                      return workspaces[i + 1]
+            for i in range(len(workspaces)):
+                if workspaces[i] == currentworkspace:
+                    if i + 1 >= len(workspaces):
+                        return workspaces[i] + 1
+                    else:
+                        return workspaces[i + 1]
 
-      elif "-" in workspaceid:
-          currentworkspace = get_currentworkspace()
+        elif "-" in workspaceid:
+            currentworkspace = get_currentworkspace()
 
-          for i in range(len(workspaces)):
-              if workspaces[i] == currentworkspace:
-                  if workspaces[i] == 1:
-                      return "No target workspace"
-                  elif i == 0:
-                      return workspaces[i] - 1
-                  else:
-                      return workspaces[i - 1]
+            for i in range(len(workspaces)):
+                if workspaces[i] == currentworkspace:
+                    if workspaces[i] == 1:
+                        return "No target workspace"
+                    elif i == 0:
+                        return workspaces[i] - 1
+                    else:
+                        return workspaces[i - 1]
 
-      else:
-          workspaceid = int(workspaceid)
-          if workspaceid > len(workspaces):
-              target = workspaces[-1] + 1 
-          else:
-              target = workspaces[workspaceid - 1]
-          return target
-          
-    target = get_target_workspace(workspaceid)
-    if target == "No target workspace": return
+        else:
+            workspaceid = int(workspaceid)
+            if workspaceid > len(workspaces):
+                target = workspaces[-1] + 1
+            else:
+                target = workspaces[workspaceid - 1]
+            return target
+
+
+    target = get_target_workspace(argv[2])
+    if target == "No target workspace":
+        exit()
 
     if argv[1] == "workspace":
-      run(["hyprctl", "workspace", target])
+        run(["hyprctl", "workspace", target])
     elif argv[1] == "movetoworkspace":
-      run(["hyprctl", "movetoworkspace", target])
+        run(["hyprctl", "movetoworkspace", target])
   '';
 
   # Workspace bindings
