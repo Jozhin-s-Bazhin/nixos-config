@@ -37,6 +37,7 @@ export function VolumeOsd() {
           hexpand: true,
           min: 0,
           max: 1.50,
+          class_name: audio['speaker'].bind('volume').as(vol => vol == 0 ? "" : vol < 10 ? "low" : "")
         })
       ],
     }),
@@ -77,6 +78,7 @@ export function BrightnessOsd() {
           value: brightness.bind('screen-value'),
           draw_value: false,
           hexpand: true,
+          class_name: brightness.bind("screen-value").as(b => b == 0 ? "" : b <= 6 ? "low" : "")
         })
       ],
     }),
