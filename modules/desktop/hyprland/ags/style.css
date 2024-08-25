@@ -1,3 +1,5 @@
+@define-color warning_bg_color @red_1;
+
 * {
   all: unset;
 }
@@ -6,8 +8,7 @@ menu {
   background-color: @headerbar_bg_color;
   color: @headerbar_fg_color;
   padding: 4px;
-  border-radius: 6px;
-}
+  border-radius: 6px; }
 
 menuitem {
   padding: 2px 5px;
@@ -221,12 +222,16 @@ window.volume_osd scale trough, window.brightness_osd scale trough {
   border-radius: 10px;
   margin-right: 8px;
   margin-left: 14px;
-  min-height: 11px;
+  min-height: 10.5px;
 }
 
 window.volume_osd highlight, window.brightness_osd highlight {
   background-color: @theme_fg_color;
   border-radius: 10px;
+}
+
+window.volume_osd scale.low highlight, window.brightness_osd scale.low highlight {
+  min-width: 12px;
 }
 
 window.volume_osd image, window.brightness_osd image {

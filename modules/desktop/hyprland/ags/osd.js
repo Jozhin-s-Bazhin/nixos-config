@@ -77,7 +77,6 @@ export function BrightnessOsd() {
           value: brightness.bind('screen-value'),
           draw_value: false,
           hexpand: true,
-          
         })
       ],
     }),
