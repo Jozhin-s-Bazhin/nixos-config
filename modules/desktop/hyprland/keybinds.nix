@@ -1,13 +1,8 @@
 { config, pkgs, username, ... }:
 let 
-  # Workspace bindings
-  workspaces_num = [ 1 2 3 4 5 6 7 8 9 ]; generateWorkspace = num: "SUPER, ${toString num}, exec, ${workspaceSwitcher}/bin/workspaceSwitcher workspace ${toString num}";
-  generateMoveToWorkspace = num: "SUPER SHIFT, ${toString num}, exec, ${workspaceSwitcher}/bin/workspaceSwitcher movetoworkspace ${toString num}";
-  workspaceBindings = (map generateWorkspace(workspaces_num)) ++ (map generateMoveToWorkspace(workspaces_num));
-  
   # I hope you have syntax highlighting
   # args: workspace/movetoworkspace <workspaceid>
-  workspaceSwitcher = pkgs.writers.writePython3 ''
+  workspaceSwitcher = pkgs.writers.writePython3 "workspaceSwitcher" {} ''
     from subprocess import run
     from json import loads
     from sys import argv
@@ -72,6 +67,11 @@ let
     elif argv[1] == "movetoworkspace":
       run(["hyprctl", "movetoworkspace", target])
   '';
+
+  # Workspace bindings
+  workspaces_num = [ 1 2 3 4 5 6 7 8 9 ]; generateWorkspace = num: "SUPER, ${toString num}, exec, ${workspaceSwitcher}/bin/workspaceSwitcher workspace ${toString num}";
+  generateMoveToWorkspace = num: "SUPER SHIFT, ${toString num}, exec, ${workspaceSwitcher}/bin/workspaceSwitcher movetoworkspace ${toString num}";
+  workspaceBindings = (map generateWorkspace(workspaces_num)) ++ (map generateMoveToWorkspace(workspaces_num));
 in 
 {
   home-manager.users.${username} = {
@@ -119,7 +119,7 @@ in
         "SUPER SHIFT, right, exec, ${workspaceSwitcher}/bin/workspaceSwitcher movetoworkspace +1"
 
         # Other
-        "WIN, F1, exec, ${pkgs.writeBashBin "gamemode.sh" ''
+        "WIN, F1, exec, ${pkgs.writers.writeBashBin "gamemode.sh" ''
           HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
           if [ "$HYPRGAMEMODE" = 1 ] ; then
             hyprctl --batch "\
@@ -134,7 +134,7 @@ in
           fi
           hyprctl reload
         ''}/bin/gamemode.sh"
-      ] 
+      ]
       ++
       workspaceBindings;
 
