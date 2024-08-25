@@ -9,7 +9,8 @@ let
 
 
     def hyprctl_json(message):
-        output = run("", shell=True, capture_output=True)
+        output = run(f"hyprctl -j {message}", shell=True,
+                     capture_output=True, encoding="utf-8")
         json = loads(output.stdout)
         return json
 
@@ -72,9 +73,9 @@ let
         exit()
 
     if argv[1] == "workspace":
-        run(["hyprctl", "workspace", target])
+        run(["hyprctl", "dispatch", "workspace", f"{target}"])
     elif argv[1] == "movetoworkspace":
-        run(["hyprctl", "movetoworkspace", target])
+        run(["hyprctl", "dispatch", "movetoworkspace", f"{target}"])
   '';
 
   # Workspace bindings
