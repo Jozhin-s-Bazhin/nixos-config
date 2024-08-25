@@ -28,8 +28,5 @@
 
     # AGS
     ./ags
-
-    # Pypr
-    ./pypr
   ];
 }

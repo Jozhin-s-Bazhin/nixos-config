@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, username, ... }:
+{ inputs, lib, pkgs, username, configDir, ... }:
 
 {
   #imports = [ ./greetd ];
@@ -7,6 +7,8 @@
     imports = [ 
       inputs.ags.homeManagerModules.default 
     ];
+
+    wayland.windowManager.hyprland.settings.exec-once = [ "ags -c ${configDir}/modules/desktop/hyprland/ags/config.js" ];
 
     programs.ags = {
       enable = true;
@@ -17,6 +19,7 @@
         libnotify
         ( nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; } )
         gnome.gnome-bluetooth
+        brightnessctl
       ];
     };
   };
