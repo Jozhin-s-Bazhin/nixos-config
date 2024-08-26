@@ -16,8 +16,15 @@ const updateDateTime = () => {
 };
 Utils.interval(60000, updateDateTime)
 
-function Workspaces() {
-  const activeId = hyprland.active.workspace.bind("id")
+function Workspaces(barMonitorId) {
+  const activeId = hyprland.active.workspace.bind("id").as(id => {
+    for (const monitor of hyprland.monitors) {
+      if (monitor.id == barMonitorId) {
+        return monitor.activeWorkspace.id
+      }
+    }
+  })
+
   const workspaces = hyprland.bind("workspaces").as((ws) =>
     ws
       .filter(({ id }) => id > 0)
@@ -198,11 +205,11 @@ const NetworkIndicator = () => Widget.Stack({
 
 
 // layout of the bar
-function Left() {
+function Left(monitor) {
   return Widget.Box({
     spacing: 8,
     children: [
-      Workspaces(),
+      Workspaces(monitor),
     ],
   })
 }
@@ -239,7 +246,7 @@ export function Bar(monitor) {
     anchor: ["top", "left", "right"],
     exclusivity: "exclusive",
     child: Widget.CenterBox({
-      start_widget: Left(),
+      start_widget: Left(monitor),
       center_widget: Center(),
       end_widget: Right(),
     }),

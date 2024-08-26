@@ -7,13 +7,13 @@ Utils.watch("", hyprland, "event", (name, data) => {
   // Makes workspaces always be on the focused monitor
   if (name == "focusedmon") {
     const monname = data.split(",")[0]  // monname is the name of the newly focused monitor, e.g 'eDP-1'
-    const inactive_workspaces = () => {
+    const inactive_workspaces = (() => {
       let active_workspaces = []
       for (let monitor in hyprland.monitors) {
         active_workspaces.push(monitor["activeWorkspace"]["id"])
       }        
-      return () => hyprctl.workspaces.filter(workspace => !active_workspaces.includes(workspace.id))
-    }
+      return hyprland.workspaces.filter(workspace => !active_workspaces.includes(workspace.id))
+    })()
     
     let batch = [];
     for (let workspace in inactive_workspaces) {
