@@ -3,8 +3,8 @@
 {
   # Reload ags when system is rebuilt
   system.activationScripts.reloadAgs = ''
-    ${inputs.ags.packages.${builtins.currentSystem}.default}/bin/ags -q
-    ${inputs.ags.packages.${builtins.currentSystem}.default} ags -c ${configDir}/modules/desktop/hyprland/ags/config.js
+    ${inputs.ags.packages.${pkgs.stdenv.hostPlatform.system}.default}.default}/bin/ags -q
+    ${inputs.ags.packages.${pkgs.stdenv.hostPlatform.system}.default} ags -c ${configDir}/modules/desktop/hyprland/ags/config.js
   '';
 
   #imports = [ ./greetd ];
