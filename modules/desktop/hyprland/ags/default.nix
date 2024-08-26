@@ -23,6 +23,8 @@
       ];
     };
 
+    wayland.windowManager.hyprland.settings.exec-once = [ "systemctl --user start startAgs.service" ];
+
     home.activation.reloadAgs = ''
       ${pkgs.systemd}/bin/systemctl --user restart startAgs.service
     '';
