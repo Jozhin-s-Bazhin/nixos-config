@@ -27,6 +27,7 @@
       ${pkgs.systemd}/bin/systemctl --user restart startAgs.service
     '';
 
+    systemd.user.enable = true;
     systemd.user.services.startAgs = {
       Unit = {
         Description = "Start AGS with Hyprland";  # This is in a service so it can be restarted on rebuild
