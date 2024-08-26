@@ -1,11 +1,7 @@
 { inputs, lib, pkgs, username, configDir, ... }:
 
 {
-  # Reload ags when system is rebuilt
-  system.activationScripts.reloadAgs = ''
-    ${inputs.ags.packages.${pkgs.stdenv.hostPlatform.system}.default}.default}/bin/ags -q
-    ${inputs.ags.packages.${pkgs.stdenv.hostPlatform.system}.default} ags -c ${configDir}/modules/desktop/hyprland/ags/config.js
-  '';
+
 
   #imports = [ ./greetd ];
   services.upower.enable = true;
@@ -13,8 +9,6 @@
     imports = [ 
       inputs.ags.homeManagerModules.default 
     ];
-
-    wayland.windowManager.hyprland.settings.exec-once = [ "ags -c ${configDir}/modules/desktop/hyprland/ags/config.js" ];
 
     programs.ags = {
       enable = true;
@@ -27,6 +21,29 @@
         gnome.gnome-bluetooth
         brightnessctl
       ];
+    };
+
+    home.activation.reloadAgs = ''
+      ${pkgs.systemd}/bin/systemctl --user restart startAgs.service
+    '';
+
+    systemd.user.services.startAgs = {
+      Unit = {
+        Description = "Start AGS with Hyprland";  # This is in a service so it can be restarted on rebuild
+	After = [ "graphical.target" ];
+      };
+
+      Service = {
+        Type = "simple";
+	ExecStart = "${pkgs.writeShellScriptBin "restartAgs" ''
+	  #!/usr/bin/env bash
+
+          ${inputs.ags.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/ags -q
+          ${inputs.ags.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/ags -c ${configDir}/modules/desktop/hyprland/ags/config.js
+	''}/bin/restartAgs";
+      };
+
+      Install.WantedBy = [ "graphical.target" ];
     };
   };
 }
