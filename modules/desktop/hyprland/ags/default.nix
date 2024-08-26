@@ -1,6 +1,12 @@
 { inputs, lib, pkgs, username, configDir, ... }:
 
 {
+  # Reload ags when system is rebuilt
+  system.activationScripts.reloadAgs = ''
+    ags -q
+    ags -c ${configDir}/modules/desktop/hyprland/ags/config.js
+  '';
+
   #imports = [ ./greetd ];
   services.upower.enable = true;
   home-manager.users.${username} = {
