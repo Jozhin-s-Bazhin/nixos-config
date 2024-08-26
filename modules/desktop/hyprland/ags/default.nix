@@ -34,7 +34,6 @@
       };
 
       Service = {
-        Type = "simple";
 	ExecStart = "${pkgs.writeShellScriptBin "restartAgs" ''
 	  #!/usr/bin/env bash
 
