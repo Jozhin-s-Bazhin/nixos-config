@@ -15,7 +15,6 @@
       cliphist
       wl-clipboard-rs
       udiskie
-      libnotify-bin
     ];
   };
 }
