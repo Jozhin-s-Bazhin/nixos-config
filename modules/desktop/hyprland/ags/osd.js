@@ -96,6 +96,7 @@ export function BrightnessOsd() {
   Utils.watch(false, brightness, "changed", () => {
     count++
     window.visible = true
+    print(window.child.children[1].value)
     Utils.timeout(DELAY, () => {
       count--
       if (count === 0) { window.visible = false }

@@ -160,7 +160,7 @@ in
 
         # Brightness
         ", XF86MonBrightnessUp, exec, brightnessctl --exponent=2.2 s 3%+"
-        ", XF86MonBrightnessDown, exec, brightnessctl -exponent=2.2 s 3%-"
+        ", XF86MonBrightnessDown, exec, brightnessctl --exponent=2.2 s 3%-"
       ];
 
       bindl = [
