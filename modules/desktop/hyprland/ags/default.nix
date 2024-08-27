@@ -16,7 +16,7 @@
         gtksourceview
         webkitgtk
         accountsservice
-        libnotify
+        libnotify-bin
         ( nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; } )
         gnome.gnome-bluetooth
         brightnessctl
