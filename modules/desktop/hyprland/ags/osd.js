@@ -61,7 +61,7 @@ export function VolumeOsd() {
 export function BrightnessOsd() {
   const max_brightness = 1
   const K = 2.2
-  const corrected_brightness = brightness.bind('screen-value').as(real_brightness => Math.pow((real_brightness / max_brightness / Math.pow(1, -K)), 1/K))
+  const corrected_brightness = brightness.bind('screen-value').as(real_brightness => Math.round((Math.pow((real_brightness / max_brightness / Math.pow(1, -K)), 1/K)) * 100)/100)
   const window = Widget.Window({
     name: "BrightnessOsd",
     class_name: "brightness_osd",
@@ -96,7 +96,6 @@ export function BrightnessOsd() {
   Utils.watch(false, brightness, "changed", () => {
     count++
     window.visible = true
-    print(window.child.children[1].value)
     Utils.timeout(DELAY, () => {
       count--
       if (count === 0) { window.visible = false }
