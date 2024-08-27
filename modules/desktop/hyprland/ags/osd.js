@@ -59,6 +59,9 @@ export function VolumeOsd() {
 }
 
 export function BrightnessOsd() {
+  const max_brightness = 1
+  const K = 2.2
+  const corrected_brightness = brightness.bind('screen-value').as(real_brightness => Math.pow((real_brightness / max_brightness / Math.pow(1, -K)), 1/K))
   const window = Widget.Window({
     name: "BrightnessOsd",
     class_name: "brightness_osd",
@@ -74,11 +77,14 @@ export function BrightnessOsd() {
           size: 20
         }),
         Widget.Slider({
-          on_change: self => brightness.screen_value = self.value,
-          value: brightness.bind('screen-value'),
+          on_change: self => {
+            brightness.screen_value = Math.pow(self.value, K) * max_brightness * Math.pow(1, -K)
+            if (self.value > 0 && self.value <= 10) { self.toggleClassName('low', true) }
+            else { self.toggleClassName('low', false) }
+          },
+          value: corrected_brightness,
           draw_value: false,
           hexpand: true,
-          class_name: brightness.bind("screen-value").as(b => b == 0 ? "" : b <= 6 ? "low" : "")
         })
       ],
     }),
