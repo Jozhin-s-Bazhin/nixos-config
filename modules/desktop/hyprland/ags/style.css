@@ -29,6 +29,21 @@ button {
   transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
 }
 
+/* Switch stuff, idk how to style it properly so i just copy pasted adw-gtk3 */
+
+switch { outline-offset: -4px; padding: 3px; border-radius: 14px; color: @window_fg_color; background-color: alpha(currentColor,0.15); }
+switch:hover:not(:checked) { background-color: alpha(currentColor,0.2); }
+switch:checked { color: @accent_fg_color; background-color: @accent_bg_color; }
+switch:checked:hover { background-image: image(alpha(currentColor,0.1)); }
+switch:checked:hover:active { background-image: image(rgba(0, 0, 0, 0.2)); }
+switch:checked:disabled { background-color: alpha(@accent_bg_color,0.5); }
+switch:disabled { color: mix(@window_fg_color,@window_bg_color,0.5); border-color: transparent; background-color: mix(mix(currentColor,@window_bg_color,0.81),@window_bg_color,0.3); text-shadow: none; }
+switch slider { margin: 0px; min-width: 20px; min-height: 20px; background-color: mix(white,@view_bg_color,0.2); border: 1px solid transparent; border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); -gtk-outline-radius: 20px; }
+switch image { color: transparent; }
+switch:hover slider { background-color: white; }
+switch:checked > slider { background-color: white; }
+switch:disabled slider { background-color: mix(@view_bg_color,mix(white,@view_bg_color,0.2),0.5); box-shadow: none; }
+
 /* Bar */
 window.bar {
   background-color: @theme_bg_color;
@@ -211,10 +226,51 @@ window.sidebar notebook > stack .quick_settings .powerprofiles_toggle {
   background-color: @sidebar_bg_color;
 }
 
-window.sidebar notebook > stack .wifi_selection button {
+window.sidebar notebook > stack .wifi_menu {
   background-color: @sidebar_bg_color;
+  margin: 10px;
   padding: 5px;
+  border-radius: 10px;
+}
+
+window.sidebar notebook > stack .wifi_menu .wifi_selection {
+  background-color: @theme_bg_color;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+window.sidebar notebook > stack .wifi_menu .wifi_header image {
+  margin: 0 7px 0 5px;
+}
+
+window.sidebar notebook > stack .wifi_menu .wifi_header {
+  padding: 5px;
+  padding-bottom: 8px;
+}
+
+window.sidebar notebook > stack .wifi_menu .wifi_header switch image {
+  margin: unset;
+}
+
+window.sidebar notebook > stack .wifi_menu .wifi_header button image {
+  margin-left: 15px;
+}
+
+window.sidebar notebook > stack .wifi_menu .wifi_selection box {
+  background-color: @sidebar_bg_color;
+  padding: 4px;
   margin: 5px;
+  border-radius: 5px;
+}
+
+window.sidebar notebook > stack .wifi_menu .wifi_selection image {
+  margin: 0 7px 0 5px;
+}
+
+window.sidebar notebook > stack .wifi_menu .wifi_selection box button {
+  background-color: @theme_bg_color;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 /* OSD */
