@@ -1,5 +1,6 @@
 import Gtk from 'gi://Gtk'
 import { applauncher } from './sidebar_modules/applauncher.js'
+import { quickSettings } from './sidebar_modules/quick_settings.js'
 
 const notebook = Widget.subclass(Gtk.Notebook)  // Tabby thing
 
@@ -8,7 +9,8 @@ const sidebar_notebook = () => notebook({
     self.set_tab_pos(Gtk.PositionType.LEFT);
 
     const pages = [
-      applauncher
+      applauncher,
+      quickSettings
     ]
     
     for (const page of pages) {

@@ -5,6 +5,7 @@ import "./better_multimonitor.js"
 
 App.config({
   style: "./style.css",
+  icons: "./assets",
   windows: [
     NotificationPopups(),
     Sidebar(),

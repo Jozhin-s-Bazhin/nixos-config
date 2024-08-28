@@ -20,6 +20,7 @@
         ( nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; } )
         gnome.gnome-bluetooth
         brightnessctl
+        networkmanagerapplet
       ];
     };
 

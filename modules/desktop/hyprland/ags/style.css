@@ -189,26 +189,39 @@ window.sidebar notebook > header image {
   margin: 0 0 5px 0;
 }
 
-window.sidebar .entry {
+window.sidebar .applauncher .entry {
   background-color: @sidebar_bg_color;
   padding: 10px;
   border-radius: 5px;
 }
 
-window.sidebar notebook > stack button {
+window.sidebar notebook > stack .applauncher button {
   padding: 5px;
   border-radius: 5px;
 }
 
-window.sidebar notebook > stack button:hover {
+window.sidebar notebook > stack .applauncher button:hover, window.sidebar notebook > stack .applauncher button:focus {
   background-color: lighter(@theme_bg_color);
+}
+
+window.sidebar notebook > stack .quick_settings .powerprofiles_toggle {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: @sidebar_bg_color;
+}
+
+window.sidebar notebook > stack .wifi_selection button {
+  background-color: @sidebar_bg_color;
+  padding: 5px;
+  margin: 5px;
 }
 
 /* OSD */
 window.volume_osd box, window.brightness_osd box {
   background-color: @theme_bg_color;
   border-radius: 40px;
-  padding: 9px;
+  padding: 8px;
   margin: 7px;
   min-width: 250px;
   min-height: 25px;
@@ -219,7 +232,7 @@ window.volume_osd scale trough, window.brightness_osd scale trough {
   background-color: darker(darker(darker(@theme_fg_color)));
   border-radius: 10px;
   margin-right: 8px;
-  margin-left: 14px;
+  margin-left: 12px;
   min-height: 10.5px;
 }
 
@@ -229,9 +242,9 @@ window.volume_osd highlight, window.brightness_osd highlight {
 }
 
 window.volume_osd scale.low highlight, window.brightness_osd scale.low highlight {
-  min-width: 12px;
+  min-width: 10px;
 }
 
 window.volume_osd image, window.brightness_osd image {
-  margin-left: 8px;
+  margin-left: 6px;
 }
