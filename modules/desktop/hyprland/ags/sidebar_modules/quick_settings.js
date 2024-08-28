@@ -2,7 +2,6 @@ const network = await Service.import('network')
 const bluetooth = await Service.import('bluetooth')
 const audio = await Service.import('audio')
 const powerprofiles = await Service.import('powerprofiles')
-const app = await Service.import('applications')
 import brightness from '../services/brightness.js';
 
 
@@ -94,6 +93,10 @@ const wifiMenu = () => {
             label: network.wifi.bind("ssid"),
             hexpand: true,
             hpack: "start",
+          }),
+          Widget.Button({
+            onClicked: () => { Utils.execAsync(['bash', '-c', 'nm-connection-editor']); App.closeWindow("sidebar")},
+            child: Widget.Icon("document-edit-symbolic")
           }),
           Widget.Switch({ 
             onActivate: ({ active }) => network.toggleWifi(),
