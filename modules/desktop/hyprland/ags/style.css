@@ -248,6 +248,10 @@ window.sidebar notebook > stack .wifi_menu .wifi_header {
   padding-bottom: 8px;
 }
 
+window.sidebar notebook > stack .wifi_menu .wifi_header switch {
+  margin-left: 12px;
+}
+
 window.sidebar notebook > stack .wifi_menu .wifi_header switch image {
   margin: unset;
 }
@@ -268,7 +272,7 @@ window.sidebar notebook > stack .wifi_menu .wifi_selection image {
 }
 
 window.sidebar notebook > stack .wifi_menu .wifi_selection box button {
-  background-color: @theme_bg_color;
+  background-color: lighter(@sidebar_bg_color);
   padding: 5px;
   border-radius: 5px;
 }
