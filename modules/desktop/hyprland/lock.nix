@@ -15,7 +15,7 @@
           }
           {
             timeout = 900;
-            on-timeout = "systemctl suspend";
+            on-timeout = "systemctl suspend-then-hibernate";
           }
         ];
       };
@@ -67,7 +67,11 @@ ${pkgs.gtklock}/bin/gtklock -L "bash -c 'sleep 2; systemd-notify --ready'" --dis
   };
 
   # Map power key to hibernate instead of shutdown
-  services.logind.powerKey = "hibernate";
+  services.logind = {
+    powerKey = "hibernate";
+    lidSwitch = "suspend-then-hibernate";
+  };
+  systemd.sleep.extraConfig = "HibernateDelaySec=3h";
 
   # Polkit
   users.users.${username}.packages = [ pkgs.lxqt.lxqt-policykit ];
