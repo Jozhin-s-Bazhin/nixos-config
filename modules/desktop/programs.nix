@@ -6,12 +6,13 @@
       networkmanagerapplet
       gnome-calculator
       mission-center
+      thunderbird
+      pavucontrol   
       bitwarden
       whatsapp-for-linux
-      thunderbird
       spotube
-      pavucontrol   
       obsidian
+      alpaca
     ];
   };
 }
