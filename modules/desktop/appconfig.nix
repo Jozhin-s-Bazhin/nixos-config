@@ -25,7 +25,6 @@
 	{ id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; }  # Dark reader
         { id = "mnjggcdmjocbbbhaepdhchncahnbgone"; }  # Sponsorblock
         { id = "fdpohaocaechififmbbbbbknoalclacl"; }  # Page screenshot
-        { id = "clngdbkpkpeebahjckkjfobafhncgmne"; }  # Stylus
       ];
       commandLineArgs = [
         "--enable-features=TouchpadOverscrollHistoryNavigation"
