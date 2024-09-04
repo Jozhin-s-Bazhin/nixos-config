@@ -18,11 +18,9 @@ Utils.interval(60000, updateDateTime)
 
 function Workspaces(barMonitorId) {
   const activeId = hyprland.active.workspace.bind("id").as(id => {
-    for (const monitor of hyprland.monitors) {
-      if (monitor.id == barMonitorId) {
-        return monitor.activeWorkspace.id
-      }
-    }
+    const activeMonitor = hyprland.getMonitor(barMonitorId)
+    const activeWorkspace = activeMonitor.activeWorkspace.id
+    return activeWorkspace
   })
 
   const workspaces = hyprland.bind("workspaces").as((ws) =>
