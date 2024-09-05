@@ -30,6 +30,7 @@
 	    "office"
 	    "movies"
 	    "docker"
+	    "qemu"
 	  ];
       };
     };
