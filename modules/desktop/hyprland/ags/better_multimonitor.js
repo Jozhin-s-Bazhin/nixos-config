@@ -5,7 +5,7 @@ hyprland.monitors.map(monitor => Bar(monitor.id))  // Open bars on all monitors
 
 hyprland.connect("event", (_, name, data) => {
   // Makes workspaces always be on the focused monitor
-  if (name == "focusedmon") {
+  /*if (name == "focusedmon") {
     const monname = data.split(",")[0]  // monname is the name of the newly focused monitor, e.g 'eDP-1'
     const inactive_workspaces = (() => {
       let active_workspaces = []
@@ -24,15 +24,9 @@ hyprland.connect("event", (_, name, data) => {
     hyprland.message(`--batch "${batch}"`)
   }
   // Open/close new bars when monitors are added/removed
-  else if (name == "monitoraddedv2" ) {
+  else*/ if (name == "monitoraddedv2" ) {
     const monitorid = data.split(",")[0]  // We only need monitorid
     
-    // I am so sorry
-    const end = Date.now() + 5000
-    while (Date.now() < end) {
-      
-    }
-
     print(monitorid)
     print(JSON.stringify(hyprland.monitors))
     Bar(monitorid)

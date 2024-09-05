@@ -17,9 +17,13 @@ const updateDateTime = () => {
 Utils.interval(60000, updateDateTime)
 
 function Workspaces(barMonitorId) {
-  const activeId = hyprland.active.workspace.bind("id").as(id => {
+  const activeId = hyprland.active.workspace.bind("id")
+  .as(id => {
     const activeMonitor = hyprland.getMonitor(barMonitorId)
+    print("### Workspaces(" + barMonitorId + ") called")
+    print("### monitors: " + JSON.stringify(hyprland.monitors))
     const activeWorkspace = activeMonitor.activeWorkspace.id
+    print("### activeWorkspace " + activeWorkspace)
     return activeWorkspace
   })
 
