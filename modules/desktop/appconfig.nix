@@ -62,4 +62,7 @@
     "BraveVPNDisabled"=dword:00000001
     "BraveAIChatEnabled"=dword:00000000
   '';
+
+  # Remap keyboard stuff
+  services.xserver.xkb.options = "caps:none,caps:macro";
 }

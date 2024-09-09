@@ -4,14 +4,6 @@
   home-manager.users.${username}.wayland.windowManager.hyprland.settings = {
     input = {
       kb_layout = "us";
-      kb_variant = "intl";
-      kb_model ="";
-      kb_options = [
-	"compose:ralt"
-	"caps:none"
-	"caps:macro"
-      ];
-      kb_rules ="";
       follow_mouse = 1;
 
       touchpad = {
