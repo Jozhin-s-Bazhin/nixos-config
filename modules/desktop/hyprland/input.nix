@@ -7,8 +7,8 @@
       kb_variant = "intl";
       kb_model ="";
       kb_options = [
-        "ctrl:nocaps"
 	"compose:ralt"
+	"caps:swapescape"
       ];
       kb_rules ="";
       follow_mouse = 1;
