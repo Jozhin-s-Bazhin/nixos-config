@@ -42,8 +42,10 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     wireplumber.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    extraConfig.pipewire-pulse.switch-on-connect."pulse.cmd" = [
+      { cmd = "load-module"; args = "module-always-sink"; flags = [ ]; }
+      { cmd = "load-module"; args = "module-switch-on-connect"; }
+    ];
   };
   users.users.${username}.extraGroups = [ "audio" ];
   

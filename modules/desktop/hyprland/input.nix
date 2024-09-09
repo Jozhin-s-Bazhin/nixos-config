@@ -4,10 +4,11 @@
   home-manager.users.${username}.wayland.windowManager.hyprland.settings = {
     input = {
       kb_layout = "us";
-      kb_variant = "";
+      kb_variant = "intl";
       kb_model ="";
       kb_options = [
-        "kb_options = ctrl:nocaps"
+        "ctrl:nocaps"
+	"compose:ralt"
       ];
       kb_rules ="";
       follow_mouse = 1;
