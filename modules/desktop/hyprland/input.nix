@@ -8,7 +8,8 @@
       kb_model ="";
       kb_options = [
 	"compose:ralt"
-	"caps:swapescape"
+	"caps:none"
+	"caps:macro"
       ];
       kb_rules ="";
       follow_mouse = 1;
