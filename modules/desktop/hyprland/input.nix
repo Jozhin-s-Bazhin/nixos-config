@@ -5,6 +5,7 @@
     input = {
       kb_layout = "us";
       follow_mouse = 1;
+      kb_options = "caps:hyper,compose:ralt";
 
       touchpad = {
         natural_scroll = true;
