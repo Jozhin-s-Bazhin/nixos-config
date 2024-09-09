@@ -18,7 +18,7 @@
         accountsservice
         libnotify
         ( nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; } )
-        gnome.gnome-bluetooth
+        gnome-bluetooth
         brightnessctl
         networkmanagerapplet
       ];
