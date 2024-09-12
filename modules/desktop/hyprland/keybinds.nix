@@ -128,8 +128,8 @@ in
         "SUPER, right, exec, ${workspaceSwitcher}/bin/workspaceSwitcher workspace +1"
         "SUPER SHIFT, right, exec, ${workspaceSwitcher}/bin/workspaceSwitcher movetoworkspace +1"
 
-        # Other
-        "WIN, F1, exec, ${pkgs.writers.writeBashBin "gamemode.sh" ''
+        # Game mode
+        "SUPER, F1, exec, ${pkgs.writers.writeBashBin "gamemode.sh" ''
           HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
           if [ "$HYPRGAMEMODE" = 1 ] ; then
             hyprctl --batch "\
@@ -144,6 +144,17 @@ in
           fi
           hyprctl reload
         ''}/bin/gamemode.sh"
+
+        # Disable workspace swipe 
+	"SUPER, F2, exec, ${pkgs.writers.writeBashBin "disableWorkspaceSwipe.sh" ''
+	  swipe_on=$(hyprctl getoption gestures:workspace_swipe | awk -F': ' '/: [01]$/ {print $2}')
+
+	  if [ $swipe_on -eq 0 ]; then
+	    hyprctl keyword gestures:workspace_swipe true
+	  else
+	    hyprctl keyword gestures:workspace_swipe false
+	  fi
+	''}/bin/disableWorkspaceSwipe.sh"
       ]
       ++
       workspaceBindings;
