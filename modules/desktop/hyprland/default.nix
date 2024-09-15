@@ -17,6 +17,9 @@
     # Keybindings
     ./keybinds.nix
 
+    # Default apps
+    ./default_apps.nix
+
     # Plugins
     ./plugins.nix
     
