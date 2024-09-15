@@ -1,7 +1,7 @@
 { inputs, pkgs, username, ...}:
 {
   home-manager.users.${username}.home.packages = with pkgs; [ 
-    freecad
+    freecad-wayland
     openscad
     orca-slicer
   ];
