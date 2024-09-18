@@ -5,8 +5,8 @@
     ./home_manager_config.nix
     ./programs.nix
     ./appconfig.nix 
-    ./hyprland 
-    #./gnome
+    #./hyprland 
+    ./gnome
     ./theming.nix
   ];
 }
