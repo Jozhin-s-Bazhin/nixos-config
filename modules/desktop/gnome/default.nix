@@ -1,4 +1,4 @@
-{ pkgs, inputs, username, ... }:
+{ pkgs, inputs, username, lib, ... }:
 {
   imports = [
     # Stuff that makes other stuff work

@@ -21,7 +21,7 @@
   environment.systemPackages = [ pkgs.gnome-firmware ];
 
   # Auto-brightness with wluma
-  home-manager.users.${username} = {
+  /*home-manager.users.${username} = {
     xdg.configFile = {
       "wluma/config.toml".text = ''
         [als.iio]
@@ -49,7 +49,7 @@
       };
       Install.WantedBy = [ "graphical-session.target" ];
     };
-  };
+  };*/
 
   # Disable keyboard wake-up
   services.udev.extraRules = ''
