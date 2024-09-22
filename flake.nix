@@ -11,6 +11,10 @@
 
     stylix.url = "github:danth/stylix/";
     ags.url = "github:Aylur/ags";
+    cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ nixpkgs, ... }: {
