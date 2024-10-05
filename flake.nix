@@ -2,7 +2,7 @@
   description = "Roman's NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/6c4ea7a3e0cf72ef7b67bddc05fdfc66d5cdfafc";
+    nixpkgs.url = "github:nixos/nixpkgs";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
