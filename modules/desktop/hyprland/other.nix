@@ -5,7 +5,7 @@
     wayland.windowManager.hyprland.settings = {
     monitor = [
       ", preferred, auto, 1"
-      "eDP-2, preferred, 0x0, 1.6, bitdepth, 10"
+      "eDP-2, preferred, 0x0, 1.6"
 
       # Ultrawide at home
       "desc:Huawei Technologies Co. Inc. ZQE-CAA 0xC080F622, preferred, -3440x0, 1"  # Right of eDP-1
