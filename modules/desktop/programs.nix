@@ -6,7 +6,6 @@
       thunderbird
       pavucontrol   
       bitwarden
-      zapzap
       spotube
       obsidian
       alpaca
