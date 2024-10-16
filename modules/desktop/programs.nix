@@ -6,7 +6,7 @@
       thunderbird
       pavucontrol   
       bitwarden
-      whatsapp-for-linux
+      whatsie
       spotube
       obsidian
       alpaca
