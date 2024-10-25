@@ -35,6 +35,7 @@
 	    "movies"
 	    "docker"
 	    "qemu"
+	    "waydroid"
 	  ];
       };
     };
