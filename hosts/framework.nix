@@ -3,7 +3,7 @@
   imports = [ inputs.nixos-hardware.nixosModules.framework-16-7040-amd ];
 
   # Latest kernel
-  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_6_10);
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Hibernation & autosuspend issue
   boot.kernelParams = [ 
