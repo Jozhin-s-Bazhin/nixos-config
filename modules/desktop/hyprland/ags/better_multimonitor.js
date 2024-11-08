@@ -26,9 +26,6 @@ hyprland.connect("event", (_, name, data) => {
   // Open/close new bars when monitors are added/removed
   else if (name == "monitoraddedv2" ) {
     const monitorid = data.split(",")[0]  // We only need monitorid
-    
-    print(monitorid)
-    print(JSON.stringify(hyprland.monitors))
-    Bar(monitorid)
+    Bar(Number(monitorid))
   }
 })
