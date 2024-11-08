@@ -1,6 +1,6 @@
 { pkgs, username, architecture, inputs, configDir, config, lib, ... }:
 {
-  security.pam.services.gtklock = {};
+  security.pam.services.gtklock.text = lib.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
 
   home-manager.users.${username} = {
     services.hypridle = {
@@ -21,8 +21,6 @@
       };
     };
     
-    home.packages = [ pkgs.gtklock ];
-
     xdg.configFile."gtklock/config.ini".text = ''
       [main]
       style=/home/${username}/.config/gtklock/style.css
