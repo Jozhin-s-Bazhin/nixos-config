@@ -9,21 +9,27 @@ hyprland.connect("event", (_, name, data) => {
     const monname = data.split(",")[0]  // monname is the name of the newly focused monitor, e.g 'eDP-1'
     const inactive_workspaces = (() => {
       let active_workspaces = []
-      for (let monitor in hyprland.monitors) {
+      for (let monitor of hyprland.monitors) {
         active_workspaces.push(monitor["activeWorkspace"]["id"])
       }        
-      return hyprland.workspaces.filter(workspace => !active_workspaces.includes(workspace.id))
+      const all_workspaces = hyprland.workspaces
+      
+      return all_workspaces
+      .filter(workspace => !active_workspaces.includes(workspace.id))
+      .map(workspace => workspace.id)
+      .filter(id => id >= 0)
     })()
     
     let batch = [];
-    for (let workspace in inactive_workspaces) {
-      batch.push(`moveworkspacetomonitor ${workspace} ${monname}`)
+    for (let workspace of inactive_workspaces) {
+      batch.push(`dispatch moveworkspacetomonitor ${workspace} ${monname}`)
     }
-    batch = batch.join(";")
+    batch = batch.join(" ; ")
     
-    hyprland.message(`--batch "${batch}"`)
+    const message = `hyprctl --batch '${batch}'`
+    Utils.exec(message)
   }
-  // Open/close new bars when monitors are added/removed
+  // Open new bars when monitors are connected
   else if (name == "monitoraddedv2" ) {
     const monitorid = data.split(",")[0]  // We only need monitorid
     Bar(Number(monitorid))

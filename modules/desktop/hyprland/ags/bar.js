@@ -19,6 +19,7 @@ Utils.interval(60000, updateDateTime)
 function Workspaces(barMonitorId) {
   const activeId = hyprland.active.workspace.bind("id")
   .as(id => {
+    // This complains about activeMonitor being undefined but doesn't seem to affect anything
     const activeMonitor = hyprland.getMonitor(barMonitorId)
     const activeWorkspace = activeMonitor.activeWorkspace.id
     return activeWorkspace
