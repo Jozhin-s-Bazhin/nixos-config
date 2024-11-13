@@ -19,6 +19,9 @@
           passes = 2;
           special = true;
         };
+	shadow = {
+	  enabled = false;
+	};
       };
 
       animations = {
