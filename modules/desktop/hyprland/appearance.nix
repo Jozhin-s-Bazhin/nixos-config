@@ -19,9 +19,7 @@
           passes = 2;
           special = true;
         };
-	shadow = {
-	  enabled = false;
-	};
+	"col.shadow" = lib.mkForce null;
       };
 
       animations = {
