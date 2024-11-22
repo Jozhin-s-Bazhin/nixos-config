@@ -22,6 +22,9 @@
   # Timezone and locale
   time.timeZone = "Europe/Brussels";
   i18n.defaultLocale = "en_US.UTF-8";
+
+  # Enable zram
+  zramSwap.enable = true;
   
   # User
   users.users.${username} = {
@@ -44,7 +47,6 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
-  # I don't want automatic upgrades on a server
   
   # Running non-NixOS binaries
   programs.nix-ld.enable = true;
