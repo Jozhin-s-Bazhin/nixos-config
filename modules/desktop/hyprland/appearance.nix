@@ -19,7 +19,6 @@
           passes = 2;
           special = true;
         };
-	"col.shadow" = lib.mkForce null;
       };
 
       animations = {
