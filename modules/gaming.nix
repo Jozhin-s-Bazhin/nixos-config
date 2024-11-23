@@ -29,6 +29,7 @@
 	vulkan-tools
       ];})
       prismlauncher
+      jdk22
       crrcsim
       freesweep
     
