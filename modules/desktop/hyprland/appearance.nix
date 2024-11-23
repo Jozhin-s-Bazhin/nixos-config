@@ -8,7 +8,6 @@
         gaps_out = 4;
         border_size = 2;
         layout = "dwindle";
-        allow_tearing = true; 
       }; 
 
       decoration = { 
@@ -43,7 +42,7 @@
 
       misc = {
         disable_hyprland_logo = true;
-        vrr = 1;
+        #vrr = 1;
       };
 
       # XWayland scaling
