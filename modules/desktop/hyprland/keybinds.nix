@@ -1,7 +1,6 @@
 { config, pkgs, username, ... }:
 let 
-  # I hope you have syntax highlighting
-  # args: workspace/movetoworkspace <workspaceid>
+  hyprnome = "${pkgs.hyprnome}/bin/hyprnome";
   workspaceSwitcher = pkgs.writers.writePython3Bin "workspaceSwitcher" {} ''
     from subprocess import run
     from json import loads
@@ -34,38 +33,12 @@ let
     def get_target_workspace(workspaceid):
         workspaces = get_workspaces()
 
-        if workspaceid == "new":
-            return workspaces[-1] + 1
-
-        elif "+" in workspaceid:
-            currentworkspace = get_currentworkspace()
-
-            for i in range(len(workspaces)):
-                if workspaces[i] == currentworkspace:
-                    if i + 1 >= len(workspaces):
-                        return workspaces[i] + 1
-                    else:
-                        return workspaces[i + 1]
-
-        elif "-" in workspaceid:
-            currentworkspace = get_currentworkspace()
-
-            for i in range(len(workspaces)):
-                if workspaces[i] == currentworkspace:
-                    if workspaces[i] == 1:
-                        return "No target workspace"
-                    elif i == 0:
-                        return workspaces[i] - 1
-                    else:
-                        return workspaces[i - 1]
-
+        workspaceid = int(workspaceid)
+        if workspaceid > len(workspaces):
+            target = workspaces[-1] + 1
         else:
-            workspaceid = int(workspaceid)
-            if workspaceid > len(workspaces):
-                target = workspaces[-1] + 1
-            else:
-                target = workspaces[workspaceid - 1]
-            return target
+            target = workspaces[workspaceid - 1]
+        return target
 
 
     target = get_target_workspace(argv[2])
@@ -117,16 +90,17 @@ in
         "SUPER SHIFT, Backspace, movetoworkspace, special"
 
         # Workspace switching with mouse wheel
-        "SUPER, mouse_down, exec, ${workspaceSwitcher}/bin/workspaceSwitcher workspace -1"
-        "SUPER SHIFT, mouse_down, exec, ${workspaceSwitcher}/bin/workspaceSwitcher movetoworkspace -1"
-        "SUPER, mouse_up, exec, ${workspaceSwitcher}/bin/workspaceSwitcher workspace +1"
-        "SUPER SHIFT, mouse_up, exec, ${workspaceSwitcher}/bin/workspaceSwitcher movetoworkspace +1"
+        "SUPER, mouse_down, exec, ${hyprnome} --previous"
+        "SUPER SHIFT, mouse_down, exec, ${hyprnome} --previous --move"
+        "SUPER, mouse_up, exec, ${hyprnome}"
+        "SUPER SHIFT, mouse_up, exec, ${hyprnome} --move"
 
         # Workspace switching with arrow keys
-        "SUPER, left, exec, ${workspaceSwitcher}/bin/workspaceSwitcher workspace -1"
-        "SUPER SHIFT, left, exec, ${workspaceSwitcher}/bin/workspaceSwitcher movetoworkspace -1"
-        "SUPER, right, exec, ${workspaceSwitcher}/bin/workspaceSwitcher workspace +1"
-        "SUPER SHIFT, right, exec, ${workspaceSwitcher}/bin/workspaceSwitcher movetoworkspace +1"
+        "SUPER, left, exec, ${hyprnome} --previous"
+        "SUPER SHIFT, left, exec, ${hyprnome} --previous --move"
+
+        "SUPER, right, exec, ${hyprnome}"
+        "SUPER SHIFT, right, exec, ${hyprnome} --move"
 
         # Game mode
         "SUPER, F1, exec, ${pkgs.writers.writeBashBin "gamemode.sh" ''

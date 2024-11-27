@@ -33,7 +33,7 @@
 	    "cad"
 	    "office"
 	    "movies"
-	    "docker"
+      "waydroid"
 	    "qemu"
 	  ];
       };
