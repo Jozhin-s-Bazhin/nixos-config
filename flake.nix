@@ -33,7 +33,6 @@
 	    "cad"
 	    "office"
 	    "movies"
-      "waydroid"
 	    "qemu"
 	  ];
       };
