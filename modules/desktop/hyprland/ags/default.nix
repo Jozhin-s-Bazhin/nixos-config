@@ -21,6 +21,9 @@
         gnome-bluetooth
         brightnessctl
         networkmanagerapplet
+	bash
+	killall
+	wluma
       ];
     };
 
