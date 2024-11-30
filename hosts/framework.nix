@@ -21,8 +21,7 @@
   environment.systemPackages = [ pkgs.gnome-firmware ];
 
   # Auto-brightness with wluma
-  hardware.sensor.iio.enable = true;
-  home-manager.users.${username} = {
+  /*home-manager.users.${username} = {
     xdg.configFile = {
       "wluma/config.toml".text = ''
         [als.iio]
@@ -33,10 +32,6 @@
         name = "eDP-2"
         path = "/sys/class/backlight/amdgpu_bl2"
         capturer = "none"
-
-      	[[keyboard]]
-      	name = "keyboard-framework"
-      	path = "/sys/bus/platform/devices/framework_laptop/leds/framework_laptop::kbd_backlight"
       '';
     };
     systemd.user.services.wluma = {
@@ -54,7 +49,7 @@
       };
       Install.WantedBy = [ "graphical-session.target" ];
     };
-  };
+  };*/
 
   # Disable keyboard wake-up
   services.udev.extraRules = ''
