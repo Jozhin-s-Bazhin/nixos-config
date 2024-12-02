@@ -1,4 +1,4 @@
-{ pkgs, username, config, ... }:
+{ pkgs, username, config, inputs, ... }:
 
 {
   home-manager.users.${username} = {
@@ -15,7 +15,7 @@
       };
     };
 
-    programs.chromium = {
+    /*programs.chromium = {
       enable = true;
       package = pkgs.brave;
       extensions = [
@@ -31,10 +31,11 @@
 	"--password-store=basic"
 	"--enable-smooth-scrolling"
       ];
-    };
+    };*/
+    home.packages = [ inputs.zen.packages."${pkgs.stdenv.hostPlatform.system}".specific ];
   }; 
 
-  # Brave
+  /*# Brave
   environment.etc."brave/policies/managed/policies.json".text = ''
     "TorDisabled"=dword:00000001
     "IPFSEnabled"=dword:00000000
@@ -42,5 +43,5 @@
     "BraveWalletDisabled"=dword:00000001
     "BraveVPNDisabled"=dword:00000001
     "BraveAIChatEnabled"=dword:00000000
-  '';
+  '';*/
 }

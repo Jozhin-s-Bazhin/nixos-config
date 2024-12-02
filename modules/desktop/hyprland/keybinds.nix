@@ -80,7 +80,7 @@ in
         # Applications
         "SUPER, Tab, exec, ags -t sidebar"
         "SUPER, Return, exec, kitty"
-        "SUPER, B, exec, brave"
+        "SUPER, B, exec, zen"
         "SUPER, C, exec, codium"
         "SUPER, F, exec, nautilus"
         "SUPER, O, exec, obsidian"
