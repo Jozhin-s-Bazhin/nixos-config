@@ -41,7 +41,7 @@
       };
     };
   };
-  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; }) ];
+  fonts.packages = [ pkgs.nerd-fonts.symbols-only ];
 
   # Boot splash screen
   boot = {

@@ -17,7 +17,7 @@
         webkitgtk
         accountsservice
         libnotify
-        ( nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; } )
+	nerd-fonts.symbols-only
         gnome-bluetooth
         brightnessctl
         networkmanagerapplet
