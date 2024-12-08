@@ -9,7 +9,7 @@ App.config({
   windows: [
     NotificationPopups(),
     Sidebar(),
-    BrightnessOsd(),
+    //BrightnessOsd(),
     VolumeOsd()
   ]
 })
