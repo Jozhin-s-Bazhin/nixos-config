@@ -26,7 +26,7 @@ in
   ] ++
   lib.optionals (hasModule "cad") [
     ./modules/desktop
-    ./modules/cad.nix
+    ./modules/cad
   ] ++
   lib.optionals (hasModule "office") [
     ./modules/desktop
