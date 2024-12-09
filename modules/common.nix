@@ -53,6 +53,7 @@
   programs.nix-ld.libraries = with pkgs; [
     # Put missing libraries here
   ];
+  environment.etc."/bin/bash".source = "${pkgs.bash}/bin/bash";
 
   # CLI aliases and preferences
   environment.systemPackages = with pkgs; [
