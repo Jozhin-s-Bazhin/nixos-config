@@ -11,7 +11,6 @@
 
     stylix.url = "github:danth/stylix/";
     ags.url = "github:Aylur/ags/67b0e31ded361934d78bddcfc01f8c3fcf781aad";
-    zen.url = "github:MarceColl/zen-browser-flake";
     /*cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
