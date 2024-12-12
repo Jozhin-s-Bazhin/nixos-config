@@ -1,14 +1,5 @@
 { pkgs, username, config, inputs, ... }:
-let
-  lock-false = {
-    Value = false;
-    Status = "locked";
-  };
-  lock-true = {
-    Value = true;
-    Status = "locked";
-  };
-in
+
 {
   home-manager.users.${username} = {
     # Kitty
@@ -24,9 +15,10 @@ in
       };
     };
 
-    # Librewolf
-    programs.firefox = {
+    /*programs.chromium = {
       enable = true;
+<<<<<<< HEAD
+<<<<<<< HEAD
       package = (pkgs.wrapFirefox (pkgs.librewolf-unwrapped.override { pipewireSupport = true;}) {});
       policies = {
         DisplayBookmarksToolbar = "never";
@@ -34,11 +26,15 @@ in
 	SearchBar = "unified";
 	OfferToSaveLogins = false;
 	PasswordManagerEnabled = false;
+	Homepage = {
+	  URL = "about:blank";
+	};
 
 	Preferences = {
 	  "widget.gtk.native-context-menus" = lock-true;
 	  "widget.gtk.non-native-titlebar-buttons.enabled" = lock-false;
           "sidebar.verticalTabs" = lock-true;
+	  "browser.newtabpage.enabled" = lock-false;
 	};
 
 	# Librewolf policies
@@ -50,6 +46,7 @@ in
 	DisableProfileImport = false;
 	DisableFirefoxStudies = true;
 	DisableTelemetry = true;
+	DisablePocket = true;
 	DisableFeedbackCommands = true;
 	DisableSetDesktopBackground = false;
 	DisableDeveloperTools = false;
@@ -78,12 +75,46 @@ in
 	    installation_mode = "force_installed";
 	  };
 
+	  # Bitwarden
           "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-	    install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden/latest.xpi";
+	    install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
 	    installation_mode = "force_installed";
 	  };
 	};
       };
     };
+=======
+=======
+>>>>>>> parent of 5e8ce03 (desktop: switch from zen to librewolf)
+      package = pkgs.brave;
+      extensions = [
+        { id = "dbepggeogbaibhgnhhndojpepiihcmeb"; }  # Vimium
+	{ id = "hmbgmokpddhjjncclckdfnolbhfjnoam"; }  # SearX
+	{ id = "nngceckbapebfimnlniiiahkandclblb"; }  # Bitwarden
+	{ id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; }  # Dark reader
+        { id = "mnjggcdmjocbbbhaepdhchncahnbgone"; }  # Sponsorblock
+        { id = "fdpohaocaechififmbbbbbknoalclacl"; }  # Page screenshot
+      ];
+      commandLineArgs = [
+        "--enable-features=TouchpadOverscrollHistoryNavigation"
+	"--password-store=basic"
+	"--enable-smooth-scrolling"
+      ];
+    };*/
+    home.packages = [ inputs.zen.packages."${pkgs.stdenv.hostPlatform.system}".specific ];
+<<<<<<< HEAD
+>>>>>>> parent of 5e8ce03 (desktop: switch from zen to librewolf)
+=======
+>>>>>>> parent of 5e8ce03 (desktop: switch from zen to librewolf)
   }; 
+
+  /*# Brave
+  environment.etc."brave/policies/managed/policies.json".text = ''
+    "TorDisabled"=dword:00000001
+    "IPFSEnabled"=dword:00000000
+    "BraveRewardsDisabled"=dword:00000001
+    "BraveWalletDisabled"=dword:00000001
+    "BraveVPNDisabled"=dword:00000001
+    "BraveAIChatEnabled"=dword:00000000
+  '';*/
 }
