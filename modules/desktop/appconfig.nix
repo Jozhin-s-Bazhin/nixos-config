@@ -32,7 +32,7 @@
 	"--enable-smooth-scrolling"
       ];
     };*/
-    home.packages = [ inputs.zen.packages."${pkgs.stdenv.hostPlatform.system}".specific ];
+    home.packages = [ inputs.zen.packages."${pkgs.system}".default ];
   }; 
 
   /*# Brave
