@@ -150,6 +150,8 @@
     configure.customRC = ''
       inoremap jk <Esc>
       set ignorecase
+      set tabstop=2
+      set shiftwidth=2
     '';
   };
 }

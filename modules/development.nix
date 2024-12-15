@@ -66,7 +66,7 @@
 
       # 2 spaces instead of tab
       "editor.tabSize" = 2;
-      "editor.insertSpaces" = true;
+      "editor.insertSpaces" = false;
       "editor.detectIndentation" = false;
     };
   };
