@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  imports = [
-    ./cosmic_config.nix
-  ];
+	imports = [
+		./cosmic_config.nix
+	];
 }
