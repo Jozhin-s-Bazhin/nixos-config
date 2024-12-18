@@ -15,11 +15,13 @@
 		wayland.windowManager.hyprland = {
 			enable = true;
 			xwayland.enable = true;
+			systemd.enable = false;
 		};
 	};
 	
 	programs.hyprland = {
 		enable = true;
+		withUWSM = true;
 	};
 
 	environment.sessionVariables = {

@@ -30,7 +30,7 @@
 					"borderangle, 1, 4, default"
 					"fade, 1, 4, default"
 					"workspaces, 1, 6, default"
-		"specialWorkspace, 1, 6, default, slidevert"
+					"specialWorkspace, 1, 6, default, slidevert"
 				];
 			};
 
@@ -48,8 +48,6 @@
 			# XWayland scaling
 			xwayland.force_zero_scaling = true;
 		};
-
-		services.hyprpaper.enable = true;
 	};
 }
 

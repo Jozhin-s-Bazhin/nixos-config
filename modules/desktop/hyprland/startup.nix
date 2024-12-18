@@ -9,6 +9,9 @@
 
 			# Automount USB drives
 			"${pkgs.udiskie}/bin/udiskie"
+
+			# Hyprpaper
+			"${pkgs.hyprpaper}/bin/hyprpaper"
 		];
 	};
 }

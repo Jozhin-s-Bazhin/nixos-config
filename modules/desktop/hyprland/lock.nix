@@ -28,9 +28,9 @@
 		xdg.configFile."gtklock/style.css".text = ''
 			window {
 				background-image: url("${configDir}/modules/desktop/wallpaper/wallpaper_blurred.png");
-	 	background-size: cover;
-	 	background-repeat: no-repeat;
-	 	background-position: center;
+	 			background-size: cover;
+	 			background-repeat: no-repeat;
+	 			background-position: center;
 			}
 
 			#clock-label {
@@ -73,4 +73,13 @@ ${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready" --display "wayland-1"
 
 	# Polkit
 	users.users.${username}.packages = [ pkgs.lxqt.lxqt-policykit ];
+
+	# Login screen
+	services.displayManager = {
+		enable = true;
+		sddm = {
+			enable = true;
+			wayland.enable = true;
+		};
+	};
 }
