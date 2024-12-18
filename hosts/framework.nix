@@ -21,7 +21,7 @@
 	environment.systemPackages = [ pkgs.gnome-firmware ];
 
 	# Auto-brightness with wluma
-	/*home-manager.users.${username} = {
+	home-manager.users.${username} = {
 		xdg.configFile = {
 			"wluma/config.toml".text = ''
 				[als.iio]
@@ -31,25 +31,29 @@
 				[[output.backlight]]
 				name = "eDP-2"
 				path = "/sys/class/backlight/amdgpu_bl2"
-				capturer = "none"
+				capturer = "wayland"
+
+				[[keyboard]]
+				name = "keyboard-framework"
+				path = "/sys/bus/platform/devices/framework_laptop/leds/framework_laptop::kbd_backlight"
 			'';
 		};
 		systemd.user.services.wluma = {
 			Unit = {
 				Description = "Adjusting screen brightness based on screen contents and amount of ambient light";
-	PartOf = [ "graphical-session.target" ];
+				PartOf = [ "graphical-session.target" ];
 				After = [ "graphical-session.target" ];
 			};
 			Service = {
 				ExecStart = "${pkgs.wluma}/bin/wluma";
-	Restart = "always";
+				Restart = "always";
 				EnvironmentFile = "-%E/wluma/service.conf";
-	PrivateNetwork = "true";
-	PrivateMounts = "false";
+				PrivateNetwork = "true";
+				PrivateMounts = "false";
 			};
 			Install.WantedBy = [ "graphical-session.target" ];
 		};
-	};*/
+	};
 
 	# Disable keyboard wake-up
 	services.udev.extraRules = ''
