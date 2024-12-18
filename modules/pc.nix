@@ -43,7 +43,6 @@
 		pulse.enable = true;
 		wireplumber.enable = true;
 		extraConfig.pipewire-pulse.switch-on-connect."pulse.cmd" = [
-			{ cmd = "load-module"; args = "module-always-sink"; flags = [ ]; }
 			{ cmd = "load-module"; args = "module-switch-on-connect"; }
 		];
 	};
