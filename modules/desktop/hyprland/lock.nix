@@ -20,6 +20,7 @@
 				];
 			};
 		};
+		systemd.user.services.hypridle.Unit.After = lib.mkForce "graphical-session.target";
 		
 		xdg.configFile."gtklock/config.ini".text = ''
 			[main]
