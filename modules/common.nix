@@ -152,6 +152,7 @@
 			set ignorecase
 			set tabstop=2
 			set shiftwidth=2
+			hi Normal guibg=NONE ctermbg=NONE
 		'';
 	};
 }
