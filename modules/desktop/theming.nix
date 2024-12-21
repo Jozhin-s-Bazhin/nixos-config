@@ -14,7 +14,7 @@ in
 				terminal = opacity;
 				desktop = opacity;
 				popups = opacity;
-				appplications = opacity;
+				applications = opacity;
 			};
 			cursor = {
 				name = "Adwaita";
