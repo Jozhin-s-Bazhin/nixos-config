@@ -1,4 +1,4 @@
-import brightness from './services/brightness.js';
+//import brightness from './services/brightness.js';
 const audio = await Service.import('audio')
 
 const DELAY = 2000
@@ -58,7 +58,7 @@ export function VolumeOsd() {
   return window
 }
 
-export function BrightnessOsd() {
+/*export function BrightnessOsd() {
   const max_brightness = 1
   const K = 2.2
   const corrected_brightness = brightness.bind('screen-value').as(real_brightness => Math.round((Math.pow((real_brightness / max_brightness / Math.pow(1, -K)), 1/K)) * 100)/100)
@@ -103,4 +103,4 @@ export function BrightnessOsd() {
   })
 
   return window
-}
+}*/
