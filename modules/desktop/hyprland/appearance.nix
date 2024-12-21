@@ -14,8 +14,8 @@
 				rounding = 5;
 				blur = {
 					enabled = true;
-					size = 3;
-					passes = 2;
+					size = 10;
+					passes = 3;
 					special = true;
 				};
 			};

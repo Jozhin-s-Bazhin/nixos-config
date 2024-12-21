@@ -1,4 +1,7 @@
 { inputs, pkgs, username, configDir, ... }:
+let
+	opacity = 0.8;
+in
 {
 	imports = [ inputs.stylix.nixosModules.stylix ];
 	
@@ -7,6 +10,12 @@
 		stylix = {
 			enable = true;
 			image = ./wallpaper/wallpaper.jpg;
+			opacity = {
+				terminal = opacity;
+				desktop = opacity;
+				popups = opacity;
+				appplications = opacity;
+			};
 			cursor = {
 				name = "Adwaita";
 				package = pkgs.adwaita-icon-theme;
@@ -37,7 +46,7 @@
 			enable = true;
 			iconTheme = {
 				package = pkgs.morewaita-icon-theme;
-	name = "MoreWaita";
+				name = "MoreWaita";
 			};
 		};
 	};
