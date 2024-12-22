@@ -8,6 +8,7 @@
 			spotube
 			obsidian
 			alpaca
+			whatsapp-for-linux
 		];
 	};
 }
