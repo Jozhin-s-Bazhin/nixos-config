@@ -32,9 +32,9 @@ in
 		./modules/desktop
 		./modules/office.nix
 	] ++
-	lib.optionals (hasModule "movies") [
+	lib.optionals (hasModule "media") [
 		./modules/desktop
-		./modules/movies.nix
+		./modules/media.nix
 	] ++
 	[ ./hardware/${name}.nix ] ++
 	[ ./hosts/${name}.nix ]

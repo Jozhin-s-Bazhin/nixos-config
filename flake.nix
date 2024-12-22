@@ -33,7 +33,7 @@
 					"development"
 					"cad"
 					"office"
-					"movies"
+					"media"
 					"qemu"
 				];
 			};

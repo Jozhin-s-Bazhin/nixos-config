@@ -4,5 +4,6 @@
 		qbittorrent
 		celluloid
 		stremio
+		foliate
 	];
 }
