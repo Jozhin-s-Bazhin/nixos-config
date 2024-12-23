@@ -59,7 +59,7 @@
 				export DBUS_SESSION_ADDRESS="unix:path=/run/user/$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')/bus"
 
 				${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready" --display "wayland-1"
-			''}/bin/lockBeforeSleep";
+			''}";
 		};
 	};
 
