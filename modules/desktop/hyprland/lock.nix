@@ -52,15 +52,13 @@
 			Type = "notify";
 			NotifyAccess = "all";
 			User = username;
-			ExecStart = "${pkgs.writeScriptBin "lockBeforeSleep" ''
-#!/run/current-system/sw/bin/bash -l
+			ExecStart = "${pkgs.writers.writeBash "lockBeforeSleep" ''
+				# Environment variables
+				loginctl_sessions=$(loginctl list-sessions)
+				export XDG_RUNTIME_DIR="/run/user/$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
+				export DBUS_SESSION_ADDRESS="unix:path=/run/user/$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')/bus"
 
-# Environment variables
-loginctl_sessions=$(loginctl list-sessions)
-export XDG_RUNTIME_DIR="/run/user/$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
-export DBUS_SESSION_ADDRESS="unix:path=/run/user/$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')/bus"
-
-${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready" --display "wayland-1"
+				${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready" --display "wayland-1"
 			''}/bin/lockBeforeSleep";
 		};
 	};
