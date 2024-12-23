@@ -59,4 +59,7 @@
 	services.udev.extraRules = ''
 		ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="32ac", ATTRS{idProduct}=="0012", ATTR{power/wakeup}="disabled"
 	'';
+
+	# Enable qmk
+	hardware.keyboard.qmk.enable = true;
 }
