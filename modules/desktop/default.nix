@@ -4,7 +4,7 @@
 	imports = [
 		./home_manager_config.nix
 		./programs.nix
-		#./hyprland
+		./hyprland
 		./theming.nix
 	];
   
