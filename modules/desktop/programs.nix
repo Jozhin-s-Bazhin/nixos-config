@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, inputs, ... }:
 
 {
   options.nixos-config.desktop.programs.enable = lib.mkEnableOption "programs I want on any system with a graphical desktop";

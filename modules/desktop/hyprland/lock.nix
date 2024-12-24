@@ -1,7 +1,7 @@
 { pkgs, inputs, config, lib, ... }:
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
-    security.pam.services.gtklock.source = "${pkgs.gtklock}/etc/pam.d/gtklock";
+    security.pam.services.gtklock.text = builtins.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
 
     home-manager.users.${config.nixos-config.username} = {
       services.hypridle = {

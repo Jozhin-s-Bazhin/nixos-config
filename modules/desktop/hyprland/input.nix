@@ -2,7 +2,7 @@
 
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
-    home-manager.users.${config.nixos-config.desktop.hyprland.enable}.wayland.windowManager.hyprland.settings = {
+    home-manager.users.${config.nixos-config.username}.wayland.windowManager.hyprland.settings = {
       input = {
         kb_layout = "us";
         follow_mouse = 1;

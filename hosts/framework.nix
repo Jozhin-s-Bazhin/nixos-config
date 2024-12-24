@@ -1,6 +1,17 @@
-{ inputs, pkgs, username, ... }:
+{ inputs, pkgs, config, ... }:
 {
 	imports = [ inputs.nixos-hardware.nixosModules.framework-16-7040-amd ];
+  
+  # Custom options
+  nixos-config = {
+    laptop.enable = true;
+    amdgpu.enable = true;
+    desktop.enable = true;
+    development.enable = true;
+    gaming.enable = true;
+    media.enable = true;
+    office.enable = true;
+  };
 
 	# Latest kernel
 	boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -21,7 +32,7 @@
 	environment.systemPackages = [ pkgs.gnome-firmware ];
 
 	# Auto-brightness with wluma
-	/*home-manager.users.${username} = {
+	home-manager.users.${config.nixos-config.username} = {
 		xdg.configFile = {
 			"wluma/config.toml".text = ''
 				[als.iio]
@@ -53,7 +64,7 @@
 			};
 			Install.WantedBy = [ "graphical-session.target" ];
 		};
-	};*/
+	};
 
 	# Disable keyboard wake-up
 	services.udev.extraRules = ''
