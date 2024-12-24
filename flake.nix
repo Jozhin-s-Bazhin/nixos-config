@@ -19,24 +19,13 @@
 	};
 
 	outputs = inputs@{ nixpkgs, ... }: {
-		nixosConfigurations = let
-			mkSystem = import ./mkSystem.nix { inherit inputs; };
-		in {
-			framework = mkSystem {
+    nixosConfigurations = let 
+      mkSystem = import ./mkSystem.nix { inherit inputs; };
+    in {
+      framework = mkSystem {
 				name = "framework";
-				architecture = "x86_64-linux";
-				username = "roman";
-				modules = [
-					"laptop"
-					"amdgpu"
-					"gaming"
-					"development"
-					"cad"
-					"office"
-					"media"
-					"qemu"
-				];
+				system = "x86_64";
 			};
-		};
-	};
+    };
+  };
 }

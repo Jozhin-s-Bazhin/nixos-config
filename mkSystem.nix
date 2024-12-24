@@ -1,18 +1,14 @@
-{ inputs }:
+{ inputs, ... }:
  
-{
-	name,
-	architecture,
-	username,	
-	configDir ? "/home/${username}/nixos-config",
-	modules ? []
-}:
-let
-	lib = inputs.nixpkgs.lib;
-	getModules = import ./modules.nix { inherit lib name; };
-in
-	lib.nixosSystem {
-		system = architecture;
-		specialArgs = { inherit inputs architecture name username configDir; };
-		modules = getModules modules;
-	}
+{ name, system }:
+
+inputs.nixpkgs.lib.nixosSystem {
+  inherit system;
+  specialArgs = { inherit inputs; };
+  modules = [
+    ./modules
+    ./hosts/${name}.nix
+    ./hardware/${name}.nix
+    { networking.hostName = name; }
+  ];
+}
