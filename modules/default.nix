@@ -2,7 +2,7 @@
 {
   imports = [
     #./cad
-    #./desktop
+    ./desktop
     ./virtualisation
     ./amdgpu.nix
     ./common.nix
