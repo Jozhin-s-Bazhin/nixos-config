@@ -10,9 +10,12 @@
   
   options.nixos-config.desktop.enable = lib.mkEnableOption "a graphical desktop";
   
-  config.nixos-config.desktop = lib.mkIf config.nixos-config.desktop.enable {
-    programs.enable = lib.mkDefault true;
-    theming.enable = lib.mkDefault true;
-    hyprland.enable = lib.mkDefault true;
+  config.nixos-config = lib.mkIf config.nixos-config.desktop.enable {
+    desktop = {
+      programs.enable = lib.mkDefault true;
+      theming.enable = lib.mkDefault true;
+      hyprland.enable = lib.mkDefault true;
+    };
+    pc.enable = true;
   };
 }

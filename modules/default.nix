@@ -1,16 +1,16 @@
 { lib, config, ... }:
 {
   imports = [
-    #./cad
+    ./cad
     ./desktop
     ./virtualisation
     ./amdgpu.nix
     ./common.nix
-    /*./development.nix
-    ./gaming.nix*/
+    ./development.nix
+    ./gaming.nix
     ./laptop.nix
-    /*./media.nix
-    ./office.nix*/
+    ./media.nix
+    ./office.nix
     ./pc.nix
   ];
   
