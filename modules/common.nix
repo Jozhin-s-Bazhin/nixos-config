@@ -68,9 +68,7 @@
       tldr
       bc
       yazi
-      htop
-    ];
-    
+      htop ];
     programs.zsh = {
       enable = true;
       enableCompletion = true;
@@ -120,25 +118,63 @@
         c = "codium . && exit";
         clip = "kitten clipboard";
 
-        # Nix rebuilds
+        # Nix aliases
         rbs = pkgs.writeShellScript "rebuild-switch.sh" ''
           BLUE='\033[1;34m'
           NC='\033[0m'
           echo -e "$BLUE"
           echo -e "Committing..."
           echo -e "$NC"
-          date=$(date)
-          git -C /home/${config.nixos-config.username}/nixos-config add -A > /dev/null
-          git -C /home/${config.nixos-config.username}/nixos-config commit
-          git -C /home/${config.nixos-config.username}/nixos-config push -q
+          git -C ${config.nixos-config.configDir} add -A > /dev/null
+          git -C ${config.nixos-config.configDir} commit
+          git -C ${config.nixos-config.configDir} push -q
           echo -e "$BLUE"
           echo -e "Starting nixos-rebuild switch ..."
           echo -e "$NC"
-          sudo nixos-rebuild switch --flake /home/${config.nixos-config.username}/nixos-config#${config.networking.hostName}
+          sudo nixos-rebuild switch --flake ${config.nixos-config.configDir}#${config.networking.hostName}
           echo -e "$BLUE"
           echo -e "Finished $NC" 
         '';
-
+				rbnc = pkgs.writeShellScript "rebuild-no-commit" ''
+	        BLUE='\033[1;34m'
+          NC='\033[0m'
+          echo -e "$BLUE"
+          echo -e "Starting nixos-rebuild switch ..."
+          echo -e "$NC"
+          sudo nixos-rebuild switch --flake ${config.nixos-config.configDir}#${config.networking.hostName}
+          echo -e "$BLUE"
+          echo -e "Finished $NC" 
+				'';
+        rbu = pkgs.writeShellScript "rebuild-update.sh" ''
+          BLUE='\033[1;34m'
+          NC='\033[0m'
+          echo -e "$BLUE"
+          echo -e "Updating flake.lock..."
+          echo -e "$NC"
+					nix flake update --flake ${config.nixos-config.configDir}
+          echo -e "$BLUE"
+          echo -e "Committing..."
+          echo -e "$NC"
+          git -C ${config.nixos-config.configDir} add -A > /dev/null
+          git -C ${config.nixos-config.configDir} commit -m "Update flake.lock"
+          git -C ${config.nixos-config.configDir} push -q
+          echo -e "$BLUE"
+          echo -e "Starting nixos-rebuild switch ..."
+          echo -e "$NC"
+          sudo nixos-rebuild switch --flake ${config.nixos-config.configDir}#${config.networking.hostName}
+          echo -e "$BLUE"
+          echo -e "Finished $NC" 
+        '';
+				rbt = pkgs.writeShellScript "rebuild-test" ''
+	        BLUE='\033[1;34m'
+          NC='\033[0m'
+          echo -e "$BLUE"
+          echo -e "Starting nixos-rebuild test ..."
+          echo -e "$NC"
+          sudo nixos-rebuild test --flake ${config.nixos-config.configDir}#${config.networking.hostName}
+          echo -e "$BLUE"
+          echo -e "Finished $NC" 
+				'';
         nsp = "nix-shell -p";
       };
     };
