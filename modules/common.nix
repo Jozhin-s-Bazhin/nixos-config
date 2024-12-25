@@ -120,61 +120,121 @@
 
         # Nix aliases
         rbs = pkgs.writeShellScript "rebuild-switch.sh" ''
+          # Colors
           BLUE='\033[1;34m'
+          RED='\033[1;33m'
           NC='\033[0m'
+          
+          # Commit and push changes
           echo -e "$BLUE"
           echo -e "Committing..."
           echo -e "$NC"
-          git -C ${config.nixos-config.configDir} add -A > /dev/null
-          git -C ${config.nixos-config.configDir} commit
-          git -C ${config.nixos-config.configDir} push -q
-          echo -e "$BLUE"
-          echo -e "Starting nixos-rebuild switch ..."
-          echo -e "$NC"
-          sudo nixos-rebuild switch --flake ${config.nixos-config.configDir}#${config.networking.hostName}
-          echo -e "$BLUE"
-          echo -e "Finished $NC" 
+          git -C ${config.nixos-config.configDir} add -A > /dev/null &&
+          git -C ${config.nixos-config.configDir} commit &&
+          git -C ${config.nixos-config.configDir} push -q &&
+          
+          # Start nixos-rebuild switch
+          echo -e "$BLUE" &&
+          echo -e "Starting nixos-rebuild switch ..." &&
+          echo -e "$NC" &&
+          sudo nixos-rebuild switch --flake ${config.nixos-config.configDir}#${config.networking.hostName} &&
+          
+          # Finish
+          echo -e "$BLUE" &&
+          echo -e "Finished $NC" ||
+          echo -e "''${RED}Command failed $NC"
         '';
 				rbnc = pkgs.writeShellScript "rebuild-no-commit" ''
+          # Colors
 	        BLUE='\033[1;34m'
+          RED='\033[1;33m'
           NC='\033[0m'
+          
+          # Start nixos-rebuild switch
           echo -e "$BLUE"
           echo -e "Starting nixos-rebuild switch ..."
           echo -e "$NC"
-          sudo nixos-rebuild switch --flake ${config.nixos-config.configDir}#${config.networking.hostName}
-          echo -e "$BLUE"
-          echo -e "Finished $NC" 
+          sudo nixos-rebuild switch --flake ${config.nixos-config.configDir}#${config.networking.hostName} &&
+          
+          # Finish
+          echo -e "$BLUE" &&
+          echo -e "Finished $NC" ||
+          echo -e "''${RED}Command failed $NC"
 				'';
         rbu = pkgs.writeShellScript "rebuild-update.sh" ''
+          # Colors
           BLUE='\033[1;34m'
+          RED='\033[1;33m'
           NC='\033[0m'
+          
+          # Update flake.lock
           echo -e "$BLUE"
           echo -e "Updating flake.lock..."
           echo -e "$NC"
-					nix flake update --flake ${config.nixos-config.configDir}
-          echo -e "$BLUE"
-          echo -e "Committing..."
-          echo -e "$NC"
-          git -C ${config.nixos-config.configDir} add -A > /dev/null
-          git -C ${config.nixos-config.configDir} commit -m "Update flake.lock"
-          git -C ${config.nixos-config.configDir} push -q
-          echo -e "$BLUE"
-          echo -e "Starting nixos-rebuild switch ..."
-          echo -e "$NC"
-          sudo nixos-rebuild switch --flake ${config.nixos-config.configDir}#${config.networking.hostName}
-          echo -e "$BLUE"
-          echo -e "Finished $NC" 
+					nix flake update --flake ${config.nixos-config.configDir} &&
+          
+          # Start nixos-rebuild switch
+          echo -e "$BLUE" &&
+          echo -e "Starting nixos-rebuild switch ..." &&
+          echo -e "$NC" &&
+          sudo nixos-rebuild switch --flake ${config.nixos-config.configDir}#${config.networking.hostName} &&
+          
+          # Commit and push changes
+          echo -e "$BLUE" &&
+          echo -e "Committing..." &&
+          echo -e "$NC" &&
+          git -C ${config.nixos-config.configDir} add -A > /dev/null &&
+          git -C ${config.nixos-config.configDir} commit -m "Update flake.lock" &&
+          git -C ${config.nixos-config.configDir} push -q &&
+          
+          # Finish
+          echo -e "$BLUE" &&
+          echo -e "Finished $NC" ||
+          echo -e "''${RED}Command failed $NC"
         '';
 				rbt = pkgs.writeShellScript "rebuild-test" ''
+          # Colors
 	        BLUE='\033[1;34m'
+          RED='\033[1;33m'
           NC='\033[0m'
+          
+          # Start nixos-rebuild test
           echo -e "$BLUE"
           echo -e "Starting nixos-rebuild test ..."
           echo -e "$NC"
-          sudo nixos-rebuild test --flake ${config.nixos-config.configDir}#${config.networking.hostName}
-          echo -e "$BLUE"
-          echo -e "Finished $NC" 
+          sudo nixos-rebuild test --flake ${config.nixos-config.configDir}#${config.networking.hostName} &&
+          
+          # Finish
+          echo -e "$BLUE" &&
+          echo -e "Finished $NC" ||
+          echo -e "''${RED}Command failed $NC"
 				'';
+        rbb = pkgs.writeShellScript "rebuild-boot.sh" ''
+          # Colors
+          BLUE='\033[1;34m'
+          RED='\033[1;33m'
+          NC='\033[0m'
+          
+          # Commit and push changes
+          echo -e "$BLUE"
+          echo -e "Committing..."
+          echo -e "$NC"
+          git -C ${config.nixos-config.configDir} add -A > /dev/null &&
+          git -C ${config.nixos-config.configDir} commit &&
+          git -C ${config.nixos-config.configDir} push -q &&
+          
+          # Start nixos-rebuild boot
+          echo -e "$BLUE" &&
+          echo -e "Starting nixos-rebuild boot ..." &&
+          echo -e "$NC" &&
+          sudo nixos-rebuild boot --flake ${config.nixos-config.configDir}#${config.networking.hostName} &&
+          
+          # Finish
+          echo -e "$BLUE" &&
+          echo -e "Finished $NC" ||
+          echo -e "''${RED}Command failed $NC"
+        '';
+
         nsp = "nix-shell -p";
       };
     };
