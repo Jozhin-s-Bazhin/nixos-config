@@ -68,7 +68,8 @@
       tldr
       bc
       yazi
-      htop ];
+      htop 
+		];
     programs.zsh = {
       enable = true;
       enableCompletion = true;
@@ -136,7 +137,6 @@
           git -C ${config.nixos-config.configDir} add -A > /dev/null &&
           git -C ${config.nixos-config.configDir} commit &&
           git -C ${config.nixos-config.configDir} push -q &&
-          
           # Start nixos-rebuild switch
           echo -e "$BLUE" &&
           echo -e "Starting nixos-rebuild switch ..." &&
@@ -204,6 +204,10 @@
           # Finish
           echo -e "$BLUE" &&
           echo -e "Finished $NC" ||
+
+					# Clean up flake.lock
+          git -C ${config.nixos-config.configDir} restore . --staged &&
+          git -C ${config.nixos-config.configDir} restore . &&
           echo -e "$RED" &&
           echo -e "Command failed $NC"
         '';
@@ -255,7 +259,9 @@
           
           # Finish
           echo -e "$BLUE" &&
-          echo -e "Finished $NC" ||
+          echo -e "Finished" &&
+					echo -e "Rebooting" &&
+					systemctl reboot ||
           echo -e "$RED" &&
           echo -e "Command failed $NC"
         '';
