@@ -14,6 +14,7 @@
           workspaceActiveBorder = "rgba(00000000)";
           workspaceInactiveBorder = "rgba(00000000)";
           showNewWorkspace = false;
+					showEmptyWorkspace = false;
         };
       };
     };
