@@ -272,6 +272,12 @@
     users.defaultUserShell = pkgs.zsh;
     environment.pathsToLink = [ "/share/zsh" ];
 
+		# Set $NIX_PATH
+		nix.nixPath = [
+			"nixpkgs=flake:nixpkgs:/nix/var/nix/profiles/per-user/root/channels"
+			"nixos-config=${config.nixos-config.configDir}"
+		];
+
     # NeoVim
     programs.neovim = {
       enable = true;
