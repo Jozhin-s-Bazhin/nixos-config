@@ -16,7 +16,7 @@
             }
             {
               timeout = 900;
-              on-timeout = "systemctl suspend-then-hibernate";
+              on-timeout = "systemctl suspend";
             }
           ];
         };
@@ -67,9 +67,9 @@
     # Map power key to hibernate instead of shutdown
     services.logind = {
       powerKey = "hibernate";
-      lidSwitch = "suspend-then-hibernate";
+      lidSwitch = "suspend";
     };
-    systemd.sleep.extraConfig = "HibernateDelaySec=3h";
+    #systemd.sleep.extraConfig = "HibernateDelaySec=3h";
 
     # Polkit
     users.users.${config.nixos-config.username}.packages = [ pkgs.lxqt.lxqt-policykit ];
