@@ -127,6 +127,7 @@
           NC='\033[0m'
           
           # Ask sudo password immediately so it's cached, otherwise you may forget to input it later
+					(
           echo -e "$BLUE"
           sudo echo -e "Authentication successful $NC" &&
  
@@ -145,9 +146,11 @@
           
           # Finish
           echo -e "$BLUE" &&
-          echo -e "Finished $NC" ||
+          echo -e "Finished $NC" 
+					) || (
           echo -e "$RED" &&
           echo -e "Command failed $NC"
+					)
         '';
 				rbnc = pkgs.writeShellScript "rebuild-no-commit" ''
           # Colors
@@ -156,6 +159,7 @@
           NC='\033[0m'
           
           # Ask sudo password immediately so it's cached, otherwise you may forget to input it later
+					(
           echo -e "$BLUE"
           sudo echo -e "Authentication successful $NC" &&
  
@@ -167,9 +171,11 @@
           
           # Finish
           echo -e "$BLUE" &&
-          echo -e "Finished $NC" ||
+          echo -e "Finished $NC" 
+					) || (
           echo -e "$RED" &&
           echo -e "Command failed $NC"
+					)
 				'';
         rbu = pkgs.writeShellScript "rebuild-update.sh" ''
           # Colors
@@ -178,6 +184,7 @@
           NC='\033[0m'
           
           # Ask sudo password immediately so it's cached, otherwise you may forget to input it later
+					(
           echo -e "$BLUE"
           sudo echo -e "Authentication successful $NC" &&
           
@@ -203,13 +210,15 @@
           
           # Finish
           echo -e "$BLUE" &&
-          echo -e "Finished $NC" ||
+          echo -e "Finished $NC" 
+					) || (
 
 					# Clean up flake.lock
           git -C ${config.nixos-config.configDir} restore . --staged &&
           git -C ${config.nixos-config.configDir} restore . &&
           echo -e "$RED" &&
           echo -e "Command failed $NC"
+					)
         '';
 				rbt = pkgs.writeShellScript "rebuild-test" ''
           # Colors
@@ -218,7 +227,8 @@
           NC='\033[0m'
           
           # Ask sudo password immediately so it's cached, otherwise you may forget to input it later
-          echo -e "$BLUE"
+          (
+					echo -e "$BLUE"
           sudo echo -e "Authentication successful $NC" &&
  
           # Start nixos-rebuild test
@@ -229,9 +239,11 @@
           
           # Finish
           echo -e "$BLUE" &&
-          echo -e "Finished $NC" ||
-          echo -e "$RED" &&
+          echo -e "Finished $NC"
+					) || (
+          echo -e "$RED"
           echo -e "Command failed $NC"
+					)
 				'';
         rbb = pkgs.writeShellScript "rebuild-boot.sh" ''
           # Colors
@@ -240,6 +252,7 @@
           NC='\033[0m'
           
           # Ask sudo password immediately so it's cached, otherwise you may forget to input it later
+					(
           echo -e "$BLUE"
           sudo echo -e "Authentication successful $NC" &&
  
@@ -261,9 +274,11 @@
           echo -e "$BLUE" &&
           echo -e "Finished" &&
 					echo -e "Rebooting" &&
-					systemctl reboot ||
+					systemctl reboot 
+					) || (
           echo -e "$RED" &&
           echo -e "Command failed $NC"
+					)
         '';
 
         nsp = "nix-shell -p";
