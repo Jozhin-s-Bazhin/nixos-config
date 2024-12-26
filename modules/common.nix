@@ -272,9 +272,6 @@
     users.defaultUserShell = pkgs.zsh;
     environment.pathsToLink = [ "/share/zsh" ];
 
-		# Set NIX_PATH
-		nix.nixPath = [ "nixos-config=${config.nixos-config.configDir}" ];
-
     # NeoVim
     programs.neovim = {
       enable = true;
