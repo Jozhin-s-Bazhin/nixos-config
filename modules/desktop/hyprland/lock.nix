@@ -75,11 +75,19 @@
     users.users.${config.nixos-config.username}.packages = [ pkgs.lxqt.lxqt-policykit ];
 
     # Login screen
+    environment.systemPackages = [ (pkgs.elegant-sddm.override { 
+			themeConfig = {
+				General.background = "${config.stylix.blurredImage}"; 
+				Background.WallpaperAspect = "cover";
+			};
+		})];
     services.displayManager = {
       enable = true;
       sddm = {
         enable = true;
         wayland.enable = true;
+        wayland.compositor = "kwin";
+        theme = "Elegant";
       };
     };
   };

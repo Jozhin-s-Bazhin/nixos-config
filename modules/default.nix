@@ -21,9 +21,9 @@
 			description = "Username of the user most of the config applies to.";
     };
     configDir = lib.mkOption {
-      default = "/home/${config.nixos-config.username}/nixos-config/";
+      default = "/home/${config.nixos-config.username}/nixos-config";
       type = lib.types.path;
-			description = "Path to your nixos config. Must have a / at the end.";
+			description = "Path to your nixos config.";
     }; 
   };
 }
