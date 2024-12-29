@@ -7,16 +7,16 @@
       services.hypridle = {
         enable = true;
         settings = { 
-          general.lock_cmd = "gtklock";
+          general.lock_cmd = "${pkgs.gtklock}/bin/gtklock";
           listener = [
             {
               timeout = 840;
-              on-timeout = "brightnessctl -s set 1";
-              on-resume = "brightnessctl -r";
+              on-timeout = "${pkgs.brightnessctl}/bin/brightnessctl -s set 1";
+              on-resume = "${pkgs.brightnessctl}/bin/brightnessctl -r";
             }
             {
               timeout = 900;
-              on-timeout = "systemctl suspend";
+              on-timeout = "${pkgs.brightnessctl}/bin/systemctl suspend";
             }
           ];
         };
