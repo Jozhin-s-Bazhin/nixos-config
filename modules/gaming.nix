@@ -7,10 +7,7 @@
     nixos-config.desktop.enable = lib.mkDefault true;
 
     # Hardware stuff 
-    services = {
-      ratbagd.enable = true;	# Mice
-      hardware.openrgb.enable = true; # RGB
-    };
+    services = { ratbagd.enable = true;	# Mice hardware.openrgb.enable = true; # RGB };
 
     # Steam
     programs.steam = {
@@ -27,20 +24,24 @@
     
     # Games
     home-manager.users.${config.nixos-config.username}.home.packages = with pkgs; [
-        (lutris.override { extraPkgs = pkgs: [
-          # War Thunder
-          gtk3
-          pango
-          fontconfig
-          vulkan-tools
-        ];})
-        prismlauncher
-        crrcsim
-        freesweep
-      
-        # Discord
-        vesktop
-      ];
+			(lutris.override { extraPkgs = pkgs: [
+				# War Thunder
+				gtk3
+				pango
+				fontconfig
+				vulkan-tools
+			];})
+			prismlauncher
+			crrcsim
+			freesweep
+		
+			# Discord
+			vesktop
+		];
+		
+		# Roblox
+		services.flatpak.enable = true;
+
 
     # Aliases to launch minecraft with gamescope because lutris' gamescope is broken
     programs.zsh.shellAliases = {
