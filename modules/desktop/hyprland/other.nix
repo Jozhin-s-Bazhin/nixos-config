@@ -16,12 +16,12 @@
       ];
 
       windowrulev2 = [
-        # XWaylandvideobridge
+        /*# XWaylandvideobridge
         "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
         "noanim,class:^(xwaylandvideobridge)$"
         "noinitialfocus,class:^(xwaylandvideobridge)$"
         "maxsize 1 1,class:^(xwaylandvideobridge)$"
-        "noblur,class:^(xwaylandvideobridge)$"
+        "noblur,class:^(xwaylandvideobridge)$"*/
 
         # LibreOffice
         "suppressevent maximize,class:^libreoffice-*"
@@ -34,7 +34,7 @@
         "special,gapsin:10,gapsout:20"
       ];
     };
-    home.packages = [ pkgs.xwaylandvideobridge ];
+    #home.packages = [ pkgs.xwaylandvideobridge ];  # The tray icon is annoying and I only use this for discord which can be done in a browser anyway
     };
   };
 }
