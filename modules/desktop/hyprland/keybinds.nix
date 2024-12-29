@@ -67,7 +67,7 @@ in
           # Controls
           "SUPER, Space, killactive"
           ", Print, exec, ${pkgs.grimblast}/bin/grimblast copysave area"
-					"SUPER, ESC, exec, ${pkgs.systemd}/bin/loginctl lock-session"
+					"SUPER, Escape, exec, ${pkgs.systemd}/bin/loginctl lock-session"
 
           # Window management
           "SUPER, H, movefocus, l"
