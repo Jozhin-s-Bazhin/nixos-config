@@ -27,20 +27,23 @@
     
     # Games
     home-manager.users.${config.nixos-config.username}.home.packages = with pkgs; [
-        (lutris.override { extraPkgs = pkgs: [
-          # War Thunder
-          gtk3
-          pango
-          fontconfig
-          vulkan-tools
-        ];})
-        prismlauncher
-        crrcsim
-        freesweep
-      
-        # Discord
-        vesktop
-      ];
+			(lutris.override { extraPkgs = pkgs: [
+				# War Thunder
+				gtk3
+				pango
+				fontconfig
+				vulkan-tools
+			];})
+			prismlauncher
+			crrcsim
+			freesweep
+		
+			# Discord
+			vesktop
+		];
+
+		# Enable flatpak for roblox (trough sober)
+		services.flatpak.enable = true;
 
     # Aliases to launch minecraft with gamescope because lutris' gamescope is broken
     programs.zsh.shellAliases = {
