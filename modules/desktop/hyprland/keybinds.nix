@@ -1,62 +1,9 @@
 { config, pkgs, lib, ... }:
 let 
 	hyprnome = "${pkgs.hyprnome}/bin/hyprnome";
-	workspaceSwitcher = pkgs.writers.writePython3Bin "workspaceSwitcher" {
-		flakeIgnore = [ "E265" "E999" "W191" "E117" "W292" "W293" "E101" "E128" ];  # Why is this a thing
-	} 
-	''
-from subprocess import run
-from json import loads
-from sys import argv, exit
-
-
-def hyprctl_json(message):
-		output = run(f"hyprctl -j {message}", shell=True,
-								 capture_output=True, encoding="utf-8")
-		json = loads(output.stdout)
-		return json
-
-
-def get_workspaces():
-		workspaces = [
-			workspace["id"] for workspace in hyprctl_json("workspaces")
-			if workspace["id"] > 0
-		]
-		workspaces.sort()
-		return workspaces
-
-
-def get_currentworkspace():
-		monitors = hyprctl_json("monitors")
-		for monitor in monitors:
-				if monitor["focused"]:
-						return monitor["activeWorkspace"]["id"]
-
-
-def get_target_workspace(workspaceid):
-		workspaces = get_workspaces()
-
-		workspaceid = int(workspaceid)
-		if workspaceid > len(workspaces):
-				target = workspaces[-1] + 1
-		else:
-				target = workspaces[workspaceid - 1]
-		return target
-
-
-target = get_target_workspace(argv[2])
-if target == "No target workspace":
-		exit()
-
-if argv[1] == "workspace":
-		run(["hyprctl", "dispatch", "workspace", f"{target}"])
-elif argv[1] == "movetoworkspace":
-		run(["hyprctl", "dispatch", "movetoworkspace", f"{target}"])
-	'';
-
 	# Workspace bindings
-	workspaces_num = [ 1 2 3 4 5 6 7 8 9 ]; generateWorkspace = num: "SUPER, ${toString num}, exec, ${workspaceSwitcher}/bin/workspaceSwitcher workspace ${toString num}";
-	generateMoveToWorkspace = num: "SUPER SHIFT, ${toString num}, exec, ${workspaceSwitcher}/bin/workspaceSwitcher movetoworkspace ${toString num}";
+	workspaces_num = [ 1 2 3 4 5 6 7 8 9 ]; generateWorkspace = num: "SUPER, ${toString num}, workspace m~${toString num}";
+	generateMoveToWorkspace = num: "SUPER SHIFT, ${toString num}, movetoworkspace m~${toString num}";
 	workspaceBindings = (map generateWorkspace(workspaces_num)) ++ (map generateMoveToWorkspace(workspaces_num));
 in 
 {
