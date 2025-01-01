@@ -63,12 +63,6 @@ in
           name = "MoreWaita";
         };
       };
-
-			qt = {
-				enable = true;
-				platformTheme.name = "adwaita";
-				style.name = "adwaita-dark";
-			};
     };
     fonts.packages = [ pkgs.nerd-fonts.symbols-only ];
 
