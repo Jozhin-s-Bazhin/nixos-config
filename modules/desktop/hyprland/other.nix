@@ -36,5 +36,7 @@
     };
     #home.packages = [ pkgs.xwaylandvideobridge ];  # The tray icon is annoying and I only use this for discord which can be done in a browser anyway
     };
+
+		programs.zsh.shellAliases.clip = "cat $1 | kitten clipboard";
   };
 }

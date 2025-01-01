@@ -62,13 +62,10 @@
     # CLI aliases and preferences
     environment.systemPackages = with pkgs; [
       killall
-      eza
       zoxide
-      bat
       tldr
-      bc
-      yazi
       htop 
+			thefuck
 		];
     programs.zsh = {
       enable = true;
@@ -85,7 +82,7 @@
         # Yazi
         function f() {
           local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-          yazi "$@" --cwd-file="$tmp"
+          ${pkgs.yazi}/bin/yazi "$@" --cwd-file="$tmp"
           if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
             cd -- "$cwd"
           fi
@@ -98,6 +95,8 @@
         bindkey "^?" backward-delete-char
         bindkey -M viins 'jk' vi-cmd-mode
 
+				# thefuck
+				eval "$(thefuck --alias)"
       '';
 
       promptInit = ''
@@ -110,14 +109,10 @@
         v = "nvim";
 
         # basic 
-        ls = "eza -l --git --sort 'modified'";
+        ls = "${pkgs.eza}/bin/eza -l --git --sort 'modified'";
         grep = "grep --color=auto";
-        cat = "bat";
-        less = "bat";
-
-        # Misc
-        c = "codium . && exit";
-        clip = "kitten clipboard";
+        cat = "${pkgs.bat}/bin/bat";
+        less = "${pkgs.bat}/bin/bat";
 
         # Nix aliases
         rbs = pkgs.writeShellScript "rebuild-switch.sh" ''
