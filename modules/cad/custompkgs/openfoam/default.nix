@@ -61,6 +61,7 @@ stdenv.mkDerivation rec {
 		wmakeLnIncludeAll
 		'';
 
+  # TODO: Remove the $out/share output
 	installPhase = ''
 		[ -e ThirdParty ] || echo "system dependencies" >| ThirdParty
 

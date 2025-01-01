@@ -7,14 +7,12 @@
 2. Run this command:
 
 ```
-cp -r /run/current-system/sw/share/openfoam/OpenFOAM-v2306 /home/<username>/OpenFOAM
+cp -r ~/.local/state/nix/profiles/home-manager/home-path/opt/openfoam/OpenFOAM-v2306 ~/OpenFOAM
 ```
 
 3. Add the following to their corresponding options
 
-	- `/home/\<username\>/OpenFOAM` to `CfdOF > OpenFOAM install directory`
-	- `/run/current-system/sw/bin/paraview` to `CfdOF > ParaView executable`
-	- `/run/current-system/sw/bin/gmsh` to `CfdOF > gmsh executable` and `FEM > Gmsh > Gmsh binary path`
-	- `/run/current-system/sw/bin/calculix` to `FEM > CalculiX > ccx binary path`
-	- `/run/current-system/sw/bin/cfMesh` to `CfdOF > cfMesh`
-	- `/run/current-system/sw/bin/hisa` to `CfdOF > HiSA`
+	- `~/OpenFOAM` to `CfdOF > OpenFOAM install directory`
+	- `~/.local/state/nix/profiles/home-manager/home-path/bin/paraview` to `CfdOF > ParaView executable`
+	- `~/.local/state/nix/profiles/home-manager/home-path/bin/gmsh` to `CfdOF > gmsh executable` and `FEM > Gmsh > Gmsh binary path`
+	- `~/.local/state/nix/profiles/home-manager/home-path/bin/ccx` to `FEM > CalculiX > ccx binary path`
