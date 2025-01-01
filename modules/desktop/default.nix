@@ -6,6 +6,7 @@
 		./programs.nix
 		./hyprland
 		./theming.nix
+		./plasma
 	];
   
   options.nixos-config.desktop.enable = lib.mkEnableOption "a graphical desktop";
