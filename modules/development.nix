@@ -1,33 +1,11 @@
 { config, pkgs, lib, ... }:
 
-let
-	flaketext = ''
-{
-  description = "A simple flake with a devshell";
-
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-  };
-
-  outputs = { self, nixpkgs }: {
-		devShell = pkgs.mkShell {
-			buildInputs = with pkgs; [
-				pkgs.hello
-			];
-		};
-  };
-}
-	'';
-in
 {
   options.nixos-config.development.enable = lib.mkEnableOption "and configures an IDE and adds bunch of shortcuts and packages";
   
   config = lib.mkIf config.nixos-config.development.enable {
     # CLI stuff
-    environment.systemPackages = with pkgs; [
-      direnv
-      gh
-    ];
+    environment.systemPackages = with pkgs; [ direnv ];
     
     programs.zsh = {
       interactiveShellInit = ''
@@ -40,14 +18,13 @@ in
           local public=''${2:-0}	# Defaults to false
           mkdir ./$name
           cd ./$name
-          nix flake init
-					echo ${flaketext} > flake.nix
+          nix flake init -t templates#utils-generic
           echo 'use flake' > .envrc
           git init
           git add -A
           echo ".direnv" > .gitignore
           git commit -m "Initial commit: added framework"
-          gh repo create --add-readme --source=. $(if [[ "$public" -eq 1 ]]; then echo "--public"; else echo "--private"; fi)
+          ${pkgs.gh}/bin/gh repo create --add-readme --source=. $(if [[ "$public" -eq 1 ]]; then echo "--public"; else echo "--private"; fi)
           direnv allow
         }
       '';
