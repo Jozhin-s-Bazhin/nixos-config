@@ -22,14 +22,7 @@ in
       gmsh
       hisa
       cfmesh
-
-      /*
-      To use the cfdof and fem workbench you'll have to add these dependencies manually trough the preferences. You
-      will also have to copy ${pkgs.openfoam}/opt/OpenFOAM/OpenFOAM-v2306 to somewhere in your home and add that as the
-      openfoam install directory. This is needed because freecad wants the openfoam install directory to be writeable,
-      which is not achievable without wrapping freecad in an fsh env which I am way too lazy to try. That would also 
-      require to override the freecad package and I do not want to wait for it to recompile every update.
-      */
+			calculix
     ];
   };
 }

@@ -66,6 +66,8 @@ stdenv.mkDerivation rec {
 
 		install -d $out/opt/OpenFOAM/ThirdParty-v${version} $out/etc/profile.d
 		cp -r $(pwd) $out/opt/OpenFOAM/OpenFOAM-v${version}
+		mkdir -p $out/share/OpenFOAM-v${version}
+		cp -r $(pwd) $out/share/OpenFOAM-v${version}
 		chmod -R 755 $out/opt/OpenFOAM/OpenFOAM-v${version}/bin
 		chmod 755 $out/opt/OpenFOAM/OpenFOAM-v${version}/etc/*
 
