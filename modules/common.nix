@@ -65,7 +65,6 @@
       zoxide
       tldr
       htop 
-			thefuck
 		];
     programs.zsh = {
       enable = true;
@@ -94,9 +93,6 @@
         bindkey "^H" backward-delete-char
         bindkey "^?" backward-delete-char
         bindkey -M viins 'jk' vi-cmd-mode
-
-				# thefuck
-				eval "$(thefuck --alias)"
       '';
 
       promptInit = ''
@@ -281,6 +277,9 @@
     };
     users.defaultUserShell = pkgs.zsh;
     environment.pathsToLink = [ "/share/zsh" ];
+
+		# thefuck
+		programs.thefuck.enable = true;
 
 		# Set $NIX_PATH
 		nix.nixPath = [
