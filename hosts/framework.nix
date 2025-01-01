@@ -1,6 +1,19 @@
 { inputs, pkgs, config, ... }:
 {
 	imports = [ inputs.nixos-hardware.nixosModules.framework-16-7040-amd ];
+
+	# Specialisations
+	specialisation = {
+		plasma.configuration = {
+			config.nixos-config.desktop = {
+				plasma.enable = true;
+				hyprland.enable = false;
+			};
+		};
+		qemu.configuration = {
+			config.nixos-config.virtualisation.qemu.enable = true;
+		};
+	};
   
   # Custom options
   nixos-config = {
