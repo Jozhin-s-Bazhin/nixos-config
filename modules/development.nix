@@ -1,5 +1,24 @@
 { config, pkgs, lib, ... }:
 
+let
+	flaketext = ''
+{
+  description = "A simple flake with a devshell";
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+  };
+
+  outputs = { self, nixpkgs }: {
+		devShell = pkgs.mkShell {
+			buildInputs = with pkgs; [
+				pkgs.hello
+			];
+		};
+  };
+}
+	'';
+in
 {
   options.nixos-config.development.enable = lib.mkEnableOption "and configures an IDE and adds bunch of shortcuts and packages";
   
@@ -22,6 +41,7 @@
           mkdir ./$name
           cd ./$name
           nix flake init
+					echo ${flaketext} > flake.nix
           echo 'use flake' > .envrc
           git init
           git add -A
