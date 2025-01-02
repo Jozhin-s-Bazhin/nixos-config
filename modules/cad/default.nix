@@ -24,5 +24,6 @@ in
       cfmesh
 			calculix
     ];
+		programs.zsh.shellAliases.freecad-openfoam = "source ${openfoam}/opt/OpenFOAM/OpenFOAM-v2306/etc/bashrc; freecad";
   };
 }
