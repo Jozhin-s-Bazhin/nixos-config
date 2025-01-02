@@ -13,6 +13,12 @@
 		qemu.configuration = {
 			config.nixos-config.virtualisation.qemu.enable = true;
 		};
+		gnome.configuration = {
+			config.nixos-config.desktop = {
+				gnome.enable = true;
+				hyprland.enable = false;
+			};
+		};
 	};
   
   # Custom options
