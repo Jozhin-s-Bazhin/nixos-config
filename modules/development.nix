@@ -2,11 +2,11 @@
 
 {
   options.nixos-config.development.enable = lib.mkEnableOption "and configures an IDE and adds bunch of shortcuts and packages";
-  
+
   config = lib.mkIf config.nixos-config.development.enable {
     # CLI stuff
     environment.systemPackages = with pkgs; [ direnv ];
-    
+
     programs.zsh = {
       interactiveShellInit = ''
         # Direnv
@@ -28,11 +28,15 @@
           direnv allow
         }
       '';
-      shellAliases = {
-        c = "codium . && exit";
-      };
+      shellAliases.z = ''
+				if [ $# -eq 0 ]; then
+					zeditor .
+				else
+					zeditor "$1"
+				fi
+			'';
     };
-    
+
     programs.git = {
       enable = true;
       config.user = {
@@ -40,35 +44,31 @@
         email	= "rbezroutchko@gmail.com";
       };
     };
-    
-    # VSCode settings if you have a graphical environment
-    home-manager.users.${config.nixos-config.username}.programs.vscode = {
-      enable = true;
-      package = pkgs.vscodium;
-      mutableExtensionsDir = false;
-      extensions = with pkgs.vscode-extensions; [
-        asvetliakov.vscode-neovim
-        ms-python.python
-        ms-python.vscode-pylance
-        jnoortheen.nix-ide
-        ms-vscode.cpptools
-        mkhl.direnv
-        formulahendry.code-runner
-      ];
-      userSettings = {
-        vscode-neovim.neovimExecutablePaths.linux = "${pkgs.neovim}/bin/nvim";
-        extensions.experimental.affinity."asvetliakov.vscode-neovim" = 1;
-        "window.titleBarStyle" = "native";
-        "git.confirmSync" = false;
-        "vscode-neovim.compositeKeys"."jk"."command" = "vscode-neovim.escape";
-        "git.openRepositoryInParentFolders" = "always";
-        "explorer.confirmDelete" = "false";
 
-        # 2 spaces instead of tab
-        "editor.tabSize" = 2;
-        "editor.insertSpaces" = false;
-        "editor.detectIndentation" = false;
-      };
+    # VSCode
+    home-manager.users.${config.nixos-config.username}.programs.zed-editor = {
+			enable = true;
+			extensions = [
+				"nix"
+				"fleet-themes"
+			];
+			userSettings = {
+  			telemetry = {
+    			diagnostics = false;
+    			metrics = false;
+  			};
+  			vim_mode = true;
+  			theme = "Fleet Dark";
+				ui_font_size = 16;
+				buffer_font_size = 16;
+				buffer_font_family = config.home-manager.users.${config.nixos-config.username}.stylix.fonts.monospace.name;  # Sets the font to the stylix monospace font
+			};
+			userKeymaps = [
+ 			  {
+          context = "vim_mode == insert";
+          bindings."j k" = "vim::NormalBefore";
+   			}
+			];
     };
   };
 }

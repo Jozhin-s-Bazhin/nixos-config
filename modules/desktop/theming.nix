@@ -64,7 +64,7 @@ in
         };
       };
     };
-    fonts.packages = [ pkgs.nerd-fonts.symbols-only ];
+    fonts.packages = [ pkgs.nerd-fonts.symbols-only pkgs.ubuntu_font_family ];
 
     # Boot splash screen
     boot = {

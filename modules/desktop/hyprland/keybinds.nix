@@ -1,9 +1,9 @@
 { config, pkgs, lib, ... }:
-let 
+let
 	hyprnome = "${pkgs.hyprnome}/bin/hyprnome";
 	workspaceSwitcher = pkgs.writers.writePython3Bin "workspaceSwitcher" {
 		flakeIgnore = [ "E265" "E999" "W191" "E117" "W292" "W293" "E101" "E128" ];  # Why is this a thing
-	} 
+	}
 	''
 from subprocess import run
 from json import loads
@@ -58,7 +58,7 @@ elif argv[1] == "movetoworkspace":
 	workspaces_num = [ 1 2 3 4 5 6 7 8 9 ]; generateWorkspace = num: "SUPER, ${toString num}, exec, ${workspaceSwitcher}/bin/workspaceSwitcher workspace ${toString num}";
 	generateMoveToWorkspace = num: "SUPER SHIFT, ${toString num}, exec, ${workspaceSwitcher}/bin/workspaceSwitcher movetoworkspace ${toString num}";
 	workspaceBindings = (map generateWorkspace(workspaces_num)) ++ (map generateMoveToWorkspace(workspaces_num));
-in 
+in
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
     home-manager.users.${config.nixos-config.username} = {
@@ -86,7 +86,7 @@ in
           "SUPER, Tab, exec, ags -t sidebar"
           "SUPER, Return, exec, kitty"
           "SUPER, B, exec, zen"
-          "SUPER, C, exec, codium"
+          "SUPER, Z, exec, zeditor"
           "SUPER, F, exec, nautilus"
           "SUPER, O, exec, obsidian"
 
@@ -125,7 +125,7 @@ in
             hyprctl reload
           ''}/bin/gamemode.sh"
 
-          # Disable workspace swipe 
+          # Disable workspace swipe
           "SUPER, F2, exec, ${pkgs.writers.writeBashBin "disableWorkspaceSwipe.sh" ''
             swipe_on=$(hyprctl getoption gestures:workspace_swipe | awk -F': ' '/: [01]$/ {print $2}')
 
