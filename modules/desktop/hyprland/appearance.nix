@@ -43,7 +43,7 @@
 
         misc = {
           disable_hyprland_logo = true;
-          #vrr = 1;
+          vrr = 1;
 					middle_click_paste = false;
         };
 

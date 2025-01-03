@@ -37,10 +37,11 @@
 	# Latest kernel
 	boot.kernelPackages = pkgs.linuxPackages_latest;
 
-	# Hibernation & autosuspend issue
+	# Kernel parameters
 	boot.kernelParams = [ 
-		"usbcore.autosuspend=60" 
-		"resume_offset=53248" 
+		"usbcore.autosuspend=60"  # Fix usb autosuspend
+		"resume_offset=53248"  # For hibernation
+		"amdgpu.dcdebugmask=0x400"  # Fix vrr
 	];
 	swapDevices = [{
 		device = "/var/lib/swapfile";
