@@ -88,9 +88,16 @@
 		};
 	};
 
-	# Disable keyboard wake-up
+	# udev Rules
 	services.udev.extraRules = ''
+		# Disable keyboard wake-up
 		ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="32ac", ATTRS{idProduct}=="0012", ATTR{power/wakeup}="disabled"
+
+		# Set power-saver profile on battery
+		SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="${pkgs.power-profiles-daemon}/bin/powerprofilesctl set power-saver"
+
+		# Set performance profile on AC power
+		SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="${pkgs.power-profiles-daemon}/bin/powerprofilesctl set performance"
 	'';
 
 	# Enable qmk
