@@ -18,6 +18,7 @@ let
           "W293"
           "E101"
           "E128"
+          "E121"
         ]; # Why is this a thing
       }
       ''
