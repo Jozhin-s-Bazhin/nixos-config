@@ -78,6 +78,7 @@
             config.home-manager.users.${config.nixos-config.username}.stylix.fonts.monospace.name; # Sets the font to the stylix monospace font
           load_direnv = "shell_hook";
           autosave = "on_window_change";
+          terminal.env.TERM = "alacritty";
           lsp = {
             nil.binary.pathLookUp = true;
             clangd.binary.pathLookUp = true;
