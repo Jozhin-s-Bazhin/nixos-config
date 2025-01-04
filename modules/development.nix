@@ -9,6 +9,8 @@
   options.nixos-config.development.enable = lib.mkEnableOption "and configures an IDE and adds bunch of shortcuts and packages";
 
   config = lib.mkIf config.nixos-config.development.enable {
+    nixos-config.desktop.enable = true;
+
     # CLI stuff
     environment.systemPackages = with pkgs; [ direnv ];
 
