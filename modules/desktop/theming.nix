@@ -1,13 +1,13 @@
 { inputs, pkgs, config, lib, ... }:
 let
-	opacity = 0.8;
+  opacity = 0.8;
 in
 {
-	imports = [ inputs.stylix.nixosModules.stylix ];
-	
+  imports = [ inputs.stylix.nixosModules.stylix ];
+  
   options = {
-		nixos-config.desktop.theming.enable = lib.mkEnableOption "system-wide theme and fonts";
-		stylix.blurredImage = lib.mkOption {
+    nixos-config.desktop.theming.enable = lib.mkEnableOption "system-wide theme and fonts";
+    stylix.blurredImage = lib.mkOption {
       type = with lib.types; coercedTo package toString path;
       description = ''
         Blurred wallpaper image.
@@ -15,11 +15,11 @@ in
         This is set as the background of your screenlocker and display manager.
       '';
     };
-	};
+  };
 
   config = lib.mkIf config.nixos-config.desktop.theming.enable {
-    stylix.image = ./wallpaper/wallpaper.jpg;	# It breaks without this
-		stylix.blurredImage = ./wallpaper/wallpaper_blurred.jpg;  # This is a custom option not really related to stylix
+    stylix.image = ./wallpaper/wallpaper.jpg;  # It breaks without this
+    stylix.blurredImage = ./wallpaper/wallpaper_blurred.jpg;  # This is a custom option not really related to stylix
     home-manager.users.${config.nixos-config.username} = {
       stylix = {
         enable = true;

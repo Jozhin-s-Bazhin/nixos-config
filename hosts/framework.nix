@@ -1,25 +1,25 @@
 { inputs, pkgs, config, ... }:
 {
-	imports = [ inputs.nixos-hardware.nixosModules.framework-16-7040-amd ];
+  imports = [ inputs.nixos-hardware.nixosModules.framework-16-7040-amd ];
 
-	# Specialisations
-	specialisation = {
-		plasma.configuration = {
-			config.nixos-config.desktop = {
-				plasma.enable = true;
-				hyprland.enable = false;
-			};
-		};
-		qemu.configuration = {
-			config.nixos-config.virtualisation.qemu.enable = true;
-		};
-		gnome.configuration = {
-			config.nixos-config.desktop = {
-				gnome.enable = true;
-				hyprland.enable = false;
-			};
-		};
-	};
+  # Specialisations
+  specialisation = {
+    plasma.configuration = {
+      config.nixos-config.desktop = {
+        plasma.enable = true;
+        hyprland.enable = false;
+      };
+    };
+    qemu.configuration = {
+      config.nixos-config.virtualisation.qemu.enable = true;
+    };
+    gnome.configuration = {
+      config.nixos-config.desktop = {
+        gnome.enable = true;
+        hyprland.enable = false;
+      };
+    };
+  };
   
   # Custom options
   nixos-config = {
@@ -30,76 +30,76 @@
     gaming.enable = true;
     media.enable = true;
     office.enable = true;
-		cad.enable = true;
-		username = "roman";
+    cad.enable = true;
+    username = "roman";
   };
 
-	# Latest kernel
-	boot.kernelPackages = pkgs.linuxPackages_latest;
+  # Latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
-	# Kernel parameters
-	boot.kernelParams = [ 
-		"usbcore.autosuspend=60"  # Fix usb autosuspend
-		"resume_offset=53248"  # For hibernation
-		"amdgpu.dcdebugmask=0x400"  # Fix vrr
-	];
-	swapDevices = [{
-		device = "/var/lib/swapfile";
-		size = 36*1024;
-	}];
-	boot.resumeDevice = "/dev/nvme0n1p2";
+  # Kernel parameters
+  boot.kernelParams = [ 
+    "usbcore.autosuspend=60"  # Fix usb autosuspend
+    "resume_offset=53248"  # For hibernation
+    "amdgpu.dcdebugmask=0x400"  # Fix vrr
+  ];
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 36*1024;
+  }];
+  boot.resumeDevice = "/dev/nvme0n1p2";
 
-	# Firmware updates
-	services.fwupd.enable = true; 
-	environment.systemPackages = [ pkgs.gnome-firmware ];
+  # Firmware updates
+  services.fwupd.enable = true; 
+  environment.systemPackages = [ pkgs.gnome-firmware ];
 
-	# Auto-brightness with wluma
-	home-manager.users.${config.nixos-config.username} = {
-		xdg.configFile = {
-			"wluma/config.toml".text = ''
-				[als.iio]
-				path = "/sys/bus/iio/devices"
-				thresholds = { 0 = "night", 20 = "dark", 80 = "dim", 250 = "normal", 500 = "bright", 800 = "outdoors" }
-				
-				[[output.backlight]]
-				name = "eDP-2"
-				path = "/sys/class/backlight/amdgpu_bl2"
-				capturer = "wayland"
+  # Auto-brightness with wluma
+  home-manager.users.${config.nixos-config.username} = {
+    xdg.configFile = {
+      "wluma/config.toml".text = ''
+        [als.iio]
+        path = "/sys/bus/iio/devices"
+        thresholds = { 0 = "night", 20 = "dark", 80 = "dim", 250 = "normal", 500 = "bright", 800 = "outdoors" }
+        
+        [[output.backlight]]
+        name = "eDP-2"
+        path = "/sys/class/backlight/amdgpu_bl2"
+        capturer = "wayland"
 
-				[[keyboard]]
-				name = "keyboard-framework"
-				path = "/sys/bus/platform/devices/framework_laptop/leds/framework_laptop::kbd_backlight"
-			'';
-		};
-		systemd.user.services.wluma = {
-			Unit = {
-				Description = "Adjusting screen brightness based on screen contents and amount of ambient light";
-				PartOf = [ "graphical-session.target" ];
-				After = [ "graphical-session.target" ];
-			};
-			Service = {
-				ExecStart = "${pkgs.wluma}/bin/wluma";
-				Restart = "always";
-				EnvironmentFile = "-%E/wluma/service.conf";
-				PrivateNetwork = "true";
-				PrivateMounts = "false";
-			};
-			Install.WantedBy = [ "graphical-session.target" ];
-		};
-	};
+        [[keyboard]]
+        name = "keyboard-framework"
+        path = "/sys/bus/platform/devices/framework_laptop/leds/framework_laptop::kbd_backlight"
+      '';
+    };
+    systemd.user.services.wluma = {
+      Unit = {
+        Description = "Adjusting screen brightness based on screen contents and amount of ambient light";
+        PartOf = [ "graphical-session.target" ];
+        After = [ "graphical-session.target" ];
+      };
+      Service = {
+        ExecStart = "${pkgs.wluma}/bin/wluma";
+        Restart = "always";
+        EnvironmentFile = "-%E/wluma/service.conf";
+        PrivateNetwork = "true";
+        PrivateMounts = "false";
+      };
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+  };
 
-	# udev Rules
-	services.udev.extraRules = ''
-		# Disable keyboard wake-up
-		ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="32ac", ATTRS{idProduct}=="0012", ATTR{power/wakeup}="disabled"
+  # udev Rules
+  services.udev.extraRules = ''
+    # Disable keyboard wake-up
+    ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="32ac", ATTRS{idProduct}=="0012", ATTR{power/wakeup}="disabled"
 
-		# Set power-saver profile on battery
-		SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="${pkgs.power-profiles-daemon}/bin/powerprofilesctl set power-saver"
+    # Set power-saver profile on battery
+    SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="${pkgs.power-profiles-daemon}/bin/powerprofilesctl set power-saver"
 
-		# Set performance profile on AC power
-		SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="${pkgs.power-profiles-daemon}/bin/powerprofilesctl set performance"
-	'';
+    # Set performance profile on AC power
+    SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="${pkgs.power-profiles-daemon}/bin/powerprofilesctl set performance"
+  '';
 
-	# Enable qmk
-	hardware.keyboard.qmk.enable = true;
+  # Enable qmk
+  hardware.keyboard.qmk.enable = true;
 }

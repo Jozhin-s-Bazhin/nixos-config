@@ -44,7 +44,7 @@
         misc = {
           disable_hyprland_logo = true;
           vrr = 1;
-					middle_click_paste = false;
+          middle_click_paste = false;
         };
 
         # XWayland scaling

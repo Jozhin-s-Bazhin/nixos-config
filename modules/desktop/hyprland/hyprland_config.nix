@@ -3,7 +3,7 @@
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
     nix.settings = {
-      substituters	= [ "https://hyprland.cachix.org" ];
+      substituters = [ "https://hyprland.cachix.org" ];
       trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
     programs.dconf.enable = true;
@@ -18,7 +18,7 @@
         systemd.enable = false;
       };
     };
-    
+
     programs.hyprland = {
       enable = true;
       withUWSM = true;
@@ -34,12 +34,12 @@
       QT_QPA_PLATFORM = "wayland;xcb";
     };
 
-    xdg = { 
-      autostart.enable = true; 
-      portal = { 
-        enable = true; 
-        extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; 
-      }; 
+    xdg = {
+      autostart.enable = true;
+      portal = {
+        enable = true;
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      };
     };
     services.dbus.enable = true;
   };

@@ -13,7 +13,7 @@
           scroll_factor = "0.5";
         };
         sensitivity = 0;
-				numlock_by_default = true;
+        numlock_by_default = true;
       };
 
       gestures = {

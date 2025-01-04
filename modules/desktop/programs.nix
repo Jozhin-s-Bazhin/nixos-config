@@ -11,7 +11,7 @@
         spotube
         obsidian
         zapzap
-				gnome-clocks
+        gnome-clocks
         inputs.zen.packages."${pkgs.system}".default
       ];
     };

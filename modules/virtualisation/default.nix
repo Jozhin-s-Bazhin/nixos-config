@@ -1,10 +1,10 @@
 { pkgs, lib, config, ... }:
 {
-	imports = [
-		./qemu.nix
-		./docker.nix
-		./waydroid.nix
-	];
+  imports = [
+    ./qemu.nix
+    ./docker.nix
+    ./waydroid.nix
+  ];
   
   options.nixos-config.virtualisation.enable = lib.mkEnableOption "docker, qemu and waydroid";
 

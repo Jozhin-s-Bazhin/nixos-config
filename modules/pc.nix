@@ -38,7 +38,7 @@
     
     # Pipewire
     security.rtkit.enable = true;
-    #hardware.pulseaudio.enable = lib.mkForce false;	# Uncomment when using GNOME
+    #hardware.pulseaudio.enable = lib.mkForce false;  # Uncomment when using GNOME
     services.pipewire = {
       enable = true;
       alsa.enable = true;

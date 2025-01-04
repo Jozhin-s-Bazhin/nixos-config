@@ -76,11 +76,11 @@
 
     # Login screen
     environment.systemPackages = [ (pkgs.elegant-sddm.override { 
-			themeConfig = {
-				General.background = "${config.stylix.blurredImage}"; 
-				Background.WallpaperAspect = "cover";
-			};
-		})];
+      themeConfig = {
+        General.background = "${config.stylix.blurredImage}"; 
+        Background.WallpaperAspect = "cover";
+      };
+    })];
     services.displayManager = {
       enable = true;
       sddm = {

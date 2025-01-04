@@ -9,10 +9,10 @@
         "eDP-2, preferred, 0x0, 1.6"
 
         # Ultrawide at home
-        "desc:Huawei Technologies Co. Inc. ZQE-CAA 0xC080F622, preferred, -3440x0, 1"	# Right of eDP-1
+        "desc:Huawei Technologies Co. Inc. ZQE-CAA 0xC080F622, preferred, -3440x0, 1"  # Right of eDP-1
 
         # Monitor at home
-        #"desc:Iiyama North America PL2283H 1132555227963, preferred, 0x-1080, 1"	# Above eDP-1
+        #"desc:Iiyama North America PL2283H 1132555227963, preferred, 0x-1080, 1"  # Above eDP-1
       ];
 
       windowrulev2 = [
@@ -37,6 +37,6 @@
     #home.packages = [ pkgs.xwaylandvideobridge ];  # The tray icon is annoying and I only use this for discord which can be done in a browser anyway
     };
 
-		programs.zsh.shellAliases.clip = "cat $1 | kitten clipboard";
+    programs.zsh.shellAliases.clip = "cat $1 | kitten clipboard";
   };
 }

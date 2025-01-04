@@ -1,14 +1,14 @@
 { pkgs, inputs, lib, config, ... }:
 
 {
-	imports = [
-		./home_manager_config.nix
-		./programs.nix
-		./hyprland
-		./theming.nix
-		./plasma
-		./gnome
-	];
+  imports = [
+    ./home_manager_config.nix
+    ./programs.nix
+    ./hyprland
+    ./theming.nix
+    ./plasma
+    ./gnome
+  ];
   
   options.nixos-config.desktop.enable = lib.mkEnableOption "a graphical desktop";
   

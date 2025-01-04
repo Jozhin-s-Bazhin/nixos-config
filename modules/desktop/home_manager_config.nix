@@ -1,7 +1,7 @@
 { inputs, config, lib, ... }:
 
 {
-	imports = [ inputs.home-manager.nixosModules.home-manager ];
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
 
   config = lib.mkIf config.nixos-config.desktop.enable {
     home-manager = {

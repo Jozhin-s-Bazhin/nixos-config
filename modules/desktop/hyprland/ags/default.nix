@@ -24,8 +24,8 @@
           wluma
         ];
       };
-			
-			home.packages = [ pkgs.brightnessctl ];
+      
+      home.packages = [ pkgs.brightnessctl ];
 
       wayland.windowManager.hyprland.settings.exec-once = [ "${inputs.ags.packages.${pkgs.system}.default}/bin/ags -c ${config.nixos-config.configDir}/modules/desktop/hyprland/ags/config.js" ];
     };
