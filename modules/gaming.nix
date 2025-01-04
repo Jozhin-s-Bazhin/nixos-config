@@ -1,14 +1,19 @@
-{ pkgs, lib, config, ... }:
-{ 
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
   options.nixos-config.gaming.enable = lib.mkEnableOption "all my games";
-  
+
   config = lib.mkIf config.nixos-config.gaming.enable {
     # Enable a graphical desktop
     nixos-config.desktop.enable = lib.mkDefault true;
 
-    # Hardware stuff 
+    # Hardware stuff
     services = {
-      ratbagd.enable = true;  # Mice
+      ratbagd.enable = true; # Mice
       hardware.openrgb.enable = true; # RGB
     };
 
@@ -24,20 +29,22 @@
       enable = true;
       capSysNice = true;
     };
-    
+
     # Games
     home-manager.users.${config.nixos-config.username}.home.packages = with pkgs; [
-      (lutris.override { extraPkgs = pkgs: [
-        # War Thunder
-        gtk3
-        pango
-        fontconfig
-        vulkan-tools
-      ];})
+      (lutris.override {
+        extraPkgs = pkgs: [
+          # War Thunder
+          gtk3
+          pango
+          fontconfig
+          vulkan-tools
+        ];
+      })
       prismlauncher
       crrcsim
       freesweep
-    
+
       # Discord
       vesktop
     ];

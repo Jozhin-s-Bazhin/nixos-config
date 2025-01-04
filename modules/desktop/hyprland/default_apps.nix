@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
     home-manager.users.${config.nixos-config.username} = {
@@ -14,14 +19,14 @@
         defaultApplications = {
           # Nautilus
           "inode/directory" = "org.gnome.Nautilus.desktop";
-          
+
           # Eye of GNOME
           "image/jpg" = "org.gnome.eog.desktop";
           "image/png" = "org.gnome.eog.desktop";
           "image/webp" = "org.gnome.eog.desktop";
         };
       };
-      
+
       # Kitty
       programs.kitty = {
         enable = true;

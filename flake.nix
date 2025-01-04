@@ -23,15 +23,18 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, ... }: {
-    nixosConfigurations = let 
-      mkSystem = import ./mkSystem.nix { inherit inputs; };
-    in {
-      framework = mkSystem {
-        name = "framework";
-        system = "x86_64";
-      };
+  outputs =
+    inputs@{ nixpkgs, ... }:
+    {
+      nixosConfigurations =
+        let
+          mkSystem = import ./mkSystem.nix { inherit inputs; };
+        in
+        {
+          framework = mkSystem {
+            name = "framework";
+            system = "x86_64";
+          };
+        };
     };
-  };
 }
-

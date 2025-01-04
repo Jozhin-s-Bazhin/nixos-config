@@ -1,11 +1,17 @@
-{ inputs, lib, pkgs, config, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
     services.upower.enable = true;
     home-manager.users.${config.nixos-config.username} = {
-      imports = [ 
-        inputs.ags.homeManagerModules.default 
+      imports = [
+        inputs.ags.homeManagerModules.default
       ];
 
       programs.ags = {
@@ -24,10 +30,14 @@
           wluma
         ];
       };
-      
+
       home.packages = [ pkgs.brightnessctl ];
 
-      wayland.windowManager.hyprland.settings.exec-once = [ "${inputs.ags.packages.${pkgs.system}.default}/bin/ags -c ${config.nixos-config.configDir}/modules/desktop/hyprland/ags/config.js" ];
+      wayland.windowManager.hyprland.settings.exec-once = [
+        "${
+          inputs.ags.packages.${pkgs.system}.default
+        }/bin/ags -c ${config.nixos-config.configDir}/modules/desktop/hyprland/ags/config.js"
+      ];
     };
   };
 }

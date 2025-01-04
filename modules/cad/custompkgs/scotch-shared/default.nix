@@ -14,7 +14,10 @@ stdenv.mkDerivation (finalAttrs: {
   pname = "scotch-shared";
   version = "7.0.4";
 
-  nativeBuildInputs = [ cmake gfortran9 ];
+  nativeBuildInputs = [
+    cmake
+    gfortran9
+  ];
   buildInputs = [
     bison
     mpi
@@ -40,13 +43,13 @@ stdenv.mkDerivation (finalAttrs: {
     -D SCOTCH_PTHREAD:BOOL=ON \
     -D SCOTCH_PTHREAD_MPI:BOOL=ON \
     -D COMMON_PTHREAD_AFFINITY_LINUX:BOOL=ON
-    '';
+  '';
   buildPhase = ''
     make -C build
-    '';
+  '';
   installPhase = ''
     cmake --install build
-    '';
+  '';
 
   meta = {
     description = "Graph and mesh/hypergraph partitioning, graph clustering, and sparse matrix ordering";

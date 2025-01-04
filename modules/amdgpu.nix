@@ -1,8 +1,13 @@
-{ pkgs, lib, config, ...}:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   options.nixos-config.amdgpu.enable = lib.mkEnableOption "everything needed for a modern AMD GPU";
-  
+
   config = lib.mkIf config.nixos-config.amdgpu.enable {
     hardware.graphics = {
       enable = true;

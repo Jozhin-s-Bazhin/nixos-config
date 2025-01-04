@@ -1,7 +1,14 @@
-{ pkgs, config, lib, inputs, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}:
 
 {
-  options.nixos-config.desktop.programs.enable = lib.mkEnableOption "programs I want on any system with a graphical desktop";
+  options.nixos-config.desktop.programs.enable =
+    lib.mkEnableOption "programs I want on any system with a graphical desktop";
 
   config = lib.mkIf config.nixos-config.desktop.programs.enable {
     home-manager.users.${config.nixos-config.username} = {

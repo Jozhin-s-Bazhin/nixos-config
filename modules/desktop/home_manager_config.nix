@@ -1,4 +1,9 @@
-{ inputs, config, lib, ... }:
+{
+  inputs,
+  config,
+  lib,
+  ...
+}:
 
 {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
@@ -8,7 +13,7 @@
       users.${config.nixos-config.username} = {
         nixpkgs.config.allowUnfree = true;
         programs.home-manager.enable = true;
-        
+
         home = {
           username = config.nixos-config.username;
           homeDirectory = "/home/${config.nixos-config.username}";

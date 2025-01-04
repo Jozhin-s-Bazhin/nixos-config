@@ -1,4 +1,10 @@
-{ inputs, pkgs, lib, config, ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   imports = [
@@ -13,6 +19,6 @@
     ./other.nix
     ./ags
   ];
-  
+
   options.nixos-config.desktop.hyprland.enable = lib.mkEnableOption "hyprland";
 }

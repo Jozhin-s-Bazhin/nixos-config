@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   options.nixos-config.common.enable = lib.mkOption {
@@ -19,28 +24,34 @@
       };
       efi.canTouchEfiVariables = true;
     };
-    
+
     # Firmware
     hardware.enableAllFirmware = true;
-    
+
     # Timezone and locale
     time.timeZone = "Europe/Brussels";
     i18n.defaultLocale = "en_US.UTF-8";
 
     # Enable zram
     zramSwap.enable = true;
-    
+
     # User
     users.users.${config.nixos-config.username} = {
       isNormalUser = true;
       description = "";
-      extraGroups = [ "wheel" "audio" ];
+      extraGroups = [
+        "wheel"
+        "audio"
+      ];
     };
 
     # Nix config
-    nix.settings.experimental-features = ["nix-command" "flakes"];
+    nix.settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     nixpkgs.config.allowUnfree = true;
-    
+
     # Auto cleanup
     nix.optimise = {
       automatic = true;
@@ -51,7 +62,7 @@
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
-    
+
     # Running non-NixOS binaries
     programs.nix-ld.enable = true;
     programs.nix-ld.libraries = with pkgs; [
@@ -64,7 +75,7 @@
       killall
       zoxide
       tldr
-      htop 
+      htop
     ];
     programs.zsh = {
       enable = true;
@@ -74,7 +85,7 @@
       vteIntegration = true;
 
       # Init
-      interactiveShellInit  = ''
+      interactiveShellInit = ''
         # Zoxide
         eval "$(zoxide init --cmd cd zsh)"
 
@@ -104,7 +115,7 @@
         # nvim
         v = "nvim";
 
-        # basic 
+        # basic
         ls = "${pkgs.eza}/bin/eza -l --git --sort 'modified'";
         grep = "grep --color=auto";
         cat = "${pkgs.bat}/bin/bat";
@@ -116,12 +127,12 @@
           BLUE='\033[1;34m'
           RED='\033[1;31m'
           NC='\033[0m'
-          
+
           # Ask sudo password immediately so it's cached, otherwise you may forget to input it later
           (
           echo -e "$BLUE"
           sudo echo -e "Authentication successful $NC" &&
- 
+
           # Commit and push changes
           echo -e "$BLUE"
           echo -e "Committing..."
@@ -134,10 +145,10 @@
           echo -e "Starting nixos-rebuild switch ..." &&
           echo -e "$NC" &&
           sudo nixos-rebuild switch --flake ${config.nixos-config.configDir}#${config.networking.hostName} &&
-          
+
           # Finish
           echo -e "$BLUE" &&
-          echo -e "Finished $NC" 
+          echo -e "Finished $NC"
           ) || (
           echo -e "$RED" &&
           echo -e "Command failed $NC"
@@ -148,21 +159,21 @@
           BLUE='\033[1;34m'
           RED='\033[1;31m'
           NC='\033[0m'
-          
+
           # Ask sudo password immediately so it's cached, otherwise you may forget to input it later
           (
           echo -e "$BLUE"
           sudo echo -e "Authentication successful $NC" &&
- 
+
           # Start nixos-rebuild switch
           echo -e "$BLUE"
           echo -e "Starting nixos-rebuild switch ..."
           echo -e "$NC"
           sudo nixos-rebuild switch --flake ${config.nixos-config.configDir}#${config.networking.hostName} &&
-          
+
           # Finish
           echo -e "$BLUE" &&
-          echo -e "Finished $NC" 
+          echo -e "Finished $NC"
           ) || (
           echo -e "$RED" &&
           echo -e "Command failed $NC"
@@ -173,24 +184,24 @@
           BLUE='\033[1;34m'
           RED='\033[1;31m'
           NC='\033[0m'
-          
+
           # Ask sudo password immediately so it's cached, otherwise you may forget to input it later
           (
           echo -e "$BLUE"
           sudo echo -e "Authentication successful $NC" &&
-          
+
           # Update flake.lock
           echo -e "$BLUE" &&
           echo -e "Updating flake.lock..." &&
           echo -e "$NC" &&
           nix flake update --flake ${config.nixos-config.configDir} &&
-          
+
           # Start nixos-rebuild switch
           echo -e "$BLUE" &&
           echo -e "Starting nixos-rebuild switch ..." &&
           echo -e "$NC" &&
           sudo nixos-rebuild switch --flake ${config.nixos-config.configDir}#${config.networking.hostName} &&
-          
+
           # Commit and push changes
           echo -e "$BLUE" &&
           echo -e "Committing..." &&
@@ -198,10 +209,10 @@
           git -C ${config.nixos-config.configDir} add -A > /dev/null &&
           git -C ${config.nixos-config.configDir} commit -m "Update flake.lock" &&
           git -C ${config.nixos-config.configDir} push -q &&
-          
+
           # Finish
           echo -e "$BLUE" &&
-          echo -e "Finished $NC" 
+          echo -e "Finished $NC"
           ) || (
 
           # Clean up flake.lock
@@ -216,18 +227,18 @@
           BLUE='\033[1;34m'
           RED='\033[1;31m'
           NC='\033[0m'
-          
+
           # Ask sudo password immediately so it's cached, otherwise you may forget to input it later
           (
           echo -e "$BLUE"
           sudo echo -e "Authentication successful $NC" &&
- 
+
           # Start nixos-rebuild test
           echo -e "$BLUE"
           echo -e "Starting nixos-rebuild test ..."
           echo -e "$NC"
           sudo nixos-rebuild test --flake ${config.nixos-config.configDir}#${config.networking.hostName} &&
-          
+
           # Finish
           echo -e "$BLUE" &&
           echo -e "Finished $NC"
@@ -241,12 +252,12 @@
           BLUE='\033[1;34m'
           RED='\033[1;31m'
           NC='\033[0m'
-          
+
           # Ask sudo password immediately so it's cached, otherwise you may forget to input it later
           (
           echo -e "$BLUE"
           sudo echo -e "Authentication successful $NC" &&
- 
+
           # Commit and push changes
           echo -e "$BLUE"
           echo -e "Committing..."
@@ -254,18 +265,18 @@
           git -C ${config.nixos-config.configDir} add -A > /dev/null &&
           git -C ${config.nixos-config.configDir} commit &&
           git -C ${config.nixos-config.configDir} push -q &&
-          
+
           # Start nixos-rebuild boot
           echo -e "$BLUE" &&
           echo -e "Starting nixos-rebuild boot ..." &&
           echo -e "$NC" &&
           sudo nixos-rebuild boot --flake ${config.nixos-config.configDir}#${config.networking.hostName} &&
-          
+
           # Finish
           echo -e "$BLUE" &&
           echo -e "Finished" &&
           echo -e "Rebooting" &&
-          systemctl reboot 
+          systemctl reboot
           ) || (
           echo -e "$RED" &&
           echo -e "Command failed $NC"
@@ -294,11 +305,10 @@
       vimAlias = true;
       viAlias = true;
       configure.customRC = ''
-        inoremap jk <Esc>
-        set ignorecase
-        set tabstop=2
-        set shiftwidth=2
-        hi Normal guibg=NONE ctermbg=NONE
+        inoremap jk <Esc>  " Map 'jk' to 'Esc'
+        set ignorecase  " Make search ignore case
+        hi Normal guibg=NONE ctermbg=NONE  " Disable default background
+        autocmd FileType nix setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2  " Make nvim use two spaces instead of tabs for .nix files
       '';
     };
   };

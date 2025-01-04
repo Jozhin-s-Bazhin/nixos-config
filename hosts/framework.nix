@@ -1,4 +1,9 @@
-{ inputs, pkgs, config, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}:
 {
   imports = [ inputs.nixos-hardware.nixosModules.framework-16-7040-amd ];
 
@@ -20,7 +25,7 @@
       };
     };
   };
-  
+
   # Custom options
   nixos-config = {
     laptop.enable = true;
@@ -38,19 +43,21 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Kernel parameters
-  boot.kernelParams = [ 
-    "usbcore.autosuspend=60"  # Fix usb autosuspend
-    "resume_offset=53248"  # For hibernation
-    "amdgpu.dcdebugmask=0x400"  # Fix vrr
+  boot.kernelParams = [
+    "usbcore.autosuspend=60" # Fix usb autosuspend
+    "resume_offset=53248" # For hibernation
+    "amdgpu.dcdebugmask=0x400" # Fix vrr
   ];
-  swapDevices = [{
-    device = "/var/lib/swapfile";
-    size = 36*1024;
-  }];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 36 * 1024;
+    }
+  ];
   boot.resumeDevice = "/dev/nvme0n1p2";
 
   # Firmware updates
-  services.fwupd.enable = true; 
+  services.fwupd.enable = true;
   environment.systemPackages = [ pkgs.gnome-firmware ];
 
   # Auto-brightness with wluma
@@ -60,7 +67,7 @@
         [als.iio]
         path = "/sys/bus/iio/devices"
         thresholds = { 0 = "night", 20 = "dark", 80 = "dim", 250 = "normal", 500 = "bright", 800 = "outdoors" }
-        
+
         [[output.backlight]]
         name = "eDP-2"
         path = "/sys/class/backlight/amdgpu_bl2"

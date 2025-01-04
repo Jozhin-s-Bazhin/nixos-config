@@ -13,7 +13,7 @@
     ./office.nix
     ./pc.nix
   ];
-  
+
   options.nixos-config = {
     username = lib.mkOption {
       default = "user";
@@ -24,6 +24,6 @@
       default = "/home/${config.nixos-config.username}/nixos-config";
       type = lib.types.path;
       description = "Path to your nixos config.";
-    }; 
+    };
   };
 }

@@ -1,4 +1,10 @@
-{ inputs, pkgs, config, lib, ...}:
+{
+  inputs,
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
   custompkgs = import ./custompkgs { pkgs = pkgs; };
   openfoam = custompkgs.openfoam-2306;
@@ -10,12 +16,12 @@ in
 
   config = lib.mkIf config.nixos-config.cad.enable {
     nixos-config.desktop.enable = lib.mkDefault true;
-    home-manager.users.${config.nixos-config.username}.home.packages = with pkgs; [ 
+    home-manager.users.${config.nixos-config.username}.home.packages = with pkgs; [
       freecad-wayland
       openscad
       orca-slicer
       geogebra6
-     
+
       # FreeCAD cfd and fea dependencies
       openfoam
       paraview

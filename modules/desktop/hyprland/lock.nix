@@ -1,4 +1,10 @@
-{ pkgs, inputs, config, lib, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  lib,
+  ...
+}:
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
     security.pam.services.gtklock.text = builtins.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
@@ -6,7 +12,7 @@
     home-manager.users.${config.nixos-config.username} = {
       services.hypridle = {
         enable = true;
-        settings = { 
+        settings = {
           general.lock_cmd = "${pkgs.gtklock}/bin/gtklock";
           listener = [
             {
@@ -22,7 +28,7 @@
         };
       };
       systemd.user.services.hypridle.Unit.After = lib.mkForce "graphical-session.target";
-      
+
       xdg.configFile."gtklock/config.ini".text = ''
         [main]
         style=/home/${config.nixos-config.username}/.config/gtklock/style.css
@@ -42,7 +48,7 @@
 
       wayland.windowManager.hyprland.settings.exec-once = [ "lxqt-policykit-agent" ];
     };
-    
+
     # Lock screen before sleeping
     systemd.services.lockBeforeSleep = {
       enable = true;
@@ -75,12 +81,14 @@
     users.users.${config.nixos-config.username}.packages = [ pkgs.lxqt.lxqt-policykit ];
 
     # Login screen
-    environment.systemPackages = [ (pkgs.elegant-sddm.override { 
-      themeConfig = {
-        General.background = "${config.stylix.blurredImage}"; 
-        Background.WallpaperAspect = "cover";
-      };
-    })];
+    environment.systemPackages = [
+      (pkgs.elegant-sddm.override {
+        themeConfig = {
+          General.background = "${config.stylix.blurredImage}";
+          Background.WallpaperAspect = "cover";
+        };
+      })
+    ];
     services.displayManager = {
       enable = true;
       sddm = {

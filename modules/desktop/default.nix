@@ -1,4 +1,10 @@
-{ pkgs, inputs, lib, config, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  config,
+  ...
+}:
 
 {
   imports = [
@@ -9,9 +15,9 @@
     ./plasma
     ./gnome
   ];
-  
+
   options.nixos-config.desktop.enable = lib.mkEnableOption "a graphical desktop";
-  
+
   config.nixos-config = lib.mkIf config.nixos-config.desktop.enable {
     desktop = {
       programs.enable = lib.mkDefault true;

@@ -1,17 +1,19 @@
-{ lib, stdenv
-, cmake
-, boost
-, bzip2
-, cgal
-, fftw
-, flex
-, openmpi
-, paraview
-, parmetis
-, scotch
-, zlib
-, version ? "2306"
-, hash ? "1z0sna5jxlyfz8s7vi28m47iwjjjbzg9ycz5maz2gymchg7lw6v7"
+{
+  lib,
+  stdenv,
+  cmake,
+  boost,
+  bzip2,
+  cgal,
+  fftw,
+  flex,
+  openmpi,
+  paraview,
+  parmetis,
+  scotch,
+  zlib,
+  version ? "2306",
+  hash ? "1z0sna5jxlyfz8s7vi28m47iwjjjbzg9ycz5maz2gymchg7lw6v7",
 }:
 
 stdenv.mkDerivation rec {
@@ -24,9 +26,25 @@ stdenv.mkDerivation rec {
     sha256 = foam_hash;
   };
 
-  buildInputs = [ boost cgal paraview parmetis scotch openmpi fftw zlib ];
-  nativeBuildInputs = [ cmake bzip2 flex ];
-  propagatedBuildInputs = [ openmpi paraview ];
+  buildInputs = [
+    boost
+    cgal
+    paraview
+    parmetis
+    scotch
+    openmpi
+    fftw
+    zlib
+  ];
+  nativeBuildInputs = [
+    cmake
+    bzip2
+    flex
+  ];
+  propagatedBuildInputs = [
+    openmpi
+    paraview
+  ];
 
   configurePhase = ''
     patchShebangs wmake/w*
@@ -48,7 +66,7 @@ stdenv.mkDerivation rec {
       -paraview-path ${paraview} \
       -scotch-path ${scotch} \
       ;
-    '';
+  '';
 
   buildPhase = ''
     export FOAM_CONFIG_MODE="o"
@@ -59,7 +77,7 @@ stdenv.mkDerivation rec {
     ./Allwmake -j
     wclean all
     wmakeLnIncludeAll
-    '';
+  '';
 
   installPhase = ''
     [ -e ThirdParty ] || echo "system dependencies" >| ThirdParty
@@ -72,7 +90,7 @@ stdenv.mkDerivation rec {
     install -d $out/bin
     echo 'echo $(readlink -f "$(dirname $0)/../opt/OpenFOAM/OpenFOAM-v${version}")' | \
       install -Dm755 /dev/stdin  $out/bin/openfoam-home.sh
-    '';
+  '';
 
   meta = with lib; {
     description = "The free, open source CFD software developed primarily by OpenCFD Ltd since 2004";

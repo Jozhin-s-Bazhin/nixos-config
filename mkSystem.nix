@@ -1,5 +1,5 @@
 { inputs, ... }:
- 
+
 { name, system }:
 
 inputs.nixpkgs.lib.nixosSystem {

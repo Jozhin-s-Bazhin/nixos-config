@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
@@ -6,7 +11,7 @@
       input = {
         kb_layout = "us";
         follow_mouse = 1;
-        kb_options = "caps:none,compose:ralt";  # Disable caps and set right alt as the compose key
+        kb_options = "caps:none,compose:ralt"; # Disable caps and set right alt as the compose key
 
         touchpad = {
           natural_scroll = true;

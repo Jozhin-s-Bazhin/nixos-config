@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   options.nixos-config.development.enable = lib.mkEnableOption "and configures an IDE and adds bunch of shortcuts and packages";
@@ -41,34 +46,61 @@
       enable = true;
       config.user = {
         name = "Jozhin-s-Bazhin";
-        email  = "rbezroutchko@gmail.com";
+        email = "rbezroutchko@gmail.com";
       };
     };
 
     # VSCode
-    home-manager.users.${config.nixos-config.username}.programs.zed-editor = {
-      enable = true;
-      extensions = [
-        "nix"
-        "fleet-themes"
+    home-manager.users.${config.nixos-config.username} = {
+      home.packages = with pkgs; [
+        nil
+        nixd
+        clang-tools
       ];
-      userSettings = {
-        telemetry = {
-          diagnostics = false;
-          metrics = false;
+      programs.zed-editor = {
+        enable = true;
+        extensions = [
+          "nix"
+          "fleet-themes"
+        ];
+        userSettings = {
+          telemetry = {
+            diagnostics = false;
+            metrics = false;
+          };
+          vim_mode = true;
+          theme = "Fleet Dark";
+          ui_font_size = 16;
+          buffer_font_size = 16;
+          buffer_font_family =
+            config.home-manager.users.${config.nixos-config.username}.stylix.fonts.monospace.name; # Sets the font to the stylix monospace font
+          load_direnv = "shell_hook";
+          autosave = "on_window_change";
+          lsp = {
+            nil.binary.pathLookUp = true;
+            clangd.binary.pathLookUp = true;
+          };
+          languages = {
+            Nix = {
+              tab_size = 2;
+              hard_tabs = false;
+              formatter.external = {
+                command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+                arguments = [
+                  "--quiet"
+                  "--"
+                ];
+              };
+            };
+          };
         };
-        vim_mode = true;
-        theme = "Fleet Dark";
-        ui_font_size = 16;
-        buffer_font_size = 16;
-        buffer_font_family = config.home-manager.users.${config.nixos-config.username}.stylix.fonts.monospace.name;  # Sets the font to the stylix monospace font
+        userKeymaps = [
+          {
+            context = "vim_mode == insert";
+            bindings."j k" = "vim::NormalBefore";
+          }
+        ];
       };
-      userKeymaps = [
-         {
-          context = "vim_mode == insert";
-          bindings."j k" = "vim::NormalBefore";
-         }
-      ];
     };
   };
 }

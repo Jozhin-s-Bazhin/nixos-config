@@ -1,4 +1,9 @@
-{ pkgs, username, configDir, ... }:
+{
+  pkgs,
+  username,
+  configDir,
+  ...
+}:
 {
   services.greetd = {
     enable = true;

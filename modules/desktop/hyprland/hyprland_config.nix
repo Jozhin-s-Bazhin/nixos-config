@@ -1,4 +1,10 @@
-{ inputs, pkgs, config, lib, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
