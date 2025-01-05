@@ -11,7 +11,6 @@
       wayland.windowManager.hyprland.settings.exec-once = [
         # Clipboard
         "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch ${pkgs.cliphist}bin/cliphist store"
-        "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch ${pkgs.cliphist}bin/cliphist store"
 
         # Automount USB drives
         "${pkgs.udiskie}/bin/udiskie"
