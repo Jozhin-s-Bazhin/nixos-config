@@ -41,6 +41,7 @@
         else
           zeditor "$1"
         fi
+        exit
       '';
     };
 
