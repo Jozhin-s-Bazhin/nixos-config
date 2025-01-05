@@ -10,8 +10,8 @@
     home-manager.users.${config.nixos-config.username} = {
       wayland.windowManager.hyprland.settings.exec-once = [
         # Clipboard
-        "${pkgs.wl-clipboard-rs}/bin/wl-paste --type text --watch cliphist store"
-        "${pkgs.wl-clipboard-rs}/bin/wl-paste --type image --watch cliphist store"
+        "${pkgs.wl-clipboard-rs}/bin/wl-paste --type text --watch ${pkgs.cliphist}bin/cliphist store"
+        "${pkgs.wl-clipboard-rs}/bin/wl-paste --type image --watch ${pkgs.cliphist}bin/cliphist store"
 
         # Automount USB drives
         "${pkgs.udiskie}/bin/udiskie"
@@ -30,6 +30,9 @@
             ${pkgs.wlsunset}/bin/wlsunset -S $fallback_sunrise -s $fallback_sunset;
           fi
         ''}"
+
+        # Walker
+        "${pkgs.walker}/bin/walker --gapplication-service"
       ];
     };
   };

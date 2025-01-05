@@ -116,12 +116,11 @@ in
           "SUPER, V, togglefloating"
 
           # Applications
-          "SUPER, Tab, exec, ags -t sidebar"
+          "SUPER, Tab, exec, ${pkgs.walker}/bin/walker"
           "SUPER, Return, exec, kitty"
           "SUPER, B, exec, zen"
           "SUPER, Z, exec, zeditor"
           "SUPER, F, exec, nautilus"
-          "SUPER, O, exec, obsidian"
 
           # Scratchpad
           "SUPER, Backspace, togglespecialworkspace"
