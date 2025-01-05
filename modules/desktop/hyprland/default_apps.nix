@@ -49,16 +49,24 @@
               "actions" = false;
               "weight" = 6;
             };
-            "clipboard"."switcher_only" = false;
+            "clipboard" = {
+              "switcher_only" = false;
+              "prefix" = "cp";
+            };
             "custom_commands"."switcher_only" = true;
             "runner"."switcher_only" = true;
             "calculator"."switcher_only" = false;
             "websearch"."switcher_only" = true;
-            "finder"."switcher_only" = false;
+            "finder" = {
+              "switcher_only" = false;
+              "prefix" = "f";
+            };
           };
           "list"."max_entries" = 6;
           "theme" = "custom";
         };
+
+        # Theme
         "walker/themes/custom.json".text = builtins.toJSON {
           "ui" = {
             "anchors" = {
@@ -81,11 +89,11 @@
                     "top" = 5;
                   };
                   "max_height" = 400;
-                  "max_width" = 400;
-                  "min_width" = 400;
+                  "max_width" = 500;
+                  "min_width" = 500;
                   "name" = "aiscroll";
                   "v_align" = "fill";
-                  "width" = 400;
+                  "width" = 500;
                 };
                 "bar" = {
                   "entry" = {
@@ -123,10 +131,10 @@
                     "margins" = {
                       "top" = 8;
                     };
-                    "max_height" = 300;
-                    "max_width" = 400;
-                    "min_width" = 400;
-                    "width" = 400;
+                    "max_height" = 400;
+                    "max_width" = 500;
+                    "min_width" = 500;
+                    "width" = 500;
                   };
                 };
                 "search" = {
@@ -181,7 +189,6 @@
 
           #box {
             border-radius: 10px;
-            border: 1px solid @wm_borders_edge;
             padding: 10px;
             background-color: @theme_bg_color;
           }
