@@ -12,6 +12,7 @@
         mission-center
         nautilus
         eog
+        libqalculate # For walker
       ];
 
       xdg.mimeApps = {
@@ -40,6 +41,7 @@
         };
       };
 
+      # Walker
       xdg.configFile = {
         "walker/config.json".text = builtins.toJSON {
           "builtins" = {
@@ -47,13 +49,12 @@
               "actions" = false;
               "weight" = 6;
             };
-            "clipboard" = {
-              "switcher_only" = false;
-              "max_entries" = 5;
-            };
+            "clipboard"."switcher_only" = false;
             "custom_commands"."switcher_only" = true;
             "runner"."switcher_only" = true;
+            "calculator"."switcher_only" = false;
             "websearch"."switcher_only" = true;
+            "finder"."switcher_only" = false;
           };
           "list"."max_entries" = 6;
           "theme" = "custom";
