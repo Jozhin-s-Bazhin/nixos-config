@@ -62,7 +62,7 @@
               "prefix" = "f";
             };
           };
-          "list"."max_entries" = 6;
+          "list"."max_entries" = 10;
           "theme" = "custom";
         };
 
@@ -119,7 +119,7 @@
                       "activation_label" = {
                         "h_align" = "fill";
                         "v_align" = "fill";
-                        "width" = 20;
+                        "width" = 100;
                         "x_align" = 0.5;
                         "y_align" = 0.5;
                       };
@@ -147,7 +147,7 @@
                     "hide" = true;
                   };
                 };
-                "width" = 450;
+                "width" = 500;
               };
               "h_align" = "fill";
               "v_align" = "fill";
