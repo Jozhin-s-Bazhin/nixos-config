@@ -54,7 +54,7 @@
       size = 36 * 1024;
     }
   ];
-  boot.resumeDevice = "/dev/nvme0n1p2";
+  boot.resumeDevice = "/dev/nvme1n1p2";
 
   # Firmware updates
   services.fwupd.enable = true;
