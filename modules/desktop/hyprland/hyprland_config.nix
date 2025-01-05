@@ -23,12 +23,17 @@
         xwayland.enable = true;
         systemd.enable = false;
       };
+
+      programs.zsh.shellAliases."rm" = "${pkgs.rmtrash}/bin/rmtrash";
+      programs.zsh.shellAliases."rmdir" = "${pkgs.rmtrash}/bin/rmdirtrash";
     };
 
     programs.hyprland = {
       enable = true;
       withUWSM = true;
     };
+
+    services.gvfs.enable = true;
 
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
