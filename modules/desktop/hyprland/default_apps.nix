@@ -51,7 +51,7 @@
             };
             "clipboard" = {
               "switcher_only" = false;
-              "prefix" = "cp ";
+              "prefix" = "cp";
             };
             "custom_commands"."switcher_only" = true;
             "runner"."switcher_only" = true;
@@ -59,7 +59,7 @@
             "websearch"."switcher_only" = true;
             "finder" = {
               "switcher_only" = false;
-              "prefix" = "f ";
+              "prefix" = "f";
             };
           };
           "list"."max_entries" = 10;
