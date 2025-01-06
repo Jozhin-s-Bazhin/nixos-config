@@ -57,7 +57,10 @@
             "runner"."switcher_only" = true;
             "calculator"."switcher_only" = false;
             "websearch"."switcher_only" = true;
-            "finder"."prefix" = "f";
+            "finder" = {
+              "switcher_only" = false;
+              "prefix" = "f";
+            };
           };
           "list"."max_entries" = 10;
           "theme" = "custom";
