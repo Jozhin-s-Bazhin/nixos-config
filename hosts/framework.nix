@@ -109,4 +109,7 @@
 
   # Enable qmk
   hardware.keyboard.qmk.enable = true;
+
+  # Fix network
+  networking.networkmanager.wifi.macAddress = "random";
 }
