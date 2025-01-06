@@ -11,7 +11,6 @@
   config = lib.mkIf config.nixos-config.desktop.enable {
     home-manager = {
       users.${config.nixos-config.username} = {
-        nixpkgs.config.allowUnfree = true;
         programs.home-manager.enable = true;
 
         home = {
