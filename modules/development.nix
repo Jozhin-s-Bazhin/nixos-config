@@ -74,7 +74,7 @@
           vim_mode = true;
           theme = "Fleet Dark";
           ui_font_size = 16;
-          buffer_font_size = 16;
+          buffer_font_size = lib.mkForce 16;
           buffer_font_family =
             config.home-manager.users.${config.nixos-config.username}.stylix.fonts.monospace.name; # Sets the font to the stylix monospace font
           load_direnv = "shell_hook";
