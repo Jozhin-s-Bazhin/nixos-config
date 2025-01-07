@@ -72,7 +72,9 @@ in
     };
     fonts.packages = [
       pkgs.nerd-fonts.symbols-only
-      pkgs.ubuntu_font_family
+      config.home-manager.users.${config.nixos-config.username}.stylix.fonts.serif.package
+      config.home-manager.users.${config.nixos-config.username}.stylix.fonts.sansSerif.package
+      config.home-manager.users.${config.nixos-config.username}.stylix.fonts.monospace.package
     ];
 
     # Boot splash screen

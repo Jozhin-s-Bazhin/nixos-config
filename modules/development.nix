@@ -62,10 +62,7 @@
       ];
       programs.zed-editor = {
         enable = true;
-        extensions = [
-          "nix"
-          "fleet-themes"
-        ];
+        extensions = [ "nix" ];
         userSettings = {
           telemetry = {
             diagnostics = false;
