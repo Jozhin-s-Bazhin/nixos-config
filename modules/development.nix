@@ -70,6 +70,8 @@
           };
           vim_mode = true;
           load_direnv = "shell_hook";
+          ui_font_size = lib.mkForce 16;
+          buffer_font_size = lib.mkForce 16;
           autosave = "on_window_change";
           terminal.env.TERM = "alacritty";
           lsp = {
