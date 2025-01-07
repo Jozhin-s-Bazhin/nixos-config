@@ -13,7 +13,6 @@
   config = lib.mkIf config.nixos-config.desktop.programs.enable {
     home-manager.users.${config.nixos-config.username} = {
       home.packages = with pkgs; [
-        thunderbird
         bitwarden
         spotube
         obsidian
