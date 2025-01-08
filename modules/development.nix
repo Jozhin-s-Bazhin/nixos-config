@@ -47,9 +47,12 @@
 
     programs.git = {
       enable = true;
-      config.user = {
-        name = "Jozhin-s-Bazhin";
-        email = "rbezroutchko@gmail.com";
+      config = {
+        user = {
+          name = "Jozhin-s-Bazhin";
+          email = "rbezroutchko@gmail.com";
+        };
+        push.autoSetupRemote = true;
       };
     };
 
