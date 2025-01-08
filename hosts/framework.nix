@@ -54,7 +54,7 @@
       size = 36 * 1024;
     }
   ];
-  boot.resumeDevice = "/dev/nvme0n1p2";
+  boot.resumeDevice = "/dev/disk/by-id/nvme-TEAM_TM8FPW001T_TPBF2401110080400617-part2";
 
   # Firmware updates
   services.fwupd.enable = true;
