@@ -24,7 +24,34 @@ in
   };
 
   config = lib.mkIf config.nixos-config.desktop.theming.enable {
-    stylix.image = ./wallpaper/wallpaper.jpg; # It breaks without this
+    stylix = {
+      enable = true;
+      image = ./wallpaper/wallpaper.jpg; # It breaks without this
+      cursor = {
+        name = "Adwaita";
+        package = pkgs.adwaita-icon-theme;
+        size = 24;
+      };
+      fonts = {
+        serif = {
+          package = pkgs.inter;
+          name = "Inter";
+        };
+        sansSerif = {
+          package = pkgs.inter;
+          name = "Inter";
+        };
+        monospace = {
+          package = pkgs.ubuntu_font_family;
+          name = "Ubuntu Mono";
+        };
+        emoji = {
+          package = pkgs.whatsapp-emoji-font;
+          name = "Whatsapp Emoji";
+        };
+      };
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/google-dark.yaml";
+    };
     stylix.blurredImage = ./wallpaper/wallpaper_blurred.jpg; # This is a custom option not really related to stylix
     home-manager.users.${config.nixos-config.username} = {
       stylix = {
@@ -76,16 +103,5 @@ in
       config.home-manager.users.${config.nixos-config.username}.stylix.fonts.sansSerif.package
       config.home-manager.users.${config.nixos-config.username}.stylix.fonts.monospace.package
     ];
-
-    # Boot splash screen
-    boot = {
-      plymouth.enable = true;
-      initrd.verbose = true;
-      consoleLogLevel = 0;
-      kernelParams = [
-        "quiet"
-        "splash"
-      ];
-    };
   };
 }

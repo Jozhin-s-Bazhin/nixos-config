@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   config,
   lib,
   ...
@@ -81,22 +80,11 @@
     users.users.${config.nixos-config.username}.packages = [ pkgs.lxqt.lxqt-policykit ];
 
     # Login screen
-    environment.systemPackages = [
-      (pkgs.elegant-sddm.override {
-        themeConfig = {
-          General.background = "${config.stylix.blurredImage}";
-          Background.WallpaperAspect = "cover";
-        };
-      })
-    ];
-    services.displayManager = {
+    services.greetd = {
       enable = true;
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-        wayland.compositor = "kwin";
-        theme = "Elegant";
-      };
+      settings.default_session.command = "${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.gtkgreet}/bin/gtkgreet -l";
     };
+    environment.etc."greetd/environments".text = "uwsm start Hyprland";
+    environment.etc."gtk-3.0".source = "/home/roman/.config/gtk-3.0";
   };
 }
