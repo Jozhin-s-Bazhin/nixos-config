@@ -27,12 +27,12 @@
           cd ./$name
           nix flake init -t templates#utils-generic
           echo 'use flake' > .envrc
-          git init
-          git add -A
-          echo ".direnv" > .gitignore
-          git commit -m "Initial commit: added framework"
           ${pkgs.gh}/bin/gh repo create --add-readme --source=. $(if [[ "$public" -eq 1 ]]; then echo "--public"; else echo "--private"; fi)
           direnv allow
+          git init
+          echo ".direnv" > .gitignore
+          git add -A
+          git commit -m "Initial commit: added framework"
         }
       '';
       shellAliases.z = ''
