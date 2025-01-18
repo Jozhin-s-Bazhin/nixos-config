@@ -80,6 +80,8 @@
     users.users.${config.nixos-config.username}.packages = [ pkgs.lxqt.lxqt-policykit ];
 
     # Login screen
+    services.greetd.settings.default_session.command =
+      "${pkgs.dbus}/bin/dbus-run-session ${lib.getExe pkgs.cage} -s -mlast -- ${config.programs.regreet.package}/bin/regreet";
     programs.regreet.enable = true;
   };
 }
