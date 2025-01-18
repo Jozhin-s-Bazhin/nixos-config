@@ -80,11 +80,6 @@
     users.users.${config.nixos-config.username}.packages = [ pkgs.lxqt.lxqt-policykit ];
 
     # Login screen
-    services.greetd = {
-      enable = true;
-      settings.default_session.command = "${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.gtkgreet}/bin/gtkgreet -l";
-    };
-    environment.etc."greetd/environments".text = "uwsm start ${pkgs.hyprland}/bin/Hyprland";
-    environment.etc."gtk-3.0".source = "/home/roman/.config/gtk-3.0";
+    programs.regreet.enable = true;
   };
 }

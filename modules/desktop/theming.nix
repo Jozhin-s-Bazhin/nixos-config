@@ -9,6 +9,7 @@ let
   stylixOptions = {
     enable = true;
     image = ./wallpaper/wallpaper.jpg;
+    polarity = "dark";
     cursor = {
       name = "Adwaita";
       package = pkgs.adwaita-icon-theme;
