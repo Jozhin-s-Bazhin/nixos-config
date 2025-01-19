@@ -47,6 +47,7 @@ in
   };
 
   config = lib.mkIf config.nixos-config.desktop.theming.enable {
+    nixos-config.desktop.theming.blurredWallpaper = ./wallpaper/wallpaper_blurred.jpg;
     stylix = stylixOptions;
     home-manager.users.${config.nixos-config.username} = {
       stylix = stylixOptions;

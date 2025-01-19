@@ -81,7 +81,10 @@
 
     # Login screen
     services.greetd.settings.default_session.command =
-      "${pkgs.dbus}/bin/dbus-run-session ${lib.getExe pkgs.cage} -s -mlast -- ${config.programs.regreet.package}/bin/regreet";
-    programs.regreet.enable = true;
+      "env GTK_USE_PORTAL=0 GDK_DEBUG=no-portals ${lib.getExe pkgs.cage} -s -mlast -- ${config.programs.regreet.package}/bin/regreet";
+    programs.regreet = {
+      enable = true;
+      settings.background.path = lib.mkForce config.nixos-config.desktop.theming.blurredWallpaper;
+    };
   };
 }
