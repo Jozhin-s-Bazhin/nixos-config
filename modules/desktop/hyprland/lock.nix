@@ -34,7 +34,7 @@
       '';
       xdg.configFile."gtklock/style.css".text = ''
         window {
-          background-image: url("${config.nixos-config.configDir}/modules/desktop/wallpaper/wallpaper_blurred.png");
+          background-image: url("${config.nixos-config.configDir}/modules/desktop/wallpaper/wallpaper_blurred.jpg");
           background-size: cover;
           background-repeat: no-repeat;
           background-position: center;
