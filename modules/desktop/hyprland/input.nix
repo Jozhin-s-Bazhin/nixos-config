@@ -21,9 +21,16 @@
         numlock_by_default = true;
       };
 
+      general.snap.enabled = true;
+
       gestures = {
         workspace_swipe = true;
         workspace_swipe_cancel_ratio = "0.1";
+      };
+
+      misc = {
+        mouse_move_enables_dpms = true;
+        key_press_enables_dpms = true;
       };
 
       # Custom mouse acceleration

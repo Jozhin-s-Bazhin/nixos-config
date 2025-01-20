@@ -21,6 +21,10 @@
             }
             {
               timeout = 900;
+              on-timeout = "hyprctl dispatch dpms off";
+            }
+            {
+              timeout = 905;
               on-timeout = "${pkgs.brightnessctl}/bin/systemctl suspend";
             }
           ];

@@ -24,6 +24,7 @@
             passes = 3;
             special = true;
           };
+          shadow.enabled = false;
         };
 
         animations = {
@@ -46,10 +47,24 @@
           special_scale_factor = 1;
         };
 
+        workspace = [
+          "w[tv1], gapsout:0, gapsin:0"
+          "f[1], gapsout:0, gapsin:0"
+        ];
+
+        windowrulev2 = [
+          "bordersize 0, floating:0, onworkspace:w[tv1]"
+          "rounding 0, floating:0, onworkspace:w[tv1]"
+          "bordersize 0, floating:0, onworkspace:f[1]"
+          "rounding 0, floating:0, onworkspace:f[1]"
+        ];
+
         misc = {
           disable_hyprland_logo = true;
           vrr = 1;
           middle_click_paste = false;
+          disable_autoreload = true;
+          disable_hyprland_qtutils_check = true;
         };
 
         # XWayland scaling
