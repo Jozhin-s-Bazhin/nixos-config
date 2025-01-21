@@ -21,6 +21,7 @@
           workspaceInactiveBorder = "rgba(00000000)";
           #showNewWorkspace = false;
           showEmptyWorkspace = false;
+          affectStrut = false;
         };
       };
     };
