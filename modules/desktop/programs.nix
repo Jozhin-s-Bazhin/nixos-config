@@ -19,6 +19,7 @@
         zapzap
         gnome-clocks
         inputs.zen.packages."${pkgs.system}".default
+        alpaca
       ];
     };
   };

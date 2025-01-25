@@ -56,7 +56,7 @@
       };
     };
 
-    # VSCode
+    # Zed
     home-manager.users.${config.nixos-config.username} = {
       home.packages = with pkgs; [
         nil
@@ -94,6 +94,23 @@
               };
             };
           };
+          assistant = {
+            version = "2";
+            default_model = {
+              provider = "ollama";
+              model = "llama3:latest";
+            };
+          };
+          language_models.ollama = {
+            api_url = "http://localhost:11434";
+            available_models = [
+              {
+                name = "llama3:latest";
+                display_name = "Llama3 8B";
+                max_tokens = 16384;
+              }
+            ];
+          };
         };
         userKeymaps = [
           {
@@ -102,6 +119,7 @@
           }
         ];
       };
+      services.ollama.enable = true;
     };
   };
 }
