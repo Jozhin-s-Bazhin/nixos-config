@@ -35,7 +35,7 @@
     gaming.enable = true;
     media.enable = true;
     office.enable = true;
-    cad.enable = true;
+    #cad.enable = true;
     username = "roman";
   };
 
