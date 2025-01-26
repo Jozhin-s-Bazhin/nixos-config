@@ -90,7 +90,7 @@ let
     num:
     "SUPER SHIFT, ${toString num}, exec, ${workspaceSwitcher}/bin/workspaceSwitcher movetoworkspace ${toString num}";
   workspaceBindings =
-    (map generateWorkspace (workspaces_num)) ++ (map generateMoveToWorkspace (workspaces_num));
+    (map generateWorkspace workspaces_num) ++ (map generateMoveToWorkspace workspaces_num);
 in
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
@@ -101,6 +101,7 @@ in
           "SUPER, Space, killactive"
           ", Print, exec, ${pkgs.grimblast}/bin/grimblast copysave area"
           "SUPER, Escape, exec, ${pkgs.systemd}/bin/loginctl lock-session"
+          "SUPER, backslash, exec, hyprctl switchxkblayout all next"
 
           # Window management
           "SUPER, H, movefocus, l"

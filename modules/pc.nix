@@ -1,6 +1,4 @@
 {
-  pkgs,
-  inputs,
   config,
   lib,
   ...
@@ -14,10 +12,7 @@
     boot.loader.timeout = 0;
 
     # Configure keymap in X11
-    services.xserver = {
-      xkb.layout = "us";
-      xkb.variant = "";
-    };
+    services.xserver.xkb.options = "caps:none,compose:ralt";
 
     # Enable printing
     services.printing.enable = true;

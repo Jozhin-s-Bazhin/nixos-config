@@ -116,6 +116,12 @@
   # Enable qmk
   hardware.keyboard.qmk.enable = true;
 
+  # Add russian phonetic keyboard layout
+  services.xserver.xkb = {
+    layout = "us,ru";
+    variant = ",phonetic";
+  };
+
   # Fix network
   networking.networkmanager.wifi.macAddress = "random";
 }
