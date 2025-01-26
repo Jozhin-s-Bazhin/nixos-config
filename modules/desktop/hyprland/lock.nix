@@ -9,6 +9,7 @@
     security.pam.services.gtklock.text = builtins.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
 
     home-manager.users.${config.nixos-config.username} = {
+
       services.hypridle = {
         enable = true;
         settings = {
@@ -32,6 +33,31 @@
       };
       systemd.user.services.hypridle.Unit.After = lib.mkForce "graphical-session.target";
 
+      # Lock screen before sleeping
+      systemd.user.targets.sleep.Unit = {
+        Description = "User level sleep target";
+        StopWhenUnneeded = "yes";
+      };
+      systemd.user.services.lockBeforeSleep = {
+        Unit = {
+          Description = "Lock the screen before sleeping";
+          Before = [ "sleep.target" ];
+        };
+        Install.WantedBy = [ "sleep.target" ];
+        Service = {
+          Type = "notify";
+          NotifyAccess = "all";
+          ExecStart = pkgs.writers.writeBash "lockScreen" ''
+            # Environment variables
+            export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+            export DBUS_SESSION_ADDRESS="unix:path=/run/user/$(id -u)/bus"
+            export WAYLAND_DISPLAY="wayland-1"
+
+            ${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready"
+          '';
+        };
+      };
+
       xdg.configFile."gtklock/config.ini".text = ''
         [main]
         style=/home/${config.nixos-config.username}/.config/gtklock/style.css
@@ -49,6 +75,20 @@
         }
       '';
     };
+    systemd.services.suspend-trigger = {
+      enable = true;
+      description = "Call user's suspend target after system suspend";
+      after = [ "sleep.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+        User = config.nixos-config.username;
+        ExecStart = pkgs.writers.writeBash "trigger-suspend-target" ''
+          export DBUS_SESSION_ADDRESS="unix:path=/run/user/$(id -u)/bus"
+          systemctl --user start --wait suspend.target
+        '';
+      };
+      wantedBy = [ "suspend.target" ];
+    };
 
     # Enable polkit
     security.polkit.enable = true;
@@ -63,27 +103,6 @@
         Restart = "on-failure";
         RestartSec = 1;
         TimeoutStopSec = 10;
-      };
-    };
-
-    # Lock screen before sleeping
-    systemd.services.lockBeforeSleep = {
-      enable = true;
-      description = "Lock the screen before sleeping";
-      before = [ "sleep.target" ];
-      wantedBy = [ "sleep.target" ];
-      serviceConfig = {
-        Type = "notify";
-        NotifyAccess = "all";
-        User = config.nixos-config.username;
-        ExecStart = "${pkgs.writers.writeBash "lockBeforeSleep" ''
-          # Environment variables
-          loginctl_sessions=$(loginctl list-sessions)
-          export XDG_RUNTIME_DIR="/run/user/$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
-          export DBUS_SESSION_ADDRESS="unix:path=/run/user/$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')/bus"
-
-          ${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready" --display "wayland-1"
-        ''}";
       };
     };
 
