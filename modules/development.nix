@@ -94,7 +94,7 @@
               };
             };
           };
-          assistant = {
+          /*assistant = {
             version = "2";
             default_model = {
               provider = "ollama";
@@ -110,7 +110,7 @@
                 max_tokens = 16384;
               }
             ];
-          };
+          };*/
         };
         userKeymaps = [
           {
@@ -119,7 +119,7 @@
           }
         ];
       };
-      services.ollama.enable = true;
+      #services.ollama.enable = true;
     };
   };
 }
