@@ -60,6 +60,6 @@ in
         };
       };
     };
-    fonts.packages = [ pkgs.nerd-fonts.symbols-only ];
+    fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; }) ];
   };
 }
