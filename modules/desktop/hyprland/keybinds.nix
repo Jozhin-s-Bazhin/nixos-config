@@ -101,7 +101,6 @@ in
           "SUPER, Space, killactive"
           ", Print, exec, ${pkgs.grimblast}/bin/grimblast copysave area"
           "SUPER, Escape, exec, ${pkgs.systemd}/bin/loginctl lock-session"
-          "SUPER, backslash, exec, hyprctl switchxkblayout all next"
 
           # Window management
           "SUPER, H, movefocus, l"
@@ -191,6 +190,9 @@ in
           ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
           ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
           ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
+
+          # Switch keyboard layout
+          "SUPER, backslash, exec, hyprctl switchxkblayout all next"
         ];
       };
     };
