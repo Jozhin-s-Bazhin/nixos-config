@@ -46,7 +46,7 @@
         "walker/config.json".text = builtins.toJSON {
           "builtins" = {
             "applications" = {
-              "actions"."enabled" = false;
+              "actions" = false;
               "weight" = 6;
             };
             "clipboard" = {
