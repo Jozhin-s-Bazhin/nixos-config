@@ -6,9 +6,6 @@
 }:
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
-    # Geary
-    programs.geary.enable = true;
-
     home-manager.users.${config.nixos-config.username} = {
       home.packages = with pkgs; [
         gnome-calculator
