@@ -25,7 +25,7 @@
             }
             {
               timeout = 905;
-              on-timeout = "${pkgs.brightnessctl}/bin/systemctl suspend";
+              on-timeout = "${pkgs.systemd}/bin/systemctl suspend";
             }
           ];
         };
