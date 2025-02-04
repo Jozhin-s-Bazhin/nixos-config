@@ -94,7 +94,7 @@
               };
             };
           };
-          /*assistant = {
+          assistant = {
             version = "2";
             default_model = {
               provider = "ollama";
@@ -105,12 +105,12 @@
             api_url = "http://localhost:11434";
             available_models = [
               {
-                name = "llama3:latest";
-                display_name = "Llama3 8B";
+                name = "deepseek-r1:1.5b";
+                display_name = "Deepseek R1 1.5B";
                 max_tokens = 16384;
               }
             ];
-          };*/
+          };
         };
         userKeymaps = [
           {
@@ -119,7 +119,10 @@
           }
         ];
       };
-      #services.ollama.enable = true;
+    };
+    services.ollama = {
+      enable = true;
+      loadModels = [ "deepseek-r1:1.5b" ];
     };
   };
 }
