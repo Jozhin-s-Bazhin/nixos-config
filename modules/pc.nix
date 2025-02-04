@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 
@@ -63,5 +64,12 @@
       settings.General.Experimental = true;
     };
     services.blueman.enable = true;
+
+    # Ananicy for better responsiveness
+    services.ananicy = {  
+      enable = true;
+      package = pkgs.ananicy-cpp;
+      rulesProvider = pkgs.ananicy-rules-cachyos;
+    };
   };
 }
