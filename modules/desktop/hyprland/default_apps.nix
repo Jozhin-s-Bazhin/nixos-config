@@ -6,8 +6,6 @@
 }:
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
-    programs.evolution.enable = true;
-
     home-manager.users.${config.nixos-config.username} = {
       home.packages = with pkgs; [
         gnome-calculator
