@@ -46,7 +46,7 @@ switch:disabled slider { background-color: mix(@view_bg_color,mix(white,@view_bg
 
 /* Bar */
 window.bar {
-  background-color: @theme_bg_color;
+  background-color: black;
   color: @theme_fg_color;
 }
 
