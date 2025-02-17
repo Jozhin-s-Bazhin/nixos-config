@@ -109,6 +109,11 @@
                 display_name = "Deepseek R1 8B";
                 max_tokens = 16384;
               }
+              {
+                name = "deepseek-r1:1.5b";
+                display_name = "Deepseek R1 1.5B";
+                max_tokens = 16384;
+              }
             ];
           };
         };
