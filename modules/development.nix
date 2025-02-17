@@ -98,7 +98,7 @@
             version = "2";
             default_model = {
               provider = "ollama";
-              model = "deepseek-coder-v2:16b";
+              model = "qwen2.5-coder:14b";
             };
             inline_alternatives = [
               {
@@ -111,7 +111,7 @@
             api_url = "http://localhost:11434";
             available_models = [
               {
-                name = "deepseek-coder-v2:16b";
+                name = "qwen2.5-coder:14b";
                 display_name = "Deepseek Coder V2";
                 max_tokens = 16384;
               }
@@ -134,7 +134,7 @@
     services.ollama = {
       enable = true;
       loadModels = [
-        "deepseek-coder-v2:16b" # Coding assistant
+        "qwen2.5-coder:14b" # Coding assistant
         "qwen2.5-coder:7b" # Inline autocomplete
       ];
     };
