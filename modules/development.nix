@@ -98,7 +98,7 @@
             version = "2";
             default_model = {
               provider = "ollama";
-              model = "qwen2.5-coder:7b-base-q2_K";
+              model = "qwen2.5-coder:7b";
             };
             /*
               inline_alternatives = [
@@ -111,9 +111,10 @@
           };
           language_models.ollama = {
             api_url = "http://localhost:11434";
+            low_speed_timeout_in_seconds = 300;
             available_models = [
               {
-                name = "qwen2.5-coder:7b-base-q2_K";
+                name = "qwen2.5-coder:7b";
                 display_name = "Qwen 2.5 Coder 7B";
                 max_tokens = 16384;
               }
