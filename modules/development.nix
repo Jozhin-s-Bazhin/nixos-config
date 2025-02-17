@@ -97,16 +97,16 @@
           assistant = {
             version = "2";
             default_model = {
-              provider = "Ollama";
-              model = "deepseek-r1:1.5b";
+              provider = "ollama";
+              model = "deepseek-r1:8b";
             };
           };
           language_models.ollama = {
             api_url = "http://localhost:11434";
             available_models = [
               {
-                name = "deepseek-r1:1.5b";
-                display_name = "Deepseek R1 1.5B";
+                name = "deepseek-r1:8b";
+                display_name = "Deepseek R1 8B";
                 max_tokens = 16384;
               }
             ];
