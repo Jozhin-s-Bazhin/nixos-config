@@ -97,8 +97,8 @@
           assistant = {
             version = "2";
             default_model = {
-              provider = "ollama";
-              model = "llama3:latest";
+              provider = "Ollama";
+              model = "deepseek-r1:1.5b";
             };
           };
           language_models.ollama = {
