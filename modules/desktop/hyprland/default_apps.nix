@@ -55,11 +55,14 @@
             };
             "custom_commands"."switcher_only" = true;
             "runner"."switcher_only" = true;
-            "calculator"."switcher_only" = false;
+            "calculator" = {
+              "switcher_only" = false;
+              "prefix" = "clc";
+            };
             "websearch"."switcher_only" = true;
             "finder" = {
               "switcher_only" = false;
-              "prefix" = "f";
+              "prefix" = "fi";
             };
           };
           "list"."max_entries" = 10;
