@@ -98,12 +98,12 @@
             version = "2";
             default_model = {
               provider = "ollama";
-              model = "qwen2.5-coder:14b";
+              model = "deepseek-r1:8b";
             };
             inline_alternatives = [
               {
                 provider = "ollama";
-                model = "qwen2.5-coder:7b";
+                model = "qwen2.5-coder:14b-base-q2_K";
               }
             ];
           };
@@ -111,12 +111,12 @@
             api_url = "http://localhost:11434";
             available_models = [
               {
-                name = "qwen2.5-coder:14b";
-                display_name = "Deepseek Coder V2";
+                name = "deepseek-r1:8b";
+                display_name = "Deepseek R1 8B";
                 max_tokens = 16384;
               }
               {
-                name = "qwen2.5-coder:7b";
+                name = "qwen2.5-coder:14b-base-q2_K";
                 display_name = "Qwen 2.5 Coder";
                 max_tokens = 16384;
               }
@@ -134,8 +134,8 @@
     services.ollama = {
       enable = true;
       loadModels = [
-        "qwen2.5-coder:14b" # Coding assistant
-        "qwen2.5-coder:7b" # Inline autocomplete
+        "deepseek-r1:8b" # Coding assistant
+        "qwen2.5-coder:14b-base-q2_K" # Inline autocomplete
       ];
     };
   };
