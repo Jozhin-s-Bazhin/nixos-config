@@ -116,7 +116,8 @@
               {
                 name = "qwen2.5-coder:7b";
                 display_name = "Qwen 2.5 Coder 7B";
-                max_tokens = 16384;
+                max_tokens = 32768;
+                keep_alive = "30m";
               }
               /*
                 {
