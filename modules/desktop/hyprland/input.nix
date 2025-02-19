@@ -25,7 +25,7 @@
       general.snap.enabled = true;
 
       gestures = {
-        workspace_swipe = true;
+        workspace_swipe = false;
         workspace_swipe_cancel_ratio = "0.1";
       };
 
