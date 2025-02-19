@@ -21,6 +21,7 @@
           webkitgtk
           accountsservice
           libnotify
+          nerd-fonts.symbols-only
           gnome-bluetooth
           brightnessctl
           networkmanagerapplet
