@@ -64,6 +64,7 @@
           vrr = 1;
           middle_click_paste = false;
           disable_autoreload = true;
+          disable_hyprland_qtutils_check = true;
         };
 
         # XWayland scaling
