@@ -159,7 +159,14 @@
         };
         "walker/themes/custom.css".text = ''
           #window {
-            background-color: unset;
+            all: unset;
+          }
+
+          #box {
+            background-color: @theme_bg_color;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 35px 0px;
           }
         '';
       };
