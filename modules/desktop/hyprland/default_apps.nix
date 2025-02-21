@@ -168,6 +168,15 @@
             border-radius: 15px;
             box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 35px 0px;
           }
+
+          #icon {
+            margin: 3px;
+            margin-right: 7px;
+          }
+
+          #label {
+            font-weight: 750;
+          }
         '';
       };
     };
