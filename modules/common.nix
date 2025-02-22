@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   config,
   lib,
@@ -11,6 +12,8 @@
     default = true;
     description = "Enables a bunch of stuff I want on any system and stuff NixOS needs to be enabled.";
   };
+
+  imports = [ inputs.nix-index-database.nixosModules.nix-index ];
 
   config = lib.mkIf config.nixos-config.common.enable {
     # Do not touch
