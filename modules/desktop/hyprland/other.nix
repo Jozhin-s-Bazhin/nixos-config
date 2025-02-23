@@ -22,24 +22,29 @@
 
         windowrulev2 = [
           # XWaylandvideobridge
-          "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
-          "noanim,class:^(xwaylandvideobridge)$"
-          "noinitialfocus,class:^(xwaylandvideobridge)$"
-          "maxsize 1 1,class:^(xwaylandvideobridge)$"
-          "noblur,class:^(xwaylandvideobridge)$"
+          "opacity 0.0 override 0.0 override, class:^(xwaylandvideobridge)$"
+          "noanim, class:^(xwaylandvideobridge)$"
+          "noinitialfocus, class:^(xwaylandvideobridge)$"
+          "maxsize 1 1, class:^(xwaylandvideobridge)$"
+          "noblur, class:^(xwaylandvideobridge)$"
 
           # LibreOffice
-          "suppressevent maximize,class:^libreoffice-*"
+          "suppressevent maximize, class:^libreoffice-*"
 
           # Prismlauncher fix
           "float, class:^(gamescope)$"
+
+          # Make Firefox Picture-in-Picture floating and small
+          "float, title:Picture-in-Picture"
+          "pin, title:Picture-in-Picture"
+          "move 100%-w-10 +36, title:Picture-in-Picture" # The panel is 26 pixels + 10 = 36
+          "size 25% 25%, title:Picture-in-Picture"
         ];
 
         workspace = [
           "special,gapsin:10,gapsout:20"
         ];
       };
-      #home.packages = [ pkgs.xwaylandvideobridge ];  # The tray icon is annoying and I only use this for discord which can be done in a browser anyway
     };
 
     programs.zsh.shellAliases.clip = "cat $1 | kitten clipboard";
