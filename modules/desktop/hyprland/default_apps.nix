@@ -57,7 +57,7 @@
             "runner"."switcher_only" = true;
             "calculator" = {
               "switcher_only" = false;
-              "prefix" = "clc";
+              "prefix" = "+";
             };
             "websearch"."switcher_only" = true;
             "finder" = {
