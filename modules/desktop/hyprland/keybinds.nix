@@ -131,7 +131,7 @@ in
           "SUPER SHIFT, mouse_down, exec, ${hyprnome} --previous --move"
           "SUPER, mouse_up, exec, ${hyprnome}"
           "SUPER SHIFT, mouse_up, exec, ${hyprnome} --move"
-          "SUPER, mouse:274, overview:toggle"
+          "SUPER, mouse:274, hyprtasking:toggle, all"
 
           # Workspace switching with arrow keys
           "SUPER, left, exec, ${hyprnome} --previous"
