@@ -329,7 +329,7 @@ window.volume_osd box,
 window.brightness_osd box {
     background-color: @theme_bg_color;
     border-radius: 40px;
-    padding: 8px;
+    padding: 9px;
     margin: 50px;
     margin-bottom: 7px;
     min-width: 250px;
