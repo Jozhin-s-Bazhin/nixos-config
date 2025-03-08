@@ -1,0 +1,21 @@
+system: "base16"
+name: ""
+author: ""
+variant: "dark"
+palette:
+  base00: "#1B1B1B" # Background
+  base01: "#262626" # Alternate background
+  base02: "#3B3B3B" # Selection background
+  base03: "#969696" # Unfocused
+  base04: "#B4B4B4" # Alternate text
+  base05: "#CACACA" # Text
+  base06: "#E0E0E0" # Low urgency
+  base07: "#FFFFFF" # Light background
+  base08: "#CC342B" # Red
+  base09: "#F96A38" # Orange
+  base0A: "#FBA922" # Yellow
+  base0B: "#198844" # Green
+  base0C: "#00BFC0" # Cyan
+  base0D: "#066CFA" # Blue/Accent
+  base0E: "#A36AC7" # Purple
+  base0F: "#BF5E1D" # Brown

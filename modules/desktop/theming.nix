@@ -33,7 +33,7 @@ let
         name = "Whatsapp Emoji";
       };
     };
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/google-dark.yaml";
+    base16Scheme = ./base16-theme.yaml;
     targets.qt.enable = false; # This option is extremely buggy
   };
 in
