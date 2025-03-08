@@ -64,6 +64,10 @@
               "switcher_only" = false;
               "prefix" = "fi";
             };
+            "windows" = {
+              "switcher_only" = false;
+              "prefix" = "ws";
+            };
           };
           "list"."max_entries" = 10;
           "theme" = "custom";
