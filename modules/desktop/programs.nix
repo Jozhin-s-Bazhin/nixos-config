@@ -19,7 +19,6 @@
         zapzap
         gnome-clocks
         inputs.zen.packages."${pkgs.system}".default
-        alpaca
         telegram-desktop
         thunderbird
       ];
