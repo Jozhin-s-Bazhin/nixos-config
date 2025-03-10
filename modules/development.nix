@@ -94,6 +94,7 @@
               };
             };
           };
+          features.edit_prediction_provider = "zed";
           assistant = {
             version = "2";
             default_model = {
