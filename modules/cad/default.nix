@@ -23,11 +23,11 @@ in
       geogebra6
 
       # FreeCAD cfd and fea dependencies
-      openfoam
+      #openfoam
       paraview
       gmsh
-      hisa
-      cfmesh
+      #hisa
+      #cfmesh
       calculix
     ];
     programs.zsh.shellAliases.freecad-openfoam = "source ${openfoam}/opt/OpenFOAM/OpenFOAM-v2306/etc/bashrc; freecad";
