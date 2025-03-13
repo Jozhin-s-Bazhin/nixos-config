@@ -61,10 +61,7 @@
   environment.systemPackages = [ pkgs.gnome-firmware ];
 
   # Ollama ROCM integration
-  /*
-    services.ollama.rocmOverrideGfx = "11.0.0";
-    services.ollama.acceleration = "rocm";
-  */
+  services.ollama.rocmOverrideGfx = "11.0.2";
 
   # Auto-brightness with wluma
   home-manager.users.${config.nixos-config.username} = {

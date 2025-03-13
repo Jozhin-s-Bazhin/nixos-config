@@ -14,6 +14,11 @@
       enable32Bit = true;
       extraPackages = [ pkgs.rocmPackages.clr.icd ];
     };
+    hardware.amdgpu.opencl.enable = true;
     environment.systemPackages = [ pkgs.radeontop ];
+    services.ollama = {
+      acceleration = "rocm";
+      package = pkgs.ollama-rocm;
+    };
   };
 }
