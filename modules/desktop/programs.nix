@@ -21,6 +21,7 @@
         inputs.zen.packages."${pkgs.system}".default
         telegram-desktop
         thunderbird
+        baobab
       ];
     };
   };
