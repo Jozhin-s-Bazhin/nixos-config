@@ -98,6 +98,7 @@
       };
       Install.WantedBy = [ "graphical-session.target" ];
     };
+    home.sessionVariables."AQ_NO_MODIFIERS" = 1;
   };
 
   # udev Rules
