@@ -33,6 +33,6 @@ hyprland.connect("event", (_, name, data) => {
   if (name == "monitoraddedv2") {
     const monitorid = data.split(",")[0]; // We only need monitorid
     Bar(Number(monitorid));
-    Utils.ExecAsync('bash -c "killall wluma; wluma"');
+    Utils.ExecAsync('bash -c "pkill wluma; wluma"');
   }
 });
