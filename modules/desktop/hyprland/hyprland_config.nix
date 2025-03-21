@@ -6,6 +6,10 @@
   ...
 }:
 
+let
+  hyprlandPackage = pkgs.hyprland;
+  portalPackage = pkgs.xdg-desktop-portal-hyprland;
+in
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
     nix.settings = {
@@ -22,6 +26,8 @@
         enable = true;
         xwayland.enable = true;
         systemd.enable = false;
+        package = hyprlandPackage;
+        portalPackage = portalPackage;
       };
 
       programs.zsh.shellAliases."rm" = "${pkgs.rmtrash}/bin/rmtrash";
@@ -31,6 +37,8 @@
     programs.hyprland = {
       enable = true;
       withUWSM = true;
+      package = hyprlandPackage;
+      portalPackage = portalPackage;
     };
 
     services.gvfs.enable = true;
