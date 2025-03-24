@@ -99,34 +99,19 @@
             version = "2";
             default_model = {
               provider = "ollama";
-              model = "qwen2.5-coder:7b";
+              model = "qwen2.5-coder:14b-instruct-q4_K_M";
             };
-            /*
-              inline_alternatives = [
-              {
-                provider = "ollama";
-                model = "qwen2.5-coder:14b-base-q2_K";
-              }
-              ];
-            */
           };
           language_models.ollama = {
             api_url = "http://localhost:11434";
             low_speed_timeout_in_seconds = 300;
             available_models = [
               {
-                name = "qwen2.5-coder:7b";
-                display_name = "Qwen 2.5 Coder 7B";
+                name = "qwen2.5-coder:14b-instruct-q4_K_M";
+                display_name = "Qwen 2.5 Coder 14B";
                 max_tokens = 32768;
                 keep_alive = "30m";
               }
-              /*
-                {
-                  name = "qwen2.5-coder:14b-base-q2_K";
-                  display_name = "Qwen 2.5 Coder 14B";
-                  max_tokens = 16384;
-                }
-              */
             ];
           };
         };
@@ -140,7 +125,7 @@
     };
     services.ollama = {
       enable = true;
-      loadModels = [ "qwen2.5-coder:7b" ];
+      loadModels = [ "qwen2.5-coder:14b-instruct-q4_K_M" ];
     };
   };
 }
