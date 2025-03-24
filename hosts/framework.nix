@@ -100,7 +100,7 @@
     };
     home.sessionVariables."AQ_NO_MODIFIERS" = 1;
     wayland.windowManager.hyprland.settings.monitor = [
-      "eDP-2, preferred, 0x0, 1.6, bitdepth, 10"
+      "eDP-2, preferred, 0x0, 1.6"
     ];
   };
 
