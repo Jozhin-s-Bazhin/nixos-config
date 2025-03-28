@@ -12,7 +12,10 @@
       services.hypridle = {
         enable = true;
         settings = {
-          general.lock_cmd = "${pkgs.gtklock}/bin/gtklock";
+          general = {
+            lock_cmd = "${pkgs.gtklock}/bin/gtklock";
+            before_sleep_cmd = "loginctl lock-session";
+          };
           listener = [
             {
               timeout = 840;
@@ -63,27 +66,6 @@
         Restart = "on-failure";
         RestartSec = 1;
         TimeoutStopSec = 10;
-      };
-    };
-
-    # Lock screen before sleeping
-    systemd.services.lockBeforeSleep = {
-      enable = true;
-      description = "Lock the screen before sleeping";
-      before = [ "sleep.target" ];
-      wantedBy = [ "sleep.target" ];
-      serviceConfig = {
-        Type = "notify";
-        NotifyAccess = "all";
-        User = config.nixos-config.username;
-        ExecStart = "${pkgs.writers.writeBash "lockBeforeSleep" ''
-          # Environment variables
-          loginctl_sessions=$(loginctl list-sessions)
-          export XDG_RUNTIME_DIR="/run/user/$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')"
-          export DBUS_SESSION_ADDRESS="unix:path=/run/user/$(echo "$loginctl_sessions" | ${pkgs.gawk}/bin/awk 'NR==2 {print $2}')/bus"
-
-          ${pkgs.gtklock}/bin/gtklock -L "systemd-notify --ready" --display "wayland-1"
-        ''}";
       };
     };
 
