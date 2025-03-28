@@ -13,7 +13,7 @@
         enable = true;
         settings = {
           general = {
-            lock_cmd = "${pkgs.gtklock}/bin/gtklock";
+            lock_cmd = "${pkgs.gtklock}/bin/gtklock -d";
             before_sleep_cmd = "loginctl lock-session";
           };
           listener = [
