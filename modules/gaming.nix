@@ -41,12 +41,15 @@
           vulkan-tools
         ];
       })
+
+      # Minecraft
       prismlauncher
-      crrcsim
-      freesweep
 
       # Discord
       vesktop
+
+      # Mice
+      piper
     ];
 
     # Enable flatpak for roblox (trough sober)
