@@ -6,7 +6,7 @@
 }:
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
-    security.pam.services.gtklock.text = builtins.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
+    security.pam.services.gtklock = { };
 
     home-manager.users.${config.nixos-config.username} = {
       services.hypridle = {
@@ -48,7 +48,7 @@
         }
 
         #clock-label {
-          font-size: 100px;
+          font-size: 125px;
         }
       '';
     };
