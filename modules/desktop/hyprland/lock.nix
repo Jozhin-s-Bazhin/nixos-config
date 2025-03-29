@@ -6,15 +6,18 @@
 }:
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
-    security.pam.services.gtklock = { };
+    security.pam.services.gtklock.text = ''
+      auth            sufficient      pam_unix.so try_first_pass likeauth nullok
+    '';
 
     home-manager.users.${config.nixos-config.username} = {
       services.hypridle = {
         enable = true;
         settings = {
           general = {
-            lock_cmd = "${pkgs.gtklock}/bin/gtklock -dfHS";
-            before_sleep_cmd = "loginctl lock-session";
+            lock_cmd = "fprintd-verify && pkill gtklock & ${pkgs.gtklock}/bin/gtklock -dfHS -U 'pkill fprintd-verify'";
+            before_sleep_cmd = "loginctl lock-session; pkill fprintd-verify";
+            after_sleep_cmd = "fprintd-verify && pkill gtklock";
           };
           listener = [
             {
