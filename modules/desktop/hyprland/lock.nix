@@ -50,8 +50,26 @@
           background-position: center;
         }
 
+        #clock-label, #date-label {
+          color: white;
+          text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          font-weight: 200;
+        }
+
         #clock-label {
-          font-size: 125px;
+          font-size: 150px;
+        }
+
+        #date-label {
+          font-size: 30px;
+        }
+
+        #input-field, #input-label {
+          margin-top: 15px;
+        }
+
+        #input-label {
+          text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
       '';
     };
