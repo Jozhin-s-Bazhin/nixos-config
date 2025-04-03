@@ -52,7 +52,7 @@
 
         #clock-label, #date-label {
           color: white;
-          text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          text-shadow: 0 0 10px rgba(50, 50, 50, 0.2);
           font-weight: 200;
         }
 
@@ -69,7 +69,8 @@
         }
 
         #input-label {
-          text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+          margin-left: 10px;
         }
       '';
     };
