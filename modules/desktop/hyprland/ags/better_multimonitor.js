@@ -31,8 +31,6 @@ hyprland.connect("event", (_, name, data) => {
   }*/
   // Open new bars when monitors are connected
   if (name == "monitoraddedv2") {
-    const monitorid = data.split(",")[0]; // We only need monitorid
-    Utils.execAsync('bash -c "pkill wluma && wluma"');
     Utils.execAsync(
       'bash -c "ags -q && ags -c ~/nixos-config/modules/desktop/hyprland/ags/config.js"',
     );
