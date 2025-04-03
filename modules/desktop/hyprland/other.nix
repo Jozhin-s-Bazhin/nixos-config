@@ -8,15 +8,7 @@
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
     home-manager.users.${config.nixos-config.username} = {
       wayland.windowManager.hyprland.settings = {
-        monitor = [
-          ", preferred, auto, 1, cm, auto"
-
-          # Ultrawide at home
-          "desc:Huawei Technologies Co. Inc. ZQE-CAA 0xC080F622, preferred, -3440x0, 1" # Right of eDP-1
-
-          # Monitor at home
-          #"desc:Iiyama North America PL2283H 1132555227963, preferred, 0x-1080, 1"  # Above eDP-1
-        ];
+        monitor = [ ", preferred, auto, 1, cm, auto" ];
 
         windowrulev2 = [
           # XWaylandvideobridge
