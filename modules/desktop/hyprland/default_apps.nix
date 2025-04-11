@@ -13,7 +13,6 @@
         nautilus
         eog
         libqalculate # For walker
-        iwgtk
       ];
 
       xdg.mimeApps = {
