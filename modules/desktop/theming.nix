@@ -34,7 +34,6 @@ let
       };
     };
     base16Scheme = ./base16-theme.yaml;
-    targets.qt.enable = false; # This option is extremely buggy
   };
 in
 {
