@@ -32,7 +32,8 @@
     hardware.enableAllFirmware = true;
 
     # Timezone and locale
-    time.timeZone = "Europe/Brussels";
+    time.timeZone = lib.mkDefault "Europe/Brussels";
+    services.automatic-timezoned.enable = true;
     i18n.defaultLocale = "en_US.UTF-8";
 
     # Enable zram
