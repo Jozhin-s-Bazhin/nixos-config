@@ -12,8 +12,8 @@
     home-manager.users.${config.nixos-config.username}.home.packages = with pkgs; [
       stremio
       foliate
-      transmission_4-gtk
       celluloid
+      fragments
     ];
   };
 }
