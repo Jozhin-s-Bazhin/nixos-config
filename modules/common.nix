@@ -287,7 +287,7 @@
           )
         '';
 
-        nsp = "nix-shell -p";
+        nsp = "nix shell nixpkgs#$1";
       };
     };
     users.defaultUserShell = pkgs.zsh;
