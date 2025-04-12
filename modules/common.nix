@@ -293,9 +293,6 @@
     users.defaultUserShell = pkgs.zsh;
     environment.pathsToLink = [ "/share/zsh" ];
 
-    # thefuck
-    programs.thefuck.enable = true;
-
     # Set $NIX_PATH
     nix.nixPath = [
       "nixpkgs=flake:nixpkgs:/nix/var/nix/profiles/per-user/root/channels"
