@@ -10,7 +10,7 @@
     home-manager.users.${config.nixos-config.username}.wayland.windowManager.hyprland = {
       plugins = [
         #pkgs.hyprlandPlugins.hyprspace
-        inputs.hyprtasking.packages.${pkgs.system}.hyprtasking
+        #inputs.hyprtasking.packages.${pkgs.system}.hyprtasking
       ];
 
       settings.plugin = {
