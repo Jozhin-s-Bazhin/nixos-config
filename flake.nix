@@ -26,8 +26,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:hyprwm/hyprland/v0.47.2";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprtasking = {
       url = "github:raybbian/hyprtasking";
