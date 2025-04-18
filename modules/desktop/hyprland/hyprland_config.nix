@@ -7,9 +7,8 @@
 }:
 
 let
-  hyprlandPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-  portalPackage =
-    inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  hyprlandPackage = pkgs.hyprland;
+  portalPackage = pkgs.xdg-desktop-portal-hyprland;
 in
 {
   config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
