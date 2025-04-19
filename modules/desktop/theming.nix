@@ -34,7 +34,6 @@ let
       };
     };
     base16Scheme = ./base16-theme.yaml;
-    targets.gtk.extraCss = "window.background { border-radius: 0; }"; # Fix rounded corners in gtk apps
   };
 in
 {
@@ -51,7 +50,9 @@ in
     nixos-config.desktop.theming.blurredWallpaper = ./wallpaper/wallpaper_blurred.jpg;
     stylix = stylixOptions;
     home-manager.users.${config.nixos-config.username} = {
-      stylix = stylixOptions;
+      stylix = stylixOptions // {
+        targets.gtk.extraCss = "window.background { border-radius: 0; }"; # Fix gtk app borders
+      };
 
       gtk = {
         enable = true;
