@@ -72,7 +72,7 @@
       rulesProvider = pkgs.ananicy-rules-cachyos;
     };
 
-    # Set swappiness to 0
-    boot.kernel.sysctl."vm.swappiness" = 0;
+    # Set swappiness to 10
+    boot.kernel.sysctl."vm.swappiness" = 10;
   };
 }
