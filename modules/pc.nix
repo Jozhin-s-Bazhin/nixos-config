@@ -66,10 +66,13 @@
     services.blueman.enable = true;
 
     # Ananicy for better responsiveness
-    services.ananicy = {  
+    services.ananicy = {
       enable = true;
       package = pkgs.ananicy-cpp;
       rulesProvider = pkgs.ananicy-rules-cachyos;
     };
+
+    # Set swappiness to 0
+    boot.kernel.sysctl."vm.swappiness" = 0;
   };
 }
