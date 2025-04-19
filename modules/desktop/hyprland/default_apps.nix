@@ -28,16 +28,15 @@
         };
       };
 
-      # Kitty
-      programs.kitty = {
+      # Ghostty
+      programs.ghostty = {
         enable = true;
+        clearDefaultKeybinds = true;
         settings = {
-          confirm_os_window_close = "0";
-          window_padding_width = "3";
-          font_size = "14";
-          enable_audio_bell = "no";
-          hide_window_decorations = "yes";
-          linux_display_server = "wayland";
+          font-size = 14;
+          confirm-close-surface = false;
+          window-padding-x = 4;
+          window-padding-y = 4;
         };
       };
 

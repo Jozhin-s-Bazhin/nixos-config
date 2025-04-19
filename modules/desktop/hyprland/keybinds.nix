@@ -117,7 +117,7 @@ in
 
           # Applications
           "SUPER, Tab, exec, ${pkgs.walker}/bin/walker"
-          "SUPER, Return, exec, kitty"
+          "SUPER, Return, exec, ghostty"
           "SUPER, B, exec, zen"
           "SUPER, Z, exec, zeditor"
           "SUPER, F, exec, nautilus"
