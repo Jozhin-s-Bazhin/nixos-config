@@ -34,6 +34,7 @@ let
       };
     };
     base16Scheme = ./base16-theme.yaml;
+    targets.gtk.extraCss = "window.background { border-radius: 0; }"; # Fix rounded corners in gtk apps
   };
 in
 {
