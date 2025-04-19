@@ -33,14 +33,6 @@
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
       };
-
-      # Custom mouse acceleration
-      device = [
-        {
-          name = "logitech-g502-1";
-          accel_profile = "custom 1 0 1 3 7 11 14 16";
-        }
-      ];
     };
   };
 }
