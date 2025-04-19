@@ -35,8 +35,12 @@
         settings = {
           font-size = 14;
           confirm-close-surface = false;
-          window-padding-x = 4;
-          window-padding-y = 4;
+          window-padding-x = 5;
+          window-padding-y = 5;
+          keybind = [
+            "ctrl+shift+c=copy_to_clipboard"
+            "ctrl+shift+v=paste_from_clipboard"
+          ];
         };
       };
 
