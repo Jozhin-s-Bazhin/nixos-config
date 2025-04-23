@@ -50,6 +50,9 @@
 
       # Mice
       piper
+
+      # Steam Guard Authenticator
+      steamguard-cli
     ];
 
     # Enable flatpak for roblox (trough sober)
