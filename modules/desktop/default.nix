@@ -12,6 +12,7 @@
     ./theming.nix
     ./plasma
     ./gnome
+    ./cosmic
   ];
 
   options.nixos-config.desktop.enable = lib.mkEnableOption "a graphical desktop";
@@ -20,7 +21,7 @@
     desktop = {
       programs.enable = lib.mkDefault true;
       theming.enable = lib.mkDefault true;
-      hyprland.enable = lib.mkDefault true;
+      cosmic.enable = lib.mkDefault true;
     };
     pc.enable = true;
   };
