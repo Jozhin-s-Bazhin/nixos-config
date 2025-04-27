@@ -74,5 +74,8 @@
 
     # Set swappiness to 10
     boot.kernel.sysctl."vm.swappiness" = 10;
+
+    # Don't wait for internet to speed up boot
+    systemd.network.wait-online.timeout = 5;
   };
 }
