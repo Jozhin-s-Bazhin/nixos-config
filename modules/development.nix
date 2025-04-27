@@ -169,9 +169,6 @@ in
       };
       xdg.configFile."zed/prompt_overrides/content_prompt.hbs".source = promptFile;
     };
-    services.ollama = {
-      enable = true;
-      loadModels = [ "qwen2.5-coder:7b" ];
-    };
+    services.ollama.enable = true;
   };
 }
