@@ -10,7 +10,7 @@
   config = lib.mkIf config.nixos-config.office.enable {
     nixos-config.desktop.enable = lib.mkDefault true;
     home-manager.users.${config.nixos-config.username}.home.packages = with pkgs; [
-      libreoffice
+      onlyoffice-bin
     ];
   };
 }
