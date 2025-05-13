@@ -32,7 +32,11 @@
   nixos-config = {
     laptop.enable = true;
     amdgpu.enable = true;
-    desktop.enable = true;
+    desktop = {
+      enable = true;
+      # hyprland.enable = false;
+      # cosmic.enable = true;
+    };
     development.enable = true;
     gaming.enable = true;
     media.enable = true;
