@@ -199,6 +199,8 @@
           echo -e "Updating flake.lock..." &&
           echo -e "$NC" &&
           nix flake update --flake ${config.nixos-config.configDir} &&
+          nixpkgs_commit=$(curl -s "https://api.github.com/repos/NixOS/nixpkgs/commits?until=$(date -I -d '1 day ago')" | jq -r '.[0].sha') &&
+          nix flake lock --update-input nixpkgs --override-input nixpkgs github:NixOS/nixpkgs/$nixpkgs_commit --flake ${config.nixos-config.configDir} &&
 
           # Start nixos-rebuild switch
           echo -e "$BLUE" &&
