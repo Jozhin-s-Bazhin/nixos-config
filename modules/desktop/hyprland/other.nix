@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   lib,
   ...
@@ -33,6 +34,14 @@
 
         workspace = [
           "special,gapsin:10,gapsout:20"
+        ];
+
+        # Permissions
+        ecosystem.enforce_permissions = true;
+        permission = [
+          "${pkgs.grimblast}/bin/grimblast, screencopy, allow"
+          "${config.programs.hyprland.portalPackage}/(lib|libexec|lib64)/xdg-desktop-portal-hyprland, screencopy, allow"
+          "${pkgs.wluma}/bin/.wluma-wrapped, screencopy, allow"
         ];
       };
     };
