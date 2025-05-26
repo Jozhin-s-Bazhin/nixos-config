@@ -12,6 +12,7 @@
         pkgs.hyprlandPlugins.hyprspace
       ];
 
+      settings.permission = [ "${pkgs.hyprlandPlugins.hyprspace}/lib/libhyprspace.so, plugin, allow" ];
       settings.plugin = {
         overview = {
           dragAlpha = 1;
