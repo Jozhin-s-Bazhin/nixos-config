@@ -80,7 +80,7 @@
         [[output.backlight]]
         name = "eDP-2"
         path = "/sys/class/backlight/amdgpu_bl2"
-        capturer = "wayland"
+        capturer = "none"
 
         [[keyboard]]
         name = "keyboard-framework"
