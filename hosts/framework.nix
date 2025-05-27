@@ -32,11 +32,7 @@
   nixos-config = {
     laptop.enable = true;
     amdgpu.enable = true;
-    desktop = {
-      enable = true;
-      # hyprland.enable = false;
-      # cosmic.enable = true;
-    };
+    desktop.enable = true;
     development.enable = true;
     gaming.enable = true;
     media.enable = true;
@@ -52,7 +48,6 @@
   boot.kernelParams = [
     "usbcore.autosuspend=60" # Fix usb autosuspend
     "resume_offset=53248" # For hibernation
-    "amdgpu.dcdebugmask=0x400" # Fix vrr
   ];
   swapDevices = [
     {
@@ -68,45 +63,6 @@
 
   # Ollama ROCM integration
   services.ollama.rocmOverrideGfx = "11.0.2";
-
-  # Auto-brightness with wluma
-  home-manager.users.${config.nixos-config.username} = {
-    xdg.configFile = {
-      "wluma/config.toml".text = ''
-        [als.iio]
-        path = "/sys/bus/iio/devices"
-        thresholds = { 0 = "night", 20 = "dark", 80 = "dim", 250 = "normal", 500 = "bright", 800 = "outdoors" }
-
-        [[output.backlight]]
-        name = "eDP-2"
-        path = "/sys/class/backlight/amdgpu_bl2"
-        capturer = "none"
-
-        [[keyboard]]
-        name = "keyboard-framework"
-        path = "/sys/bus/platform/devices/framework_laptop/leds/framework_laptop::kbd_backlight"
-      '';
-    };
-    systemd.user.services.wluma = {
-      Unit = {
-        Description = "Adjusting screen brightness based on screen contents and amount of ambient light";
-        PartOf = [ "graphical-session.target" ];
-        After = [ "graphical-session.target" ];
-      };
-      Service = {
-        ExecStart = "${pkgs.wluma}/bin/wluma";
-        Restart = "always";
-        EnvironmentFile = "-%E/wluma/service.conf";
-        PrivateNetwork = "true";
-        PrivateMounts = "false";
-      };
-      Install.WantedBy = [ "graphical-session.target" ];
-    };
-    home.sessionVariables."AQ_NO_MODIFIERS" = 1;
-    wayland.windowManager.hyprland.settings.monitor = [
-      "eDP-2, preferred, 0x0, 1.6"
-    ];
-  };
 
   # udev Rules
   services.udev.extraRules = ''
