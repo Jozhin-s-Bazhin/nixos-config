@@ -11,5 +11,6 @@
       desktopManager.plasma6.enable = true;
     };
     programs.kdeconnect.enable = true;
+    nixos-config.desktop.theming.enable = false;
   };
 }
