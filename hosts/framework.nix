@@ -34,7 +34,7 @@
     amdgpu.enable = true;
     desktop = {
       enable = true;
-      desktop = "plasma";
+      desktop = "hyprland";
     };
     development.enable = true;
     gaming.enable = true;
