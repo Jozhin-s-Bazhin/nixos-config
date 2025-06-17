@@ -32,10 +32,7 @@
   nixos-config = {
     laptop.enable = true;
     amdgpu.enable = true;
-    desktop = {
-      enable = true;
-      desktop = "plasma";
-    };
+    desktop.enable = true;
     development.enable = true;
     gaming.enable = true;
     media.enable = true;
