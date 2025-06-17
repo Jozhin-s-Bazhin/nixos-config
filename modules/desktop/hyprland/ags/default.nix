@@ -18,7 +18,7 @@
         enable = true;
         extraPackages = with pkgs; [
           gtksourceview
-          webkitgtk
+          webkitgtk_6_0
           accountsservice
           libnotify
           nerd-fonts.symbols-only
