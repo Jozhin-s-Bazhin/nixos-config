@@ -5,9 +5,7 @@
   ...
 }:
 {
-  options.nixos-config.desktop.cosmic.enable = lib.mkEnableOption "the COSMIC desktop";
-
-  config = lib.mkIf config.nixos-config.desktop.cosmic.enable {
+  config = lib.mkIf (config.nixos-config.desktop.desktop == "cosmic") {
     services.desktopManager.cosmic.enable = true;
     services.displayManager.cosmic-greeter.enable = true;
   };

@@ -16,6 +16,4 @@
     ./other.nix
     ./ags
   ];
-
-  options.nixos-config.desktop.hyprland.enable = lib.mkEnableOption "hyprland";
 }

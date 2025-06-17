@@ -7,7 +7,7 @@
 }:
 
 {
-  config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
+  config = lib.mkIf (config.nixos-config.desktop.desktop == "hyprland") {
     services.upower.enable = true;
     home-manager.users.${config.nixos-config.username} = {
       imports = [

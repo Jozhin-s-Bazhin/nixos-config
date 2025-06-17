@@ -2,7 +2,7 @@
 {
   options.nixos-config.desktop.plasma.enable = lib.mkEnableOption "the KDE Plasma 6 desktop";
 
-  config = lib.mkIf config.nixos-config.desktop.plasma.enable {
+  config = lib.mkIf (config.nixos-config.desktop.desktop == "plasma") {
     services = {
       displayManager.sddm = {
         enable = true;

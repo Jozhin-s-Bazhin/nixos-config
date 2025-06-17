@@ -1,8 +1,6 @@
 { config, lib, ... }:
 {
-  options.nixos-config.desktop.gnome.enable = lib.mkEnableOption "the GNOME desktop";
-
-  config = lib.mkIf config.nixos-config.desktop.gnome.enable {
+  config = lib.mkIf (config.nixos-config.desktop.desktop == "gnome") {
     services.xserver = {
       enable = true;
       displayManager.gdm.enable = true;

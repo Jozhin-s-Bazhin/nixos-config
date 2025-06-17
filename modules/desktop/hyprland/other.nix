@@ -6,7 +6,7 @@
 }:
 
 {
-  config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
+  config = lib.mkIf (config.nixos-config.desktop.desktop == "hyprland") {
     home-manager.users.${config.nixos-config.username} = {
       wayland.windowManager.hyprland.settings = {
         monitor = [ ", preferred, auto, 1, cm, auto" ];

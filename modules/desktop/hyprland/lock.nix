@@ -5,7 +5,7 @@
   ...
 }:
 {
-  config = lib.mkIf config.nixos-config.desktop.hyprland.enable {
+  config = lib.mkIf (config.nixos-config.desktop.desktop == "hyprland") {
     security.pam.services.gtklock.text = ''
       auth            sufficient      pam_unix.so try_first_pass likeauth nullok
     '';
