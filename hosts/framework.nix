@@ -34,7 +34,7 @@
     amdgpu.enable = true;
     desktop = {
       enable = true;
-      desktop = "cosmic";
+      desktop = "plasma";
     };
     development.enable = true;
     gaming.enable = true;
