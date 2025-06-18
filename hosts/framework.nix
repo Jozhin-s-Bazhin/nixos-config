@@ -34,7 +34,7 @@
     amdgpu.enable = true;
     desktop = {
       enable = true;
-      desktop = "hyprland";
+      desktop = "cosmic";
     };
     development.enable = true;
     gaming.enable = true;
