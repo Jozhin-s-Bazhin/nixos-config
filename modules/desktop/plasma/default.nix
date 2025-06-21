@@ -17,6 +17,6 @@
     };
     programs.kdeconnect.enable = true;
     nixos-config.desktop.theming.enable = false;
-    fonts.fonts = [ pkgs.nerd-fonts.hack ];
+    fonts.fonts = [ pkgs.nerd-fonts.symbols-only ];
   };
 }
