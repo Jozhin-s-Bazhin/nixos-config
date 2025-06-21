@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   options.nixos-config.desktop.plasma.enable = lib.mkEnableOption "the KDE Plasma 6 desktop";
 
@@ -12,5 +17,6 @@
     };
     programs.kdeconnect.enable = true;
     nixos-config.desktop.theming.enable = false;
+    fonts.fonts = [ pkgs.nerd-fonts.hack ];
   };
 }
