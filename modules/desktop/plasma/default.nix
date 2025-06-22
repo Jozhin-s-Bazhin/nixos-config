@@ -21,6 +21,7 @@
     home-manager.users.${config.nixos-config.username}.home.packages = with pkgs.kdePackages; [
       kcalc
       merkuro
+      kcontacts
       plasma-vault
     ];
   };
