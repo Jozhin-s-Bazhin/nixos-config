@@ -22,7 +22,6 @@
       kcalc
       merkuro
       kcontacts
-      plasma-vault
     ];
   };
 }
