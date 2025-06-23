@@ -143,22 +143,11 @@ in
           assistant = {
             version = "2";
             default_model = {
-              provider = "ollama";
-              model = "qwen2.5-coder:14b";
+              provider = "mistral";
+              model = "codestral-latest";
             };
           };
-          language_models.ollama = {
-            api_url = "http://localhost:11434";
-            low_speed_timeout_in_seconds = 300;
-            available_models = [
-              {
-                name = "qwen2.5-coder:14b";
-                display_name = "Qwen 2.5 Coder 14B";
-                max_tokens = 32768;
-                keep_alive = "30m";
-              }
-            ];
-          };
+          language_models.mistral.api_url = "https://api.mistral.ai/v1";
         };
         userKeymaps = [
           {
@@ -168,7 +157,7 @@ in
         ];
       };
       xdg.configFile."zed/prompt_overrides/content_prompt.hbs".source = promptFile;
+      home.sessionVariables.MISTRAL_API_KEY = "mb5rm0Ca7p1R5HzPPn9g8CtooL52er3g"; # Oh no! What if someone steals my free API key I can recreate at any time?
     };
-    services.ollama.enable = true;
   };
 }
