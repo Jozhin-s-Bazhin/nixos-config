@@ -144,10 +144,27 @@ in
             version = "2";
             default_model = {
               provider = "mistral";
+              model = "devstral-small-latest";
+            };
+            inline_assistant_model = {
+              provider = "mistral";
               model = "codestral-latest";
             };
           };
-          language_models.mistral.api_url = "https://api.mistral.ai/v1";
+          language_models.mistral = {
+            api_url = "https://api.mistral.ai/v1";
+            available_models = [
+              {
+                name = "devstral-small-latest";
+                display_name = "Devstral Small";
+                max_tokens = 32000;
+                max_output_tokens = 4096;
+                max_completion_tokens = 1024;
+                supports_tools = true;
+                supports_images = false;
+              }
+            ];
+          };
         };
         userKeymaps = [
           {
