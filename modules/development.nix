@@ -157,7 +157,7 @@ in
         ];
       };
       xdg.configFile."zed/prompt_overrides/content_prompt.hbs".source = promptFile;
-      home.sessionVariables.MISTRAL_API_KEY = "mb5rm0Ca7p1R5HzPPn9g8CtooL52er3g"; # Oh no! What if someone steals my free API key I can recreate at any time?
     };
+    environment.variables.MISTRAL_API_KEY = "mb5rm0Ca7p1R5HzPPn9g8CtooL52er3g"; # Oh no! What if someone steals my free API key I can recreate at any time?
   };
 }

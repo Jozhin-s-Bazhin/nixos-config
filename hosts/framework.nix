@@ -66,11 +66,11 @@
 
   # Hyprland
   home-manager.users.${config.nixos-config.username} = {
-    home.sessionVariables."AQ_NO_MODIFIERS" = 1;
     wayland.windowManager.hyprland.settings.monitor = [
       "eDP-2, preferred, 0x0, 1.6"
     ];
   };
+  environment.variables."AQ_NO_MODIFIERS" = 1;
 
   # Ollama ROCM integration
   services.ollama.rocmOverrideGfx = "11.0.2";

@@ -43,7 +43,7 @@ in
 
     services.gvfs.enable = true;
 
-    environment.sessionVariables = {
+    environment.variables = {
       NIXOS_OZONE_WL = "1";
       XDG_SESSION_TYPE = "wayland";
       SDL_VIDEODRIVER = "wayland";
