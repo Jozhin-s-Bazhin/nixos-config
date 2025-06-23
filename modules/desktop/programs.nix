@@ -17,7 +17,6 @@
         spotube
         obsidian
         zapzap
-        gnome-clocks
         inputs.zen.packages."${pkgs.system}".default
         telegram-desktop
         thunderbird
